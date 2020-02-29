@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../items.xsd ">
+  <item name="wooden bow">
+    <type class="ranged" subclass="wooden_bow" tileid="-1"/>
+    <description>You see a wooden bow. With this in one hand, and wooden arrows in the other, you may be able to attack from a distance.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="12"/>
+      <range value="3"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="17280"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <item name="longbow">
+    <type class="ranged" subclass="longbow" tileid="-1"/>
+    <description>You see a longbow. Equipped with this, and a supply of arrows, you will have an effective ranged attack.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="14"/>
+      <range value="4"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="27440"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <item name="composite bow">
+    <type class="ranged" subclass="composite_bow" tileid="-1"/>
+    <description>You see a composite bow. It's better strung than most bows, for excellent ranged attack.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="15"/>
+      <range value="5"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="33750"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <item name="crossbow">
+    <type class="ranged" subclass="crossbow" tileid="-1"/>
+ <description>You see a crossbow. The attack is high but it has a very short range, what do you prefer?</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="17"/>
+      <range value="3"/>
+    </attributes>
+    <weight value="3.0"/>
+    <value value="49130"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <item name="hunter crossbow">
+    <type class="ranged" subclass="hunter_crossbow" tileid="-1"/>
+ <description>You see a hunter crossbow. You must decide if the high attack is worth the short range it has.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="21"/>
+      <range value="4"/>
+    </attributes>
+    <weight value="3.0"/>
+    <value value="92610"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+  
+    <item name="mithril bow">
+    <type class="ranged" subclass="mithril_bow" tileid="-1"/>
+   <description>You see a light and strong mithril bow. Its impeccable workmanship affords incredible accuracy.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="28"/>
+      <range value="4"/>
+    </attributes>
+    <weight value="3.0"/>
+    <value value="142610"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+  
+  <!-- NovasAdições 19/12/2017 --> 
+  
+  <item name="black shadow crossbow">
+    <type class="ranged" subclass="black_shadow_crossbow" tileid="-1"/>
+   <description>You see a black shadow crossbow. The choosen weapon of the night wanderes.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="30"/>
+      <range value="5"/>
+    </attributes>
+    <weight value="3.0"/>
+    <value value="142610"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+  
+  <!-- PolishBows -->
+  
+  <item name="lodowa kusza">
+		<type class="ranged" subclass="ice_crossbow" tileid="-1"/>
+		<description>Oto lodowa kusza.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="26"/>
+			<range value="7"/>
+			<min_level value="150"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="17280"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="rhand"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+	
+	<item name="lekka kusza">
+		<type class="ranged" subclass="light_crossbow" tileid="-1"/>
+		<description>Oto lekka kusza.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="19"/>
+			<range value="6"/>
+			<min_level value="100"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="17280"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="rhand"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+  
+  
+</items>

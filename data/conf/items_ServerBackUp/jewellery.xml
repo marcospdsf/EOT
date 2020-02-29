@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../items.xsd ">
+  <item name="emerald">
+    <type class="jewellery" subclass="emerald" tileid="-1"/>
+    <description>You see an emerald, a precious gemstone.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="10000"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="sapphire">
+    <type class="jewellery" subclass="sapphire" tileid="-1"/>
+    <description>You see a sapphire, a precious gemstone.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="12000"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="carbuncle">
+    <type class="jewellery" subclass="carbuncle" tileid="-1"/>
+    <description>You see a carbuncle, a precious gemstone related to the garnet.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="20000"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="obsidian">
+    <type class="jewellery" subclass="obsidian" tileid="-1"/>
+   <description>You see a piece of obsidian, it's known as volcanic glass because it forms when lava cools rapidly. When used as a gemstone it may look jet black or silvery grey, depending on how it is cut.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="40000"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="diamond">
+    <type class="jewellery" subclass="greater_brilliant" tileid="-1"/>
+    <description>You see a diamond, not just a beautiful gem but also the hardest naturally occurring material .</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="30000"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+   <item name="black pearl">
+    <type class="jewellery" subclass="blackpearl" tileid="-1"/>
+    <description>You see a black pearl, so dark and shiny.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="20000"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <!-- Chinse -->
+  
+  <item name="purple pearl">
+    <type class="jewellery" subclass="purple_pearl" tileid="-1"/>
+    <description>You see a purple pearl, so beauty and shiny.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>    <attributes>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="1120"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="purple pearl necklace">
+    <type class="jewellery" subclass="purple_pearlnecklace" tileid="-1"/>
+    <description>You see a purple pearl necklace, so beauty and shiny.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>    <attributes>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="1220"/>
+    <equipable>
+      <slot name="bag"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="red pearl">
+    <type class="jewellery" subclass="red_pearl" tileid="-1"/>
+    <description>You see a red pearl, so beauty and shiny.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>    <attributes>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="1120"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="red pearl necklace">
+    <type class="jewellery" subclass="red_pearlnecklace" tileid="-1"/>
+    <description>You see a red pearl necklace, so beauty and shiny.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>    <attributes>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="1220"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="carbuncle diamond">
+    <type class="jewellery" subclass="greater_carbuncle_diamond" tileid="-1"/>
+    <description>You see a carbuncle diamond, not just a beautiful gem but also the hardest naturally occurring material .</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>    <attributes>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="30000"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="emerald diamond">
+    <type class="jewellery" subclass="greater_emerald_diamond" tileid="-1"/>
+    <description>You see an emerald diamond, not just a beautiful gem but also the hardest naturally occurring material .</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>    <attributes>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="30000"/>
+    <equipable>
+      <slot name="bag"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="sapphire diamond">
+    <type class="jewellery" subclass="greater_sapphire_diamond" tileid="-1"/>
+    <description>You see a sapphire diamond, not just a beautiful gem but also the hardest naturally occurring material .</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>    <attributes>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="30000"/>
+    <equipable>
+      <slot name="bag"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="amethyst diamond">
+    <type class="jewellery" subclass="greater_amethyst_diamond" tileid="-1"/>
+    <description>You see an amethyst diamond, not just a beautiful gem but also the hardest naturally occurring material .</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>    <attributes>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="30000"/>
+    <equipable>
+      <slot name="bag"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="greater golden diamond">
+    <type class="jewellery" subclass="greater_golden_diamond2" tileid="-1"/>
+    <description>You see a greater golden diamond, not just a beautiful gem but also the hardest naturally occurring material .</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>    <attributes>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="30000"/>
+    <equipable>
+      <slot name="bag"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="obsidian diamond">
+    <type class="jewellery" subclass="greater_obsidian_diamond" tileid="-1"/>
+    <description>You see an obsidian diamond, not just a beautiful gem but also the hardest naturally occurring material .</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>    <attributes>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="30000"/>
+    <equipable>
+      <slot name="bag"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="amethyst">
+    <type class="jewellery" subclass="amethyst" tileid="-1"/>
+    <description>You see an amethyst, a precious gemstone.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>    <attributes>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="10000"/>
+    <equipable>
+      <slot name="bag"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="golden diamond">
+    <type class="jewellery" subclass="golden_diamond" tileid="-1"/>
+    <description>You see a golden diamond, a precious gemstone.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>    <attributes>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="10000"/>
+    <equipable>
+      <slot name="bag"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <!-- 
+  若改名, 需修改server/entity/player/Player.java & server/entity/item/TripleJadeRingOfLife.java
+   -->
+  <item name="jade ring">
+    <type class="jewellery" subclass="jade_ring" tileid="-1"/>
+    <description/>
+    <implementation class-name="games.stendhal.server.entity.item.TripleJadeRingOfLife"/>    <attributes>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="bag"/>
+      <slot name="finger"/>
+      <slot name="keyring"/>
+    </equipable>
+  </item>
+  
+  <!-- PolishJewellery -->
+  
+  <item name="kryształ ametystu">
+		<type class="jewellery" subclass="ametyst_crystal" tileid="-1"/>
+		<description>Oto kryształ ametystu, cenny nieoszlifowany klejnot.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+		<attributes>
+			<quantity value="1"/>
+			<max_quantity value="2147483647"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="10000"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+
+	<item name="kryształ szmaragdu">
+		<type class="jewellery" subclass="emerald_crystal" tileid="-1"/>
+		<description>Oto kryształ szmaragdu, cenny nieoszlifowany klejnot.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+		<attributes>
+			<quantity value="1"/>
+			<max_quantity value="2147483647"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="10000"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+
+	<item name="kryształ szafiru">
+		<type class="jewellery" subclass="sapphire_crystal" tileid="-1"/>
+		<description>Oto kryształ szafiru, cenny nieoszlifowany klejnot.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+		<attributes>
+			<quantity value="1"/>
+			<max_quantity value="2147483647"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="10000"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+
+	<item name="kryształ rubinu">
+		<type class="jewellery" subclass="carbuncle_crystal" tileid="-1"/>
+		<description>Oto kryształ rubinu, cenny nieoszlifowany klejnot.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+		<attributes>
+			<quantity value="1"/>
+			<max_quantity value="2147483647"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="10000"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+
+	<item name="kryształ obsydianu">
+		<type class="jewellery" subclass="obsidian_crystal" tileid="-1"/>
+		<description>Oto kryształ obsydianu, cenny nieoszlifowany klejnot.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+		<attributes>
+			<quantity value="1"/>
+			<max_quantity value="2147483647"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="10000"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+  
+</items>

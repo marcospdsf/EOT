@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../items.xsd ">
+
+	<item name="leather gloves">
+		<type class="glove" subclass="leather_gloves" tileid="-1"/>
+		<description>You see a pair of leather gloves. Big and bulky, they give you little protection.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="1"/>
+			<def value="1"/>
+		</attributes>
+		<weight value="10.0"/>
+		<value value="151"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="glove"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
+	<item name="leather enhanced gloves">
+		<type class="glove" subclass="leather_enchanced_gloves" tileid="-1"/>
+		<description>You see a pair of leather enchanced gloves. When the sword is missively there is a chance that the enemy will not hurt you.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<def value="4"/>
+		</attributes>
+		<weight value="10.0"/>
+		<value value="171"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="glove"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
+	<item name="leather strong gloves">
+		<type class="glove" subclass="leather_strong_gloves" tileid="-1"/>
+		<description>You see a pair of leather strong gloves. They give some protection.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="1"/>
+			<def value="2"/>
+		</attributes>
+		<weight value="10.0"/>
+		<value value="191"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="glove"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
+	<item name="plate gloves">
+		<type class="glove" subclass="plate_gloves" tileid="-1"/>
+		<description>You see a pair of plate gloves. They are heavy, but you will not lose your hands.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="-2"/>
+			<def value="9"/>
+		</attributes>
+		<weight value="20.0"/>
+		<value value="515"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="glove"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
+	<item name="red gloves">
+		<type class="glove" subclass="red_gloves" tileid="-1"/>
+		<description>You see a pair of red gloves. Your blood will not be seen on them.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="1"/>
+			<def value="3"/>
+		</attributes>
+		<weight value="22.0"/>
+		<value value="616"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="glove"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
+	<item name="blue gloves">
+		<type class="glove" subclass="blue_gloves" tileid="-1"/>
+		<description>You see a pair of blue gloves. Their color may make fighting difficult.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="1"/>
+			<def value="3"/>
+		</attributes>
+		<weight value="22.0"/>
+		<value value="616"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="glove"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
+	<item name="fire gloves">
+		<type class="glove" subclass="fire_gloves" tileid="-1"/>
+		<description>You see a pair of fire gloves. It's a bit hot in them, but it gives a sense of security.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="-1"/>
+			<def value="6"/>
+		</attributes>
+		<weight value="22.0"/>
+		<value value="717"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="glove"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
+	<item name="ice gloves">
+		<type class="glove" subclass="ice_gloves" tileid="-1"/>
+		<description>You see a pair of ice gloves. They are a bit cold in them, but they protect against blows.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="-1"/>
+			<def value="7"/>
+		</attributes>
+		<weight value="22.0"/>
+		<value value="767"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="glove"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
+	<item name="golden gloves">
+		<type class="glove" subclass="golden_gloves" tileid="-1"/>
+		<description>You see a pair of golden gloves. Made of precious metal give good protection.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="2"/>
+			<def value="6"/>
+		</attributes>
+		<weight value="33.0"/>
+		<value value="919"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="glove"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
+	<item name="shadow gloves">
+		<type class="glove" subclass="shadow_gloves" tileid="-1"/>
+		<description>You see a pair of shadow gloves. It can barely be seen in the twilight.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="1"/>
+			<def value="5"/>
+		</attributes>
+		<weight value="33.0"/>
+		<value value="1221"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="glove"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
+	<item name="black gloves">
+		<type class="glove" subclass="black_gloves" tileid="-1"/>
+		<description>You see a pair of black gloves. You do not know what they are made of, but they give great protection.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="2"/>
+			<def value="5"/>
+		</attributes>
+		<weight value="44.0"/>
+		<value value="1551"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="glove"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
+	<item name="mithril gloves">
+		<type class="glove" subclass="mithril_gloves" tileid="-1"/>
+		<description>You see a pair of mithril gloves. Their glare will blind the enemy.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="3"/>
+			<def value="7"/>
+		</attributes>
+		<weight value="11.0"/>
+		<value value="1551"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="glove"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+</items>

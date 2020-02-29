@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<creature name="druid">
+		<type class="mnichy" subclass="mnichy_druid" tileid="faumonia_mnichy.png:1"/>
+		<description>Oto druid. Starożytny kapłan, uważaj bo znokautuje cie swoją laską.</description>
+		<attributes>
+			<atk value="554"/>
+			<def value="37"/>
+			<hp value="340"/>
+			<speed value="0.9"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="82"/>
+		<experience value="3070"/>
+		<respawn value="3000"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[2,5]" probability="70.0"/>
+			<item value="water" quantity="[2,5]" probability="30.0"/>
+			<item value="*golden boots*" quantity="[1,1]" probability="0.5"/>
+			<item value="*shiny golden legs*" quantity="[1,1]" probability="0.5"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Ale cie trzasne! Chooodź tu!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	
+	<creature name="mnich adept">
+		<type class="mnichy" subclass="mnichy_mnich_adept" tileid="faumonia_mnichy.png:0"/>
+		<description>Oto mnich adept. Jeszcze sie uczy ale potrafi trzasnąć w głowę.</description>
+		<attributes>
+			<atk value="564"/>
+			<def value="37"/>
+			<hp value="360"/>
+			<speed value="0.9"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="84"/>
+		<experience value="3114"/>
+		<respawn value="2400"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[2,5]" probability="70.0"/>
+			<item value="water" quantity="[2,5]" probability="30.0"/>
+			<item value="*golden helmet*" quantity="[1,1]" probability="0.5"/>
+			<item value="*golden armor*" quantity="[1,1]" probability="0.5"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	
+	<creature name="pszczeli mnich">
+		<type class="mnichy" subclass="mnichy_mnich_pszczeli" tileid="faumonia_mnichy.png:2"/>
+		<description>Oto pszczeli mnich. Ma coś wspólnego z miodem.</description>
+		<attributes>
+			<atk value="534"/>
+			<def value="40"/>
+			<hp value="400"/>
+			<speed value="0.9"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="86"/>
+		<experience value="3379"/>
+		<respawn value="2700"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[2,5]" probability="70.0"/>
+			<item value="water" quantity="[2,5]" probability="30.0"/>
+			<item value="*golden shield*" quantity="[1,1]" probability="0.5"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="wielki mnich">
+		<type class="mnichy" subclass="mnichy_wielki_mnich" tileid="faumonia_mnichy.png:3"/>
+		<description>Oto wielki mnich. Chyba trochę wyrósł..</description>
+		<attributes>
+			<atk value="653"/>
+			<def value="44"/>
+			<hp value="1200"/>
+			<speed value="0.9"/>
+			<size value="2,2"/>
+		</attributes>
+		<level value="93"/>
+		<experience value="16800"/>
+		<respawn value="8000"/>
+		<corpse name="giant_humanoid" width="2" height="2"/>
+		<drops>
+			<item value="money" quantity="[30,100]" probability="100.0"/>
+			<item value="water" quantity="[2,10]" probability="90.0"/>
+			<item value="*golden boots*" quantity="[1,1]" probability="1.0"/>
+			<item value="*shiny golden legs*" quantity="[1,1]" probability="1.0"/>
+			<item value="*golden shield*" quantity="[1,1]" probability="1.0"/>
+			<item value="*golden helmet*" quantity="[1,1]" probability="1.0"/>
+			<item value="*golden armor*" quantity="[1,1]" probability="1.0"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="brave"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="heal" params="15,50"/>
+		</ai>
+	</creature>
+
+</creatures>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<!-- START: serafiny -->
+
+	<creature name="serafin">
+		<type class="pol/serafiny" subclass="serafin" tileid="pol_serafiny.png:0"/>
+		<description/>
+		<attributes>
+			<atk value="10000"/>
+			<def value="362"/>
+			<hp value="9000"/>
+			<speed value="1.0"/>
+			<size value="3,3"/>
+		</attributes>
+		<level value="880"/>
+		<experience value="763000"/>
+		<respawn value="190000"/>
+		<corpse name="giant_humanoid"/>
+		<drops>
+			<item value="mega potion" quantity="[1,9]" probability="40.0"/>
+			<item value="giant heart" quantity="[1,1]" probability="90.0"/>
+			<item value="immortal sword" quantity="[1,1]" probability="0.0001"/>
+			<item value="mithril gloves" quantity="[1,1]" probability="1.0"/>
+		</drops>
+		<equips>
+		</equips>
+		<abilities>
+			<damage type="light"/>
+			<susceptibility type="dark" value="1.2"/>
+			<susceptibility type="light" value="0.7"/>
+		</abilities>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Niech twa dusza powróci na ziemię!"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="archer"/>
+			<profile name="offensive"/>
+			<profile name="heal" params="10,50"/>
+			<profile name="lifesteal" params="0.1"/>
+			<profile name="attack weakest"/>
+		</ai>
+	</creature>
+
+	<creature name="azazel">
+		<type class="pol/serafiny" subclass="azazel" tileid="pol_serafiny.png:1"/>
+		<description/>
+		<attributes>
+			<atk value="18000"/>
+			<def value="666"/>
+			<hp value="9000"/>
+			<speed value="1.0"/>
+			<size value="3,3"/>
+		</attributes>
+		<level value="990"/>
+		<experience value="963000"/>
+		<respawn value="190000"/>
+		<corpse name="giant_humanoid"/>
+		<drops>
+			<item value="mega potion" quantity="[1,9]" probability="40.0"/>
+			<item value="giant heart" quantity="[1,1]" probability="90.0"/>
+			<item value="black sword" quantity="[1,1]" probability="10.0"/>
+			<item value="black gloves" quantity="[1,1]" probability="5.0"/>
+		</drops>
+		<equips>
+		</equips>
+		<abilities>
+			<damage type="dark"/>
+			<susceptibility type="dark" value="0.7"/>
+			<susceptibility type="light" value="1.2"/>
+		</abilities>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Syn ognia nie będzie się kłaniał synowi ziemi!"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="archer"/>
+			<profile name="offensive"/>
+			<profile name="heal" params="15,50"/>
+			<profile name="lifesteal" params="0.2"/>
+			<profile name="attack weakest"/>
+		</ai>
+	</creature>
+
+	<!-- END: serafiny -->
+
+</creatures>

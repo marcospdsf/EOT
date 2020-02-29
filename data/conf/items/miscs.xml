@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../items.xsd ">
+
+  <item name="decent meal">
+    <type class="misc" subclass="decent_meal" tileid="-1" />
+    <description>You see a decent meal for Groongo Rahnnt. Deliver it to him quickly!</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item" />
+    <attributes>
+      <quantity value="1" />
+    </attributes>
+    <weight value="1.0" />
+    <value value="1" />
+    <equipable>
+	  <slot name="ground" />
+	  <slot name="content" />
+	  <slot name="lhand" />
+	  <slot name="rhand" />
+	  <slot name="bag" />
+	  <slot name="trade" />
+    </equipable>
+  </item>
+
+  <item name="bulb">
+    <type class="misc" subclass="bulb" tileid="-1"/>
+    <description>You see a bulb. It can be planted anywhere, but it will only thrive on fertile ground.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Seed"/> 
+	 <attributes>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="seed">
+    <type class="misc" subclass="seed" tileid="-1"/>
+    <description>You see a seed. It can be planted anywhere, but it will only thrive on fertile ground.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Seed"/> 
+	 <attributes>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="giant heart">
+    <type class="misc" subclass="giant_heart" tileid="-1"/>
+    <description>You see a giant heart. This proves that a giant was defeated, and has magical properties that you are not sure of.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="dice">
+    <type class="misc" subclass="dice" tileid="-1"/>
+    <description>You see a set of dice. May lady luck be with you.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Dice"/>
+    <attributes>
+    </attributes>
+    <weight value="0.05"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <item name="cards">
+    <type class="misc" subclass="cards" tileid="-1"/>
+    <description>You see a deck of cards. Shuffle them well, to get a winning hand.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <item name="teddy">
+    <type class="misc" subclass="teddy" tileid="-1"/>
+    <description>You see a teddy bear. Its soft and cuddly, and children love them.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <behavior class-name="games.stendhal.server.entity.item.behavior.MessagingUseBehavior">
+    	<parameter name="public" value="!me hugs teddy."/>
+    	<parameter name="private" value="The teddy feels soft and comforting."/>
+    </behavior>
+    <attributes>
+      <menu value="Hug|Use"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <item name="rodent trap">
+    <type class="misc" subclass="rodent_trap" tileid="-1"/>
+    <description>You see a rodent trap.</description> 
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="0.05"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <item name="vampirette entrails">
+    <type class="misc" subclass="vampirette_entrails" tileid="-1"/>
+    <description>You see some vampirette entrails. These guts proves that a vampirette was slain.</description> 
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <item name="bat entrails">
+    <type class="misc" subclass="bat_entrails" tileid="-1"/>
+    <description>You see some bat entrails, full of the blood of a living creature.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <item name="suntan cream">
+    <type class="misc" subclass="suntan_cream" tileid="-1"/>
+    <description>You see a clear bottle of suntan cream and notice that the outside is slippery. A nice scent of coconut mixed with bannana wafts into the air from it.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+   <item name="marbles">
+    <type class="misc" subclass="marbles" tileid="-1"/>
+    <description>You see some marbles. Boys will be boys.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+ 
+   <item name="canned tuna">
+    <type class="misc" subclass="canotuna" tileid="-1"/>
+    <description>You see what appears to be canned tuna. Too bad you don't have a can opener.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+  
+   <item name="snowglobe">
+    <type class="misc" subclass="snowglobe" tileid="-1"/>
+    <description>You see a snowglobe. It's so festive, it reminds you of Christmas!</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <behavior class-name="games.stendhal.server.entity.item.behavior.MessagingUseBehavior">
+      <parameter name="public" value="!me shakes snowglobe."/>
+      <parameter name="private" value="Snowflakes twirl around and fall softly to the ground of the snowglobe."/>
+    </behavior>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+      <menu value="Shake|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <!--must be stackable as it is a produced item-->
+  <item name="bobbin">
+    <type class="misc" subclass="bobbin" tileid="-1"/>
+    <description>You see a bobbin for a sewing machine.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="venom gland">
+    <type class="misc" subclass="venom_gland" tileid="-1"/>
+    <description>You see the venom gland of a giant king cobra. It is filled with deadly toxin.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="0.03"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="pelt">
+    <type class="misc" subclass="pelt" tileid="-1"/>
+    <description></description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+    <attributes>
+      <quantity value="1"/>
+      <max_quantity value="2147483647"/>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <!-- Chinese -->
+  
+  <item name="black dragon heart">
+    <type class="misc" subclass="black_dragon_heart" tileid="-1"/>
+    <description>You see a black dragon heart. This proves that a black dragon was defeated, and has magical properties that you are not sure of.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>    <attributes>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="card">
+    <type class="misc" subclass="cards" tileid="-1"/>
+    <description>You see a deck of cards.  Shuffle them well, to get a winning hand.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>    <attributes>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <!-- PolishMiscs -->
+  
+  <item name="feather of the rogue horde">
+		<type class="misc" subclass="pioro_herszta" tileid="-1"/>
+		<description>You see a feather of the rogue horde.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<quantity value="1"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+
+	<item name="purple figure">
+		<type class="misc" subclass="bierka1" tileid="-1"/>
+		<description>You see a purple figure. Play it with checkers or jumpers.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="green figure">
+		<type class="misc" subclass="bierka2" tileid="-1"/>
+		<description>You see a green figure	Play it with checkers, jumpers or Chinese.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="red pawn">
+		<type class="misc" subclass="pion_czerwony" tileid="-1"/>
+		<description>You see a red pawn. Play it with a Chinese man.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="blue pawn">
+		<type class="misc" subclass="pion_niebieski" tileid="-1"/>
+		<description>You see a blue pawn. Play it with a Chinese man.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="yellow pawn">
+		<type class="misc" subclass="pion_zolty" tileid="-1"/>
+		<description>You see a yellow pawn. Play it with a Chinese man.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="green pawn">
+		<type class="misc" subclass="pion_zielony" tileid="-1"/>
+		<description>You see a green pawn. Play it with a Chinese man.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="purple lady">
+		<type class="misc" subclass="damka1" tileid="-1"/>
+		<description>You see a purple lady. Play it with checkers or jumpers.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="green lady">
+		<type class="misc" subclass="damka2" tileid="-1"/>
+		<description>You see a green lady Play it with checkers or jumpers.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="circle">
+		<type class="misc" subclass="kolko" tileid="-1"/>
+		<description>You see the circle. Play in a circle and cross.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="cross">
+		<type class="misc" subclass="krzyzyk" tileid="-1"/>
+		<description>You see the cross. Play it in a circle and a cross.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="white pawn">
+		<type class="misc" subclass="pion_bialy" tileid="-1"/>
+		<description>You see a white pawn. Play chess with him.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="white tower">
+		<type class="misc" subclass="wieza_biala" tileid="-1"/>
+		<description>You see the white tower. Play it with chess.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="white horse">
+		<type class="misc" subclass="skoczek_bialy" tileid="-1"/>
+		<description>You see the white horse Play it with chess.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="white bishop">
+		<type class="misc" subclass="goniec_bialy" tileid="-1"/>
+		<description>You see the white bishop Play it with chess.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="white hetman">
+		<type class="misc" subclass="hetman_bialy" tileid="-1"/>
+		<description>You see the white hetman Play it with chess.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="white king">
+		<type class="misc" subclass="krol_bialy" tileid="-1"/>
+		<description>You see the white king Play it with chess.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="black pawn">
+		<type class="misc" subclass="pion_czarny" tileid="-1"/>
+		<description>You see a black pawn. Play chess with him.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="black tower">
+		<type class="misc" subclass="wieza_czarna" tileid="-1"/>
+		<description>You see a black tower Play chess with him.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="black horse">
+		<type class="misc" subclass="skoczek_czarny" tileid="-1"/>
+		<description>You see a black horse Play chess with him.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="black bishop">
+		<type class="misc" subclass="goniec_czarny" tileid="-1"/>
+		<description>You see a black horse Play chess with him.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="black hetman">
+		<type class="misc" subclass="hetman_czarny" tileid="-1"/>
+		<description>You see a black hetman Play chess with him.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="black king">
+		<type class="misc" subclass="krol_czarny" tileid="-1"/>
+		<description>You see a black king Play chess with him.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token"/>
+		<attributes/>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+	<item name="magic dice">
+		<type class="misc" subclass="kostka" tileid="-1"/>
+		<description>You see a magic dice Let happiness favors you.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Kostka"/>
+		<attributes>
+		</attributes>
+		<weight value="0.05"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+		</equipable>
+	</item>
+
+</items>

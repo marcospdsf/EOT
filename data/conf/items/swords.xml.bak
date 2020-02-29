@@ -1,0 +1,1907 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../items.xsd ">
+	
+  <item name="assassin dagger">
+    <type class="sword" subclass="assassin_dagger" tileid="-1"/>
+    <description>You see an assassin dagger, easy to pull out and use when needed.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="6"/>
+      <rate value="2"/>
+	  <min_level value="50"/>
+    </attributes>
+    <weight value="0.2"/>
+    <value value="5400"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="biting sword">
+    <type class="sword" subclass="biting_sword" tileid="-1"/>
+    <description>The point of this biting sword is chiseled to a lethal point. It will serve you well.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="25"/>
+      <rate value="6"/>
+      <min_level value="35"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="130208"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <item name="black sword">
+    <type class="sword" subclass="black_sword" tileid="-1"/>
+    <description>You see a black sword.  Its darkness will surely protect you.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="40"/>
+      <rate value="7"/>
+      <min_level value="100"/>
+    </attributes>
+    <weight value="9.0"/>
+    <value value="457142"/>
+    <damage type="dark"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="broadsword">
+    <type class="sword" subclass="broadsword" tileid="-1"/>
+    <description>You see a mighty broadsword. Enemies will see their death.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="34"/>
+      <rate value="10"/>
+      <min_level value="10"/>
+    </attributes>
+    <weight value="8.0"/>
+    <value value="196520"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="buster">
+    <type class="sword" subclass="buster" tileid="-1"/>
+    <description>You see a buster, with its distinctive, oversized blade.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="21"/>
+      <rate value="5"/>
+      <min_level value="40"/>
+    </attributes>
+    <weight value="5.0"/>
+    <value value="90535"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="chaos dagger">
+    <type class="sword" subclass="chaos_dagger" tileid="-1"/>
+    <description>You see a chaos dagger, it is very lightweight and sharp. It will heal you while hurting them.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+     <atk value="7"/>
+     <rate value="2"/>
+     <lifesteal value="0.1"/>
+     <min_level value="150"/>
+    </attributes>
+    <weight value="1"/>
+    <value value="10400"/>
+    <equipable>
+    <slot name="ground"/>
+    <slot name="content"/>
+     <slot name="bag"/>
+	 <slot name="weaponbag"/>
+      <slot name="trade"/>
+     <slot name="lhand"/>
+	 <slot name="rhand"/>
+  </equipable>
+ </item>
+
+  <item name="chaos sword">
+    <type class="sword" subclass="chaos_sword" tileid="-1"/>
+    <description>You see a chaos sword. Wielding it allows to hurt your foes and to heal you at the same time.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="32"/>
+      <rate value="9"/>
+      <lifesteal value="0.3"/>
+      <min_level value="50"/>
+    </attributes>
+    <weight value="10.0"/>
+    <value value="182044"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="claymore">
+    <type class="sword" subclass="claymore" tileid="-1"/>
+    <description>This claymore is very hard to lift as it is so heavy. It will be a good weapon if you can swing it.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="36"/>
+      <rate value="10"/>
+      <min_level value="15"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="109760"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="dagger">
+    <type class="sword" subclass="dagger" tileid="-1"/>
+    <description>You see a dagger, it is little more than decorative but you can jab pretty fast with it.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="8"/>
+      <rate value="3"/>
+    </attributes>
+    <weight value="0.2"/>
+    <value value="8533"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="dark dagger">
+    <type class="sword" subclass="dark_dagger" tileid="-1"/>
+    <description>You see a dark dagger. It's designed to be used with a fast motion.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="8"/>
+      <rate value="2"/>
+      <min_level value="30"/>
+    </attributes>
+    <weight value="0.2"/>
+    <value value="12800"/>
+    <damage type="dark"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="demon fire sword">
+    <type class="sword" subclass="demon_fire_sword" tileid="-1"/>
+    <description>The demon fire sword, a horrible sword taken from hell's deepest dungeons.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="58"/>
+        <rate value="10"/>
+        <lifesteal value="0.3"/>
+        <min_level value="300"/>
+    </attributes>
+    <weight value="12.0"/>
+    <value value="975560"/>
+    <damage type="fire"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="demon sword">
+    <type class="sword" subclass="kilij" tileid="-1"/>
+    <description>Demon skeletons return from hell with this demon sword.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="22"/>
+      <rate value="6"/>
+      <min_level value="30"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="88733"/>
+    <damage type="fire"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="drow sword">
+    <type class="sword" subclass="blooddrinker" tileid="-1"/>
+    <description>This is a genuine drow sword.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="31"/>
+      <rate value="6"/>
+      <min_level value="85"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="248258"/>
+    <damage type="dark"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="elvish sword">
+    <type class="sword" subclass="elvish_sword" tileid="-1"/>
+    <description>This is an elvish sword. It looks like it is made from tree leaves!</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="16"/>
+      <rate value="4"/>
+      <min_level value="30"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="219700"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="fire sword">
+    <type class="sword" subclass="fire_sword" tileid="-1"/>
+    <description>Flames race along this fire sword as you wield it.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="30"/>
+      <rate value="7"/>
+      <min_level value="45"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="156800"/>
+    <damage type="fire"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="golden blade">
+    <type class="sword" subclass="golden_blade" tileid="-1"/>
+    <description>You see the rare and precious golden blade. It can steal life from those you stab with it.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="5"/>
+      <rate value="1"/>
+      <lifesteal value="0.1"/>
+      <min_level value="250"/>
+    </attributes>
+    <weight value="0.2"/>
+    <value value="1000000"/>
+    <damage type="light"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="golden orc sword">
+    <type class="sword" subclass="golden_orc_sword" tileid="-1"/>
+    <description>You see a golden orc sword, with its heavy and deadly appearance it seems also valuable.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="32"/>
+      <rate value="5"/>
+      <min_level value="180"/>
+    </attributes>
+    <weight value="8.0"/>
+    <value value="199650"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="great sword">
+    <type class="sword" subclass="great_sword" tileid="-1"/>
+    <description>This rare great sword is heavy and of good craftsmanship. It can only attack incredibly slowly.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="60"/>
+      <rate value="15"/>
+      <min_level value="25"/>
+    </attributes>
+    <weight value="8.0"/>
+    <value value="303750"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="hell dagger">
+    <type class="sword" subclass="hell_dagger" tileid="-1"/>
+    <description>You see a hell dagger. Is the colour that of the burning fires of Hell?</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="9"/>
+      <rate value="2"/>
+      <min_level value="70"/>
+    </attributes>
+    <weight value="0.2"/>
+    <value value="12800"/>
+    <damage type="fire"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="ice sword">
+    <type class="sword" subclass="ice_sword" tileid="-1"/>
+    <description>You see an ice sword, the blade is lethally cold to the touch, and you know it is one of the best weapons you'll find.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="29"/>
+      <rate value="6"/>
+      <min_level value="40"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="174207"/>
+    <damage type="ice"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="imperator sword">
+    <type class="sword" subclass="imperator_sword" tileid="-1"/>
+    <description>You see a an imperator sword, crafted from you know not what.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="14"/>
+      <rate value="3"/>
+      <min_level value="50"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="34300"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="immortal sword">
+    <type class="sword" subclass="magic_sword" tileid="-1"/>
+    <description>This immortal sword is a gift of gods to the chosen one. It is heavy and of exquisite craftsmanship.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="35"/>
+      <rate value="6"/>
+	  <min_level value="80"/>
+    </attributes>
+    <weight value="9.0"/>
+    <value value="357291"/>
+    <damage type="light"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="katana">
+    <type class="sword" subclass="katana" tileid="-1"/>
+    <description>You see a valuable katana, with a lethal looking blade.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="15"/>
+      <rate value="4"/>
+      <min_level value="20"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="51200"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="knife">
+    <type class="sword" subclass="knife" tileid="-1"/>
+    <description>You see a blunt knife which looks capable of little damage.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="7"/>
+      <rate value="3"/>
+    </attributes>
+    <weight value="0.2"/>
+    <value value="5716"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="l hand sword">
+    <type class="sword" subclass="l_hand_sword" tileid="-1"/>
+    <description>You see l hand sword. It must be used with right hand sword.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="12"/>
+      <def value="2"/>
+      <rate value="3"/>
+      <min_level value="80"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="33750"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <item name="night dagger">
+    <type class="sword" subclass="black_dagger" tileid="-1"/>
+    <description>You see a night dagger, to be used with stealth.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="2"/>
+      <rate value="1"/>
+	  <min_level value="50"/>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="6250"/>
+    <damage type="dark"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="nihonto">
+    <type class="sword" subclass="nihonto" tileid="-1"/>
+    <description>You see a samurai's nihonto sword with a razor sharp blade.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="20"/>
+      <rate value="4"/>
+      <min_level value="70"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="90535"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="obsidian knife">
+    <type class="sword" subclass="obsidian_knife" tileid="-1"/>
+    <description>You see a knife whose blade is crafted to a lethal edge from finest obsidian.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="4"/>
+      <rate value="1"/>
+      <min_level value="60"/>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="6250"/>
+    <damage type="dark"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="orc sword">
+    <type class="sword" subclass="orc_sword" tileid="-1"/>
+    <description>You see an orc sword which has a heavy and deadly appearance.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="24"/>
+      <rate value="10"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="69120"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="orcish sword">
+    <type class="sword" subclass="orcish_sword" tileid="-1"/>
+    <description>This orcish sword is badly done and weighs a lot.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="38"/>
+      <rate value="9"/>
+      <min_level value="40"/>
+    </attributes>
+    <weight value="9.0"/>
+    <value value="304844"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="r hand sword">
+    <type class="sword" subclass="r_hand_sword" tileid="-1"/>
+    <description>You see r hand sword. It must be used with a left hand sword.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="12"/>
+      <def value="2"/>
+      <rate value="3"/>
+      <min_level value="80"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="33750"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <item name="royal dagger">
+    <type class="sword" subclass="royal_dagger" tileid="-1"/>
+    <description>You see the rare and precious royal dagger. It can steal life from those you stab with it.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="5"/>
+      <rate value="1"/>
+      <lifesteal value="0.1"/>
+      <min_level value="200"/>
+    </attributes>
+    <weight value="0.2"/>
+    <value value="1000000"/>
+    <damage type="dark"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="weaponbag"/>
+    </equipable>
+  </item>
+
+  <item name="scimitar">
+    <type class="sword" subclass="scimitar" tileid="-1"/>
+    <description>This scimitar catches the light as you look at it, it will be a powerful weapon.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="14"/>
+      <rate value="4"/>
+      <min_level value="10"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="42187"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="short sword">
+    <type class="sword" subclass="short_sword" tileid="-1"/>
+    <description>You see a well kept short sword which will be easy to carry as you travel.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="11"/>
+      <rate value="4"/>
+    </attributes>
+    <weight value="2.0"/>
+    <value value="16637"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="soul dagger">
+    <type class="sword" subclass="soul_dagger" tileid="-1"/>
+    <description>You see a soul dagger. It's so light and sharp that you can stab at a very fast rate.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="5"/>
+      <rate value="1"/>
+      <min_level value="130"/>
+    </attributes>
+    <weight value="0.2"/>
+    <value value="6250"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="sword">
+    <type class="sword" subclass="sword" tileid="-1"/>
+    <description>You see a sharp sword which might even be worth a little.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="12"/>
+      <rate value="4"/>
+      <min_level value="5"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="34300"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="vampire sword">
+    <type class="sword" subclass="vampire_sword" tileid="-1"/>
+    <description>You see the vampire sword, which will suck life from those you attack with it.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="28"/>
+       <rate value="5"/>
+       <lifesteal value="0.1"/>
+       <min_level value="35"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="98742"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="xeno sword">
+    <type class="sword" subclass="xeno_sword" tileid="-1"/>
+    <description>You wield a xeno sword. Despite the great strength it is strangely light.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="38"/>
+      <rate value="6"/>
+      <min_level value="150"/>
+    </attributes>
+    <weight value="6.0"/>
+    <value value="457142"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+<!-- Chinese -->
+  
+  <item name="golden dagger">
+    <type class="sword" subclass="golden_dagger" tileid="-1"/>
+    <description>You see a golden dagger, to be used with stealth.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="4"/>
+      <def value="8"/>
+      <rate value="1"/>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="621030"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="mithril dagger">
+    <type class="sword" subclass="mithril_dagger" tileid="-1"/>
+    <description>You see a mithril dagger, to be used with stealth.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="7"/>
+      <rate value="1"/>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="621034"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="fairy sword">
+    <type class="sword" subclass="fairy_sword" tileid="-1"/>
+    <description>This an fairy sword. It looks like it is made from tree leaves!</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="36"/>
+      <rate value="3"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="229700"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="black dragon sword">
+    <type class="sword" subclass="black_dragon_sword" tileid="-1"/>
+    <description>You see a black dragon sword.  Its darkness will surely protect you.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="56"/>
+      <def value="10"/>
+      <rate value="3"/>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="412153"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="blue dragon dagger">
+    <type class="sword" subclass="blue_dragon_dagger" tileid="-1"/>
+    <description>You see a blue dragon dagger, to be used with stealth.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="3"/>
+      <def value="2"/>
+      <rate value="1"/>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="311030"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <!-- NovasAdições -->
+  
+  <item name="muramasa">
+    <type class="sword" subclass="muramasa" tileid="-1"/>
+    <description>You see Muramasa, a sword created by the Elder vampires, has a great power concentrated in its core beyond the capacity to suck the energy of the opponent, was used for sacrifices of blood and meat through curses.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="32"/>
+	  <rate value="2"/>
+      <lifesteal value="0.2"/>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="311030"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="finnest golden sword">
+    <type class="sword" subclass="finnest_golden_sword" tileid="-1"/>
+    <description>You see a Finnest  golden sword ,a noble sword, able to illuminate in the darkest days and protect it from the evil elements that surround it.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    
+	<attributes>
+      <atk value="25"/>
+      <rate value="4"/>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="311030"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="dark sword">
+    <type class="sword" subclass="dark_blade" tileid="-1"/>
+    <description>You see a Dark sword,a blade forged by the shadow elves contains a negative aura and appears to be produced by a kind of diamond, but there is elf magic pulsating in it.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="37"/>
+      <rate value="3"/>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="311030"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="bloodrune sword">
+    <type class="sword" subclass="bloodrune_sword" tileid="-1"/>
+    <description>You see a Bloodrune sword, a sword belonging to the runes is purely forged in the vampire's blood and has an aura that boils as an attack is performed.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="17"/>
+      <rate value="3"/>
+	  <lifesteal value="0.1"/>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="311030"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="legendary golden sword">
+    <type class="sword" subclass="legendary_golden_sword" tileid="-1"/>
+    <description>There is no info about this sword.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="120"/>
+	  <def value="30"/>
+      <rate value="1"/>
+	  <lifesteal value="0.5"/>
+    </attributes>
+    <weight value="100.1"/>
+    <value value="311030"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+    <!-- NovasAdições 19/12/2017 -->
+  
+   <item name="damaged knife">
+    <type class="sword" subclass="damaged_knife" tileid="-1"/>
+    <description>You see a damaged knife. It has an anwful damage, but you can hit fast with it.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="3"/>
+      <rate value="2"/>
+    </attributes>
+    <weight value="0.7"/>
+    <value value="10"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+   <item name="black shadow sword">
+    <type class="sword" subclass="black_shadow_sword" tileid="-1"/>
+    <description>You see a black shadow sword. This sword seems to cut even the night.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="35"/>
+      <rate value="6"/>
+	  <lifesteal value="0.1"/>
+    </attributes>
+    <weight value="25.1"/>
+    <value value="35000"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+   <item name="red chaos sword">
+    <type class="sword" subclass="red_chaos_sword" tileid="-1"/>
+    <description>You see a red chaos sword. You fell like fire is going trought this chaos sword.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="32"/>
+      <rate value="9"/>
+      <lifesteal value="0.3"/>
+      <min_level value="60"/>
+    </attributes>
+    <weight value="25.1"/>
+    <value value="35000"/>
+	<damage type="fire"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="black shadow dagger">
+    <type class="sword" subclass="black_shadow_dagger" tileid="-1"/>
+    <description>You see a black shadow dagger. It seems like a dark dagger, but somehow it drains the enemies life.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="6"/>
+      <rate value="2"/>
+	  <lifesteal value="0.1"/>
+    </attributes>
+    <weight value="2.1"/>
+    <value value="12000"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+    <item name="fire scimitar">
+    <type class="sword" subclass="fire_scimitar" tileid="-1"/>
+    <description>You see a fire scimitar. Its a common scimitar imbued with fire damage.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="14"/>
+      <rate value="4"/>
+      <min_level value="15"/>
+    </attributes>
+    <weight value="12.0"/>
+    <value value="975560"/>
+    <damage type="fire"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="golden nihonto">
+    <type class="sword" subclass="golden_nihonto" tileid="-1"/>
+    <description>You see a samurai's golden nihonto sword with a razor sharp blade. A gift, to the most powerfull samurai's.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="20"/>
+      <rate value="3"/>
+      <min_level value="70"/>
+    </attributes>
+    <weight value="2.0"/>
+    <value value="120535"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="elf dagger">
+    <type class="sword" subclass="elf_dagger" tileid="-1"/>
+    <description>You see an elf dagger. It is so weightless that you feel like you are holding anything, but all that weightless makes her weak.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="1"/>
+      <rate value="1"/>
+	  <lifesteal value="0.1"/>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="120000"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="ice dagger">
+    <type class="sword" subclass="ice_dagger" tileid="-1"/>
+    <description>You see an ice dagger, this is very cold, you can barely hold it in your hands, but it's damage may compesate the use.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="11"/>
+      <rate value="3"/>
+      <min_level value="40"/>
+    </attributes>
+    <weight value="4.0"/>
+    <value value="174207"/>
+    <damage type="ice"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="imperial dagger">
+    <type class="sword" subclass="imperial_dagger" tileid="-1"/>
+    <description>You see an iperial dagger. This dagger is used by the most noble imperials.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+      <atk value="6"/>
+      <rate value="2"/>
+      <min_level value="18"/>
+    </attributes>
+    <weight value="2.0"/>
+    <value value="174207"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="edragons sword">
+    <type class="sword" subclass="edragons_clan_sword" tileid="-1"/>
+    <description>This is a edragons sword. It's spikes makes the use hardly, but it deals a massively damage.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="80"/>
+      <rate value="6"/>
+	  <lifesteal value="-0.5"/>
+    </attributes>
+    <weight value="100.1"/>
+    <value value="311030"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="paladin sword">
+    <type class="sword" subclass="paladin_sword" tileid="-1"/>
+    <description>A paladin sword. You can feel the god's life force within it.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="40"/>
+      <rate value="6"/>
+	  <lifesteal value="0.2"/>
+    </attributes>
+    <weight value="15.1"/>
+    <value value="211030"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <!-- NovasAdições 20/12/2017 -->
+  
+  <item name="excalibur">
+    <type class="sword" subclass="excalibur" tileid="-1"/>
+    <description>You see the almight Excalibur. The sword of the king Arthur himself, strong as anything else in earth.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="200"/>
+      <rate value="4"/>
+	  <lifesteal value="0.3"/>
+    </attributes>
+    <weight value="15.1"/>
+    <value value="211030"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="dragonslayer">
+    <type class="sword" subclass="DragonSlayer" tileid="-1"/>
+    <description>You see the almight Excalibur. The sword of the king Arthur himself, strong as anything else in earth.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="200"/>
+      <rate value="4"/>
+	  <lifesteal value="0.3"/>
+    </attributes>
+    <weight value="15.1"/>
+    <value value="211030"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+    <item name="darker excalibur">
+    <type class="sword" subclass="darkerExcalibur" tileid="-1"/>
+    <description>You see a darker excalibur. This was used when the King Arthur was betrayed.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="250"/>
+      <rate value="4"/>
+	  <lifesteal value="-0.1"/>
+    </attributes>
+    <weight value="15.1"/>
+    <value value="211030"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+    <item name="sai l">
+    <type class="sword" subclass="japan_L_sword" tileid="-1"/>
+    <description>You see a japanese Sai. It is used by the most renomed japanese swordsman.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="40"/>
+      <rate value="6"/>
+	  <lifesteal value="0.2"/>
+    </attributes>
+    <weight value="15.1"/>
+    <value value="211030"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="sai r">
+    <type class="sword" subclass="japan_R_sword" tileid="-1"/>
+    <description>You see a japanese Sai. It is used by the most renomed japanese swordsman.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
+      <atk value="40"/>
+      <rate value="6"/>
+	  <lifesteal value="0.2"/>
+    </attributes>
+    <weight value="15.1"/>
+    <value value="211030"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="weaponbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <!-- PolishSwords -->
+  
+  <item name="elemental dagger">
+		<type class="sword" subclass="elemental_dagger" tileid="-1"/>
+		<description>You see a elemental dagger The elements circulate in this blade with a natural sheen.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="15"/>
+			<rate value="4"/>
+			<min_level value="30"/>
+		</attributes>
+		<weight value="0.2"/>
+		<value value="5400"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+	
+	<item name="*dryad elemental dagger*">
+		<type class="sword" subclass="upgraded_elemental_dagger" tileid="-1"/>
+		<description>You see a *dryad elemental dagger* The elements are now more alive and leave a blade beyond help in your battles, all the natural essence is with you.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="11"/>
+			<rate value="2"/>
+			<lifesteal value="0.05"/>
+			<min_level value="60"/>
+			</attributes>
+		<weight value="0.2"/>
+		<value value="5400"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+
+	<item name="*assailant dagger*">
+		<type class="sword" subclass="assassin_dagger_u" tileid="-1"/>
+		<description>You see a *assailant dagger* The cold killer's blade is improved and will make more victims.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="13"/>
+			<rate value="3"/>
+			<min_level value="40"/>
+		</attributes>
+		<weight value="0.2"/>
+		<value value="5400"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+	
+	<item name="**dagger of the merciless shadows**">
+		<type class="sword" subclass="assassin_dagger_uu" tileid="-1"/>
+		<description>You see a **dagger of the merciless shadows** A thin blade capable of whipping any creature, contains an aura of obscure death is a rare weapon of professional assassins.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="18"/>
+			<rate value="2"/>
+			<min_level value="40"/>
+		</attributes>
+		<weight value="0.2"/>
+		<value value="5400"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+	
+	<item name="*demon fire sword of seven hells*">
+		<type class="sword" subclass="demon_fire_sword_u" tileid="-1"/>
+		<description>You see a *demon fire sword of seven hells* A devilish weapon imbued with the flaming powers of hell, it is a blade worshiped by archdemons and feared by angels, its power is devastating.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="85"/>
+			<rate value="4"/>
+			<lifesteal value="0.1"/>
+			<min_level value="300"/>
+		</attributes>
+		<weight value="12.0"/>
+		<value value="975560"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+
+	<item name="*enhanced demon sword*">
+		<type class="sword" subclass="kilij" tileid="-1"/>
+		<description>You see a enhanced demon sword Skeletons from this sword have returned from hell.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="14"/>
+			<rate value="4"/>
+			<lifesteal value="0.1"/>
+			<min_level value="25"/>
+		</attributes>
+		<weight value="4.0"/>
+		<value value="88733"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+
+	<item name="*enhanced drow sword*">
+		<type class="sword" subclass="blooddrinker" tileid="-1"/>
+		<description>You see *enhanced drow sword* The sword of the elves now enhanced and with black magic.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="35"/>
+			<rate value="5"/>
+			<min_level value="90"/>
+		</attributes>
+		<weight value="4.0"/>
+		<value value="248258"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+	
+	<item name="*night dagger of silent doom*">
+		<type class="sword" subclass="black_dagger_u" tileid="-1"/>
+		<description>You see a *night dagger of silent doom* A fast midnight blade, one of the weapons of death, is used for quick killings and intensive training.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="2"/>
+			<rate value="1"/>
+		<min_level value="50"/>
+		</attributes>
+		<weight value="0.1"/>
+		<value value="6250"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+	
+	<item name="orc sword">
+		<type class="sword" subclass="orc_sword2" tileid="-1"/>
+		<description>You see a orc sword, it's heavy and has a deadly look.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="26"/>
+			<rate value="5"/>
+			<min_level value="60"/>
+		</attributes>
+		<weight value="4.0"/>
+		<value value="69120"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+	
+	<item name="*sanguine blossom*">
+		<type class="sword" subclass="vampire_sword_u" tileid="-1"/>
+		<description>You see a *sanguine blossom* A sword forged with the entrails of a vampire, delicate as a petal but will sweep the blood and souls of all enemies, every sound of a drop of blood is the growth of a new flower.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="40"/>
+			<rate value="4"/>
+			<lifesteal value="0.5"/>
+			<min_level value="80"/>
+		</attributes>
+		<weight value="4.0"/>
+		<value value="98742"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+	
+	<item name="dwarvish sword">
+		<type class="sword" subclass="dwarfish_sword" tileid="-1"/>
+		<description>You see a dwarvish sword. A fairly short blade at the same time for fighting in tight corridors.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="27"/>
+			<rate value="5"/>
+			<min_level value="70"/>
+		</attributes>
+		<weight value="0.2"/>
+		<value value="5400"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+
+	<item name="orc blood sword">
+		<type class="sword" subclass="orc_blood" tileid="-1"/>
+		<description>You see the orc blood sword He fought many of the enemy in two halves.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="48"/>
+			<rate value="6"/>
+			<lifesteal value="-0.15"/>
+			<min_level value="100"/>
+		</attributes>
+		<weight value="0.2"/>
+		<value value="5400"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+
+	<item name="orc dagger">
+		<type class="sword" subclass="orc_dagger" tileid="-1"/>
+		<description>You see a orc dagger Handy and comfortable weapon.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="15"/>
+			<rate value="4"/>
+			<lifesteal value="-0.05"/>
+			<min_level value="20"/>
+		</attributes>
+		<weight value="0.2"/>
+		<value value="5400"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+
+	<item name="save the queen">
+		<type class="sword" subclass="polish_cerimonial sword" tileid="-1"/>
+		<description>You see a save the queen A sword dedicated to the queen's throne protector, its blade is bathed in mithril with fragments of archangel's feathers.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="48"/>
+			<def value="10"/>
+			<rate value="4"/>
+			<lifesteal value="0.485"/>
+			<min_level value="400"/>
+		</attributes>
+		<weight value="0.2"/>
+		<value value="5400"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+
+	<item name="*shiny save the queen*">
+		<type class="sword" subclass="polish_cerimonial sword_u" tileid="-1"/>
+		<description>You see a *shiny save the queen* A sword dedicated to the queen's throne protector, its blade is bathed in mithril with fragments of archangel's feathers, this sword possesses a gift from the ancient gods.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="50"/>
+			<def value="10"/>
+			<rate value="4"/>
+			<lifesteal value="0.5"/>
+			<min_level value="597"/>
+		</attributes>
+		<weight value="0.2"/>
+		<value value="5400"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+	
+	<item name="machete">
+		<type class="sword" subclass="machete" tileid="-1"/>
+		<description>You see a machete Ideal for fighting and tearing through the forest.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="12"/>
+			<rate value="4"/>
+			<min_level value="10"/>
+		</attributes>
+		<weight value="0.2"/>
+		<value value="5400"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+
+	<item name="shadow sword">
+		<type class="sword" subclass="shadow_sword" tileid="-1"/>
+		<description>You see a shadow sword. Even when you wear it in the sun, the twilight hides its blade.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="18"/>
+			<rate value="5"/>
+			<lifesteal value="0.05"/>
+			<min_level value="20"/>
+		</attributes>
+		<weight value="9.0"/>
+		<value value="457142"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+
+	<item name="ancient egypt sickle">
+		<type class="sword" subclass="ancient_egyptian_khopesh" tileid="-1"/>
+		<description>You see a ancient egypt sickle This unusual blade comes from the country of strange pyramids.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="18"/>
+			<rate value="6"/>
+		</attributes>
+		<weight value="0.2"/>
+		<value value="5400"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+	
+	<item name="*shiny ancient egypt sickle*">
+		<type class="sword" subclass="khopesh_u" tileid="-1"/>
+		<description>You see an ancient *shiny ancient egypt sickle* This unusual blade comes from the country of strange pyramids, this one possesses a glow coming from the solar power who heavily embraces the desert.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="18"/>
+			<rate value="5"/>
+		</attributes>
+		<weight value="0.2"/>
+		<value value="5400"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+
+	<item name="poisoned egyptian dagger">
+		<type class="sword" subclass="ancient_egyptian_poisoned" tileid="-1"/>
+		<description>you see a poisoned egyptian dagger. This poisonous blade comes from the country of strange pyramids.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="23"/>
+			<rate value="3"/>
+			<lifesteal value="-0.08"/>
+			<min_level value="100"/>
+		</attributes>
+		<weight value="0.2"/>
+		<value value="5400"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+
+	<item name="boneknife">
+		<type class="sword" subclass="boneknife" tileid="-1"/>
+		<description/> 
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="3"/>
+			<rate value="2"/>
+		</attributes>
+		<weight value="0.2"/>
+		<value value="5400"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+	
+	<item name="*shiny boneknife*">
+		<type class="sword" subclass="boneknife_u" tileid="-1"/>
+		<description/>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="2"/>
+			<rate value="2"/>
+		</attributes>
+		<weight value="0.2"/>
+		<value value="5400"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="weaponbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
+  

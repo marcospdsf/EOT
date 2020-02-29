@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<creature name="duch bez twarzy">
+		<type class="faumonia_duchy" subclass="faceless_ghost" tileid="faumonia_duchy.png:0"/>
+		<description>Oto duch bez twarzy. Boisz się?</description>
+		<attributes>
+			<atk value="161"/>
+			<def value="21"/>
+			<hp value="140"/>
+			<speed value="0.4"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="27"/>
+		<experience value="1000"/>
+		<respawn value="1500"/>
+		<corpse name="puddle_light_blue"/>
+		<drops>
+			<item value="money" quantity="[3,30]" probability="90.0"/>
+			<item value="antidote" quantity="[1,1]" probability="60.0"/>
+			<item value="blood robe" quantity="[1,1]" probability="1.0"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	
+		<creature name="duch elfa">
+		<type class="faumonia_duchy" subclass="elf_ghost" tileid="faumonia_duchy.png:1"/>
+		<description>Oto duch niegdyś potężnego elfa.</description>
+		<attributes>
+			<atk value="168"/>
+			<def value="21"/>
+			<hp value="121"/>
+			<speed value="0.4"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="28"/>
+		<experience value="1020"/>
+		<respawn value="1500"/>
+		<corpse name="puddle_green"/>
+		<drops>
+			<item value="money" quantity="[3,30]" probability="90.0"/>
+			<item value="antidote" quantity="[1,1]" probability="60.0"/>
+			<item value="blood chain armor" quantity="[1,1]" probability="1.0"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	
+		<creature name="duch demona">
+		<type class="faumonia_duchy" subclass="demon_ghost" tileid="faumonia_duchy.png:2"/>
+		<description>Oto duch demona, który kiedyś torturował ludzi w piekle.</description>
+		<attributes>
+			<atk value="181"/>
+			<def value="21"/>
+			<hp value="161"/>
+			<speed value="0.4"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="29"/>
+		<experience value="1060"/>
+		<respawn value="1500"/>
+		<corpse name="puddle_light_blue"/>
+		<drops>
+			<item value="money" quantity="[3,30]" probability="90.0"/>
+			<item value="antidote" quantity="[1,1]" probability="60.0"/>
+			<item value="blood robe" quantity="[1,1]" probability="1.0"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	
+		<creature name="duch łucznika imperium">
+		<type class="faumonia_duchy" subclass="ghost_archer" tileid="faumonia_duchy.png:3"/>
+		<description>Oto duch łucznika imperium. Kiedyś siał postrach na wszystkich frontach wojennych, lecz teraz jest tylko duchem.</description>
+		<attributes>
+			<atk value="181"/>
+			<def value="8"/>
+			<hp value="180"/>
+			<speed value="0.6"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="31"/>
+		<experience value="1140"/>
+		<respawn value="1500"/>
+		<corpse name="puddle_brown"/>
+		<drops>
+			<item value="money" quantity="[1,17]" probability="100.0"/>
+			<item value="antidote" quantity="[1,1]" probability="60.0"/>
+			<item value="blood chain armor" quantity="[1,1]" probability="1.0"/>
+			<item value="wooden arrow" quantity="[1,14]" probability="10.0"/>
+		</drops>
+		<equips>
+			<slot name="lhand" item="wooden arrow" quantity="10000"/>
+			<slot name="rhand" item="wooden bow" quantity="1"/>
+		</equips>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="archer"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+		<creature name="mściwy duch łucznika">
+		<type class="faumonia_duchy" subclass="spiteful_ghost_archer" tileid="faumonia_duchy.png:4"/>
+		<description>Oto mściwy duch łucznika. Kiedyś siał postrach na wszystkich frontach wojennych, lecz teraz jest tylko duchem..</description>
+		<attributes>
+			<atk value="162"/>
+			<def value="7"/>
+			<hp value="235"/>
+			<speed value="0.6"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="34"/>
+		<experience value="1180"/>
+		<respawn value="1500"/>
+		<corpse name="puddle_brown"/>
+		<drops>
+			<item value="money" quantity="[1,17]" probability="100.0"/>
+			<item value="antidote" quantity="[1,1]" probability="60.0"/>
+			<item value="blood legs" quantity="[1,1]" probability="1.0"/>
+			<item value="blood robe" quantity="[1,1]" probability="1.0"/>
+			<item value="wooden arrow" quantity="[1,14]" probability="70.0"/>
+		</drops>
+		<equips>
+			<slot name="lhand" item="wooden arrow" quantity="10000"/>
+			<slot name="rhand" item="wooden bow" quantity="1"/>
+		</equips>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="archer"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	
+		<creature name="olbrzymi duch">
+	    <type class="faumonia_duchy" subclass="giant_ghost" tileid="faumonia_duchy.png:5"/>
+		<description></description>
+		<attributes>
+			<atk value="187"/>
+			<def value="33"/>
+			<hp value="1200"/>
+			<speed value="0.5"/>
+			<size value="2,2"/>
+		</attributes>
+		<level value="40"/>
+		<experience value="6400"/>
+		<respawn value="7400"/>
+		<corpse name="puddle_big"/>
+		<drops>
+			<item value="greater antidote" quantity="[1,6]" probability="60.0"/>
+			<item value="money" quantity="[30,150]" probability="100.0"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="brave"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	
+</creatures>

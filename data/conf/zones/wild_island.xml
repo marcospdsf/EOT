@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zones xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="stendhal ../zones.xsd ">
+	<!--
+		** Load zones. Written from left to right and from top to bottom.
+		** Please respect it!
+	-->
+
+	
+	<zone name="0_wild_island_w" level="0" x="5000" y="5000" file="Level 0/wild_island/0_wild_island_w.tmx">
+		<portal x="45" y="84" ref="woda1">
+			<destination zone="-1_semos_mine_n2" ref="tunela2" />
+			<attribute name="hidden"/>
+		</portal>	
+		<portal x="9" y="40" ref="spadek1">
+			<destination zone="-1_wild_island_pit_a" ref="dziura1"/>
+			<attribute name="hidden"/>
+		</portal>
+		<portal x="62" y="89" ref="spadek2">
+			<destination zone="-1_wild_island_pit_b" ref="dziura2"/>
+			<attribute name="hidden"/>
+		</portal>
+		<portal x="73" y="53" ref="spadek3">
+			<destination zone="-1_wild_island_pit_c" ref="dziura3"/>
+			<attribute name="hidden"/>
+		</portal>
+		<portal x="77" y="107" ref="spadek4">
+			<destination zone="-1_wild_island_pit_d" ref="dziura4"/>
+			<attribute name="hidden"/>
+		</portal>
+		
+		<entity x="6" y="93">
+			<implementation
+				class-name="games.stendhal.server.entity.mapstuff.useable.FishSource">
+				<parameter name="species">karp</parameter>
+			</implementation>
+		</entity>
+		<entity x="7" y="86">
+			<implementation
+				class-name="games.stendhal.server.entity.mapstuff.useable.FishSource">
+				<parameter name="species">karp</parameter>
+			</implementation>
+		</entity>
+		<entity x="78" y="47">
+			<implementation
+				class-name="games.stendhal.server.entity.mapstuff.useable.FishSource">
+				<parameter name="species">karp lustrzeń</parameter>
+			</implementation>
+		</entity>
+		<entity x="78" y="29">
+			<implementation
+				class-name="games.stendhal.server.entity.mapstuff.useable.FishSource">
+				<parameter name="species">karp lustrzeń</parameter>
+			</implementation>
+		</entity>
+		<entity x="47" y="78">
+			<implementation
+				class-name="games.stendhal.server.entity.mapstuff.useable.FishSource">
+				<parameter name="species">karp lustrzeń</parameter>
+			</implementation>
+		</entity>
+		<entity x="101" y="87">
+			<implementation
+				class-name="games.stendhal.server.entity.mapstuff.useable.FishSource">
+				<parameter name="species">karp lustrzeń</parameter>
+			</implementation>
+		</entity>
+		
+		</zone>
+		
+		
+	<zone name="0_wild_island_e" level="0" x="5128" y="5000" file="Level 0/wild_island/0_wild_island_e.tmx">
+		<entity x="110" y="14">
+			<implementation
+				class-name="games.stendhal.server.entity.mapstuff.useable.FishSource">
+				<parameter name="species">karp</parameter>
+			</implementation>
+		</entity>
+		<entity x="99" y="11">
+			<implementation
+				class-name="games.stendhal.server.entity.mapstuff.useable.FishSource">
+				<parameter name="species">karp</parameter>
+			</implementation>
+		</entity>
+	</zone>
+	
+	<zone name="0_wild_island_se" level="0" x="5128" y="5128" file="Level 0/wild_island/0_wild_island_se.tmx">	
+		<portal x="59" y="15" ref="dziura1">
+			<destination zone="-1_wild_island_hole" ref="dziura2" />
+		</portal>
+	</zone>
+	<zone name="0_wild_island_nw" level="0" x="5000" y="4872" file="Level 0/wild_island/0_wild_island_nw.tmx">
+		<portal x="88" y="113" ref="olbrzymy1">
+			<destination zone="-1_wild_island_cave" ref="olbrzymy2" />
+		</portal>
+		<portal x="55" y="95" ref="tunel8">
+			<destination zone="-1_wild_island_tunnel_se" ref="tunel9" />
+		</portal>
+		<portal x="96" y="55" ref="wejscie2">
+			<destination zone="-1_wild_island_deep_cave" ref="wejscie1" />
+		</portal>
+	</zone>
+	<zone name="0_wild_island_ne" level="0" x="5128" y="4872" file="Level 0/wild_island/0_wild_island_ne.tmx">	</zone>
+	<zone name="-1_wild_island_hole" file="Level -1/wild_island/-1_wild_island_hole.tmx">	
+	
+	<portal x="32" y="30" ref="dziura2">
+			<destination zone="0_wild_island_se" ref="dziura1" />
+		</portal>
+		
+	<portal x="8" y="11" ref="dziuralg">
+			<destination zone="-2_wild_island_hole_nw" ref="dziuralg1" />
+		</portal>
+	<portal x="54" y="9" ref="dziurapg">
+			<destination zone="-2_wild_island_hole_ne" ref="dziurapg1" />
+		</portal>
+	<portal x="10" y="47" ref="dziurald">
+			<destination zone="-2_wild_island_hole_se" ref="dziurald1" />
+		</portal>
+	<portal x="55" y="46" ref="dziurapd">
+			<destination zone="-2_wild_island_hole_sw" ref="dziurapd1" />
+		</portal>
+	</zone>	
+	<zone name="-2_wild_island_hole_nw" file="Level -2/wild_island/-2_wild_island_hole_nw.tmx">	
+	<portal x="15" y="33" ref="dziuralg1">
+			<destination zone="-1_wild_island_hole" ref="dziuralg" />
+		</portal>
+	</zone>	
+	<zone name="-2_wild_island_hole_ne" file="Level -2/wild_island/-2_wild_island_hole_ne.tmx">	
+	<portal x="45" y="20" ref="dziurapg1">
+			<destination zone="-1_wild_island_hole" ref="dziurapg" />
+		</portal>
+	</zone>	
+	<zone name="-2_wild_island_hole_se" file="Level -2/wild_island/-2_wild_island_hole_se.tmx">	
+	<portal x="9" y="40" ref="dziurald1">
+			<destination zone="-1_wild_island_hole" ref="dziurald" />
+		</portal>
+	</zone>	
+	<zone name="-2_wild_island_hole_sw" file="Level -2/wild_island/-2_wild_island_hole_sw.tmx">	
+	<portal x="51" y="46" ref="dziurapd1">
+			<destination zone="-1_wild_island_hole" ref="dziurapd" />
+		</portal>
+	</zone>	
+	<zone name="-1_wild_island_cave" file="Level -1/wild_island/-1_wild_island_cave.tmx">
+		<portal x="115" y="26" ref="olbrzymy2">
+			<destination zone="0_wild_island_nw" ref="olbrzymy1" />
+		</portal>
+	</zone>	
+	
+	<zone name="-1_wild_island_deep_cave" file="Level -1/wild_island/-1_wild_island_deep_cave.tmx">	
+	<portal x="73" y="9" ref="wejscie1">
+			<destination zone="0_wild_island_nw" ref="wejscie2" />
+		</portal>
+		<portal x="31" y="81" ref="wejscie4">
+			<destination zone="-2_wild_island_deep_cave" ref="wejscie3" />
+		</portal>
+	</zone>	
+	<zone name="-2_wild_island_deep_cave" file="Level -2/wild_island/-2_wild_island_deep_cave.tmx">	
+		<portal x="98" y="33" ref="wejscie3">
+			<destination zone="-1_wild_island_deep_cave" ref="wejscie4" />
+		</portal>
+		<portal x="101" y="117" ref="wejscie5">
+			<destination zone="-3_wild_island_deep_cave" ref="wejscie6" />
+		</portal>
+	</zone>
+	<zone name="-3_wild_island_deep_cave" file="Level -3/wild_island/-3_wild_island_deep_cave.tmx">
+		<portal x="101" y="110" ref="wejscie6">
+			<destination zone="-2_wild_island_deep_cave" ref="wejscie5" />
+		</portal>
+	</zone>		
+	<zone name="-1_semos_mine_tunnel_w" level="0" x="4500" y="4500" file="Level -1/wild_island/-1_semos_mine_tunnel_w.tmx">
+		<portal x="38" y="61" ref="tunel1">
+			<destination zone="-1_semos_mine_n2" ref="tunel2" />
+		</portal>
+	</zone>	
+	<zone name="-1_semos_mine_tunnel" level="0" x="4564" y="4500" file="Level -1/wild_island/-1_semos_mine_tunnel.tmx">	</zone>	
+	<zone name="-1_wild_island_tunnel_s" level="0" x="4564" y="4564" file="Level -1/wild_island/-1_wild_island_tunnel_s.tmx">	</zone>	
+	<zone name="-1_wild_island_tunnel_se" level="0" x="4628" y="4564" file="Level -1/wild_island/-1_wild_island_tunnel_se.tmx">
+		<portal x="39" y="61" ref="tunel9">
+			<destination zone="0_wild_island_nw" ref="tunel8" />
+		</portal>
+	</zone>	
+	
+	<zone name="-1_wild_island_pit_a" file="Level -1/wild_island/pyramid_ne.tmx">
+		<portal x="8" y="6" ref="dziura1">
+			<destination zone="0_wild_island_w" ref="woda1" />
+		</portal>
+	</zone>	
+	<zone name="-1_wild_island_pit_b" file="Level -1/wild_island/pyramid_ne1.tmx">	
+		<portal x="8" y="6" ref="dziura2">
+			<destination zone="0_wild_island_w" ref="woda1" />
+		</portal>
+	</zone>
+	<zone name="-1_wild_island_pit_c" file="Level -1/wild_island/pyramid_ne2.tmx">
+		<portal x="8" y="6" ref="dziura3">
+			<destination zone="0_wild_island_w" ref="woda1" />
+		</portal>	</zone>
+	<zone name="-1_wild_island_pit_d" file="Level -1/wild_island/pyramid_ne3.tmx">
+		<portal x="8" y="6" ref="dziura4">
+			<destination zone="0_wild_island_w" ref="woda1" />
+		</portal>	</zone>
+		
+	</zones>

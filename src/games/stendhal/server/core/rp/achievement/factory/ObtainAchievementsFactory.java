@@ -1,0 +1,88 @@
+package games.stendhal.server.core.rp.achievement.factory;
+
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+
+import games.stendhal.common.parser.Sentence;
+import games.stendhal.server.core.rp.achievement.Achievement;
+import games.stendhal.server.core.rp.achievement.Category;
+import games.stendhal.server.entity.Entity;
+import games.stendhal.server.entity.npc.ChatCondition;
+import games.stendhal.server.entity.npc.condition.PlayerGotNumberOfItemsFromWellCondition;
+import games.stendhal.server.entity.npc.condition.PlayerHasHarvestedNumberOfItemsCondition;
+import games.stendhal.server.entity.npc.condition.QuestCompletedCondition;
+import games.stendhal.server.entity.player.Player;
+
+/**
+ * factory for obtaining items related achievements.
+ *
+ * @author madmetzger
+ */
+public class ObtainAchievementsFactory extends AbstractAchievementFactory {
+
+	public static final String ID_APPLES = "obtain.apple";
+	public static final int COUNT_APPLES = 1000;
+
+
+	@Override
+	protected Category getCategory() {
+		return Category.OBTAIN;
+	}
+
+	@Override
+	public Collection<Achievement> createAchievements() {
+		final List<Achievement> achievements = new LinkedList<Achievement>();
+
+		// Wishing well achievement
+		achievements.add(createAchievement("obtain.wish", "A wish came true", "Get an item from the wishing well",
+				Achievement.EASY_BASE_SCORE, true,
+				new PlayerGotNumberOfItemsFromWellCondition(0)));
+
+		// Vegetable harvest achievement
+		achievements.add(createAchievement("obtain.harvest.vegetable", "Farmer", "Harvest 3 of all vegetables that grow in Faiumoni",
+				Achievement.EASY_BASE_SCORE, true,
+				new PlayerHasHarvestedNumberOfItemsCondition(3, "carrot", "salad", "broccoli", "cauliflower", "leek",
+						"onion", "courgette", "spinach", "collard", "garlic", "artichoke")));
+
+		// Fishing achievement
+		achievements.add(createAchievement("obtain.fish", "Fisherman", "Catch 15 of each type of fish",
+				Achievement.MEDIUM_BASE_SCORE, true,
+				new PlayerHasHarvestedNumberOfItemsCondition(15, "char", "clownfish", "cod", "mackerel", "perch",
+						"red lionfish", "roach", "surgeonfish", "trout")));
+
+		// ultimate collector quest achievement
+		achievements.add(createAchievement("quest.special.collector", "Ultimate Collector", "Finish ultimate collector quest",
+				Achievement.HARD_BASE_SCORE, true,
+				new QuestCompletedCondition("ultimate_collector")));
+
+		// flower harvest
+		achievements.add(createAchievement("obtain.harvest.flower", "Green Thumb", "Harvest 20 of each type of growable flower",
+				Achievement.EASY_BASE_SCORE, true,
+				new PlayerHasHarvestedNumberOfItemsCondition(20, "daisies", "lilia", "pansy", "zantedeschia")));
+
+		// herb harvest
+		achievements.add(createAchievement("obtain.harvest.herb", "Herbal Practitioner", "Harvest 20 of each type of herb found growing in Faiumoni",
+				Achievement.EASY_BASE_SCORE, true,
+				new PlayerHasHarvestedNumberOfItemsCondition(20, "arandula", "kekik", "mandragora", "sclaria")));
+
+		// loot or harvest apples
+		// XXX: it appears that looting action will not trigger check for Category.OBTAIN
+		//      inactive until fixed
+		achievements.add(createAchievement(
+				ID_APPLES, "Bobbing for Apples", "Harvest or loot 1,000 apples",
+				Achievement.EASY_BASE_SCORE, false,
+				new ChatCondition() {
+					@Override
+					public boolean fire(final Player player, final Sentence sentence, final Entity npc) {
+						final int harvested = player.getQuantityOfHarvestedItems("apple");
+						final int looted = player.getNumberOfLootsForItem("apple");
+
+						return harvested + looted >= COUNT_APPLES;
+					}
+				}));
+
+		return achievements;
+	}
+
+}

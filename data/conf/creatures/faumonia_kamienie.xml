@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<creature name="dziwny człek">
+		<type class="faumonia_kamienie" subclass="dziwny_czlek" tileid="faumonia_kamyki.png:0"/>
+		<description>Oto dziwny człek.</description>
+		<attributes>
+			<atk value="10"/>
+			<def value="1"/>
+			<hp value="100"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="5"/>
+		<experience value="100"/>
+		<respawn value="10000"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="antidote" quantity="[1,3]" probability="99.9"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	
+	<creature name="dziwne stworzenie">
+		<type class="faumonia_kamienie" subclass="dziwny_czlek_2" tileid="faumonia_kamyki.png:1"/>
+		<description>Oto dziwne stworzenie.</description>
+		<attributes>
+			<atk value="50"/>
+			<def value="5"/>
+			<hp value="2000"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="40"/>
+		<experience value="1000"/>
+		<respawn value="15000"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="greater antidote" quantity="[1,3]" probability="99.9"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	
+	<creature name="dziwny humanoid">
+		<type class="faumonia_kamienie" subclass="dziwny_czlek_3" tileid="faumonia_kamyki.png:2"/>
+		<description>Oto dziwny humanoid.</description>
+		<attributes>
+			<atk value="500"/>
+			<def value="50"/>
+			<hp value="10000"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="250"/>
+		<experience value="10000"/>
+		<respawn value="20000"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="greater potion" quantity="[1,3]" probability="99.9"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	
+</creatures>

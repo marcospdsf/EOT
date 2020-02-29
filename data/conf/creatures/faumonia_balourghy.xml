@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<creature name="balourgh wojownik">
+		<type class="balourg" subclass="1" tileid="faumonia_balourgh.png:0"/>
+		<description>Oto balourgh wojownik. Trochę głupi ale ma bardzo silną zbroję.</description>
+		<attributes>
+			<atk value="924"/>
+			<def value="47"/>
+			<hp value="600"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="130"/>
+		<experience value="8370"/>
+		<respawn value="4500"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[12,25]" probability="70.0"/>
+			<item value="water" quantity="[1,3]" probability="70.0"/>
+			<item value="balourg armor" quantity="[1,1]" probability="0.5"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="coward"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	
+	<creature name="balourgh żołnierz">
+		<type class="balourg" subclass="2" tileid="faumonia_balourgh.png:1"/>
+		<description>Oto balourgh żołnierz. Ma bardzo twardy pancerz .</description>
+		<attributes>
+			<atk value="934"/>
+			<def value="48"/>
+			<hp value="640"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="132"/>
+		<experience value="8070"/>
+		<respawn value="4600"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[12,25]" probability="70.0"/>
+			<item value="water" quantity="[1,3]" probability="70.0"/>
+			<item value="balourg armor" quantity="[1,1]" probability="0.5"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="coward"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	
+	<creature name="balourgh lider">
+		<type class="balourg" subclass="3" tileid="faumonia_balourgh.png:2"/>
+		<description>Oto balourgh lider. Dowódca armii balourghów.</description>
+		<attributes>
+			<atk value="944"/>
+			<def value="47"/>
+			<hp value="600"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="134"/>
+		<experience value="8140"/>
+		<respawn value="4800"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[12,25]" probability="70.0"/>
+			<item value="water" quantity="[1,3]" probability="70.0"/>
+			<item value="balourg armor" quantity="[1,1]" probability="0.5"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="coward"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	
+	<creature name="balourgh komandor">
+		<type class="balourg" subclass="4" tileid="faumonia_balourgh.png:3"/>
+		<description>Oto balourgh komandor. Bardzo doświadczony wojownik od małego uczony walczyć.</description>
+		<attributes>
+			<atk value="994"/>
+			<def value="50"/>
+			<hp value="750"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="142"/>
+		<experience value="8840"/>
+		<respawn value="5000"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[18,45]" probability="70.0"/>
+			<item value="water" quantity="[1,3]" probability="70.0"/>
+			<item value="balourg armor" quantity="[1,1]" probability="0.5"/>
+			<item value="balourgh cloak" quantity="[1,1]" probability="1.0"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="coward"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+</creatures>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<creature name="pirat">
+		<type class="lutin" subclass="lutin_bandit" tileid="polhale_pirats.png:0"/>
+		<description>Oto pirat. Razem ze swoimi kompanami popełnia wiele przestępstw, aby zdobyć więcej pieniędzy lub rzadkich wartościowych przedmiotow.</description>
+		<attributes>
+			<atk value="571"/>
+			<def value="40"/>
+			<hp value="300"/>
+			<speed value="0.4"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="80"/>
+		<experience value="2300"/>
+		<respawn value="3060"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[3,30]" probability="90.0"/>
+			<item value="rum" quantity="[1,7]" probability="90.0"/>
+			<item value="grape drink" quantity="[5,7]" probability="60.0"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Aye, aye kapitanie!"/>
+				<noise state="idle follow fight" value="Johoho i butelka rumu!"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="piratka">
+		<type class="lutin" subclass="lutin_wench" tileid="polhale_pirats.png:1"/>
+		<description></description>
+		<attributes>
+			<atk value="581"/>
+			<def value="40"/>
+			<hp value="300"/>
+			<speed value="0.5"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="83"/>
+		<experience value="2350"/>
+		<respawn value="3090"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[10,35]" probability="90.0"/>
+			<item value="sandwich" quantity="[1,1]" probability="40.0"/>
+			<item value="emerald" quantity="[1,1]" probability="0.35"/>
+			<item value="rum" quantity="[1,7]" probability="90.0"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Trzęsiesz się jak osika!"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="korsarz">
+		<type class="lutin" subclass="lutin_outlaw" tileid="polhale_pirats.png:2"/>
+		<description></description>
+		<attributes>
+			<atk value="571"/>
+			<def value="30"/>
+			<hp value="400"/>
+			<speed value="0.5"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="84"/>
+		<experience value="2570"/>
+		<respawn value="3080"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[10,35]" probability="90.0"/>
+			<item value="tarta" quantity="[1,1]" probability="5.0"/>
+			<item value="hops juice" quantity="[3,7]" probability="60.0"/>
+			<item value="rum" quantity="[1,7]" probability="90.0"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Przygotuj się do spaceru po desce..."/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="przemytnik">
+		<type class="lutin" subclass="lutin_king" tileid="polhale_pirats.png:3"/>
+		<description>Oto przemytnik. Nie chcesz wiedziećco przemyca... Może się dowiesz? Pamintj o ostrzeżeniu, że obserwuje każdy twój ruch. Będzie walczył o zachowanie swoich sekretów!</description>
+		<attributes>
+			<atk value="570"/>
+			<def value="40"/>
+			<hp value="330"/>
+			<speed value="0.6"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="87"/>
+		<experience value="2900"/>
+		<respawn value="3050"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[10,45]" probability="80.0"/>
+			<item value="grape drink" quantity="[3,6]" probability="40.0"/>
+			<item value="gold bar" quantity="[1,1]" probability="0.3"/>
+			<item value="rum" quantity="[1,7]" probability="90.0"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Precz od mojego łupu!"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="diabelski pirat">
+		<type class="truskull" subclass="truskull_nightshade" tileid="polhale_pirats.png:4"/>
+		<description></description>
+		<attributes>
+			<atk value="570"/>
+			<def value="35"/>
+			<hp value="400"/>
+			<speed value="0.5"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="88"/>
+		<experience value="3200"/>
+		<respawn value="3060"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[10,55]" probability="80.0"/>
+			<item value="iron" quantity="[1,3]" probability="0.4"/>
+			<item value="obsidian" quantity="[1,1]" probability="0.05"/>
+			<item value="rum" quantity="[1,7]" probability="90.0"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Nie wtrącaj się w pirackie interesy. Nasz statek i kogo na nim trzymamy to nasza sprawa!"/>
+				<noise state="idle follow fight" value="Ciii zachowaj ten sekret dla siebie o więźniach na naszym statku..."/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="lider piratów">
+		<type class="truskull" subclass="truskull_magician" tileid="polhale_pirats.png:5"/>
+		<description></description>
+		<attributes>
+			<atk value="580"/>
+			<def value="45"/>
+			<hp value="200"/>
+			<speed value="0.5"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="90"/>
+		<experience value="3300"/>
+		<respawn value="3070"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[10,75]" probability="80.0"/>
+			<item value="grape drink" quantity="[3,10]" probability="40.0"/>
+			<item value="gold bar" quantity="[1,1]" probability="0.4"/>
+			<item value="tarta" quantity="[1,1]" probability="5.0"/>
+			<item value="rum" quantity="[1,8]" probability="95.0"/>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Milcz, albo zamknę cię na moim statku tak jak zamknąłem dziewczynkę Susi!"/>
+				<noise state="idle follow fight" value="Przypominasz mi dziewczynkę z Ados, którą porwaliśmy, aby wyszorowała nam nasz statek!"/>
+				<noise state="idle follow fight" value="Mógłabyś godnie zastąpić dziewczynkę Susi na naszym statku..."/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+</creatures>

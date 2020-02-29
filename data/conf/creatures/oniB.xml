@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="stendhal ../creatures.xsd ">
+  
+  <!-- START: oni -->
+  
+  <creature name="oni warrior">
+    <type class="oni" subclass="oni_warrior" tileid="oni.png:0"/>
+    <description>You see an oni warrior. His purple skin colour should not lull you into a false sense of security!</description>
+    <attributes>
+      <atk value="499"/>
+      <def value="77"/>
+      <hp value="500"/>
+      <speed value="0.9"/>
+      <size value="1,1"/>
+    </attributes>
+    <level value="67"/>
+    <experience value="3660"/>
+    <respawn value="2000"/>
+    <corpse name="humanoid"/>
+    <drops>
+      <item value="money" quantity="[10,50]" probability="90.0"/>
+      <item value="shadow legs" quantity="[1,1]" probability="0.8"/>
+      <item value="shadow boots" quantity="[1,1]" probability="1.0"/> 
+      <item value="pie" quantity="[1,2]" probability="5.0"/>
+    </drops>
+    <equips>
+    </equips>
+    <ai>
+      <profile name="offensive"/>
+      <profile name="human"/>
+      <profile name="patrolling"/>
+    </ai>
+  </creature>
+  
+  <creature name="oni archer">
+    <type class="oni" subclass="oni_archer" tileid="oni.png:1"/>
+    <description>You see an oni archer. His arrows will follow you everywhere for protecting his queen!</description>
+    <attributes>
+      <atk value="511"/>
+      <def value="77"/>
+      <hp value="600"/>
+      <speed value="0.7"/>
+      <size value="1,1"/>
+    </attributes>
+    <level value="72"/>
+    <experience value="4000"/>
+    <respawn value="2300"/>
+    <corpse name="humanoid"/>
+    <drops>
+      <item value="money" quantity="[10,70]" probability="100.0"/>
+      <item value="golden legs" quantity="[1,1]" probability="2.0"/>
+      <item value="golden arrow" quantity="[8,15]" probability="5.0"/>
+      <item value="golden boots" quantity="[1,1]" probability="2.0"/> 
+    </drops>
+    <equips>
+      <slot name="lhand" item="power arrow" quantity="10000"/>
+      <slot name="rhand" item="composite bow" quantity="1"/>
+    </equips>
+    <ai>
+      <profile name="offensive"/>
+      <profile name="human"/>
+      <profile name="archer"/>
+      <profile name="patrolling"/>
+    </ai>
+  </creature>
+  
+  <creature name="oni priest">
+    <type class="oni" subclass="oni_priest" tileid="oni.png:2"/>
+    <description>You see a mysterious oni priest, uttering strange incantations.</description>
+    <attributes>
+      <atk value="547"/>
+      <def value="76"/>
+      <hp value="680"/>
+      <speed value="0.8"/>
+      <size value="1,1"/>
+    </attributes>
+    <level value="77"/>
+    <experience value="5290"/>
+    <respawn value="2590"/>
+    <corpse name="humanoid"/>
+    <drops>
+      <item value="greater potion" quantity="[1,2]" probability="50.0"/>
+      <item value="money" quantity="[10,40]" probability="100.0"/>
+      <item value="shadow boots" quantity="[1,1]" probability="0.5"/>
+      <item value="chaos cloak" quantity="[1,1]" probability="0.050"/>
+    </drops>
+    <equips>
+    </equips>
+    <ai>
+      <profile name="offensive"/>
+      <profile name="human"/>
+      <profile name="heal" params="5,40"/>
+      <profile name="patrolling"/>
+    </ai>
+  </creature>
+  
+  <creature name="oni king">
+    <type class="oni" subclass="oni_king" tileid="oni.png:3"/>
+    <description>You see the oni king. His power leads brave oni troops around his kingdom.</description>
+    <attributes>
+      <atk value="714"/>
+      <def value="93"/>
+      <hp value="1200"/>
+      <speed value="0.8"/>
+      <size value="1,1"/>
+    </attributes>
+    <level value="109"/>
+    <experience value="14000"/>
+    <respawn value="5300"/>
+    <corpse name="humanoid"/>
+    <drops>
+      <item value="money" quantity="[10,70]" probability="100.0"/>
+      <item value="greater potion" quantity="[1,1]" probability="30.0"/>
+      <item value="gold bar" quantity="[1,1]" probability="3.0"/>
+      <item value="horned golden helmet" quantity="[1,1]" probability="1.0"/>
+    </drops>
+    <equips>
+    </equips>
+    <ai>
+      <says>
+        <noise state="idle follow fight" value="Revere me, the Oni King!"/>
+      </says>
+      <profile name="offensive"/>
+      <profile name="human"/>
+    </ai>
+  </creature>
+  
+  <creature name="oni queen">
+    <type class="oni" subclass="oni_queen" tileid="oni.png:4"/>
+    <description>You see the oni queen. She supports her husband and takes an eye onto their kingdom while he conquers new land and fights on battlefields.</description>
+    <attributes>
+      <atk value="737"/>
+      <def value="98"/>
+      <hp value="1200"/>
+      <speed value="0.8"/>
+      <size value="1,1"/>
+    </attributes>
+    <level value="118"/>
+    <experience value="17000"/>
+    <respawn value="6200"/>
+    <corpse name="humanoid"/>
+    <drops>
+      <item value="money" quantity="[10,50]" probability="100.0"/>
+      <item value="greater potion" quantity="[1,2]" probability="30.0"/>
+      <item value="gold bar" quantity="[1,2]" probability="5.0"/>
+      <item value="golden cloak" quantity="[1,1]" probability="1.0"/>
+      <item value="liberty helmet" quantity="[1,1]" probability="0.1"/>
+      <item value="aventail" quantity="[1,1]" probability="10.0"/>
+    </drops>
+    <equips>
+    </equips>
+    <ai>
+      <says>
+        <noise state="idle follow fight" value="You must bow before the Oni Queen."/>
+      </says>
+      <profile name="offensive"/>
+      <profile name="human"/>
+    </ai>
+  </creature>
+  
+  <!-- END: oni -->
+  
+  <!-- START: red oni -->
+  
+  <creature name="red oni warrior">
+		<type class="oni" subclass="red_oni_warrior" tileid="red_oni.png:0"/>
+		<description/>
+		<attributes>
+			<atk value="799"/>
+			<def value="122"/>
+			<hp value="1500"/>
+			<speed value="0.9"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="118"/>
+		<experience value="16000"/>
+		<respawn value="3000"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[300,500]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,3]" probability="50.0"/>
+			<item value="shadow legs" quantity="[1,1]" probability="2.0"/>
+			<item value="shadow boots" quantity="[1,1]" probability="2.0"/>
+			<item value="pizza" quantity="[1,3]" probability="50.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="red oni archer">
+		<type class="oni" subclass="red_oni_archer" tileid="red_oni.png:1"/>
+		<description/>
+		<attributes>
+			<atk value="811"/>
+			<def value="110"/>
+			<hp value="1800"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="121"/>
+		<experience value="18000"/>
+		<respawn value="3300"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[300,700]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,5]" probability="50.0"/>
+			<item value="golden legs" quantity="[1,1]" probability="3.0"/>
+			<item value="golden arrow" quantity="[5,15]" probability="5.0"/>
+			<item value="golden boots" quantity="[1,1]" probability="2.0"/>
+			<item value="pizza" quantity="[1,3]" probability="60.0"/>
+		</drops>
+		<equips>
+			<slot name="lhand" item="power arrow" quantity="10000"/>
+			<slot name="rhand" item="composite bow" quantity="1"/>
+		</equips>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="archer"/>
+		</ai>
+	</creature>
+	<creature name="red oni priest">
+		<type class="oni" subclass="red_oni_priest" tileid="red_oni.png:2"/>
+		<description/>
+		<attributes>
+			<atk value="857"/>
+			<def value="136"/>
+			<hp value="2100"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="123"/>
+		<experience value="19900"/>
+		<respawn value="5590"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="greater potion" quantity="[1,5]" probability="50.0"/>
+			<item value="money" quantity="[300,700]" probability="100.0"/>
+			<item value="shadow boots" quantity="[1,1]" probability="2.0"/>
+			<item value="chaos cloak" quantity="[1,1]" probability="1.0"/>
+			<item value="pizza" quantity="[1,3]" probability="60.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="5,40"/>
+		</ai>
+	</creature>
+	<creature name="red oni king">
+		<type class="oni" subclass="red_oni_king" tileid="red_oni.png:3"/>
+		<description/>
+		<attributes>
+			<atk value="871"/>
+			<def value="159"/>
+			<hp value="2450"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="132"/>
+		<experience value="22000"/>
+		<respawn value="11500"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[500,900]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,5]" probability="50.0"/>
+			<item value="gold bar" quantity="[1,3]" probability="30.0"/>
+			<item value="horned golden helmet" quantity="[1,1]" probability="4.0"/>
+			<item value="pizza" quantity="[1,3]" probability="60.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Revere me, the Oni King!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="red oni queen">
+		<type class="oni" subclass="red_oni_queen" tileid="red_oni.png:4"/>
+		<description/>
+		<attributes>
+			<atk value="1037"/>
+			<def value="178"/>
+			<hp value="3100"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="136"/>
+		<experience value="27000"/>
+		<respawn value="12500"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[600,1500]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,5]" probability="30.0"/>
+			<item value="gold bar" quantity="[2,5]" probability="50.0"/>
+			<item value="golden cloak" quantity="[1,1]" probability="5.0"/>
+			<item value="liberty helmet" quantity="[1,1]" probability="1.0"/>
+			<item value="aventail" quantity="[1,1]" probability="10.0"/>
+			<item value="pizza" quantity="[1,3]" probability="60.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="You must bow before the Oni Queen."/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	
+	<!-- END: Red oni -->
+	
+	<!-- START: Golden oni -->
+	
+	<creature name="golden oni warrior">
+		<type class="oni" subclass="golden_oni_warrior" tileid="red_oni.png:5"/>
+		<description/>
+		<attributes>
+			<atk value="899"/>
+			<def value="132"/>
+			<hp value="3500"/>
+			<speed value="0.9"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="142"/>
+		<experience value="23600"/>
+		<respawn value="3000"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[3000,6500]" probability="100.0"/>
+			<item value="greater potion" quantity="[3,6]" probability="70.0"/>
+			<item value="golden cloak" quantity="[1,1]" probability="1.0"/>
+			<item value="golden armor" quantity="[1,1]" probability="0.5"/>
+			<item value="golden shield" quantity="[1,1]" probability="0.1"/>
+			<item value="golden dress" quantity="[1,1]" probability="0.1"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.0005"/>
+			<item value="pizza" quantity="[2,5]" probability="60.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="golden oni archer">
+		<type class="oni" subclass="golden_oni_archer" tileid="red_oni.png:6"/>
+		<description/>
+		<attributes>
+			<atk value="911"/>
+			<def value="130"/>
+			<hp value="3800"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="144"/>
+		<experience value="24000"/>
+		<respawn value="3300"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[3000,6500]" probability="100.0"/>
+			<item value="greater potion" quantity="[3,6]" probability="70.0"/>
+			<item value="golden cloak" quantity="[1,1]" probability="1.0"/>
+			<item value="golden armor" quantity="[1,1]" probability="0.5"/>
+			<item value="golden shield" quantity="[1,1]" probability="0.1"/>
+			<item value="golden dress" quantity="[1,1]" probability="0.1"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.0005"/>
+			<item value="pizza" quantity="[2,5]" probability="60.0"/>
+			<item value="golden arrow" quantity="[15,25]" probability="15.0"/>
+		</drops>
+		<equips>
+			<slot name="lhand" item="power arrow" quantity="10000"/>
+			<slot name="rhand" item="composite bow" quantity="1"/>
+		</equips>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="archer"/>
+		</ai>
+	</creature>
+	<creature name="golden oni priest">
+		<type class="oni" subclass="golden_oni_priest" tileid="red_oni.png:7"/>
+		<description/>
+		<attributes>
+			<atk value="957"/>
+			<def value="146"/>
+			<hp value="4100"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="146"/>
+		<experience value="25300"/>
+		<respawn value="5590"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[3500,8500]" probability="100.0"/>
+			<item value="greater potion" quantity="[5,8]" probability="70.0"/>
+			<item value="golden cloak" quantity="[1,1]" probability="2.0"/>
+			<item value="golden armor" quantity="[1,1]" probability="0.7"/>
+			<item value="golden shield" quantity="[1,1]" probability="0.2"/>
+			<item value="golden dress" quantity="[1,1]" probability="0.1"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.0005"/>
+			<item value="pizza" quantity="[2,5]" probability="60.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="5,40"/>
+		</ai>
+	</creature>
+	<creature name="golden oni king">
+		<type class="oni" subclass="golden_oni_king" tileid="red_oni.png:8"/>
+		<description/>
+		<attributes>
+			<atk value="1075"/>
+			<def value="185"/>
+			<hp value="4450"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="148"/>
+		<experience value="27000"/>
+		<respawn value="11500"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[5000,12500]" probability="100.0"/>
+			<item value="greater potion" quantity="[3,6]" probability="70.0"/>
+			<item value="golden cloak" quantity="[1,1]" probability="2.5"/>
+			<item value="golden armor" quantity="[1,1]" probability="1.0"/>
+			<item value="golden dress" quantity="[1,1]" probability="0.2"/>
+			<item value="golden shield" quantity="[1,1]" probability="0.5"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.0005"/>
+			<item value="pizza" quantity="[2,5]" probability="60.0"/>
+			<item value="gold bar" quantity="[3,6]" probability="50.0"/>
+			<item value="horned golden helmet" quantity="[1,1]" probability="6.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="golden oni queen">
+		<type class="oni" subclass="golden_oni_queen" tileid="red_oni.png:9"/>
+		<description/>
+		<attributes>
+			<atk value="1125"/>
+			<def value="215"/>
+			<hp value="5100"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="152"/>
+		<experience value="29000"/>
+		<respawn value="12500"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[6000,14500]" probability="100.0"/>
+			<item value="greater potion" quantity="[3,6]" probability="70.0"/>
+			<item value="golden cloak" quantity="[1,1]" probability="2.0"/>
+			<item value="golden armor" quantity="[1,1]" probability="1.5"/>
+			<item value="golden dress" quantity="[1,1]" probability="0.3"/>
+			<item value="golden shield" quantity="[1,1]" probability="0.8"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.001"/>
+			<item value="pizza" quantity="[2,5]" probability="60.0"/>
+			<item value="gold bar" quantity="[3,6]" probability="50.0"/>
+			<item value="liberty helmet" quantity="[1,1]" probability="2.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	
+	<!-- END: Golden oni -->
+  
+</creatures>

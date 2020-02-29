@@ -1,0 +1,1176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../items.xsd ">
+
+  <item name="summon scroll">
+    <type class="scroll" subclass="summon" tileid="-1"/>
+    <description/>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.SummonScroll"/>
+    <attributes>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+	  <slot name="scrollbag"/>
+    </equipable>
+  </item>
+  
+   <item name="summon pet scroll">
+    <type class="scroll" subclass="summon_pet" tileid="-1"/>
+    <description/>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.SummonPetScroll"/>
+    <attributes>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+  
+  <item name="blank pet scroll">
+    <type class="scroll" subclass="blank_pet_scroll" tileid="-1"/>
+    <description/>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.BlankPetScroll"/>
+    <attributes>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <item name="nalwor city scroll">
+    <type class="scroll" subclass="nalwor" tileid="-1"/>
+    <description>You see a nalwor city scroll, it will take you back to nalwor city.</description>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.MarkedScroll"/>
+    <attributes>
+      <infostring value="0_nalwor_city 40 60"/>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+	  <slot name="scrollbag"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="ados city scroll">
+    <type class="scroll" subclass="ados" tileid="-1"/>
+    <description>You see a ados city scroll, it will take you back to ados city.</description>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.MarkedScroll"/>
+    <attributes>
+      <infostring value="0_ados_city_n 50 50"/>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="fado city scroll">
+    <type class="scroll" subclass="fado" tileid="-1"/>
+    <description>You see a fado city scroll, it will take you back to fado city.</description>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.MarkedScroll"/>
+    <attributes>
+      <infostring value="0_fado_city 40 30"/>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="kirdneh city scroll">
+    <type class="scroll" subclass="kirdneh" tileid="-1"/>
+    <description>You see a kirdneh city scroll, it will take you back to kirdneh city.</description>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.MarkedScroll"/>
+    <attributes>
+      <infostring value="0_kirdneh_city 63 85"/>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="kalavan city scroll">
+    <type class="scroll" subclass="kalavan" tileid="-1"/>
+    <description>You see a kalavan city scroll, it will take you back to kalavan city.</description>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.MarkedScroll"/>
+    <attributes>
+      <infostring value="0_kalavan_city 64 17"/>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="marked scroll">
+    <type class="scroll" subclass="marked" tileid="-1"/>
+    <description/>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.MarkedScroll"/>
+    <attributes>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <item name="invitation scroll">
+    <type class="scroll" subclass="invitation" tileid="-1"/>
+    <description/>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.InvitationScroll"/>
+    <attributes>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="trade"/>
+    </equipable>
+  </item>
+
+  <item name="home scroll">
+    <type class="scroll" subclass="home" tileid="-1"/>
+    <description>You see a home scroll, it will take you back to semos city.</description>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.MarkedScroll"/>
+    <attributes>
+      <infostring value="0_semos_city 30 40"/>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="100"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="empty scroll">
+    <type class="scroll" subclass="empty" tileid="-1"/>
+    <description>You see an empty scroll. If used correctly it will return you to where you marked it at.</description>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.EmptyScroll"/>
+    <attributes>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="4000"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="rainbow beans">
+    <type class="scroll" subclass="rainbow_beans" tileid="-1"/>
+    <description>You see a small pile of rainbow beans. One says something odd.</description>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.RainbowBeansScroll"/>
+    <attributes>
+      <infostring value="1_dreamscape 77 35 5400 0_semos_plains_s -1 -1"/>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1000"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="balloon">
+    <type class="scroll" subclass="balloon" tileid="-1"/>
+    <description>You see a bright red balloon. You can use it to float high up into the clouds.</description>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.BalloonScroll"/>
+    <attributes>
+      <infostring value="7_kikareukin_clouds 31 12 10800 6_kikareukin_islands -1 -1"/>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="10000"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
+  <item name="twilight moss">
+    <type class="scroll" subclass="twilightmoss" tileid="-1"/>
+    <description>You see a strange looking piece of moss. It looks like it could have hallucinogenic properties.</description>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.TwilightMossScroll"/>
+    <attributes>
+      <infostring value="int_ados_twilight_zone 12 20 10800 int_ados_sewing_room -1 -1"/>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="10000"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <!-- Chinese -->
+  
+  <item name="shepherd scroll">
+    <type class="scroll" subclass="shepherd" tileid="-1"/>
+    <description/>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.ShepherdScroll"/>    <attributes>
+      <infostring value="shepherd"/>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="scrollbox"/>
+    </equipable>
+  </item>
+  
+  <item name="kobold scroll">
+    <type class="scroll" subclass="kobold" tileid="-1"/>
+    <description>You see a kobold scroll, it will take you back to kobold.</description>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.MarkedScroll"/>    <attributes>
+      <infostring value="-1_semos_mine_nw 51 68"/>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="100"/>
+    <equipable>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="scrollbox"/>
+    </equipable>
+  </item>
+  
+  
+  <item name="training scroll">
+    <type class="scroll" subclass="training" tileid="-1"/>
+    <description>training scroll, this will summon a monster at your level to train with you.</description>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.TrainingScroll"/>    <attributes>
+      <infostring value="training"/>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+      <slot name="scrollbox"/>
+    </equipable>
+  </item> 
+  
+  
+  <item name="power scroll">
+    <type class="scroll" subclass="power" tileid="-1"/>
+    <description>power scroll, it gives you a boost in the stats.</description>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.PowerScroll"/>    <attributes>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="4"/>
+    <equipable>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="scrollbox"/>
+    </equipable>
+  </item>
+  
+  <!-- PolishScrolls -->
+  
+  <item name="zwój tatrzański">
+		<type class="scroll" subclass="zakopane" tileid="-1"/>
+		<description>Oto zwój tatrzański, który przeniesie cię niedaleko Tatr.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.MarkedScroll"/>
+		<attributes>
+			<infostring value="0_zakopane_s 30 40"/>
+			<quantity value="1"/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="zwój krakowski">
+		<type class="scroll" subclass="grod_kraka" tileid="-1"/>
+		<description>Oto zwój krakowski, który przeniesie cię do grodu, pełnego smoków i dzielnych rycerzy.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.MarkedScroll"/>
+		<attributes>
+			<infostring value="0_krakow_wawel_w 96 80"/>
+			<quantity value="1"/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="zwój wieliczka">
+		<type class="scroll" subclass="wieliczka" tileid="-1"/>
+		<description>Oto zwój wieliczka, który przeniesie cię do miejsca, gdzie znajdziesz niezliczone pokłady soli.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.MarkedScroll"/>
+		<attributes>
+			<infostring value="0_wieliczka_c 69 57"/>
+			<quantity value="1"/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+
+	<item name="bilet na mecz">
+		<type class="scroll" subclass="bilet_na_mecz" tileid="-1"/>
+		<description>Oto bilet na mecz.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="1_football_playground 31 45"/>
+			<quantity value="1"/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="1000"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+
+	<item name="bilet turystyczny">
+		<type class="scroll" subclass="last_minute" tileid="-1"/>
+		<description>Oto bilet turystyczny. Przeniesie cię na chwilę do dziwnej krainy, gdzie możesz zwiedzać dziwne, szpiczaste budowle.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.LastMinuteScroll"/>
+		<attributes>
+			<infostring value="0_desert_pyramid_nw 120 30 32400 0_semos_city 30 40"/>
+			<quantity value="1"/>
+			<min_level value="200"/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="1000"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+
+	<item name="magiczny bilet">
+		<type class="scroll" subclass="black" tileid="-1"/>
+		<description>Oto magiczny bilet. Przeniesie cię w miejsce, gdzie czeka cię chwała lub śmierć.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.MagicznyScroll"/>
+		<attributes>
+			<infostring value="7_labirynt 1 125 40000 0_semos_city 32 40"/>
+			<quantity value="1"/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+
+	<item name="biały balonik">
+		<type class="scroll" subclass="balonik" tileid="-1"/>
+		<description>Oto biały balonik. Jeśli nie ważysz zbyt dużo może unieść cię wysoko ponad góry.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.BalloonScroll"/>
+		<attributes>
+			<infostring value="6_zakopane_clouds 8 6 10000 0_tatry_dolina_koscieliska_n 70 5"/>
+			<quantity value="1"/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="10000"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="magiczny kryształ">
+		<type class="scroll" subclass="magic_crystal" tileid="-1"/>
+		<description>Oto magiczny kryształ. Za jego pomocą możesz teleportować się do lochów.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.MagicCrystalScroll"/>
+		<attributes>
+			<infostring value="0_ados_city 77 35 5400 0_semos_plains_s 50 40"/>
+			<quantity value="1"/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="1000"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+
+	<item name="zwój malleus">
+		<type class="scroll" subclass="malleus_scroll" tileid="-1"/>
+		<description>Oto zwój malleus, który przeniesie cię do ogni piekielnych, pełnych demonów.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.MalleusScroll"/>
+		<attributes>
+			<infostring value="int_malleus_plain 13 6 30000 0_semos_city 32 40"/>
+			<quantity value="1"/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="magiczny zwój">
+		<type class="scroll" subclass="map" tileid="-1"/>
+		<description>Oto magiczny zwój, który przeniesie cię domu pełnego portalów. Przeteleportują Cię one do większości lokacji na tym świecie..</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.HouseScroll"/>
+		<attributes>
+			<infostring value="int_allscroll_house 13 6 30000 0_semos_city 32 40"/>
+			<quantity value="1"/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+			
+	<item name="czerwony odłamek">
+		<type class="scroll" subclass="czerwony_odlamek" tileid="-1"/>
+		<description>Oto czerwony odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-1_semos_crazy_dungeon_1 26 45"/>
+			<quantity value="1"/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="czerwony odłamek1">
+		<type class="scroll" subclass="czerwony_odlamek" tileid="-1"/>
+		<description>Oto czerwony odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-1_semos_crazy_dungeon_2 32 31"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="czerwony odłamek2">
+		<type class="scroll" subclass="czerwony_odlamek" tileid="-1"/>
+		<description>Oto czerwony odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-1_semos_crazy_dungeon_3 31 32"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="czerwony odłamek3">
+		<type class="scroll" subclass="czerwony_odlamek" tileid="-1"/>
+		<description>Oto czerwony odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-1_semos_crazy_dungeon_4 26 26"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="czerwony odłamek4">
+		<type class="scroll" subclass="czerwony_odlamek" tileid="-1"/>
+		<description>Oto czerwony odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-1_semos_crazy_dungeon_5 28 31"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="czerwony odłamek5">
+		<type class="scroll" subclass="czerwony_odlamek" tileid="-1"/>
+		<description>Oto czerwony odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-1_semos_crazy_dungeon_6 4 6"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="czerwony odłamek6">
+		<type class="scroll" subclass="czerwony_odlamek" tileid="-1"/>
+		<description>Oto czerwony odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-1_semos_crazy_dungeon_7 56 54"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="niebieski odłamek1">
+		<type class="scroll" subclass="niebieski_odlamek" tileid="-1"/>
+		<description>Oto niebieski odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-2_semos_crazy_dungeon_1 49 48"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="niebieski odłamek2">
+		<type class="scroll" subclass="niebieski_odlamek" tileid="-1"/>
+		<description>Oto niebieski odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-2_semos_crazy_dungeon_2 61 37"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="niebieski odłamek3">
+		<type class="scroll" subclass="niebieski_odlamek" tileid="-1"/>
+		<description>Oto niebieski odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-2_semos_crazy_dungeon_3 34 42"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="niebieski odłamek4">
+		<type class="scroll" subclass="niebieski_odlamek" tileid="-1"/>
+		<description>Oto niebieski odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-2_semos_crazy_dungeon_4 83 58"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="niebieski odłamek5">
+		<type class="scroll" subclass="niebieski_odlamek" tileid="-1"/>
+		<description>Oto niebieski odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-2_semos_crazy_dungeon_5 45 47"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="niebieski odłamek6">
+		<type class="scroll" subclass="niebieski_odlamek" tileid="-1"/>
+		<description>Oto niebieski odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-2_semos_crazy_dungeon_6 45 48"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="niebieski odłamek7">
+		<type class="scroll" subclass="niebieski_odlamek" tileid="-1"/>
+		<description>Oto niebieski odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-2_semos_crazy_dungeon_7 47 44"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="niebieski odłamek8">
+		<type class="scroll" subclass="niebieski_odlamek" tileid="-1"/>
+		<description>Oto niebieski odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-2_semos_crazy_dungeon_8 45 38"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="niebieski odłamek9">
+		<type class="scroll" subclass="niebieski_odlamek" tileid="-1"/>
+		<description>Oto niebieski odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-2_semos_crazy_dungeon_9 43 37"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="niebieski odłamek10">
+		<type class="scroll" subclass="niebieski_odlamek" tileid="-1"/>
+		<description>Oto niebieski odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-2_semos_crazy_dungeon_10 59 35"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="niebieski odłamek11">
+		<type class="scroll" subclass="niebieski_odlamek" tileid="-1"/>
+		<description>Oto niebieski odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-2_semos_crazy_dungeon_11 72 12"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="niebieski odłamek12">
+		<type class="scroll" subclass="niebieski_odlamek" tileid="-1"/>
+		<description>Oto niebieski odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-2_semos_crazy_dungeon_12 13 50"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="złoty odłamek1">
+		<type class="scroll" subclass="zloty_odlamek" tileid="-1"/>
+		<description>Oto złoty odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-3_semos_crazy_dungeon_1 47 89"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="złoty odłamek2">
+		<type class="scroll" subclass="zloty_odlamek" tileid="-1"/>
+		<description>Oto złoty odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-3_semos_crazy_dungeon_2 58 43"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="złoty odłamek3">
+		<type class="scroll" subclass="zloty_odlamek" tileid="-1"/>
+		<description>Oto złoty odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-3_semos_crazy_dungeon_3 59 70"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="złoty odłamek4">
+		<type class="scroll" subclass="zloty_odlamek" tileid="-1"/>
+		<description>Oto złoty odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-3_semos_crazy_dungeon_4 87 69"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+	
+	<item name="złoty odłamek5">
+		<type class="scroll" subclass="zloty_odlamek" tileid="-1"/>
+		<description>Oto złoty odłamek, który przeniesie cię do niesamowitego miejsca.</description>
+		<implementation class-name="games.stendhal.server.entity.item.scroll.FreeScroll"/>
+		<attributes>
+			<infostring value="-3_semos_crazy_dungeon_5 48 26"/>
+			<quantity value="1"/>
+			<autobind value=""/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="100"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="scrollbag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="keyring"/>
+		</equipable>
+	</item>
+</items>
