@@ -123,7 +123,7 @@ public class SourceSulfur extends PlayerActivityEntity {
 	 * @return The time to perform the activity (in seconds).
 	 */
 	@Override
-	protected int getDuration() {
+	protected int getDuration(final Player player) {
 		return 8 + Rand.rand(4);
 	}
 

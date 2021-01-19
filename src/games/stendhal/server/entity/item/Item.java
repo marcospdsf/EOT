@@ -240,7 +240,11 @@ public class Item extends PassiveEntity implements TurnListener, EquipListener,
 		entity.addAttribute("autobind", Type.FLAG, (byte) (Definition.HIDDEN | Definition.VOLATILE));
 
 		// Number of uses for BreakableItem
+		entity.addAttribute("durability", Type.INT, Definition.VOLATILE);
 		entity.addAttribute("uses", Type.INT);
+
+		// player that owns the item
+		entity.addAttribute("owner", Type.STRING, Definition.HIDDEN);
 	}
 
 
@@ -379,6 +383,16 @@ public class Item extends PassiveEntity implements TurnListener, EquipListener,
 		} else {
 			Logger.getLogger(getClass()).debug("The item"+ this.getName() +"did not deteriorate from "+this.getDeterioration()+".");
 		}
+	}
+
+	/**
+	 * Can be overridden to handle actions on user entity.
+	 *
+	 * @param user
+	 * 		Entity using the item.
+	 */
+	public void deteriorate(@SuppressWarnings("unused") final RPEntity user) {
+		deteriorate();
 	}
 
 	/**
@@ -743,6 +757,12 @@ public class Item extends PassiveEntity implements TurnListener, EquipListener,
 		if (has("ratk")) {
 			stats.append(" RATK: ");
 			stats.append(get("ratk"));
+			// Show only special types
+			if (getDamageType() != Nature.CUT) {
+				stats.append(" [");
+				stats.append(getDamageType());
+				stats.append("]");
+			}
 		}
 		if (has("rate")) {
 			stats.append(" RATE: ");

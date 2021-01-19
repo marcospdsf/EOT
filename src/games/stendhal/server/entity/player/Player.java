@@ -42,7 +42,9 @@ import games.stendhal.common.NotificationType;
 import games.stendhal.common.TradeState;
 import games.stendhal.common.Version;
 import games.stendhal.common.constants.Nature;
+import games.stendhal.common.constants.SoundID;
 import games.stendhal.common.constants.SoundLayer;
+import games.stendhal.common.constants.Testing;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.parser.WordList;
 import games.stendhal.server.core.engine.GameEvent;
@@ -183,6 +185,10 @@ public class Player extends DressedEntity implements UseListener {
 		player.put("def_xp", 0);
 		player.put("miningLevel", 10);
 		player.put("mining_xp", 0);
+		if (Testing.COMBAT) {
+			player.put("ratk", 10);
+			player.put("ratk_xp", 0);
+		}
 		player.put("level", 0);
 		player.setXP(0);
 
@@ -199,6 +205,7 @@ public class Player extends DressedEntity implements UseListener {
 		if (outfit == null || !outfit.isChoosableByPlayers()) {
 			outfit = Outfit.getRandomOutfit();
 		}
+
 		player.setOutfit(outfit);
 
 		for (final String slot : Arrays.asList("armor", "rhand", "head", "legs", "feet")) {
@@ -226,6 +233,7 @@ public class Player extends DressedEntity implements UseListener {
 		entity = SingletonRepository.getEntityManager().getItem("leather boots");
 		slot = player.getSlot("feet");
 		slot.add(entity);
+
 
 		return player;
 	}
@@ -841,9 +849,9 @@ public class Player extends DressedEntity implements UseListener {
 		int oldValue = getMagicSkillXp(nature);
 		int newValue = oldValue + amount;
 		// Handle level changes
-		final int newLevel = Level.getLevel(newValue);
-		int oldLevel = Level.getLevel(oldValue);
-		final int levels = newLevel - (oldLevel - 10);
+		final long newLevel = Level.getLevel(newValue);
+		long oldLevel = Level.getLevel(oldValue);
+		final long levels = newLevel - (oldLevel - 10);
 
 		// In case we level up several levels at a single time.
 		for (int i = 0; i < Math.abs(levels); i++) {
@@ -2077,7 +2085,7 @@ public class Player extends DressedEntity implements UseListener {
 			incDefXP();
 		}
 	}
-	
+
 	@Override
 	protected void handleObjectCollision() {
 		if (hasPath()) {
@@ -2179,8 +2187,13 @@ public class Player extends DressedEntity implements UseListener {
 		if (shield != null) {
 			sus *= shield.getSusceptibility(type);
 		}
+		Item glove = getGloves();
+		if(glove != null) {
+			sus *= glove.getSusceptibility(type);
+		}
 
-		String[] armorSlots = { "armor", "head", "legs", "feet", "cloak", "glove", "finger", "finger2" };
+		//String[] armorSlots = { "armor", "head", "legs", "feet", "cloak", "glove", "finger", "finger2" };
+		String[] armorSlots = { "armor", "head", "legs", "feet", "cloak"};
 		for (String slot : armorSlots) {
 			RPObject object = getSlot(slot).getFirst();
 			if (object instanceof Item) {
@@ -2221,14 +2234,50 @@ public class Player extends DressedEntity implements UseListener {
 	}
 
 	@Override
-	public void setLevel(int level) {
-		final int oldLevel = super.getLevel();
+	public void setLevel(final int level) {
+		final int oldLevel = getLevel();
 		super.setLevel(level);
 
 		// reward players on level up
 		if (oldLevel < level) {
 			AchievementNotifier.get().onLevelChange(this);
-			this.addEvent(new SoundEvent("tadaa-1", SoundLayer.USER_INTERFACE));
+			this.addEvent(new SoundEvent(SoundID.LEVEL_UP, SoundLayer.USER_INTERFACE));
+			this.notifyWorldAboutChanges();
+		}
+	}
+
+	@Override
+	protected void setDefInternal(final int def, final boolean notify) {
+		final int oldDef = getDef();
+		super.setDefInternal(def, notify);
+
+		if (oldDef < def) {
+			AchievementNotifier.get().onDefChange(this);
+			this.addEvent(new SoundEvent(SoundID.STAT_UP, SoundLayer.USER_INTERFACE));
+			this.notifyWorldAboutChanges();
+		}
+	}
+
+	@Override
+	protected void setAtkInternal(final int atk, final boolean notify) {
+		final int oldAtk = getAtk();
+		super.setAtkInternal(atk, notify);
+
+		if (oldAtk < atk) {
+			AchievementNotifier.get().onAtkChange(this);
+			this.addEvent(new SoundEvent(SoundID.STAT_UP, SoundLayer.USER_INTERFACE));
+			this.notifyWorldAboutChanges();
+		}
+	}
+
+	@Override
+	protected void setRatkInternal(final int ratk, final boolean notify) {
+		final int oldRatk = getRatk();
+		super.setRatkInternal(ratk, notify);
+
+		if (oldRatk < ratk) {
+			AchievementNotifier.get().onRatkChange(this);
+			this.addEvent(new SoundEvent(SoundID.STAT_UP, SoundLayer.USER_INTERFACE));
 			this.notifyWorldAboutChanges();
 		}
 	}
@@ -2468,6 +2517,8 @@ public class Player extends DressedEntity implements UseListener {
 	 */
 	public void incLootForItem(String item, int count) {
 		itemCounter.incLootForItem(item, count);
+		// check achievements in item category
+		AchievementNotifier.get().onItemLoot(this);
 	}
 
 	/**
@@ -2477,8 +2528,10 @@ public class Player extends DressedEntity implements UseListener {
 	 *            the item name
 	 * @param count
 	 */
-	public void incProducedCountForItem(String item, int count) {
+	public void incProducedForItem(String item, int count) {
 		itemCounter.incProducedForItem(item, count);
+		// check achievements in production category
+		AchievementNotifier.get().onProduction(this);
 	}
 
 	/**
@@ -2490,6 +2543,8 @@ public class Player extends DressedEntity implements UseListener {
 	 */
 	public void incObtainedForItem(String name, int quantity) {
 		itemCounter.incObtainedForItem(name, quantity);
+		// check achievements in obtain category
+		AchievementNotifier.get().onObtain(this);
 	}
 
 	/**
@@ -2501,6 +2556,8 @@ public class Player extends DressedEntity implements UseListener {
 	 */
 	public void incSoldForItem(String name, int quantity) {
 		itemCounter.incSoldForItem(name, quantity);
+		// check achievements in commerce category
+		AchievementNotifier.get().onTrade(this);
 	}
 
 	/**
@@ -2512,6 +2569,8 @@ public class Player extends DressedEntity implements UseListener {
 	 */
 	public void incMinedForItem(String name, int quantity) {
 		itemCounter.incMinedForItem(name, quantity);
+		// check achievements in obtain category
+		AchievementNotifier.get().onObtain(this);
 	}
 
 	/**
@@ -2523,6 +2582,8 @@ public class Player extends DressedEntity implements UseListener {
 	 */
 	public void incHarvestedForItem(String name, int quantity) {
 		itemCounter.incHarvestedForItem(name, quantity);
+		// check achievements in obtain category
+		AchievementNotifier.get().onObtain(this);
 	}
 
 	/**
@@ -2534,6 +2595,8 @@ public class Player extends DressedEntity implements UseListener {
 	 */
 	public void incBoughtForItem(String name, int quantity) {
 		itemCounter.incBoughtForItem(name, quantity);
+		// check achievements in commerce category
+		AchievementNotifier.get().onTrade(this);
 	}
 
 	/**
@@ -2755,9 +2818,9 @@ public class Player extends DressedEntity implements UseListener {
 	 *            checked level
 	 * @return maximum mining
 	 */
-	//private int getMaxMiningForLevel(int level) {
-	//		return (int) (10 * Math.cbrt(level) + 60);
-	//}
+	private int getMaxMiningForLevel(int level) {
+			return (int) (10 * Math.cbrt(level) + 60);
+	}
 
 	/**
 	 * gets the capped atk level, which prevent players from training their atk
@@ -2790,13 +2853,25 @@ public class Player extends DressedEntity implements UseListener {
 	 *
 	 * @return capped mining
 	 */
-	//@Override
-	//public int getCappedMiningLevel() {
+	@Override
+	public int getCappedMiningLevel() {
 		// Blue line in https://sourceforge.net/p/arianne/feature-requests/1330/
 		// reduced using median instead of average as reference
-	//	return Math.min(this.miningLevel, getMaxMiningForLevel(level));
-	//}
+		return Math.min(this.miningLevel, getMaxMiningForLevel(level));
+	}
 
+	/**
+	 * Gets the capped ratk level, which prevent players from training their
+	 * ratk way beyond what is reasonable for their level.
+	 *
+	 * XXX: Should use getMaxRatkForLevel() method instead?
+	 *
+	 * @return capped ratk
+	 */
+	@Override
+	public int getCappedRatk() {
+		return Math.min(this.ratk, getMaxAtkForLevel(level));
+	}
 
 	/**
 	 * Collision handling instructions for players.

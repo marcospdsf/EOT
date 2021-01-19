@@ -84,6 +84,8 @@ public class WeeklyItemQuest extends AbstractQuest {
 	/** the logger instance */
 	private static final Logger logger = Logger.getLogger(WeeklyItemQuest.class);
 
+	private static WeeklyItemQuest instance;
+
 	private static final String QUEST_SLOT = "weekly_item";
 
 	/** How long until the player can give up and start another quest */
@@ -102,6 +104,21 @@ public class WeeklyItemQuest extends AbstractQuest {
 
 	private static final int LEVEL_MED = 51;
 	private static final int LEVEL_HARD = 151;
+
+
+	/**
+	 * Get the static instance.
+	 *
+	 * @return
+	 * 		WeeklyItemQuest
+	 */
+	public static WeeklyItemQuest getInstance() {
+		if (instance == null) {
+			instance = new WeeklyItemQuest();
+		}
+
+		return instance;
+	}
 
 	private static void buildItemsMap() {
 
@@ -239,6 +256,9 @@ public class WeeklyItemQuest extends AbstractQuest {
 
 		// legs (hard difficulty)
 		addHard("xeno legs", 1);
+
+		// misc (hard difficulty)
+		addHard("unicorn horn", 5);
 
 		// shield (hard difficulty)
 		addHard("xeno shield", 1);
@@ -519,7 +539,7 @@ public class WeeklyItemQuest extends AbstractQuest {
 			if (!player.isEquipped(questItem, amount)) {
 				res.add(String.format("I have been asked to find " +Grammar.quantityplnoun(amount, questItem, "a") + " for Kirdneh museum."));
 			} else {
-				res.add(String.format("I have " + Grammar.quantityplnoun(amount, questItem, "a") + " for Kirdneh museum and need to take it."));
+				res.add(String.format("I have " + Grammar.quantityplnoun(amount, questItem, "a") + " for Kirdneh museum and should deliver it to Hazel."));
 			}
 		}
 		if (isRepeatable(player)) {
@@ -540,7 +560,7 @@ public class WeeklyItemQuest extends AbstractQuest {
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Kirdneh museum needs help!",
+				"Kirdneh Museum Needs Help!",
 				"Hazel, the curator of the Kirdneh Museum, wants as many rare exhibits as she can afford.",
 				true);
 		buildItemsMap();

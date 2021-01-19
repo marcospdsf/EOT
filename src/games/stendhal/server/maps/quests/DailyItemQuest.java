@@ -68,6 +68,8 @@ import games.stendhal.server.maps.Region;
  */
 public class DailyItemQuest extends AbstractQuest {
 
+	private static DailyItemQuest instance;
+
 	private static final String QUEST_SLOT = "daily_item";
 
 	/** How long until the player can give up and start another quest */
@@ -81,6 +83,21 @@ public class DailyItemQuest extends AbstractQuest {
 	 * it better, go ahead. *
 	 */
 	private static Map<String,Integer> items;
+
+
+	/**
+	 * Get the static instance.
+	 *
+	 * @return
+	 * 		DailyItemQuest
+	 */
+	public static DailyItemQuest getInstance() {
+		if (instance == null) {
+			instance = new DailyItemQuest();
+		}
+
+		return instance;
+	}
 
 	private static void buildItemsMap() {
 		items = new HashMap<String, Integer>();
@@ -235,6 +252,7 @@ public class DailyItemQuest extends AbstractQuest {
 
 		// misc
 		items.put("dice",1);
+		items.put("leather thread", 20);
 		items.put("marbles", 2);
 		items.put("pelt",5);
 		items.put("rodent trap",5);
@@ -444,11 +462,11 @@ public class DailyItemQuest extends AbstractQuest {
 			String questItem = player.getRequiredItemName(QUEST_SLOT,0);
 			int amount = player.getRequiredItemQuantity(QUEST_SLOT,0);
 			if (!player.isEquipped(questItem, amount)) {
-				res.add("I have been asked to fetch "
-						+ Grammar.quantityplnoun(amount, questItem, "a") + " to help Ados. I haven't got it yet.");
+				res.add("I have been asked to fetch " + Grammar.quantityplnoun(amount, questItem, "a")
+						+ " to help Ados. I haven't got " + Grammar.itthem(amount) + " yet.");
 			} else {
-				res.add("I have found "
-						+ Grammar.quantityplnoun(amount, questItem, "a") + " to help Ados and need to take it.");
+				res.add("I have found " + Grammar.quantityplnoun(amount, questItem, "a")
+						+ " to help Ados and should deliver " + Grammar.itthem(amount) + " to Mayor Chalmers.");
 			}
 		}
 		int repetitions = player.getNumberOfRepetitions(getSlotName(), 2);

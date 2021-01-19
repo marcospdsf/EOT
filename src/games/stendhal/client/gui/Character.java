@@ -131,11 +131,11 @@ Inspectable {
 		 */
 		left.add(Box.createVerticalStrut(HAND_YSHIFT * 2));
 
-		ItemPanel panel = createItemPanel(itemClass, store, "rhand", "data/gui/weapon-slot.png");
+		ItemPanel panel = createItemPanel(itemClass, store, "rhand", "data/gui/slot-weapon.png");
 		left.add(panel);
 		panel = createItemPanel(itemClass, store, "glove", "data/gui/gloves-slot.png");
 		left.add(panel);
-		panel = createItemPanel(itemClass, store, "finger", "data/gui/ring-slot.png");
+		panel = createItemPanel(itemClass, store, "finger", "data/gui/slot-ring.png");
 		left.add(panel);
 
 		// Fill the middle column

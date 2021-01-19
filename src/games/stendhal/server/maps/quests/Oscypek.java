@@ -116,7 +116,7 @@ public class Oscypek extends AbstractQuest {
 								npc.say("Ej, lichy z ciebie honielnik! Owca jeszcze nie jest dobrze wypasiona");
 								player.addKarma(-10);
 							} else {
-								npc.say("No! Takiego juhasa trza mi było. Teraz pora na jej dojenie. Gieletę, czyli wiaderko mam, ale biegnij za ten czas do Kościeliska. Jest tam #kowal #Jacek. U niego jest moja #puciera.");				
+								npc.say("No! Takiego juhasa trza mi było. Teraz pora na jej dojenie. Gieletę, czyli wiaderko mam, ale biegnij za ten czas do Kościeliska. Jest tam #kowal #Jacek. U niego jest moja #pot.");				
 								//sheep.getZone().remove(sheep);
 								player.removeSheep(sheep);
 								sheep.getZone().remove(sheep);
@@ -142,14 +142,14 @@ public class Oscypek extends AbstractQuest {
 				new ChatAction() {
 				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
-					npc.say("U kowala Jacka jest moja #puciera. Wczoraj się oberwała i pogięła. Biegnij po nią wartko!");
-					player.setQuest(QUEST_SLOT, "puciera_make");
+					npc.say("U kowala Jacka jest moja #pot. Wczoraj się oberwała i pogięła. Biegnij po nią wartko!");
+					player.setQuest(QUEST_SLOT, "pot_make");
 				};
 		});
 
-		npc.add(ConversationStates.ATTENDING, "puciera",
-				new QuestInStateCondition(QUEST_SLOT, "puciera_make"),
-				ConversationStates.ATTENDING, "Puciera to wielki garniec, w którym po dodaniu klagu z cielęcego żołądka mleko ścina się na bunc - biały ser owczy i żyntycę."
+		npc.add(ConversationStates.ATTENDING, "pot",
+				new QuestInStateCondition(QUEST_SLOT, "pot_make"),
+				ConversationStates.ATTENDING, "pot to wielki garniec, w którym po dodaniu klagu z cielęcego żołądka mleko ścina się na bunc - biały ser owczy i żyntycę."
 				+ " #Kowal #Jacek miał mi ją naprawić, bo wczoraj się oberwała i pogięła.",
 				null);
 	}
@@ -158,19 +158,19 @@ public class Oscypek extends AbstractQuest {
 	private void odbior1() {
 		final SpeakerNPC npc = npcs.get("Kowal Jacek");	
 
-		npc.add(ConversationStates.ATTENDING, "puciera",
-				new QuestInStateCondition(QUEST_SLOT, "puciera_make"),
+		npc.add(ConversationStates.ATTENDING, "pot",
+				new QuestInStateCondition(QUEST_SLOT, "pot_make"),
 				ConversationStates.ATTENDING, null,
 				new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
-						final Item puciera = SingletonRepository.getEntityManager().getItem("puciera");
-						puciera.setBoundTo(player.getName());
-						player.equipOrPutOnGround(puciera);
+						final Item pot = SingletonRepository.getEntityManager().getItem("pot");
+						pot.setBoundTo(player.getName());
+						player.equipOrPutOnGround(pot);
 						player.addKarma(10);
 						player.addXP(100);
 						npc.say("Witaj! Skończyłem go, zanieś wartko ten garniec do bacy");
-						player.setQuest(QUEST_SLOT, "puciera_done");
+						player.setQuest(QUEST_SLOT, "pot_done");
 					};
 				});
 	}
@@ -179,14 +179,14 @@ public class Oscypek extends AbstractQuest {
 	private void step3() {
 		final SpeakerNPC npc = npcs.get("Baca Zbyszek");
 
-		npc.add(ConversationStates.ATTENDING, "puciera",
-				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "puciera_done"),
-				new PlayerHasItemWithHimCondition("puciera")),
+		npc.add(ConversationStates.ATTENDING, "pot",
+				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "pot_done"),
+				new PlayerHasItemWithHimCondition("pot")),
 				ConversationStates.ATTENDING, null,
 				new ChatAction() {
 				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
-					player.drop("puciera");
+					player.drop("pot");
 					player.addKarma(10);
 					player.addXP(100);
 					npc.say("Aleś długo szedł! O mało co mleko się nie popsuło! Leć jeszcze raz do Kościeliska. Na południe obok doliny Kościeliskiej mieszka #gaździna #Maryśka." +
@@ -196,16 +196,16 @@ public class Oscypek extends AbstractQuest {
 		});
 
 		npc.add(
-			ConversationStates.ATTENDING, "puciera",
-			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "puciera_done"), new NotCondition(new PlayerHasItemWithHimCondition("puciera"))),
+			ConversationStates.ATTENDING, "pot",
+			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "pot_done"), new NotCondition(new PlayerHasItemWithHimCondition("pot"))),
 			ConversationStates.ATTENDING,
-			"Mierny z ciebie pomocnik! Gdzie #puciera? Miał mi ją naprawić #Kowal #Jacek z Kościeliska! Lepiej sie bez niej nie pokazuj, bo mleko się zmarnuje!",
+			"Mierny z ciebie pomocnik! Gdzie #pot? Miał mi ją naprawić #Kowal #Jacek z Kościeliska! Lepiej sie bez niej nie pokazuj, bo mleko się zmarnuje!",
 			null);
 
 		npc.add(
 				ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
-				new QuestInStateCondition(QUEST_SLOT, "puciera_done"),
+				new QuestInStateCondition(QUEST_SLOT, "pot_done"),
 				ConversationStates.ATTENDING,
 				"Prosiłem Ciebie o przyniesienie puciery!",
 				null);
@@ -407,11 +407,11 @@ public class Oscypek extends AbstractQuest {
 			return res;
 		}
 		res.add("Podobno kowal Jack robi je. Udam się do niego po nią.");
-		if ("puciera_make".equals(questState)) {
+		if ("pot_make".equals(questState)) {
 			return res;
 		}
 		res.add("Kowal Jacek dał mi puciere i kazał pozdrowić Bace Zbyszka.");
-		if ("puciera_done".equals(questState)) {
+		if ("pot_done".equals(questState)) {
 			return res;
 		}
 		res.add("Baca Zbyszek podziękował mi za puciere.");

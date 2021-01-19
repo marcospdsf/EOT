@@ -84,6 +84,8 @@ public class Creature extends NPC {
 	 * determined at creatures.xml, just make it 1.
 	 */
 	private static final double SERVER_DROP_GENEROSITY = 1;
+	
+	public float SERVER_XP_INCREASE = 1f;
 
 	private HealerBehavior healer = HealerBehaviourFactory.get(null);
 
@@ -214,8 +216,9 @@ public class Creature extends NPC {
 
 		setDescription(copy.getDescription());
 		setAtk(copy.getAtk());
+		setRatk(copy.getRatk());
 		setDef(copy.getDef());
-		setXP(copy.getXP());
+		setXP(copy.getXP() * SERVER_XP_INCREASE);
 		initHP(copy.getBaseHP());
 		setName(copy.getName());
 
@@ -224,8 +227,21 @@ public class Creature extends NPC {
 		setDeathSound(copy.deathSound);
 		setMovementSound(copy.movementSound);
 
+		if (this.aiProfiles.containsKey("active_idle")) {
+			put("active_idle", "");
+		}
+		if (this.aiProfiles.containsKey("flying")) {
+			put("flying", "");
+		}
+
 		for (RPSlot slot : copy.slots()) {
 			this.addSlot((RPSlot) slot.clone());
+		}
+
+		if (copy.has("no_shadow")) {
+			setShadowStyle(null);
+		} else if (copy.has("shadow_style")) {
+			setShadowStyle(copy.get("shadow_style"));
 		}
 
 		update();
@@ -272,6 +288,8 @@ public class Creature extends NPC {
 	 * 		The creature's maximum health points.
 	 * @param atk
 	 * 		The creature's attack strength.
+	 * @param ratk
+	 * 		The creature's ranged attack strength.
 	 * @param def
 	 * 		The creature's attack strength.
 	 * @param level
@@ -296,7 +314,7 @@ public class Creature extends NPC {
 	 * 		String description displayed when player examines creature.
 	 */
 	public Creature(final String clazz, final String subclass, final String name, final int hp,
-			final int atk, final int def, final int level, final int xp, final int width,
+			final int atk, final int ratk, final int def, final int level, final int xp, final int width,
 			final int height, final double baseSpeed, final List<DropItem> dropItems,
 			final Map<String, String> aiProfiles, final LinkedHashMap<String, LinkedList<String>> noises,
 			final int respawnTime, final String description) {
@@ -324,6 +342,7 @@ public class Creature extends NPC {
 		put("y", 0);
 		setDescription(description);
 		setAtk(atk);
+		setRatk(ratk);
 		setDef(def);
 		setXP(xp);
 		setBaseHP(hp);
@@ -539,6 +558,8 @@ public class Creature extends NPC {
 	public final void setCorpse(final String name, final String harmless, final int width, final int height) {
 		corpseName = name;
 		harmlessCorpseName = harmless;
+		corpseWidth = width;
+		corpseHeight = height;
 		if (corpseName == null) {
 			LOGGER.error(getName() + " has null corpse name.");
 			/*
@@ -550,10 +571,12 @@ public class Creature extends NPC {
 		}
 		if (harmlessCorpseName == null) {
 			// Set default harmless corpse to "bag.png"
-			harmlessCorpseName = "bag";
+			if (corpseWidth > 1 && corpseHeight > 1) {
+				harmlessCorpseName = "bag_2x2";
+			} else {
+				harmlessCorpseName = "bag";
+			}
 		}
-		corpseWidth = width;
-		corpseHeight = height;
 	}
 
 	@Override
@@ -663,10 +686,11 @@ public class Creature extends NPC {
 		}
 
 		for (final Item item : createDroppedItems(SingletonRepository.getEntityManager())) {
-			corpse.add(item);
-			item.setFromCorpse(true);
-			if (corpse.isFull()) {
-				break;
+			if (!corpse.isFull()) {
+				corpse.add(item);
+				item.setFromCorpse(true);
+			} else {
+				LOGGER.warn("Cannot add item to full corpse: " + item.getName());
 			}
 		}
 	}
@@ -786,6 +810,16 @@ public class Creature extends NPC {
 		return getAIProfiles().containsKey("rare");
 	}
 
+	/**
+	 * Checks if the creature has "abnormal" or "rare" profile.
+	 *
+	 * @return
+	 * 		<code>true</code> if creature is abnormal or rare.
+	 */
+	public boolean isAbnormal() {
+		return getAIProfiles().containsKey("abnormal") || isRare();
+	}
+
 	public void equip(final List<EquipItem> items) {
 		for (final EquipItem equippedItem : items) {
 			if (!hasSlot(equippedItem.slot)) {
@@ -816,12 +850,26 @@ public class Creature extends NPC {
 					continue;
 				}
 
+				final int quantity;
 				if (dropped.min == dropped.max) {
-					list.add(item);
+					quantity = dropped.min;
 				} else {
+					quantity = Rand.randUniform(dropped.max, dropped.min);
+				}
+
+				if (item instanceof StackableItem) {
 					final StackableItem stackItem = (StackableItem) item;
-					stackItem.setQuantity(Rand.randUniform(dropped.max, dropped.min));
+					stackItem.setQuantity(quantity);
 					list.add(stackItem);
+				} else {
+					for (int count = 0; count < quantity; count++) {
+						if (count == 0) {
+							list.add(item);
+						} else {
+							// additional items must be new instances
+							list.add(new Item(item));
+						}
+					}
 				}
 			}
 		}
@@ -1014,6 +1062,12 @@ public class Creature extends NPC {
 		return 5f;
 	}
 
+	@Override
+	public float getItemRatk() {
+		// Just doing the same as getItemAtk().
+		return getItemAtk();
+	}
+
 	// *** Damage type code ***
 
 	/**
@@ -1039,6 +1093,11 @@ public class Creature extends NPC {
 	@Override
 	protected Nature getDamageType() {
 		return damageType;
+	}
+
+	@Override
+	protected Nature getRangedDamageType() {
+		return rangedDamageType;
 	}
 
 	/**

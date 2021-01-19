@@ -25,8 +25,8 @@
  <tileset firstgid="1074" name="..\tileset\furniture\light\lights_candle.png" tilewidth="32" tileheight="32">
   <image source="../../tileset/furniture/light/lights_candle.png"/>
  </tileset>
- <tileset firstgid="1110" name="..\tileset\object\zekiel.png" tilewidth="32" tileheight="32">
-  <image source="../../tileset/object/zekiel.png"/>
+ <tileset firstgid="1110" name="character\zekiel" tilewidth="32" tileheight="32">
+  <image source="../../tileset/character/zekiel.png"/>
  </tileset>
  <tileset firstgid="1164" name="..\tileset\furniture\shelve\dark_bookshelf_2.png" tilewidth="32" tileheight="32">
   <image source="../../tileset/furniture/shelve/dark_bookshelf_2.png"/>
@@ -97,7 +97,7 @@
  <tileset firstgid="1293" name="..\tileset\logic\portal.png" tilewidth="32" tileheight="32">
   <image source="../../tileset/logic/portal.png"/>
  </tileset>
- <tileset firstgid="1300" name="..\tileset\logic\protection.png" tilewidth="32" tileheight="32">
+ <tileset firstgid="1309" name="..\tileset\logic\protection.png" tilewidth="32" tileheight="32">
   <image source="../../tileset/logic/protection.png"/>
  </tileset>
  <layer name="0_floor" width="31" height="30">
@@ -156,12 +156,12 @@ KB1+GSJu1RpAd+oNkTCiNrgO9PfNAfT7lQG0+/wIjXNKAADr8wKWiA4AAA==
    H4sIAAAAAAAAAO3OIQEAAAjAMATpoH8fBCEQbOb2EQDwT+W28/YDAD4a2mlanYgOAAA=
   </data>
  </layer>
- <layer name="objects" width="31" height="30">
+ <layer name="objects" width="31" height="30" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO3RMQ0AAAgEMRYE4N8swQS/tAouuSoAyJlOF/DJbwDOAvZ6rRGIDgAA
   </data>
  </layer>
- <layer name="collision" width="31" height="30" opacity="0.54">
+ <layer name="collision" width="31" height="30" visible="0" opacity="0.54">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAO3UUQrAIAwDUHc073+p/cqYo23SpgMDZT/Kiw6c1xjzjGneovKVZ6+wLDa7SyQK
 k9GBGYVp7VCZTuf2+sh6hr1+K21vst4OZL8iyB14//fOi9rIni5vamX+/K6xzYwOERfpwfCe9q7L
@@ -170,7 +170,7 @@ k9GBGYVp7VCZTuf2+sh6hr1+K21vst4OZL8iyB14//fOi9rIni5vamX+/K6xzYwOERfpwfCe9q7L
  </layer>
  <layer name="protection" width="31" height="30" visible="0" opacity="0.32">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3DMQ0AAAwDoD5zUP9a62IXJPSSqqqq6tMBi393CYgOAAA=
+   H4sIAAAAAAAAAO3DMQ0AAAwDoD6TUf8262IXJPSSqqqq6tMBC3MCMYgOAAA=
   </data>
  </layer>
 </map>

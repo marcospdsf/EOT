@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2011 - Stendhal                    *
+ *                   (C) Copyright 2003-2020 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -26,6 +25,7 @@ import org.apache.log4j.Logger;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 
+import games.stendhal.common.constants.SoundID;
 import games.stendhal.common.constants.SoundLayer;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.core.engine.GameEvent;
@@ -126,6 +126,13 @@ public final class AchievementNotifier {
 	}
 
 	/**
+	 * Checks if the achievement list has already been populated.
+	 */
+	public boolean isInitialized() {
+		return !achievements.isEmpty();
+	}
+
+	/**
 	 * collects all identifiers from the database
 	 *
 	 * @return a set of all identifier strings
@@ -145,17 +152,28 @@ public final class AchievementNotifier {
 	 *
 	 * @param player
 	 */
-	public void onLevelChange(Player player) {
+	public void onLevelChange(final Player player) {
 		getAndCheckAchievementsInCategory(player, Category.EXPERIENCE);
 	}
 
+	public void onDefChange(final Player player) {
+		getAndCheckAchievementsInCategory(player, Category.EXPERIENCE_DEF);
+	}
+
+	public void onAtkChange(final Player player) {
+		getAndCheckAchievementsInCategory(player, Category.EXPERIENCE_ATK);
+	}
+
+	public void onRatkChange(final Player player) {
+		getAndCheckAchievementsInCategory(player, Category.EXPERIENCE_RATK);
+	}
 
 	/**
 	 * checks all achievements for a player that should be checked when a player kills sth
 	 *
 	 * @param player
 	 */
-	public void onKill(Player player) {
+	public void onKill(final Player player) {
 		getAndCheckAchievementsInCategory(player, Category.FIGHTING);
 	}
 
@@ -164,7 +182,7 @@ public final class AchievementNotifier {
 	 *
 	 * @param player
 	 */
-	public void onFinishQuest(Player player) {
+	public void onFinishQuest(final Player player) {
 		getAndCheckAchievementsInCategory(player, Category.QUEST);
 		getAndCheckAchievementsInCategory(player, Category.QUEST_ADOS_ITEMS);
 		getAndCheckAchievementsInCategory(player, Category.QUEST_SEMOS_MONSTER);
@@ -177,11 +195,20 @@ public final class AchievementNotifier {
 	}
 
 	/**
+	 * check all achievements for a player that are related to deathmatch
+	 *
+	 * @param player
+	 */
+	public void onFinishDeathmatch(final Player player) {
+		getAndCheckAchievementsInCategory(player, Category.DEATHMATCH);
+	}
+
+	/**
 	 * check all achievements for a player that belong to the zone category
 	 *
 	 * @param player
 	 */
-	public void onZoneEnter(Player player) {
+	public void onZoneEnter(final Player player) {
 		getAndCheckAchievementsInCategory(player, Category.OUTSIDE_ZONE);
 		getAndCheckAchievementsInCategory(player, Category.UNDERGROUND_ZONE);
 		getAndCheckAchievementsInCategory(player, Category.INTERIOR_ZONE);
@@ -192,7 +219,7 @@ public final class AchievementNotifier {
 	 *
 	 * @param player
 	 */
-	public void onAge(Player player) {
+	public void onAge(final Player player) {
 		getAndCheckAchievementsInCategory(player, Category.AGE);
 	}
 
@@ -201,8 +228,9 @@ public final class AchievementNotifier {
 	 *
 	 * @param player
 	 */
-	public void onItemLoot(Player player) {
+	public void onItemLoot(final Player player) {
 		getAndCheckAchievementsInCategory(player, Category.ITEM);
+		getAndCheckAchievementsInCategory(player, Category.OBTAIN);
 	}
 
 	/**
@@ -210,18 +238,26 @@ public final class AchievementNotifier {
 	 *
 	 * @param player
 	 */
-	public void onProduction(Player player) {
+	public void onProduction(final Player player) {
 		getAndCheckAchievementsInCategory(player, Category.PRODUCTION);
 	}
 
 	/**
-	 * Check all achievements for a player that belong to the obtain &
-	 * commerce categories.
+	 * Check all achievements for a player that belong to the obtain category.
 	 *
 	 * @param player
 	 */
-	public void onObtain(Player player) {
+	public void onObtain(final Player player) {
 		getAndCheckAchievementsInCategory(player, Category.OBTAIN);
+	}
+
+	/**
+	 * Check all achievements for player that beling to the commerce category.
+	 *
+	 * @param player
+	 * 		Player to check.
+	 */
+	public void onTrade(final Player player) {
 		getAndCheckAchievementsInCategory(player, Category.COMMERCE);
 	}
 
@@ -232,7 +268,7 @@ public final class AchievementNotifier {
 	 * @param player the player object to award
 	 * @param achievementIdentifier the identifier of the achievement that should be awarded
 	 */
-	public void awardAchievementIfNotYetReached(Player player, String achievementIdentifier) {
+	public void awardAchievementIfNotYetReached(final Player player, final String achievementIdentifier) {
 		if(!player.hasReachedAchievement(achievementIdentifier)) {
 			boolean found = false;
 			for(List<Achievement> achievementList : this.achievements.values()) {
@@ -257,7 +293,7 @@ public final class AchievementNotifier {
 	 *
 	 * @param player
 	 */
-	public void onLogin(Player player) {
+	public void onLogin(final Player player) {
 		List<Achievement> toCheck = new ArrayList<Achievement>();
 		//Avoid checking of zone achievements on login to
 		//prevent double check when player is initially placed into a zone
@@ -285,7 +321,7 @@ public final class AchievementNotifier {
 	 * @param player
 	 * @param category
 	 */
-	private void getAndCheckAchievementsInCategory(Player player, Category category) {
+	private void getAndCheckAchievementsInCategory(final Player player, final Category category) {
 		if(achievements.containsKey(category)) {
 			List<Achievement> toCheck = achievements.get(category);
 			List<Achievement> reached = checkAchievements(player, toCheck);
@@ -301,8 +337,8 @@ public final class AchievementNotifier {
 	 * @param toCheck list of checked achievements
 	 * @return list of reached achievements
 	 */
-	private List<Achievement> checkAchievements(Player player,
-			List<Achievement> toCheck) {
+	private List<Achievement> checkAchievements(final Player player,
+			final List<Achievement> toCheck) {
 		List<Achievement> reached = new ArrayList<Achievement>();
 
 		// continue checking only if player's achievements are already loaded from the database
@@ -328,7 +364,7 @@ public final class AchievementNotifier {
 	 * @param achievementsToNotifyAbout list of achievements the player should
 	 * 	be notified about
 	 */
-	private void notifyPlayerAboutReachedAchievements(Player player, List<Achievement> achievementsToNotifyAbout) {
+	private void notifyPlayerAboutReachedAchievements(final Player player, final List<Achievement> achievementsToNotifyAbout) {
 		for (Achievement achievement : achievementsToNotifyAbout) {
 			notifyPlayerAboutReachedAchievement(player, achievement);
 		}
@@ -340,12 +376,12 @@ public final class AchievementNotifier {
 	 * @param player
 	 * @param achievement
 	 */
-	private void logReachingOfAnAchievement(Player player, Achievement achievement) {
+	private void logReachingOfAnAchievement(final Player player, final Achievement achievement) {
 		String identifier = achievement.getIdentifier();
 		String title = achievement.getTitle();
 		Category category = achievement.getCategory();
 		String playerName = player.getName();
-		DBCommandQueue.get().enqueue(new WriteReachedAchievementCommand(identifiersToIds.get(identifier), title, category, playerName));
+		DBCommandQueue.get().enqueue(new WriteReachedAchievementCommand(identifiersToIds.get(identifier), playerName, player.getAdminLevel() < 600));
 		player.addReachedAchievement(achievement.getIdentifier());
 		new GameEvent(playerName, "reach-achievement", category.toString(), title, identifier).raise();
 	}
@@ -356,10 +392,10 @@ public final class AchievementNotifier {
 	 * @param player
 	 * @param achievement
 	 */
-	private void notifyPlayerAboutReachedAchievement(Player player, Achievement achievement) {
+	private void notifyPlayerAboutReachedAchievement(final Player player, final Achievement achievement) {
 		if (achievement.isActive()) {
 			player.addEvent(new ReachedAchievementEvent(achievement));
-			player.addEvent(new SoundEvent("yay-1", SoundLayer.USER_INTERFACE));
+			player.addEvent(new SoundEvent(SoundID.ACHIEVEMENT, SoundLayer.USER_INTERFACE));
 			player.notifyWorldAboutChanges();
 		}
 	}

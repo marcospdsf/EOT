@@ -40,6 +40,7 @@
     <description>You see an albino elf archer. He is so sharp-eyed that he could hit a bee from a distance of 100 meters.</description>
     <attributes>
       <atk value="345"/>
+      <ratk value="345"/>
       <def value="94"/>
       <hp value="150"/>
       <speed value="0.7"/>
@@ -202,6 +203,7 @@
     <description>You see a dark elf archer. Dark elf archer's flawless aim can be fatal for those who dare to oppose them.</description>
     <attributes>
       <atk value="385"/>
+      <ratk value="385"/>
       <def value="125"/>
       <hp value="130"/>
       <speed value="0.7"/>
@@ -269,6 +271,7 @@
     <description></description>
     <attributes>
       <atk value="432"/>
+      <ratk value="432"/>
       <def value="125"/>
       <hp value="200"/>
       <speed value="0.8"/>
@@ -764,6 +767,7 @@
     <description>You see an archer elf which can do much damage with its wooden arrows.</description>
     <attributes>
       <atk value="198"/>
+      <ratk value="198"/>
       <def value="42"/>
       <hp value="105"/>
       <speed value="0.6"/>
@@ -1033,5 +1037,562 @@
   </creature>
 
   <!-- END: elf -->
+  
+   <!-- START: Chinese fairies -->
+  
+  	<creature name="gm v2">
+		<type class="elf" subclass="elf_sacerdotist" tileid="orc.png:15"/>
+		<description/>
+		<attributes>
+			<atk value="6573"/>
+			<def value="2280"/>
+			<hp value="32000"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="600"/>
+		<experience value="20"/>
+		<respawn value="1180"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[1,2]" probability="100.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="poisonous" params="99,greater poison"/>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="fairy militia">
+		<type class="elf" subclass="fairy_militia" tileid="fairy_elf.png:6"/>
+		<description/>
+		<attributes>
+			<atk value="470"/>
+			<def value="98"/>
+			<hp value="500"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="48"/>
+		<experience value="1560"/>
+		<respawn value="1140"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[15,125]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,2]" probability="50.0"/>
+			<item value="pizza" quantity="[1,1]" probability="10.0"/>
+			<item value="fairy armor" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy boots" quantity="[1,1]" probability="0.05"/>
+			<item value="elvish boots" quantity="[1,1]" probability="2.5"/>
+			<item value="elvish shield" quantity="[1,1]" probability="0.2"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="fairy archer">
+		<type class="elf" subclass="fairy_archer" tileid="fairy_elf.png:0"/>
+		<description/>
+		<attributes>
+			<atk value="420"/>
+			<def value="90"/>
+			<hp value="500"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="48"/>
+		<experience value="1560"/>
+		<respawn value="1140"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[25,120]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,2]" probability="50.0"/>
+			<item value="pizza" quantity="[1,1]" probability="10.0"/>
+			<item value="fairy armor" quantity="[1,1]" probability="0.5"/>
+			<item value="fairy boots" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy legs" quantity="[1,1]" probability="0.1"/>
+			<item value="golden arrow" quantity="[1,5]" probability="5.0"/>
+			<item value="wooden bow" quantity="[1,1]" probability="2.5"/>
+		</drops>
+		<equips>
+			<slot name="lhand" item="golden arrow" quantity="10000"/>
+			<slot name="rhand" item="wooden bow" quantity="1"/>
+		</equips>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="archer"/>
+		</ai>
+	</creature>
+	<creature name="fairy soldier">
+		<type class="elf" subclass="fairy_soldier" tileid="fairy_elf.png:7"/>
+		<description/>
+		<attributes>
+			<atk value="452"/>
+			<def value="100"/>
+			<hp value="560"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="52"/>
+		<experience value="1830"/>
+		<respawn value="1160"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[15,125]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,2]" probability="50.0"/>
+			<item value="pizza" quantity="[1,1]" probability="15.0"/>
+			<item value="fairy armor" quantity="[1,1]" probability="0.5"/>
+			<item value="fairy boots" quantity="[1,1]" probability="0.15"/>
+			<item value="elvish boots" quantity="[1,1]" probability="3.5"/>
+			<item value="fairy cloak" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy shield" quantity="[1,1]" probability="0.01"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="fairy mage">
+		<type class="elf" subclass="fairy_mage" tileid="fairy_elf.png:5"/>
+		<description/>
+		<attributes>
+			<atk value="504"/>
+			<def value="105"/>
+			<hp value="700"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="58"/>
+		<experience value="2400"/>
+		<respawn value="1300"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[15,130]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,2]" probability="50.0"/>
+			<item value="pizza" quantity="[1,1]" probability="10.0"/>
+			<item value="fairy armor" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy boots" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy sword" quantity="[1,1]" probability="0.1"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="fairy commander">
+		<type class="elf" subclass="fairy_commander" tileid="fairy_elf.png:2"/>
+		<description/>
+		<attributes>
+			<atk value="548"/>
+			<def value="108"/>
+			<hp value="800"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="60"/>
+		<experience value="2570"/>
+		<respawn value="1150"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[15,135]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,2]" probability="50.0"/>
+			<item value="pizza" quantity="[1,1]" probability="10.0"/>
+			<item value="golden armor" quantity="[1,1]" probability="2.0"/>
+			<item value="golden boots" quantity="[1,1]" probability="1.5"/>
+			<item value="fairy armor" quantity="[1,1]" probability="0.5"/>
+			<item value="fairy boots" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy cloak" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy helmet" quantity="[1,1]" probability="0.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="fairy archmage">
+		<type class="elf" subclass="fairy_archmage" tileid="fairy_elf.png:1"/>
+		<description/>
+		<attributes>
+			<atk value="540"/>
+			<def value="118"/>
+			<hp value="855"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="62"/>
+		<experience value="2770"/>
+		<respawn value="1120"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[15,145]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,2]" probability="50.0"/>
+			<item value="pizza" quantity="[1,1]" probability="15.0"/>
+			<item value="fairy armor" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy boots" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy cloak" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy sword" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy shield" quantity="[1,1]" probability="0.1"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="high fairy militia">
+		<type class="elf" subclass="fairy_militia" tileid="fairy_2_elf.png:6"/>
+		<description/>
+		<attributes>
+			<atk value="700"/>
+			<def value="128"/>
+			<hp value="500"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="82"/>
+		<experience value="5560"/>
+		<respawn value="1140"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[25,225]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,2]" probability="50.0"/>
+			<item value="pizza" quantity="[1,1]" probability="10.0"/>
+			<item value="shadow armor" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy armor" quantity="[1,1]" probability="0.1"/>
+			<item value="fairy boots" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy shield" quantity="[1,1]" probability="0.01"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="high fairy archer">
+		<type class="elf" subclass="fairy_archer" tileid="fairy_2_elf.png:0"/>
+		<description/>
+		<attributes>
+			<atk value="650"/>
+			<def value="118"/>
+			<hp value="600"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="84"/>
+		<experience value="5560"/>
+		<respawn value="1140"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[25,220]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,2]" probability="50.0"/>
+			<item value="pizza" quantity="[1,1]" probability="20.0"/>
+			<item value="shadow armor" quantity="[1,1]" probability="1.5"/>
+			<item value="fairy armor" quantity="[1,1]" probability="0.5"/>
+			<item value="fairy legs" quantity="[1,1]" probability="0.25"/>
+			<item value="golden arrow" quantity="[1,5]" probability="5.0"/>
+			<item value="wooden bow" quantity="[1,1]" probability="2.5"/>
+		</drops>
+		<equips>
+			<slot name="lhand" item="golden arrow" quantity="10000"/>
+			<slot name="rhand" item="wooden bow" quantity="1"/>
+		</equips>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="archer"/>
+		</ai>
+	</creature>
+	<creature name="high fairy soldier">
+		<type class="elf" subclass="fairy_soldier" tileid="fairy_2_elf.png:7"/>
+		<description/>
+		<attributes>
+			<atk value="682"/>
+			<def value="130"/>
+			<hp value="660"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="86"/>
+		<experience value="8830"/>
+		<respawn value="1160"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[25,225]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,1]" probability="50.0"/>
+			<item value="pizza" quantity="[1,1]" probability="25.0"/>
+			<item value="shadow armor" quantity="[1,1]" probability="1.5"/>
+			<item value="fairy armor" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy boots" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy cloak" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy shield" quantity="[1,1]" probability="0.25"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="high fairy mage">
+		<type class="elf" subclass="fairy_mage" tileid="fairy_2_elf.png:5"/>
+		<description/>
+		<attributes>
+			<atk value="734"/>
+			<def value="136"/>
+			<hp value="750"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="88"/>
+		<experience value="5400"/>
+		<respawn value="1300"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[25,230]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,2]" probability="50.0"/>
+			<item value="pizza" quantity="[1,1]" probability="20.0"/>
+			<item value="shadow armor" quantity="[1,1]" probability="2.0"/>
+			<item value="fairy boots" quantity="[1,1]" probability="0.25"/>
+			<item value="fairy sword" quantity="[1,1]" probability="0.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="high fairy commander">
+		<type class="elf" subclass="fairy_commander" tileid="fairy_2_elf.png:2"/>
+		<description/>
+		<attributes>
+			<atk value="742"/>
+			<def value="142"/>
+			<hp value="800"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="90"/>
+		<experience value="6570"/>
+		<respawn value="1150"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[25,235]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,2]" probability="50.0"/>
+			<item value="pizza" quantity="[1,1]" probability="20.0"/>
+			<item value="shadow armor" quantity="[1,1]" probability="2.0"/>
+			<item value="fairy boots" quantity="[1,1]" probability="0.5"/>
+			<item value="fairy armor" quantity="[1,1]" probability="0.5"/>
+			<item value="fairy cloak" quantity="[1,1]" probability="0.5"/>
+			<item value="fairy helmet" quantity="[1,1]" probability="0.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="high fairy archmage">
+		<type class="elf" subclass="fairy_archmage" tileid="fairy_2_elf.png:1"/>
+		<description/>
+		<attributes>
+			<atk value="770"/>
+			<def value="148"/>
+			<hp value="855"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="92"/>
+		<experience value="6770"/>
+		<respawn value="1120"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[25,245]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,3]" probability="50.0"/>
+			<item value="pizza" quantity="[1,1]" probability="25.0"/>
+			<item value="fairy armor" quantity="[1,1]" probability="1.0"/>
+			<item value="fairy boots" quantity="[1,1]" probability="0.5"/>
+			<item value="fairy cloak" quantity="[1,1]" probability="0.5"/>
+			<item value="fairy sword" quantity="[1,1]" probability="0.5"/>
+			<item value="fairy shield" quantity="[1,1]" probability="0.25"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	
+	<!-- END: Chinese fairies -->
+	
+	<!-- START: Chinese Shadow Elf -->
+	
+	<creature name="shadow elf swordsman">
+		<type class="albino_elf" subclass="shadow_elf_swordsman" tileid="shadow_elf.png:4"/>
+		<description/>
+		<attributes>
+			<atk value="630"/>
+			<def value="87"/>
+			<hp value="1250"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="68"/>
+		<experience value="2920"/>
+		<respawn value="1560"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[40,240]" probability="100.0"/>
+			<item value="shadow armor" quantity="[1,1]" probability="0.5"/>
+			<item value="golden boots" quantity="[1,1]" probability="0.5"/>
+			<item value="shadow helmet" quantity="[1,1]" probability="0.35"/>
+			<item value="broadsword" quantity="[1,1]" probability="2.5"/>
+			<item value="sword" quantity="[1,1]" probability="4.5"/>
+			<item value="elf cloak" quantity="[1,1]" probability="5.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="shadow elf archer">
+		<type class="albino_elf" subclass="shadow_elf_archer" tileid="shadow_elf.png:0"/>
+		<description/>
+		<attributes>
+			<atk value="645"/>
+			<def value="124"/>
+			<hp value="550"/>
+			<speed value="0.9"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="72"/>
+		<experience value="4360"/>
+		<respawn value="1430"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[50,330]" probability="90.0"/>
+			<item value="shadow armor" quantity="[1,1]" probability="2.0"/>
+			<item value="golden arrow" quantity="[1,5]" probability="5.0"/>
+			<item value="wooden bow" quantity="[1,1]" probability="2.0"/>
+		</drops>
+		<equips>
+			<slot name="lhand" item="steel arrow" quantity="10000"/>
+			<slot name="rhand" item="wooden bow" quantity="1"/>
+		</equips>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="archer"/>
+		</ai>
+	</creature>
+	<creature name="shadow elf magician">
+		<type class="albino_elf" subclass="shadow_elf_magician" tileid="shadow_elf.png:2"/>
+		<description/>
+		<attributes>
+			<atk value="632"/>
+			<def value="88"/>
+			<hp value="1350"/>
+			<speed value="0.7"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="75"/>
+		<experience value="5210"/>
+		<respawn value="1500"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="elf cloak" quantity="[1,1]" probability="6.5"/>
+			<item value="greater potion" quantity="[3,5]" probability="50.0"/>
+			<item value="money" quantity="[100,570]" probability="100.0"/>
+			<item value="empty scroll" quantity="[2,3]" probability="50.0"/>
+			<item value="golden crown shield" quantity="[1,1]" probability="0.01"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="10,60"/>
+		</ai>
+	</creature>
+	<creature name="shadow elf queen">
+		<type class="albino_elf" subclass="shadow_elf_queen" tileid="shadow_elf.png:3"/>
+		<description/>
+		<attributes>
+			<atk value="754"/>
+			<def value="88"/>
+			<hp value="1500"/>
+			<speed value="0.9"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="78"/>
+		<experience value="6200"/>
+		<respawn value="1800"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[150,600]" probability="100.0"/>
+			<item value="shadow shield" quantity="[1,1]" probability="1.5"/>
+			<item value="drow sword" quantity="[1,1]" probability="0.01"/>
+			<item value="blue magic shield" quantity="[1,1]" probability="0.01"/>
+			<item value="mammon present" quantity="[1,1]" probability="0.00001"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="10,30"/>
+		</ai>
+	</creature>
+	<creature name="shadow elf king">
+		<type class="albino_elf" subclass="shadow_elf_king" tileid="shadow_elf.png:1"/>
+		<description/>
+		<attributes>
+			<atk value="861"/>
+			<def value="93"/>
+			<hp value="1675"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="82"/>
+		<experience value="6800"/>
+		<respawn value="1900"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[300,650]" probability="100.0"/>
+			<item value="shadow armor" quantity="[1,1]" probability="1.5"/>
+			<item value="shadow shield" quantity="[1,1]" probability="2.0"/>
+			<item value="shadow helmet" quantity="[1,1]" probability="1.5"/>
+			<item value="great sword" quantity="[1,1]" probability="1.0"/>
+			<item value="golden magic shield" quantity="[1,1]" probability="0.01"/>
+			<item value="mammon package" quantity="[1,1]" probability="0.00002"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="5,50"/>
+		</ai>
+	</creature>
+  
 
 </creatures>

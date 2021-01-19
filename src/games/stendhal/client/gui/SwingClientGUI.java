@@ -236,14 +236,14 @@ class SwingClientGUI implements J2DClientGUI {
 		// Character window
 		character = new Character();
 		containerPanel.addRepaintable(character);
-		
+
 		weaponbag = new WeaponBag();
 		weaponbag.setAcceptedTypes(EntityMap.getClass("item", null, null));
 		containerPanel.addRepaintable(weaponbag);
 		userContext.addFeatureChangeListener(weaponbag);
 
 		// Create the bag window
-		inventory = new SlotWindow("bag", 4, 3);
+		inventory = new SlotWindow("bag", 5, 4);
 		inventory.setAcceptedTypes(EntityMap.getClass("item", null, null));
 		inventory.setCloseable(false);
 		containerPanel.addRepaintable(inventory);
@@ -436,14 +436,14 @@ class SwingClientGUI implements J2DClientGUI {
 		quitDialog.getQuitDialog().setVisible(false);
 		// Windows may have been closed in old clients
 		character.setVisible(true);
-		weaponbag.setVisible(false);
+		weaponbag.setVisible(true);
 		inventory.setVisible(true);
 		/*
 		 * Keyring, spells, scrollbag and weaponbag on the other hand, *should* be hidden until
 		 * revealed by feature change
 		 */
 		keyring.setVisible(false);
-		scrollbag.setVisible(false);
+		scrollbag.setVisible(true);
 		//portfolio.setVisible(false);
 		spells.setVisible(false);
 	}

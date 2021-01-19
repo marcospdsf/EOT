@@ -192,8 +192,7 @@ public class SpiritTrapperNPC implements ZoneConfigurator {
 
 				    				player.setQuest(getQuestSlot(), "done");
 				    				player.notifyWorldAboutChanges();
-				    				player.incProducedCountForItem(productName, products.getQuantity());
-				    				SingletonRepository.getAchievementNotifier().onProduction(player);
+				    				player.incProducedForItem(productName, products.getQuantity());
 				    			} else {
 				    				npc.say("Welcome back! I'm done with your order. But right now you cannot take the "
 				    						+ Grammar.plnoun(numberOfProductItems, productName)

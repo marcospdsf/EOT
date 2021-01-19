@@ -36,6 +36,7 @@
 	<property name="build_server" value="${buildroot}/build_server"/>
 	<property name="build_server_maps" value="${buildroot}/build_server_maps"/>
 	<property name="build_server_script" value="${buildroot}/build_server_script"/>
+	<property name="build_server_mods" value="${buildroot}/build_server_mods"/>
 	<property name="build_server_xmlconf" value="${buildroot}/build_server_xmlconf"/>
 
 	<property name="build_stendhaltools" value="${buildroot}/build_stendhaltools"/>
@@ -152,6 +153,7 @@
 		<delete dir="${build_server}" />
 		<delete dir="${build_server_maps}" />
 		<delete dir="${build_server_script}" />
+		<delete dir="${build_server_mods}" />
 		<delete dir="${buildroot}/build_server_quests" />
 		<delete dir="${buildroot}/build_server_xmlconf" />
 		<delete dir="${build_tests}" />
@@ -303,6 +305,7 @@
 				<include name="riddles-example.xml"/>
 				<include name="spells.xml" />
 				<include name="spells/*.xml" />
+				<include name="shops.xml" />
 			</fileset>
 		</copy>
 		<copy todir="${build_server_xmlconf}/data/languages">
@@ -331,6 +334,21 @@
 				<pathelement path="${lib}/${maps_jarname}"/>
 			</classpath>
 		</javac>
+
+		<!-- data Groovy & Lua scripts -->
+		<copy todir="${build_server_script}">
+			<fileset dir="data/script">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+
+		<!-- Lua mods -->
+		<mkdir dir="${build_server_mods}"/>
+		<copy todir="${build_server_mods}">
+			<fileset dir="data/mods">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
 
 	</target>
 
@@ -531,7 +549,7 @@
 
 		<copy todir="${build_client_sound_data}/data/sounds">
 			<fileset dir="data/sounds">
-				<include name="**.ogg"/>
+				<include name="**/*.ogg"/>
 			</fileset>
 		</copy>
 
@@ -541,7 +559,7 @@
 
 		<copy todir="${build_client_music_data}/data/music">
 			<fileset dir="data/music">
-				<include name="**.ogg"/>
+				<include name="**/*.ogg"/>
 			</fileset>
 		</copy>
 
@@ -555,7 +573,6 @@
 			alias="${keystore.alias}"
 			keystore="keystore.ks"
 			storepass="${keystore.password}"
-			tsaurl="http://tsa.starfieldtech.com"
 			jar="${lib}/${client_starter_jarname}" />
 	</target>
 
@@ -597,6 +614,13 @@
 		<copy todir="${buildroot}/stendhal-server-${version}/data/script">
 			<fileset dir="${buildroot}/build_server_script">
 				<include name="games/stendhal/server/script/**.*"/>
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+
+		<copy todir="${buildroot}/stendhal-server-${version}/data/mods">
+			<fileset dir="${build_server_mods}">
+				<include name="**/*"/>
 			</fileset>
 		</copy>
 
@@ -769,6 +793,7 @@
 				<pathelement path="${jorbis_jar}"/>
 				<pathelement path="${swinglayout_jar}"/>
 				<pathelement path="${luaj_jar}"/>
+				<pathelement path="${jsonsimple_jar}"/>
 			</classpath>
 		</javac>
 	</target>
@@ -962,6 +987,24 @@
 		</java>
 	</target>
 
+	<!-- USAGE: ant balance -Dcreature="<creature_name>" -->
+	<target name="balance" description="runs enemy balancer" depends="compile_stendhaltools,server_build">
+		<java classname="games.stendhal.tools.BalanceRPGame">
+			<classpath>
+				<pathelement path="${build_stendhaltools}"/>
+				<pathelement path="."/>
+				<pathelement path="${build_server}"/>
+				<pathelement path="${testsrc}"/>
+				<pathelement path="${marauroa_jar}"/>
+				<pathelement path="${log4j_jar}"/>
+				<pathelement path="${guava_jar}"/>
+				<pathelement path="${groovy_jar}"/>
+			</classpath>
+			<arg line="${creature}"/>
+			<sysproperty key="showxp" value=""/>
+		</java>
+	</target>
+
 
 
 
@@ -1012,6 +1055,7 @@
 				<pathelement path="${build_server}"/>
 				<pathelement path="${build_server_maps}"/>
 				<pathelement path="${build_server_script}"/>
+				<pathelement path="${build_server_mods}"/>
 				<pathelement path="${build_postman}"/>
 				<pathelement path="${marauroa_jar}"/>
 				<pathelement path="${log4j_jar}"/>
@@ -1064,6 +1108,7 @@ d = 9017093486007323270605414717455737376618092805104733236083857811315606869372
 					<pathelement path="${build_stendhaltools}"/>
 					<pathelement path="${build_stendhaltextclient}"/>
 					<pathelement path="${build_server_script}"/>
+					<pathelement path="${build_server_mods}"/>
 					<pathelement path="${build_postman}"/>
 					<pathelement path="${easymock_jar}"/>
 					<pathelement path="${easymockclassextension_jar}"/>
@@ -1159,6 +1204,12 @@ d = 9017093486007323270605414717455737376618092805104733236083857811315606869372
 				<filename name="creatures.xml"/>
 			</fileset>
 		</schemavalidate>
+		<schemavalidate>
+			<schema namespace="stendhal" file="${config_dir}/shops.xsd"/>
+			<fileset dir="${config_dir}">
+				<filename name="shops.xml"/>
+			</fileset>
+		</schemavalidate>
 	</target>
 
 	<target name="compilejs" depends="js-prepare, js-invoke-compiler" />
@@ -1207,7 +1258,7 @@ d = 9017093486007323270605414717455737376618092805104733236083857811315606869372
 		<property name="js-files-ui2"      value="srcjs/stendhal/ui/html.js srcjs/stendhal/ui/minimap.js srcjs/stendhal/ui/keyhandler.js srcjs/stendhal/ui/sound.js srcjs/stendhal/ui/stats.js srcjs/stendhal/ui/chatinput.js" />
 		<property name="js-files-ui3"      value="" />
 		<property name="js-files-main1"    value="srcjs/stendhal/actions.js srcjs/stendhal/events.js" />
-		<property name="js-files-ui4"      value="srcjs/stendhal/ui/popup.js srcjs/stendhal/ui/itemcontainer.js srcjs/stendhal/ui/menu.js srcjs/stendhal/ui/outfitdialog.js srcjs/stendhal/ui/travellog.js" />
+		<property name="js-files-ui4"      value="srcjs/stendhal/ui/popup.js srcjs/stendhal/ui/itemcontainer.js srcjs/stendhal/ui/menu.js srcjs/stendhal/ui/outfitdialog.js srcjs/stendhal/ui/travellog.js srcjs/stendhal/ui/settings.js" />
 		<property name="js-files-main2"    value="srcjs/stendhal/main.js" />
 		<property name="js-files-main3"    value="" />
 

@@ -3,48 +3,48 @@ Changelog
 ---------
 
 1.33
+
+*webclient*
+- long touching to simulate right mouse button
+- added support for additional entities: rented signs, blackboards, blocks, house doors, doors
+- added online/offline icons on buddy list
+- added commands /drop, /adminlevel
+
+
 *world*
-- new NPCs
-  - Skinner Rawhide
-- new maps
+- new regions/maps
+  - Atlantis
   - Deniran Tannery
+- new NPCs
+  - Jimbo (Deniran Grocery Store)
+  - Skinner Rawhide (Denrian Tannery)
+  - Zelan (Atlantis)
+- NPC changes
+  - elvish hat added to items that Lupos buys
+  - Adena sells olive oil & vinegar
 - new items:
   - pelt (ingredient to make money pouch)
   - leather thread (ingredient to make money pouch)
   - leather needle (ingredient to make money pouch)
   - imperial ring (+1 ATK)
+  - placid ring (shock resist: 0.33)
   - magic plate legs
   - magic plate boots
-  - royal armor
-  - royal boots
-  - royal cloak
-  - royal helmet
-  - royal legs
-  - royal shield
-  - royal dagger
+  - rotary cutter (tool for making leather thread)
+  - royal armor, royal boots, royal cloak, royal helmet, royal legs, royal shield, royal dagger
+  - unicorn horn
 - new enemies:
-  - bull elephant
-  - musth elephant
-  - giant bat
-  - giant killer bat
+  - bull elephant, musth elephant
+  - giant bat, giant killer bat
   - poison shroom
   - polar bear
-  - tiny scarab
-  - water scarab
+  - tiny scarab, water scarab
   - water demon
-  - white unicorn
-  - black unicorn
-  - golden unicorn
-  - baby pegasus
-  - bronze pegasus
-  - ivory pegasus
-  - ebony pegasus
-  - solar centaur
-  - glacier centaur
-  - centaur king
+  - white unicorn, black unicorn, golden unicorn
+  - baby pegasus, bronze pegasus, ivory pegasus, ebony pegasus
+  - solar centaur, glacier centaur, centaur king
   - woolly mammoth
-  - giant gnome
-  - giant gnomess
+  - giant gnome, giant gnomess
   - neo kraken
   - rysin dragon
 - enemy changes
@@ -55,6 +55,15 @@ Changelog
       - imperial veteran (@ 0.017)
       - imperial elite archer (@ 0.05)
     - insulated ring (cobra: @ 0.08)
+    - placid ring
+      - gargoyle (@ 0.005)
+      - ghost (@ 0.02)
+      - incorporeal armor (@ 0.3)
+      - musth elephant (@ 0.5)
+      - polar bear (@ 0.1)
+      - rysin dragon (@ 2.5)
+      - water scarab (@ 0.75)
+      - werewolf (@ 0.5)
     - magic plate boots (cobra: @ 0.01)
     - magic plate legs (king cobra: @ 0.25)
     - pelt
@@ -73,11 +82,14 @@ Changelog
     - "hard": for players level 151+
   - items added to Daily Item quest
     - leather needle
+    - leather thread (20)
     - pelt (5)
   - items added to Kirdneh Museum quest
     - medicinal ring (medium)
     - scroll eraser (medium)
     - ugmash (easy)
+- new quests
+  - Unicorn Horns for Zelan
 - new achievements:
   - Westerner: visit all outside zones in Deniran region (easy score)
   - Spelunker: visit all underground zones in Deniran region (hard score)
@@ -88,10 +100,11 @@ Changelog
   - David vs. Goliath: kill 20 of each type of giant solo (medium score)
   - Heavenly Wrath: kill 100 of each type of angel (hard score)
   - Silver Bullet: kill 500 werewolves (medium score)
-  - Herbal Practitioner: harvest 20 of each type of herb found growing in Faiumoni
-  - It's Happy Hour Somewhere: purchase 100 bottles of beer & 100 glasses of wine
-  - Serenade the Siren: kill 10,000 gem mermaids
+  - Herbal Practitioner: harvest 20 of each type of herb found growing in Faiumoni (easy score)
+  - It's Happy Hour Somewhere: purchase 100 bottles of beer & 100 glasses of wine (easy score)
+  - Serenade the Siren: kill 10,000 gem mermaids (hard score)
   - Imperialist Lackey: finish Kill Blordroughs quest 5 times (medium score)
+  - Imperialist Soldier: finish Kill Blordoughs quest 25 times (hard score)
 - new music
   - -1_semos_yeti_cave
   - levels -2 & -3 of Semos Catacombs
@@ -101,6 +114,10 @@ Changelog
   - Deniran Caves
   - Atlantis
   - Semos Village, Plains, & Road
+  - Nalwor River
+  - taverns & inns in Ados, Fado, & Kirdneh cities
+- status effects
+  - shock resistance also alters duration of status
 
 *grapics*
 - made dark dagger image more distinct from night dagger
@@ -114,9 +131,10 @@ Changelog
   - studded boots
   - trophy helmet
 
-*webclient*
-- added support for additional entities: rented signs, blackboards, blocks, house doors, doors
-- added online/offline icons on buddy list
+
+*classic client*
+- entities with "active_idle" attribute will cycle animation even if stopped
+- minimap recognizes Door entity as Portal
 
 *scripting*
 - added Lua support
@@ -126,6 +144,11 @@ Changelog
 - fixed Door & LockedDoor entities not handling continuous movement
 - fixed cannot complete Traps for Klaas quest when Antivenom Ring quest activated
 - fixed cannot enter apothecary lab if Traps for Klaas quest restarted
+- enemy/creature shadow can be set with "shadow" value under "type" tag
+- removed multiple messages about no longer being shocked
+- fixed veil not being removed if renting from Timothy while wearing wedding gown
+- slash action "/removedetail" can be executed to manually remove the detail layer from a character
+- mithril cloak quest can be reset to an earlier state in case of lost items
 
 
 

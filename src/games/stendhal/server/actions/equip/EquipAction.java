@@ -11,12 +11,13 @@
  ***************************************************************************/
 package games.stendhal.server.actions.equip;
 
+import java.util.Arrays;
+
 import games.stendhal.common.EquipActionConsts;
 import games.stendhal.common.constants.Actions;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.actions.CommandCenter;
 import games.stendhal.server.core.engine.GameEvent;
-import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.entity.Entity;
 import games.stendhal.server.entity.item.Item;
 import games.stendhal.server.entity.player.Player;
@@ -52,8 +53,14 @@ public class EquipAction extends EquipmentAction {
 
 		}
 
+		final String targetPath = action.get(Actions.TARGET_PATH);
+		String targetSlot = null;
+		if (targetPath != null) {
+			targetSlot = targetPath.substring(targetPath.indexOf("\t") + 1, targetPath.indexOf("]"));
+		}
+
 		// try to move money to pouch by default
-		if (action.has(EquipActionConsts.CLICKED) && !action.get(EquipActionConsts.TARGET_SLOT).equals("pouch")
+		if (action.has(EquipActionConsts.CLICKED) && targetSlot != null && !targetSlot.equals("pouch")
 				&& source.getEntityName().equals("money")) {
 			// check if money can be moved to pouch
 			// XXX: this check should be changed if we switch to containers
@@ -64,11 +71,8 @@ public class EquipAction extends EquipmentAction {
 				if (moneyInPouch || (!moneyInPouch && !moneyInBag)) {
 					action.put(EquipActionConsts.TARGET_SLOT, "pouch");
 					if (action.has(Actions.TARGET_PATH)) {
-						// XXX: AntumDeluge: how to set the correct target path?
-						//action.put(Actions.TARGET_PATH, "pouch");
-
-						// XXX: AntumDeluge: just remove target path until I know how to set it correctly
-						action.remove(Actions.TARGET_PATH);
+						action.put(Actions.TARGET_PATH,
+								Arrays.asList(player.get("id"), "pouch"));
 					}
 				}
 			}
@@ -115,7 +119,6 @@ public class EquipAction extends EquipmentAction {
 					((Item) entity).setFromCorpse(false);
 				}
 				player.incLootForItem(entity.getTitle(), amount);
-				SingletonRepository.getAchievementNotifier().onItemLoot(player);
 			}
 			if (entity instanceof Item) {
 				((Item) entity).autobind(player.getName());

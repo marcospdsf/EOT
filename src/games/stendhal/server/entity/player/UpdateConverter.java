@@ -21,7 +21,7 @@ import org.apache.log4j.Logger;
 
 import games.stendhal.common.ItemTools;
 import games.stendhal.common.KeyedSlotUtil;
-
+import games.stendhal.common.constants.Testing;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.rule.EntityManager;
 import games.stendhal.server.entity.Outfit;
@@ -117,11 +117,9 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
 		ZONE_MAPPING.put("-1_deniran_caves_wall", "-1_deniran_caves_e2");
 		ZONE_MAPPING.put("-1_deniran_caves_wall_s", "-1_deniran_caves_s_e2");
 		ZONE_MAPPING.put("-2_deniran_lost_caves_nw2", "-2_deniran_lost_caves_n2_w");
-		ZONE_MAPPING.put("-2_deniran_lost_caves_nw", "-2_deniran_lost_caves_n2");
 		ZONE_MAPPING.put("-2_deniran_caves_w", "-2_deniran_caves_w");
 		ZONE_MAPPING.put("-2_deniran_caves_sw", "-2_deniran_caves_sw");
-		ZONE_MAPPING.put("-2_deniran_lost_caves_n2", "-2_deniran_lost_caves_n2");
-		ZONE_MAPPING.put("-2_deniran_lost_caves_n", "-2_deniran_lost_caves");
+		ZONE_MAPPING.put("-2_deniran_lost_caves", "-2_deniran_lost_caves_n");
 		ZONE_MAPPING.put("-2_deniran_caves_deniran", "-2_deniran_caves");
 		ZONE_MAPPING.put("-2_deniran_caves_s", "-2_deniran_caves_s");
 		ZONE_MAPPING.put("-2_deniran_lost_caves_ne2", "-2_deniran_lost_caves_n2_e");
@@ -150,6 +148,7 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
 		ZONE_MAPPING.put("-3_deniran_caves_wall_s", "-3_deniran_caves_s_e2");
 
 	}
+
 	/**
 	 * quest name, quest index, creatures to kill.
 	 */
@@ -271,7 +270,7 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
      */
     public static void updatePlayerRPObject(final RPObject object) {
     	final String[] slotsNormal = { "bag", "rhand", "lhand", "head", "armor",
-    			"legs", "feet", "finger", "finger2", "cloak","gloves", "bank", "bank_ados", "bank_deniran",
+    			"legs", "feet", "finger", "finger2", "cloak","glove", "bank", "bank_ados", "bank_deniran",
     			"zaras_chest_ados", "bank_fado", "bank_nalwor","bank_zakopane", "bank_tsoh","yama_semos_bank_1",
     			"spells", "keyring", "scrollbag","weaponbag", "trade","pouch" };
 
@@ -321,6 +320,9 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
     	if (!object.has("atk_xp")) {
     		object.put("atk_xp", "0");
     		object.put("def_xp", "0");
+    	}
+    	
+    	if(!object.has("mining_xp")){
     		object.put("mining_xp", "0");
     	}
 
@@ -333,8 +335,15 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
     		object.put("release", "0.00");
     		object.put("atk", "10");
     		object.put("def", "10");
-    		object.put("miningLevel", "10");
     	}
+    	
+    	if (!object.has("miningLevel")){
+    		object.put("miningLevel", "1");
+    	}
+
+		if (Testing.COMBAT && !object.has("ratk_xp")) {
+			object.put("ratk_xp", "0");
+		}
 
     	if (!object.has("age")) {
     		object.put("age", "0");
@@ -429,6 +438,7 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
 		// port to 1.31: zone zones
 		transformVisitedSlot(object);
 	}
+
 
 	/**
 	 * Transform kill slot content to the new kill recording system.

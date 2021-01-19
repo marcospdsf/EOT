@@ -103,7 +103,7 @@ public class CoalSource extends PlayerActivityEntity {
 	 * @return The time to perform the activity (in seconds).
 	 */
 	@Override
-	protected int getDuration() {
+	protected int getDuration(Player player) {
 		return 7 + Rand.rand(4);
 	}
 
@@ -151,7 +151,7 @@ public class CoalSource extends PlayerActivityEntity {
 			if (item != null) {
 				player.equipOrPutOnGround(item);
 				player.incMinedForItem(item.getName(), item.getQuantity());
-			    SingletonRepository.getAchievementNotifier().onObtain(player);
+			    player.incMiningXP(90);
 				player.sendPrivateText("You found "
 						+ Grammar.a_noun(item.getTitle()) + ".");
 			} else {
@@ -160,6 +160,7 @@ public class CoalSource extends PlayerActivityEntity {
 			setState(getState()- 1);
 			handleRespawn();
 		} else {
+			player.incMiningXP(9);
 			player.sendPrivateText("You didn't find anything.");
 		}
 	}

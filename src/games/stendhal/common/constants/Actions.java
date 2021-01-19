@@ -51,6 +51,7 @@ public final class Actions {
 
 	//outfit
 	public static final String OUTFIT = "outfit_ext";
+	public static final String REMOVEDETAIL = "removedetail";
 
 	public static final String MOVETO = "moveto";
 
@@ -75,6 +76,8 @@ public final class Actions {
 
 	//inspect
 	public static final String INSPECT = "inspect";
+	public static final String INSPECTQUEST = "inspectquest";
+	public static final String INSPECTKILL = "inspectkill";
 
 	//teleport
 	public static final String ZONE = "zone";
@@ -166,6 +169,7 @@ public final class Actions {
 
 	public static final String ALTER = "alter";
 	public static final String UNSET = "unset";
+	public static final String ALTERKILL = "alterkill";
 
 	// for listing e.g. ignore list
 	public static final String LIST = "list";
@@ -194,6 +198,8 @@ public final class Actions {
 	/* Property indicating player is using continuous movement. */
 	public final static String MOVE_CONTINUOUS = MOVE_CONTINUOUS_PROPERTY;
 	public final static String COND_STOP = "conditional_stop";
+
+	public final static String BESTIARY = "bestiary";
 
 	private Actions() {
 		// hide constructor

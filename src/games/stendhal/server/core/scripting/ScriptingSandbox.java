@@ -59,6 +59,18 @@ public abstract class ScriptingSandbox {
 				rpobject.getID());
 	}
 
+	/**
+	 * Retrieves a zone by string ID.
+	 *
+	 * @param zoneName
+	 * 		Name of zone to retrieve.
+	 * @return
+	 * 		StendhalRPZone, if exists, <code>null</code> otherwise.
+	 */
+	public StendhalRPZone getZone(final String zoneName) {
+		return SingletonRepository.getRPWorld().getZone(zoneName);
+	}
+
 	public boolean setZone(final String name) {
 		zone = SingletonRepository.getRPWorld().getZone(name);
 		return (zone != null);
@@ -77,7 +89,7 @@ public abstract class ScriptingSandbox {
 		if (zone != null) {
 			zone.add(npc);
 			loadedNPCs.put(npc, null);
-			logger.info(filename + " added NPC: " + npc);
+			logger.debug(filename + " added NPC: " + npc);
 		}
 	}
 
@@ -85,7 +97,7 @@ public abstract class ScriptingSandbox {
 		if (zone != null) {
 			zone.add(object);
 			loadedRPObjects.put(object, null);
-			logger.info(filename + " added object: " + object);
+			logger.debug(filename + " added object: " + object);
 		}
 	}
 

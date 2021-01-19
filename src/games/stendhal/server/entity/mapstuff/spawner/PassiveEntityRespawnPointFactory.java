@@ -79,6 +79,9 @@ public class PassiveEntityRespawnPointFactory {
 
 		} else if (clazz.contains("dairy")) {
 			passiveEntityrespawnPoint = createDairy(type);
+		
+		} else if (clazz.contains("trees")) {
+			passiveEntityrespawnPoint = createTrees(type);
 		}
 
 		if (passiveEntityrespawnPoint == null) {
@@ -376,6 +379,20 @@ public class PassiveEntityRespawnPointFactory {
 			passiveEntityrespawnPoint = new GrainField("corn", Arrays.asList("sickle"));
 			break;
 
+		default:
+			passiveEntityrespawnPoint = null;
+			break;
+
+		}
+		return passiveEntityrespawnPoint;
+	}
+	
+	private static PassiveEntityRespawnPoint createTrees(final int type) {
+		PassiveEntityRespawnPoint passiveEntityrespawnPoint;
+		switch (type) {
+		case 0:
+			passiveEntityrespawnPoint = new TreeGrower("oak", Arrays.asList("axe", "old scythe", "black scythe"));
+			break;
 		default:
 			passiveEntityrespawnPoint = null;
 			break;

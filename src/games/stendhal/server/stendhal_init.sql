@@ -18,6 +18,7 @@ create table if not exists character_stats
   /* Attributes */
   atk integer,
   def integer,
+  miningLevel integer,
   ratk integer,
   hp integer,
   karma integer,
@@ -126,8 +127,8 @@ CREATE TABLE IF NOT EXISTS kills (
   PRIMARY KEY (id)
 );
 
-CREATE INDEX IF NOT EXISTS i_kills_killed ON kills (killed_type, killed);
-CREATE INDEX IF NOT EXISTS i_kills_killer ON kills (killer_type, killer);
+CREATE INDEX IF NOT EXISTS i_kills_day_killed ON kills (day, killed);
+CREATE INDEX IF NOT EXISTS i_kills_killer_day ON kills (killer, day);
 
 
 CREATE TABLE IF NOT EXISTS npcs (
@@ -230,6 +231,7 @@ CREATE TABLE IF NOT EXISTS achievement (
     description VARCHAR(254),
     base_score INTEGER,
     active INTEGER,
+    reached INTEGER,
     PRIMARY KEY(id)
 );
 CREATE UNIQUE INDEX IF NOT EXISTS i_achievement_identifier ON achievement(identifier);

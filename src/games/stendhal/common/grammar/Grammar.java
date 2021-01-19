@@ -28,6 +28,18 @@ public class Grammar {
 
 	private static final Logger logger = Logger.getLogger(Grammar.class);
 
+	// static instance
+	private static Grammar instance;
+
+
+	public static Grammar get() {
+		if (instance == null) {
+			instance = new Grammar();
+		}
+
+		return instance;
+	}
+
 	/**
 	 * "it" or "them", depending on the quantity.
 	 *
@@ -613,6 +625,7 @@ public class Grammar {
 		} else if (enoun.endsWith("money") || enoun.endsWith("dice")
 				|| enoun.endsWith("sheep")
 				|| enoun.endsWith("legs") || enoun.endsWith("boots")
+				|| enoun.endsWith("pegasus") || enoun.endsWith("djinn")
 				|| enoun.equals("deer") || enoun.equals("moose") || enoun.equals("magic")) {
 			return enoun + postfix;
 
@@ -667,7 +680,7 @@ public class Grammar {
 			return enoun.substring(0, enoun.length() - 2) + postfix;
 		} else if (enoun.endsWith("djin")) {
 			return enoun + "ni" + postfix;
-		} else if (enoun.endsWith("djinn") || enoun.endsWith("efreet")) {
+		} else if (enoun.endsWith("efreet")) {
 			return enoun + "i" + postfix;
 		} else if (enoun.endsWith("porcini") || enoun.endsWith("porcino")) {
 			return enoun.substring(0, enoun.length() - 1) + "o" + postfix;
@@ -1208,8 +1221,8 @@ public class Grammar {
 		if (word.length() > 2) {
 			char last = word.charAt(word.length()-1);
 
-			if (last == 'y' || last == 'w') {
-				// word finishes with a 'y' or a 'w'
+			if (last == 'y' || last == 'w' || last == 'x') {
+				// word finishes with a 'y', 'w', or an 'x'
 				return word + "ing";
 			} else if (isVowel(last)) {
 				// word finishes with a vowel

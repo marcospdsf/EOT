@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2020 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -14,6 +13,7 @@ package games.stendhal.server.core.engine.db;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -29,18 +29,6 @@ import marauroa.server.db.TransactionPool;
  */
 public class AchievementDAO {
 
-	/**
-	 * logs a reached achievement into the database
-	 *
-	 * @param achievementId id of achievement
-	 * @param playerName name of player
-	 * @throws SQLException in case of an database error
-	 */
-	public void saveReachedAchievement(Integer achievementId, String playerName) throws SQLException {
-		DBTransaction transaction = TransactionPool.get().beginWork();
-		saveReachedAchievement(transaction, achievementId, playerName);
-		TransactionPool.get().commit(transaction);
-	}
 
 	/**
 	 * logs a reached achievement into the database
@@ -48,16 +36,23 @@ public class AchievementDAO {
 	 * @param transaction DBTransaction
 	 * @param achievementId id of achievement
 	 * @param playerName name of player
+	 * @param timestamp timestamp
 	 * @throws SQLException in case of an database error
 	 */
-	public void saveReachedAchievement(DBTransaction transaction, Integer achievementId, String playerName) throws SQLException {
+	public void saveReachedAchievement(DBTransaction transaction, Integer achievementId, String playerName, boolean incReachedCount, Timestamp timestamp) throws SQLException {
 		String query  = "INSERT INTO reached_achievement " +
-						"(charname, achievement_id) VALUES" +
-						"('[charname]','[achievement_id]');";
+						"(charname, achievement_id, timedate) VALUES" +
+						"('[charname]','[achievement_id]', '[timedate]');";
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("charname", playerName);
 		parameters.put("achievement_id", achievementId);
+		parameters.put("timedate", timestamp);
 		transaction.execute(query, parameters);
+
+		if (incReachedCount) {
+			query = "UPDATE achievement SET reached = reached+1 WHERE id=[achievement_id];";
+			transaction.execute(query, parameters);
+		}
 	}
 
 	/**
@@ -85,8 +80,8 @@ public class AchievementDAO {
 	public int insertAchievement(DBTransaction transaction, Achievement achievement) throws SQLException {
 		int achievementId = 0;
 		String query = 	"INSERT INTO achievement " +
-						"(identifier, title, category, description, base_score, active) VALUES " +
-						"('[identifier]','[title]','[category]', '[description]', [base_score], [active])";
+						"(identifier, title, category, description, base_score, active, reached) VALUES " +
+						"('[identifier]','[title]','[category]', '[description]', [base_score], [active], 0)";
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("identifier", achievement.getIdentifier());
 		parameters.put("title", achievement.getTitle());

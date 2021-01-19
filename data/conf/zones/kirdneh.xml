@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zones xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="stendhal ../zones.xsd ">
-  <!-- ** Load zones. Written from left to right and from top to bottom. 
+  <!-- ** Load zones. Written from left to right and from top to bottom.
     ** Please respect it! -->
 
   <!-- Level 6 -->
@@ -24,14 +24,24 @@
       <parameter name="color_method">time</parameter>
       <parameter name="weather">varying</parameter>
     </attributes>
+
+    <!-- Music -->
+    <entity x="1" y="1">
+      <implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+        <parameter name="sound">town-02</parameter>
+        <parameter name="volume">80</parameter>
+      </implementation>
+    </entity>
+
+	<!-- NPCs Level 0 -->
     <configurator class-name="games.stendhal.server.maps.kirdneh.city.GossipNPC" />
     <configurator class-name="games.stendhal.server.maps.kirdneh.city.MummyNPC" />
-    <configurator
-      class-name="games.stendhal.server.maps.kirdneh.city.LittleGirlNPC" />
-    <configurator
-      class-name="games.stendhal.server.maps.kirdneh.city.FlowerSellerNPC" />
-    <configurator
-      class-name="games.stendhal.server.maps.kirdneh.city.KirdnehArmorGuyNPC" />
+    <configurator class-name="games.stendhal.server.maps.kirdneh.city.LittleGirlNPC" />
+    <configurator class-name="games.stendhal.server.maps.kirdneh.city.FlowerSellerNPC" />
+    <configurator class-name="games.stendhal.server.maps.kirdneh.city.KirdnehArmorGuyNPC" />
+    <configurator class-name="games.stendhal.server.maps.kirdneh.city.KirdnehFishyMarketNPC" />
+    <!--<configurator class-name="games.stendhal.server.maps.kirdneh.city.KirdnehAnxiousSorceressNPC" />-->
+
     <entity x="65" y="94">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.sign.ShopSign">
@@ -42,8 +52,6 @@
       <attribute name="class">blackboard</attribute>
     </entity>
 
-    <configurator
-      class-name="games.stendhal.server.maps.kirdneh.city.KirdnehFishyMarketNPC" />
     <entity x="65" y="85">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.sign.ShopSign">
@@ -53,15 +61,18 @@
       </implementation>
       <attribute name="class">blackboard</attribute>
     </entity>
+
     <portal x="50" y="7" ref="diving_board">
       <destination zone="0_kirdneh_city" ref="pool" />
       <attribute name="hidden" />
     </portal>
     <portal x="9" y="92" ref="tavern_left">
       <destination zone="int_kirdneh_inn" ref="entrance_left" />
+      <attribute name="move.continuous" />
     </portal>
     <portal x="10" y="92" ref="tavern">
       <destination zone="int_kirdneh_inn" ref="entrance" />
+      <attribute name="move.continuous" />
     </portal>
     <portal x="48" y="7" ref="pool">
       <implementation
@@ -69,6 +80,7 @@
     </portal>
     <portal x="77" y="58" ref="townhall">
       <destination zone="int_kirdneh_townhall" ref="entrance" />
+      <attribute name="move.continuous" />
     </portal>
     <entity x="20" y="57">
       <implementation
@@ -294,12 +306,15 @@
     </portal>
     <portal x="116" y="81" ref="museum1">
       <destination zone="int_kirdneh_museum" ref="entrance1" />
+      <attribute name="move.continuous" />
     </portal>
     <portal x="116" y="82" ref="museum2">
       <destination zone="int_kirdneh_museum" ref="entrance2" />
+      <attribute name="move.continuous" />
     </portal>
     <portal x="119" y="37" ref="bank">
       <destination zone="int_kirdneh_bank" ref="entrance" />
+      <attribute name="move.continuous" />
     </portal>
 
     <point-of-interest x="119" y="37">
@@ -330,7 +345,7 @@
     <entity x="3" y="16">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.useable.PlaySoundEntity">
-        <parameter name="sound">piano-1</parameter>
+        <parameter name="sound">piano-01</parameter>
         <parameter name="radius">40</parameter>
       </implementation>
       <attribute name="width">2</attribute>
@@ -350,7 +365,7 @@
       <parameter name="x">15</parameter>
       <parameter name="y">13</parameter>
     </configurator>
-    
+
     <!-- Planter box -->
     <configurator class-name="games.stendhal.server.maps.semos.city.FertileGrounds">
       <parameter name="x">37</parameter>
@@ -358,7 +373,7 @@
       <parameter name="width">1</parameter>
       <parameter name="height">3</parameter>
     </configurator>
-    
+
     <!-- Portals -->
     <portal x="19" y="23" ref="entrance">
       <destination zone="0_kirdneh_city" ref="27" />
@@ -372,31 +387,31 @@
       <attribute name="width">2</attribute>
       <attribute name="height">2</attribute>
     </entity>
-    
+
     <entity x="28" y="15">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
       <attribute name="description">You see a nice clean table for resting your drinks on.</attribute>
     </entity>
-    
+
     <entity x="33" y="15">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
       <attribute name="description">You see a nice clean table for resting your drinks on.</attribute>
     </entity>
-    
+
     <entity x="28" y="20">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
       <attribute name="description">You see a nice clean table for resting your drinks on.</attribute>
     </entity>
-    
+
     <entity x="33" y="20">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
       <attribute name="description">You see a nice clean table for resting your drinks on.</attribute>
     </entity>
-    
+
     <entity x="22" y="2">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -404,7 +419,7 @@
       <attribute name="width">3</attribute>
       <attribute name="height">2</attribute>
     </entity>
-    
+
     <entity x="7" y="16">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -412,13 +427,13 @@
       <attribute name="width">4</attribute>
       <attribute name="height">3</attribute>
     </entity>
-    
+
     <entity x="12" y="5">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
       <attribute name="description">You see a nice clean table for resting your drinks on.</attribute>
     </entity>
-    
+
     <!-- Counters -->
     <entity x="2" y="13">
       <implementation
@@ -427,7 +442,7 @@
       <attribute name="width">1</attribute>
       <attribute name="height">9</attribute>
     </entity>
-    
+
     <entity x="2" y="22">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -435,7 +450,7 @@
       <attribute name="width">7</attribute>
       <attribute name="height">1</attribute>
     </entity>
-    
+
     <entity x="28" y="22">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -443,7 +458,7 @@
       <attribute name="width">6</attribute>
       <attribute name="height">1</attribute>
     </entity>
-    
+
   </zone>
 
   <zone name="int_kirdneh_house_28" file="interiors/kirdneh/house_28.tmx"
@@ -484,7 +499,7 @@
     <entity x="20" y="12">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.useable.PlaySoundEntity">
-        <parameter name="sound">piano-1</parameter>
+        <parameter name="sound">piano-01</parameter>
         <parameter name="radius">40</parameter>
       </implementation>
       <attribute name="width">2</attribute>
@@ -516,7 +531,7 @@
     <entity x="10" y="16">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.useable.PlaySoundEntity">
-        <parameter name="sound">piano-1</parameter>
+        <parameter name="sound">piano-01</parameter>
         <parameter name="radius">40</parameter>
       </implementation>
       <attribute name="width">2</attribute>
@@ -585,7 +600,7 @@
     <entity x="14" y="5">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.useable.PlaySoundEntity">
-        <parameter name="sound">piano-1</parameter>
+        <parameter name="sound">piano-01</parameter>
         <parameter name="radius">40</parameter>
       </implementation>
       <attribute name="width">2</attribute>
@@ -850,7 +865,7 @@
     <entity x="35" y="12">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.useable.PlaySoundEntity">
-        <parameter name="sound">piano-1</parameter>
+        <parameter name="sound">piano-01</parameter>
         <parameter name="radius">40</parameter>
       </implementation>
       <attribute name="width">2</attribute>
@@ -1464,7 +1479,7 @@
     <entity x="14" y="5">
       <implementation
         class-name="games.stendhal.server.entity.mapstuff.useable.PlaySoundEntity">
-        <parameter name="sound">piano-1</parameter>
+        <parameter name="sound">piano-01</parameter>
         <parameter name="radius">40</parameter>
       </implementation>
       <attribute name="width">2</attribute>
@@ -1647,26 +1662,40 @@
   </zone>
 
   <zone name="int_kirdneh_inn" file="interiors/kirdneh/inn.tmx">
+
+    <!-- music -->
+    <entity x="0" y="0">
+      <implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+        <parameter name="sound">spinning_tavern</parameter>
+        <parameter name="volume">127</parameter>
+      </implementation>
+    </entity>
+
     <configurator class-name="games.stendhal.server.maps.kirdneh.inn.HealerNPC" />
     <configurator class-name="games.stendhal.server.maps.kirdneh.inn.BarmanNPC" />
     <configurator class-name="games.stendhal.server.maps.kirdneh.inn.ItemsOnTable" />
     <portal x="17" y="23" ref="entrance_left">
       <destination zone="0_kirdneh_city" ref="tavern_left" />
+      <attribute name="move.continuous" />
     </portal>
     <portal x="18" y="23" ref="entrance">
       <destination zone="0_kirdneh_city" ref="tavern" />
+      <attribute name="move.continuous" />
     </portal>
   </zone>
 
   <zone name="int_kirdneh_townhall" file="interiors/kirdneh/townhall.tmx">
     <portal x="19" y="23" ref="entrance">
       <destination zone="0_kirdneh_city" ref="townhall" />
+      <attribute name="move.continuous" />
     </portal>
     <portal x="18" y="3" ref="upstair_left">
       <destination zone="int_kirdneh_townhall1" ref="downstair_left" />
+      <attribute name="move.continuous" />
     </portal>
     <portal x="19" y="3" ref="upstair_right">
       <destination zone="int_kirdneh_townhall1" ref="downstair_right" />
+      <attribute name="move.continuous" />
     </portal>
   </zone>
 
@@ -1685,9 +1714,11 @@
     </entity>
     <portal x="18" y="4" ref="downstair_left">
       <destination zone="int_kirdneh_townhall" ref="upstair_left" />
+      <attribute name="move.continuous" />
     </portal>
     <portal x="19" y="4" ref="downstair_right">
       <destination zone="int_kirdneh_townhall" ref="upstair_right" />
+      <attribute name="move.continuous" />
     </portal>
   </zone>
 
@@ -1713,15 +1744,18 @@
     </entity>
     <portal x="1" y="24" ref="entrance1">
       <destination zone="0_kirdneh_city" ref="museum1" />
+      <attribute name="move.continuous" />
     </portal>
     <portal x="1" y="25" ref="entrance2">
       <destination zone="0_kirdneh_city" ref="museum2" />
+      <attribute name="move.continuous" />
     </portal>
   </zone>
 
   <zone name="int_kirdneh_bank" file="interiors/kirdneh/bank.tmx">
     <portal x="1" y="18" ref="entrance">
       <destination zone="0_kirdneh_city" ref="bank" />
+      <attribute name="move.continuous" />
     </portal>
     <entity x="3" y="9">
       <implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign" />
@@ -1786,9 +1820,11 @@
 
     <portal x="50" y="108" ref="river_house">
       <destination zone="int_kirdneh_river_house_0" ref="entrance" />
+      <attribute name="move.continuous" />
     </portal>
     <portal x="51" y="108" ref="river_house_right">
       <destination zone="int_kirdneh_river_house_0" ref="entrance" />
+      <attribute name="move.continuous" />
     </portal>
   </zone>
 
@@ -1810,15 +1846,18 @@
 
     <portal x="15" y="30" ref="entrance">
       <destination zone="0_kirdneh_river_w" ref="river_house" />
+      <attribute name="move.continuous" />
     </portal>
     <portal x="20" y="17" ref="upstair">
       <destination zone="int_kirdneh_river_house_1" ref="downstair" />
+      <attribute name="move.continuous" />
     </portal>
   </zone>
 
   <zone name="int_kirdneh_river_house_1" file="interiors/kirdneh/river_house_1.tmx">
     <portal x="12" y="7" ref="downstair">
       <destination zone="int_kirdneh_river_house_0" ref="upstair" />
+      <attribute name="move.continuous" />
     </portal>
   </zone>
 

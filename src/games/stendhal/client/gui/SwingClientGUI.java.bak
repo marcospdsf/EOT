@@ -182,14 +182,9 @@ class SwingClientGUI implements J2DClientGUI {
 	}
 
 	private void setupInternalWindowProperties() {
-		weaponbag = new WeaponBag();
-		weaponbag.setAcceptedTypes(EntityMap.getClass("item", null, null));
-		userContext.addFeatureChangeListener(weaponbag);
-		//addWindow(weaponbag);
 		WtWindowManager windowManager = WtWindowManager.getInstance();
 		windowManager.setDefaultProperties("corpse", false, 0, 190);
 		windowManager.setDefaultProperties("chest", false, 100, 190);
-		windowManager.setDefaultProperties("weaponbag", false, 100, 190);
 	}
 
 	private void setupChatEntry() {
@@ -242,8 +237,13 @@ class SwingClientGUI implements J2DClientGUI {
 		character = new Character();
 		containerPanel.addRepaintable(character);
 
+		weaponbag = new WeaponBag();
+		weaponbag.setAcceptedTypes(EntityMap.getClass("item", null, null));
+		containerPanel.addRepaintable(weaponbag);
+		userContext.addFeatureChangeListener(weaponbag);
+
 		// Create the bag window
-		inventory = new SlotWindow("bag", 3, 6);
+		inventory = new SlotWindow("bag", 5, 4);
 		inventory.setAcceptedTypes(EntityMap.getClass("item", null, null));
 		inventory.setCloseable(false);
 		containerPanel.addRepaintable(inventory);
@@ -256,17 +256,14 @@ class SwingClientGUI implements J2DClientGUI {
 		userContext.addFeatureChangeListener(keyring);
 		
 		scrollbag = new ScrollBag();
-		// scrollbag's types are more limited, but it's simpler to let the server
-		// handle those     chest
 		scrollbag.setAcceptedTypes(EntityMap.getClass("item", null, null));
-		//containerPanel.addRepaintable(scrollbag);
+		containerPanel.addRepaintable(scrollbag);
 		userContext.addFeatureChangeListener(scrollbag);
-		//addWindow(scrollbag);
 		
-		portfolio = new Portfolio();
+		/* portfolio = new Portfolio();
 		portfolio.setAcceptedTypes(EntityMap.getClass("item", null, null));
 		containerPanel.addRepaintable(portfolio);
-		userContext.addFeatureChangeListener(portfolio);
+		userContext.addFeatureChangeListener(portfolio); */
 
 		spells = new Spells();
 		spells.setAcceptedTypes(EntityMap.getClass("spell", null, null));
@@ -439,16 +436,16 @@ class SwingClientGUI implements J2DClientGUI {
 		quitDialog.getQuitDialog().setVisible(false);
 		// Windows may have been closed in old clients
 		character.setVisible(true);
+		weaponbag.setVisible(true);
 		inventory.setVisible(true);
 		/*
 		 * Keyring, spells, scrollbag and weaponbag on the other hand, *should* be hidden until
 		 * revealed by feature change
 		 */
-		scrollbag.setVisible(true);
-		weaponbag.setVisible(true);
 		keyring.setVisible(false);
+		scrollbag.setVisible(true);
 		//portfolio.setVisible(false);
-		spells.setVisible(false);
+		spells.setVisible(true);
 	}
 
 	private void setupWindowWideListeners(JFrame frame) {
@@ -569,7 +566,7 @@ class SwingClientGUI implements J2DClientGUI {
 		keyring.setSlot(user, "keyring");
 		scrollbag.setSlot(user, "scrollbag");
 		weaponbag.setSlot(user, "weaponbag");
-		portfolio.setSlot(user, "portfolio");
+		//portfolio.setSlot(user, "portfolio");
 		spells.setSlot(user, "spells");
 		inventory.setSlot(user, "bag");
 	}

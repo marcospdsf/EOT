@@ -20,6 +20,7 @@ import java.awt.geom.Rectangle2D;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -57,6 +58,8 @@ import games.stendhal.server.entity.creature.Creature;
 import games.stendhal.server.entity.creature.DomesticAnimal;
 import games.stendhal.server.entity.creature.Sheep;
 import games.stendhal.server.entity.item.Item;
+import games.stendhal.server.entity.mapstuff.area.WalkBlocker;
+import games.stendhal.server.entity.mapstuff.area.WalkBlockerFactory;
 import games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination;
 import games.stendhal.server.entity.mapstuff.portal.Portal;
 import games.stendhal.server.entity.mapstuff.spawner.CreatureRespawnPoint;
@@ -65,7 +68,10 @@ import games.stendhal.server.entity.mapstuff.spawner.PassiveEntityRespawnPointFa
 import games.stendhal.server.entity.mapstuff.spawner.SheepFood;
 import games.stendhal.server.entity.npc.NPC;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.TrainingDummy;
+import games.stendhal.server.entity.npc.TrainingDummyFactory;
 import games.stendhal.server.entity.player.Player;
+import games.stendhal.server.util.StringUtils;
 import marauroa.common.game.IRPZone;
 import marauroa.common.game.RPObject;
 import marauroa.common.game.RPSlot;
@@ -540,17 +546,12 @@ public class StendhalRPZone extends MarauroaRPZone {
 		int levelSum = 1;
 		for (CreatureRespawnPoint spawner : respawnPoints) {
 			Creature creature = spawner.getPrototypeCreature();
-			// Rare creatures should not count.
-			if (creature.isRare()) {
+			// Rare & abnormal creatures should not count.
+			if (creature.isAbnormal()) {
 				continue;
 			}
 			// Add 1, so that level 0 creatures do not get completely ignored.
 			int level = creature.getLevel() + 1;
-			// The level restriction is a hack to keep the chess pieces from
-			// being included.
-			if (level > 1000) {
-				continue;
-			}
 			maxLevel = Math.max(level, maxLevel);
 			levelSum += level;
 		}
@@ -671,6 +672,16 @@ public class StendhalRPZone extends MarauroaRPZone {
 					passiveEntityrespawnPoint.setStartState();
 
 				}
+			} else if (clazz.contains("logic/training_dummy")) {
+				final TrainingDummy dummy = TrainingDummyFactory.create(type);
+				dummy.setPosition(x, y);
+				add(dummy);
+			} else if (clazz.contains("logic/area")) {
+				// TODO: configure WalkBlocker & FlyOverArea on "collision" map layer
+
+				final WalkBlocker blocker = WalkBlockerFactory.create(type);
+				blocker.setPosition(x, y);
+				add(blocker);
 			}
 		} catch (final RuntimeException e) {
 			logger.error("error creating entity " + type + " at (" + x + ","
@@ -1266,6 +1277,48 @@ public class StendhalRPZone extends MarauroaRPZone {
 	 */
 	public String getName() {
 		return getID().getID();
+	}
+
+	public String getHumanReadableName() {
+		final List<String> commonSuffixes = Arrays.asList(
+				"n", "nw", "ne", "s", "sw", "se", "e", "w");
+
+		//final StringBuilder sb = new StringBuilder();
+		final List<String> prefix = new LinkedList<>();
+		final List<String> suffix = new LinkedList<>();
+
+		String level = null;
+		for (final String word: getName().split("_")) {
+			if (level == null) {
+				level = word;
+				continue;
+			}
+
+			if (commonSuffixes.contains(word)) {
+				suffix.add(word);
+				continue;
+			}
+
+			try {
+				if (word.length() > 1) {
+					Integer.parseInt(word.substring(1));
+					suffix.add(word);
+					continue;
+				}
+			} catch (final NumberFormatException e) {
+
+			}
+
+			prefix.add(word);
+		}
+
+		final StringBuilder sb = new StringBuilder(StringUtils.titleize(String.join(" ", prefix)));
+		if (!suffix.isEmpty()) {
+			sb.append(" " + String.join("", suffix).toUpperCase());
+		}
+		sb.append(", level " + level);
+
+		return sb.toString();
 	}
 
 	/**

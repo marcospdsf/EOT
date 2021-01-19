@@ -64,7 +64,7 @@ public class AdminMaker extends ScriptImpl {
 			final int level = player.getLevel();
 
 			// increase level by xlevel per execution
-			int xlevel = 10;
+			long xlevel = 10;
 
 			// Player should at least be min_level after one execution
 			final int min_level = 20;
@@ -80,7 +80,7 @@ public class AdminMaker extends ScriptImpl {
 			player.addXP(Level.getXP(level + xlevel) - Level.getXP(level));
 
 			// set the atk and def to half the level (is a good rule of thumb)
-			final int skills = ((Level.getXP(level) + xlevel) / 2);
+			final int skills = (int) ((Level.getXP(level) + xlevel) / 2);
 			player.setAtkXP(skills);
 			player.setDefXP(skills);
 			player.incAtkXP();

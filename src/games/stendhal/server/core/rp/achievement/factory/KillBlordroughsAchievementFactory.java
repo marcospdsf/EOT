@@ -27,11 +27,17 @@ import games.stendhal.server.maps.quests.KillBlordroughs;
  */
 public class KillBlordroughsAchievementFactory extends AbstractAchievementFactory {
 
-	private static final String QUEST_SLOT = KillBlordroughs.getInstance().getSlotName();
-	private static final String prefix = "quest.special." + QUEST_SLOT;
-
 	public static final int COUNT_LACKEY = 5;
-	public static final String ID_LACKEY = prefix + "." + Integer.toString(COUNT_LACKEY);
+	public static final String ID_LACKEY = "quest.special.kill_blordroughs.0005";
+
+	public static final int COUNT_SOLDIER = 25;
+	public static final String ID_SOLDIER = "quest.special.kill_blordroughs.0025";
+
+	public static final int COUNT_DOMINATOR = 50;
+	public static final String ID_DOMINATOR = "quest.special.kill_blordroughs.0050";
+
+	public static final int COUNT_DICTATOR = 100;
+	public static final String ID_DICTATOR = "quest.special.kill_blordroughs.0100";
 
 	@Override
 	protected Category getCategory() {
@@ -45,7 +51,22 @@ public class KillBlordroughsAchievementFactory extends AbstractAchievementFactor
 		achievements.add(createAchievement(
 				ID_LACKEY, "Imperialist Lackey", "Finish Kill Blordroughs quest 5 times",
 				Achievement.MEDIUM_BASE_SCORE, true,
-				new CompletedCountCondition(5)));
+				new CompletedCountCondition(COUNT_LACKEY)));
+
+		achievements.add(createAchievement(
+				ID_SOLDIER, "Imperialist Soldier", "Finish Kill Blordroughs quest 25 times",
+				Achievement.HARD_BASE_SCORE, true,
+				new CompletedCountCondition(COUNT_SOLDIER)));
+
+		achievements.add(createAchievement(
+				ID_DOMINATOR, "Imperialist Dominator", "Finish Kill Blordroughs quest 50 times",
+				Achievement.HARD_BASE_SCORE, true,
+				new CompletedCountCondition(COUNT_DOMINATOR)));
+
+		achievements.add(createAchievement(
+				ID_DICTATOR, "Imperialist Dictator", "Finish Kill Blordroughs quest 100 times",
+				Achievement.HARD_BASE_SCORE, true,
+				new CompletedCountCondition(COUNT_DICTATOR)));
 
 		return achievements;
 	}

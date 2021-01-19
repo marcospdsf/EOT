@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="stendhal ../items.xsd ">
-	
+
   <item name="assassin dagger">
     <type class="sword" subclass="assassin_dagger" tileid="-1"/>
     <description>You see an assassin dagger, easy to pull out and use when needed.</description>
@@ -705,7 +706,7 @@
       <atk value="5"/>
       <rate value="1"/>
       <lifesteal value="0.1"/>
-      <min_level value="200"/>
+      <min_level value="250"/>
     </attributes>
     <weight value="0.2"/>
     <value value="1000000"/>
@@ -852,6 +853,28 @@
       <slot name="rhand"/>
     </equipable>
   </item>
+  
+  <item name="training sword">
+    <type class="sword" subclass="training_sword" tileid="-1"/>
+    <description>You see a wooden training sword not even useful for cutting butter. But it is light and easy to swing.</description>
+    <implementation class-name="games.stendhal.server.entity.item.BreakableItem"/>
+    <attributes>
+      <atk value="0"/>
+      <rate value="1"/>
+      <durability value="800"/>
+    </attributes>
+    <weight value="2.0"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
 <!-- Chinese -->
   
   <item name="golden dagger">

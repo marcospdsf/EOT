@@ -84,9 +84,9 @@
       <item value="greater antidote" quantity="[1,1]" probability="30.0"/>
       <item value="spinach" quantity="[2,4]" probability="40.0"/>
       <item value="tomato" quantity="[2,3]" probability="40.0"/>
-      <item value="potato" quantity="[1,5]" probability="2.0"/>
-      <item value="olive oil" quantity="[1,5]" probability="2.0"/>
-      <item value="vinegar" quantity="[1,5]" probability="2.0"/>
+      <item value="potato" quantity="[1,5]" probability="5.0"/>
+      <item value="olive oil" quantity="[1,5]" probability="10.0"/>
+      <item value="vinegar" quantity="[1,5]" probability="10.0"/>
     </drops>
     <equips>
     </equips>
@@ -225,7 +225,7 @@
     <level value="205"/>
     <experience value="86000"/>
     <respawn value="26000"/>
-    <corpse name="humanoid_2x2" harmless="cloaked_red_2x2" width="2" height="2"/>
+    <corpse name="humanoid_2x2" harmless="cloaked_red_2x2"/>
     <drops>
       <item value="money" quantity="[100,600]" probability="100.0"/>
       <item value="greater potion" quantity="[2,4]" probability="20.0"/>
@@ -309,5 +309,1013 @@
   </creature>
 
   <!-- END: wizard -->
+  
+  <!-- START: Blue chaos -->
+  
+  <creature name="blue chaos soldier">
+		<type class="chaos" subclass="blue_chaos_soldier" tileid="blue_chaos.png:4"/>
+		<description/>
+		<attributes>
+			<atk value="1393"/>
+			<def value="170"/>
+			<hp value="3650"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="95"/>
+		<experience value="10000"/>
+		<respawn value="2510"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[150,500]" probability="100.0"/>
+			<item value="mega potion" quantity="[1,3]" probability="30.0"/>
+			<item value="shadow armor" quantity="[1,1]" probability="1.5"/>
+			<item value="chaos boots" quantity="[1,1]" probability="1.9"/>
+			<item value="chaos cloak" quantity="[1,1]" probability="2.2"/>
+			<item value="chaos helmet" quantity="[1,1]" probability="1.4"/>
+			<item value="chaos shield" quantity="[1,1]" probability="1.7"/>
+			<item value="chaos sword" quantity="[1,1]" probability="1.3"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="blue chaos warrior">
+		<type class="chaos" subclass="blue_chaos_warrior" tileid="blue_chaos.png:5"/>
+		<description/>
+		<attributes>
+			<atk value="1405"/>
+			<def value="185"/>
+			<hp value="3798"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="105"/>
+		<experience value="10000"/>
+		<respawn value="3150"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[150,500]" probability="100.0"/>
+			<item value="mega potion" quantity="[1,3]" probability="40.0"/>
+			<item value="greater potion" quantity="[1,5]" probability="90.0"/>
+			<item value="chaos legs" quantity="[1,1]" probability="1.9"/>
+			<item value="shadow armor" quantity="[1,1]" probability="2.5"/>
+			<item value="chaos boots" quantity="[1,1]" probability="2.9"/>
+			<item value="chaos helmet" quantity="[1,1]" probability="1.6"/>
+			<item value="chaos shield" quantity="[1,1]" probability="1.9"/>
+			<item value="chaos sword" quantity="[1,1]" probability="1.9"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Defy order! Seek chaos!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="blue chaos commander">
+		<type class="chaos" subclass="blue_chaos_commander" tileid="blue_chaos.png:0"/>
+		<description/>
+		<attributes>
+			<atk value="1535"/>
+			<def value="193"/>
+			<hp value="3996"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="122"/>
+		<experience value="20000"/>
+		<respawn value="4120"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[350,700]" probability="100.0"/>
+			<item value="mega potion" quantity="[2,3]" probability="40.0"/>
+			<item value="chaos armor" quantity="[1,1]" probability="1.7"/>
+			<item value="chaos boots" quantity="[1,1]" probability="5.0"/>
+			<item value="shadow cloak" quantity="[1,1]" probability="2.6"/>
+			<item value="chaos cloak" quantity="[1,1]" probability="1.5"/>
+			<item value="liberty helmet" quantity="[1,1]" probability="1.1"/>
+			<item value="chaos shield" quantity="[1,1]" probability="3.0"/>
+			<item value="chaos sword" quantity="[1,1]" probability="3.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Chaos in the wrath!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="blue chaos sorcerer">
+		<type class="chaos" subclass="blue_chaos_sorceror" tileid="blue_chaos.png:6"/>
+		<description/>
+		<attributes>
+			<atk value="1603"/>
+			<def value="201"/>
+			<hp value="3708"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="128"/>
+		<experience value="27500"/>
+		<respawn value="3000"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[500,2500]" probability="100.0"/>
+			<item value="mega potion" quantity="[2,5]" probability="40.0"/>
+			<item value="chaos shield" quantity="[1,1]" probability="2.5"/>
+			<item value="chaos dagger" quantity="[1,1]" probability="0.1"/>
+			<item value="chaos cloak" quantity="[1,1]" probability="3.5"/>
+			<item value="empty scroll" quantity="[1,4]" probability="50.0"/>
+			<item value="fire sword" quantity="[1,1]" probability="4.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="I will summon chaos and fury upon you!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="blue chaos dragonrider">
+		<type class="chaos" subclass="blue_chaos_dragonrider" tileid="blue_chaos.png:1"/>
+		<description/>
+		<attributes>
+			<atk value="1733"/>
+			<def value="215"/>
+			<hp value="5218"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="135"/>
+		<experience value="32000"/>
+		<respawn value="5300"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[550,900]" probability="100.0"/>
+			<item value="mega potion" quantity="[2,4]" probability="40.0"/>
+			<item value="greater potion" quantity="[3,6]" probability="80.0"/>
+			<item value="chaos legs" quantity="[1,1]" probability="5.0"/>
+			<item value="chaos cloak" quantity="[1,1]" probability="2.5"/>
+			<item value="black helmet" quantity="[1,1]" probability="0.6"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="blue chaos lord">
+		<type class="chaos" subclass="blue_chaos_lord" tileid="blue_chaos.png:2"/>
+		<description/>
+		<attributes>
+			<atk value="1854"/>
+			<def value="237"/>
+			<hp value="5662"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="155"/>
+		<experience value="43000"/>
+		<respawn value="8300"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[650,1500]" probability="100.0"/>
+			<item value="mega potion" quantity="[2,4]" probability="50.0"/>
+			<item value="greater potion" quantity="[6,15]" probability="80.0"/>
+			<item value="shadow armor" quantity="[1,1]" probability="6.0"/>
+			<item value="chaos armor" quantity="[1,1]" probability="1.4"/>
+			<item value="black boots" quantity="[1,1]" probability="1.1"/>
+			<item value="chaos cloak" quantity="[1,1]" probability="3.0"/>
+			<item value="black helmet" quantity="[1,1]" probability="0.5"/>
+			<item value="black shield" quantity="[1,1]" probability="0.7"/>
+			<item value="chaos axe" quantity="[1,1]" probability="0.10"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Chaos will rule!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="blue chaos overlord">
+		<type class="chaos" subclass="blue_chaos_overlord" tileid="blue_chaos.png:3"/>
+		<description/>
+		<attributes>
+			<atk value="2508"/>
+			<def value="303"/>
+			<hp value="7318"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="215"/>
+		<experience value="40800"/>
+		<respawn value="3600"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[1500,4500]" probability="100.0"/>
+			<item value="greater potion" quantity="[15,30]" probability="70.0"/>
+			<item value="mega potion" quantity="[8,16]" probability="80.0"/>
+			<item value="chaos armor" quantity="[1,1]" probability="1.0"/>
+			<item value="mithril legs" quantity="[1,1]" probability="0.50"/>
+			<item value="black boots" quantity="[1,1]" probability="0.5"/>
+			<item value="black cloak" quantity="[1,1]" probability="0.50"/>
+			<item value="chaos helmet" quantity="[1,1]" probability="1.5"/>
+			<item value="mithril boots" quantity="[1,1]" probability="0.50"/>
+			<item value="chaos axe" quantity="[1,1]" probability="0.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="5,50"/>
+		</ai>
+	</creature>
+	
+	<creature name="chaos blue dragonrider">
+		<type class="huge_animal" subclass="chaos_blue_dragonrider" tileid="my_monsters_01.png:29"/>
+		<description/>
+		<attributes>
+			<atk value="3044"/>
+			<def value="337"/>
+			<hp value="8658"/>
+			<speed value="1.0"/>
+			<size value="3,2"/>
+		</attributes>
+		<level value="275"/>
+		<experience value="275300"/>
+		<respawn value="222600"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[2500,23000]" probability="100.0"/>
+			<item value="mega potion" quantity="[8,16]" probability="80.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="0.2"/>
+			<item value="sapphire" quantity="[2,5]" probability="60.0"/>
+			<item value="blue dragon dagger" quantity="[1,1]" probability="0.5"/>
+			<item value="blue dragon cloak" quantity="[1,1]" probability="1.5"/>
+			<item value="blue dragon shield" quantity="[1,1]" probability="0.7"/>
+			<item value="vulcano hammer" quantity="[1,1]" probability="0.02"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Charrrrrrrrge!"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="heal" params="5,15"/>
+		</ai>
+	</creature>
+	
+	<!-- END: Blue Chaos -->
+	
+	<!-- START: Red Chaos -->
+	
+	<creature name="red chaos soldier">
+		<type class="chaos" subclass="red_chaos_soldier" tileid="red_chaos.png:4"/>
+		<description/>
+		<attributes>
+			<atk value="2843"/>
+			<def value="240"/>
+			<hp value="2250"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="120"/>
+		<experience value="15000"/>
+		<respawn value="2510"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[150,500]" probability="100.0"/>
+			<item value="mega potion" quantity="[3,15]" probability="70.0"/>
+			<item value="shadow armor" quantity="[1,1]" probability="3.5"/>
+			<item value="chaos boots" quantity="[1,1]" probability="1.9"/>
+			<item value="chaos cloak" quantity="[1,1]" probability="2.2"/>
+			<item value="red chaos armor" quantity="[1,1]" probability="0.1"/>
+			<item value="chaos shield" quantity="[1,1]" probability="1.7"/>
+			<item value="chaos sword" quantity="[1,1]" probability="1.3"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="red chaos warrior">
+		<type class="chaos" subclass="red_chaos_warrior" tileid="red_chaos.png:5"/>
+		<description/>
+		<attributes>
+			<atk value="2855"/>
+			<def value="265"/>
+			<hp value="2798"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="130"/>
+		<experience value="20000"/>
+		<respawn value="3150"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[250,500]" probability="100.0"/>
+			<item value="mega potion" quantity="[4,15]" probability="70.0"/>
+			<item value="greater potion" quantity="[5,10]" probability="90.0"/>
+			<item value="chaos legs" quantity="[1,1]" probability="1.9"/>
+			<item value="red chaos armor" quantity="[1,1]" probability="0.1"/>
+			<item value="chaos boots" quantity="[1,1]" probability="2.9"/>
+			<item value="chaos helmet" quantity="[1,1]" probability="1.6"/>
+			<item value="chaos shield" quantity="[1,1]" probability="1.9"/>
+			<item value="chaos sword" quantity="[1,1]" probability="1.9"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Defy order! Seek chaos!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="red chaos commander">
+		<type class="chaos" subclass="red_chaos_commander" tileid="red_chaos.png:0"/>
+		<description/>
+		<attributes>
+			<atk value="2875"/>
+			<def value="280"/>
+			<hp value="2996"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="147"/>
+		<experience value="30000"/>
+		<respawn value="4120"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[350,800]" probability="100.0"/>
+			<item value="mega potion" quantity="[5,15]" probability="70.0"/>
+			<item value="chaos armor" quantity="[1,1]" probability="2.7"/>
+			<item value="chaos boots" quantity="[1,1]" probability="6.0"/>
+			<item value="red chaos armor" quantity="[1,1]" probability="0.3"/>
+			<item value="chaos cloak" quantity="[1,1]" probability="1.5"/>
+			<item value="liberty helmet" quantity="[1,1]" probability="1.0"/>
+			<item value="chaos shield" quantity="[1,1]" probability="3.0"/>
+			<item value="chaos sword" quantity="[1,1]" probability="3.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Chaos in the wrath!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="red chaos sorcerer">
+		<type class="chaos" subclass="red_chaos_sorceror" tileid="red_chaos.png:6"/>
+		<description/>
+		<attributes>
+			<atk value="2953"/>
+			<def value="340"/>
+			<hp value="5000"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="156"/>
+		<experience value="65500"/>
+		<respawn value="9000"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[1650,4500]" probability="100.0"/>
+			<item value="mega potion" quantity="[15,25]" probability="90.0"/>
+			<item value="empty scroll" quantity="[2,6]" probability="60.0"/>
+			<item value="chaos shield" quantity="[1,1]" probability="6.5"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.05"/>
+			<item value="red chaos armor" quantity="[1,1]" probability="0.3"/>
+			<item value="chaos cloak" quantity="[1,1]" probability="8.0"/>
+			<item value="fire sword" quantity="[1,1]" probability="8.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="I will summon chaos and fury upon you!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="35,90"/>
+		</ai>
+	</creature>
+	<creature name="red chaos dragonrider">
+		<type class="chaos" subclass="red_chaos_dragonrider" tileid="red_chaos.png:1"/>
+		<description/>
+		<attributes>
+			<atk value="2883"/>
+			<def value="300"/>
+			<hp value="3200"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="160"/>
+		<experience value="66000"/>
+		<respawn value="5300"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[1500,2500]" probability="100.0"/>
+			<item value="mega potion" quantity="[8,15]" probability="70.0"/>
+			<item value="greater potion" quantity="[3,12]" probability="80.0"/>
+			<item value="chaos legs" quantity="[1,1]" probability="8.0"/>
+			<item value="chaos cloak" quantity="[1,1]" probability="3.5"/>
+			<item value="black helmet" quantity="[1,1]" probability="0.6"/>
+			<item value="red chaos armor" quantity="[1,1]" probability="0.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="red chaos lord">
+		<type class="chaos" subclass="red_chaos_lord" tileid="red_chaos.png:2"/>
+		<description/>
+		<attributes>
+			<atk value="2904"/>
+			<def value="320"/>
+			<hp value="3662"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="185"/>
+		<experience value="69000"/>
+		<respawn value="12300"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[1800,3500]" probability="100.0"/>
+			<item value="mega potion" quantity="[8,15]" probability="70.0"/>
+			<item value="greater potion" quantity="[12,30]" probability="80.0"/>
+			<item value="shadow armor" quantity="[1,1]" probability="8.0"/>
+			<item value="chaos armor" quantity="[1,1]" probability="4.0"/>
+			<item value="red chaos armor" quantity="[1,1]" probability="0.8"/>
+			<item value="mithril cloak" quantity="[1,1]" probability="0.1"/>
+			<item value="mithril helmet" quantity="[1,1]" probability="0.1"/>
+			<item value="black shield" quantity="[1,1]" probability="0.7"/>
+			<item value="chaos axe" quantity="[1,1]" probability="0.70"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Chaos will rule!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="red chaos overlord">
+		<type class="chaos" subclass="red_chaos_overlord" tileid="red_chaos.png:3"/>
+		<description/>
+		<attributes>
+			<atk value="4500"/>
+			<def value="485"/>
+			<hp value="27000"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="533"/>
+		<experience value="626000"/>
+		<respawn value="36900"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[60000,100000]" probability="100.0"/>
+			<item value="huge potion" quantity="[8,24]" probability="70.0"/>
+			<item value="mega potion" quantity="[30,60]" probability="90.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="15.0"/>
+			<item value="red chaos armor" quantity="[1,1]" probability="2.0"/>
+			<item value="golden dagger" quantity="[1,1]" probability="2.0"/>
+			<item value="mithril shield" quantity="[1,1]" probability="1.0"/>
+			<item value="golden blade" quantity="[1,1]" probability="0.5"/>
+			<item value="mithril dagger" quantity="[1,1]" probability="0.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Chaos will be your doom!"/>
+				<noise state="idle follow fight" value="ORRRRGH!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="50,90"/>
+		</ai>
+	</creature>
+	
+	<!-- END: Red Chaos -->
+	
+	<!-- START: Gold & Silver Chaos -->
+	
+	<creature name="golden chaos soldier">
+		<type class="chaos" subclass="golden_chaos_soldier" tileid="red_chaos.png:11"/>
+		<description/>
+		<attributes>
+			<atk value="2393"/>
+			<def value="230"/>
+			<hp value="6650"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="221"/>
+		<experience value="90000"/>
+		<respawn value="6510"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[700,6500]" probability="100.0"/>
+			<item value="mega potion" quantity="[4,8]" probability="70.0"/>
+			<item value="immortal sword" quantity="[1,1]" probability="0.1"/>
+			<item value="golden armor" quantity="[1,1]" probability="1.5"/>
+			<item value="golden shield" quantity="[1,1]" probability="0.2"/>
+			<item value="chaos dagger" quantity="[1,1]" probability="0.1"/>
+			<item value="golden dress" quantity="[1,1]" probability="0.2"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.005"/>
+			<item value="golden chaos armor" quantity="[1,1]" probability="0.01"/>
+			<item value="enhanced golden chaos armor" quantity="[1,1]" probability="0.005"/>
+			<item value="golden blood skull shield" quantity="[1,1]" probability="0.01"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="golden chaos warrior">
+		<type class="chaos" subclass="golden_chaos_warrior" tileid="red_chaos.png:12"/>
+		<description/>
+		<attributes>
+			<atk value="2405"/>
+			<def value="245"/>
+			<hp value="7798"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="223"/>
+		<experience value="101000"/>
+		<respawn value="6150"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[900,8500]" probability="100.0"/>
+			<item value="mega potion" quantity="[6,10]" probability="70.0"/>
+			<item value="greater potion" quantity="[10,25]" probability="90.0"/>
+			<item value="immortal sword" quantity="[1,1]" probability="0.2"/>
+			<item value="golden armor" quantity="[1,1]" probability="1.5"/>
+			<item value="golden shield" quantity="[1,1]" probability="0.2"/>
+			<item value="chaos dagger" quantity="[1,1]" probability="0.1"/>
+			<item value="shadow armor" quantity="[1,1]" probability="2.5"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.005"/>
+			<item value="golden dress" quantity="[1,1]" probability="0.2"/>
+			<item value="golden chaos armor" quantity="[1,1]" probability="0.01"/>
+			<item value="enhanced golden chaos armor" quantity="[1,1]" probability="0.005"/>
+			<item value="golden blood skull shield" quantity="[1,1]" probability="0.01"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Defy order! Seek chaos!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="golden chaos commander">
+		<type class="chaos" subclass="golden_chaos_commander" tileid="red_chaos.png:7"/>
+		<description/>
+		<attributes>
+			<atk value="2535"/>
+			<def value="253"/>
+			<hp value="7996"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="225"/>
+		<experience value="110000"/>
+		<respawn value="8120"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[1100,11500]" probability="100.0"/>
+			<item value="mega potion" quantity="[6,12]" probability="80.0"/>
+			<item value="immortal sword" quantity="[1,1]" probability="0.2"/>
+			<item value="golden armor" quantity="[1,1]" probability="2.0"/>
+			<item value="golden shield" quantity="[1,1]" probability="0.2"/>
+			<item value="chaos dagger" quantity="[1,1]" probability="0.1"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.005"/>
+			<item value="golden dress" quantity="[1,1]" probability="0.4"/>
+			<item value="liberty helmet" quantity="[1,1]" probability="1.1"/>
+			<item value="golden chaos armor" quantity="[1,1]" probability="0.05"/>
+			<item value="enhanced golden chaos armor" quantity="[1,1]" probability="0.01"/>
+			<item value="golden blood skull shield" quantity="[1,1]" probability="0.01"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Chaos in the wrath!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="golden chaos sorcerer">
+		<type class="chaos" subclass="golden_chaos_sorceror" tileid="red_chaos.png:13"/>
+		<description/>
+		<attributes>
+			<atk value="2603"/>
+			<def value="260"/>
+			<hp value="7710"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="227"/>
+		<experience value="117500"/>
+		<respawn value="6000"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[1500,12500]" probability="100.0"/>
+			<item value="mega potion" quantity="[6,12]" probability="80.0"/>
+			<item value="immortal sword" quantity="[1,1]" probability="0.4"/>
+			<item value="golden shield" quantity="[1,1]" probability="0.7"/>
+			<item value="golden armor" quantity="[1,1]" probability="2.0"/>
+			<item value="chaos dagger" quantity="[1,1]" probability="0.15"/>
+			<item value="golden dress" quantity="[1,1]" probability="0.4"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.005"/>
+			<item value="empty scroll" quantity="[1,4]" probability="80.0"/>
+			<item value="golden chaos armor" quantity="[1,1]" probability="0.1"/>
+			<item value="enhanced golden chaos armor" quantity="[1,1]" probability="0.05"/>
+			<item value="golden blood skull shield" quantity="[1,1]" probability="0.01"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="I will summon chaos and fury upon you!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="golden chaos dragonrider">
+		<type class="chaos" subclass="golden_chaos_dragonrider" tileid="red_chaos.png:8"/>
+		<description/>
+		<attributes>
+			<atk value="2733"/>
+			<def value="275"/>
+			<hp value="9218"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="233"/>
+		<experience value="122000"/>
+		<respawn value="7300"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[1500,13500]" probability="100.0"/>
+			<item value="mega potion" quantity="[6,12]" probability="80.0"/>
+			<item value="greater potion" quantity="[3,6]" probability="80.0"/>
+			<item value="immortal sword" quantity="[1,1]" probability="0.4"/>
+			<item value="golden armor" quantity="[1,1]" probability="2.5"/>
+			<item value="golden shield" quantity="[1,1]" probability="0.7"/>
+			<item value="chaos dagger" quantity="[1,1]" probability="0.15"/>
+			<item value="golden dress" quantity="[1,1]" probability="0.6"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.005"/>
+			<item value="golden chaos armor" quantity="[1,1]" probability="0.2"/>
+			<item value="enhanced golden chaos armor" quantity="[1,1]" probability="0.05"/>
+			<item value="golden blood skull shield" quantity="[1,1]" probability="0.01"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="golden chaos lord">
+		<type class="chaos" subclass="golden_chaos_lord" tileid="red_chaos.png:9"/>
+		<description/>
+		<attributes>
+			<atk value="2854"/>
+			<def value="285"/>
+			<hp value="12000"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="235"/>
+		<experience value="133000"/>
+		<respawn value="12300"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[3500,34500]" probability="100.0"/>
+			<item value="mega potion" quantity="[6,12]" probability="80.0"/>
+			<item value="greater potion" quantity="[16,25]" probability="80.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="0.05"/>
+			<item value="immortal sword" quantity="[1,1]" probability="0.5"/>
+			<item value="golden cloak" quantity="[1,1]" probability="3.0"/>
+			<item value="golden armor" quantity="[1,1]" probability="2.5"/>
+			<item value="golden shield" quantity="[1,1]" probability="0.7"/>
+			<item value="chaos dagger" quantity="[1,1]" probability="0.2"/>
+			<item value="golden dress" quantity="[1,1]" probability="1.2"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.01"/>
+			<item value="golden chaos armor" quantity="[1,1]" probability="0.5"/>
+			<item value="enhanced golden chaos armor" quantity="[1,1]" probability="0.1"/>
+			<item value="black dragon sword" quantity="[1,1]" probability="0.00008"/>
+			<item value="golden devilknights clan shield" quantity="[1,1]" probability="0.001"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Chaos will rule!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="golden chaos overlord">
+		<type class="chaos" subclass="golden_chaos_overlord" tileid="red_chaos.png:10"/>
+		<description/>
+		<attributes>
+			<atk value="2980"/>
+			<def value="395"/>
+			<hp value="16200"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="237"/>
+		<experience value="140800"/>
+		<respawn value="12600"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[4500,61500]" probability="100.0"/>
+			<item value="mega potion" quantity="[12,24]" probability="80.0"/>
+			<item value="greater potion" quantity="[20,30]" probability="70.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="1.0"/>
+			<item value="immortal sword" quantity="[1,1]" probability="0.7"/>
+			<item value="golden chaos armor" quantity="[1,1]" probability="1.0"/>
+			<item value="enhanced golden chaos armor" quantity="[1,1]" probability="0.8"/>
+			<item value="golden armor" quantity="[1,1]" probability="3.0"/>
+			<item value="golden shield" quantity="[1,1]" probability="1.0"/>
+			<item value="chaos dagger" quantity="[1,1]" probability="0.2"/>
+			<item value="golden dress" quantity="[1,1]" probability="1.5"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.05"/>
+			<item value="mithril dagger" quantity="[1,1]" probability="0.001"/>
+			<item value="golden devilknights clan shield" quantity="[1,1]" probability="0.002"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="5,50"/>
+		</ai>
+	</creature>
+	
+	<creature name="silver chaos soldier">
+		<type class="chaos" subclass="silver_chaos_soldier" tileid="red_chaos.png:18"/>
+		<description/>
+		<attributes>
+			<atk value="2890"/>
+			<def value="305"/>
+			<hp value="9650"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="305"/>
+		<experience value="220000"/>
+		<respawn value="46510"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[1500,16500]" probability="100.0"/>
+			<item value="mega potion" quantity="[8,12]" probability="90.0"/>
+			<item value="immortal sword" quantity="[1,1]" probability="0.2"/>
+			<item value="chaos dagger" quantity="[1,1]" probability="0.18"/>
+			<item value="golden dress" quantity="[1,1]" probability="2.5"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.08"/>
+			<item value="golden chaos armor" quantity="[1,1]" probability="0.5"/>
+			<item value="enhanced golden chaos armor" quantity="[1,1]" probability="0.08"/>
+			<item value="golden blood skull shield" quantity="[1,1]" probability="0.02"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="lifesteal" params="0.01"/>
+		</ai>
+	</creature>
+	<creature name="silver chaos warrior">
+		<type class="chaos" subclass="silver_chaos_warrior" tileid="red_chaos.png:19"/>
+		<description/>
+		<attributes>
+			<atk value="2955"/>
+			<def value="310"/>
+			<hp value="9850"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="310"/>
+		<experience value="221000"/>
+		<respawn value="48150"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[1500,17500]" probability="100.0"/>
+			<item value="mega potion" quantity="[8,16]" probability="90.0"/>
+			<item value="greater potion" quantity="[10,25]" probability="90.0"/>
+			<item value="immortal sword" quantity="[1,1]" probability="0.2"/>
+			<item value="chaos dagger" quantity="[1,1]" probability="0.18"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.08"/>
+			<item value="golden dress" quantity="[1,1]" probability="2.5"/>
+			<item value="golden chaos armor" quantity="[1,1]" probability="0.5"/>
+			<item value="enhanced golden chaos armor" quantity="[1,1]" probability="0.08"/>
+			<item value="golden blood skull shield" quantity="[1,1]" probability="0.025"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Defy order! Seek chaos!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="lifesteal" params="0.01"/>
+		</ai>
+	</creature>
+	<creature name="silver chaos commander">
+		<type class="chaos" subclass="silver_chaos_commander" tileid="red_chaos.png:14"/>
+		<description/>
+		<attributes>
+			<atk value="3035"/>
+			<def value="315"/>
+			<hp value="10050"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="315"/>
+		<experience value="230000"/>
+		<respawn value="58120"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[2500,23500]" probability="100.0"/>
+			<item value="mega potion" quantity="[8,16]" probability="90.0"/>
+			<item value="immortal sword" quantity="[1,1]" probability="0.5"/>
+			<item value="chaos dagger" quantity="[1,1]" probability="0.2"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.2"/>
+			<item value="golden dress" quantity="[1,1]" probability="3.0"/>
+			<item value="liberty helmet" quantity="[1,1]" probability="2.5"/>
+			<item value="golden chaos armor" quantity="[1,1]" probability="0.8"/>
+			<item value="enhanced golden chaos armor" quantity="[1,1]" probability="0.2"/>
+			<item value="golden blood skull shield" quantity="[1,1]" probability="0.05"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Chaos in the wrath!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="lifesteal" params="0.01"/>
+		</ai>
+	</creature>
+	<creature name="silver chaos sorcerer">
+		<type class="chaos" subclass="silver_chaos_sorceror" tileid="red_chaos.png:20"/>
+		<description/>
+		<attributes>
+			<atk value="2960"/>
+			<def value="321"/>
+			<hp value="10500"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="322"/>
+		<experience value="230500"/>
+		<respawn value="56000"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[3500,26500]" probability="100.0"/>
+			<item value="mega potion" quantity="[8,16]" probability="90.0"/>
+			<item value="immortal sword" quantity="[1,1]" probability="0.5"/>
+			<item value="chaos dagger" quantity="[1,1]" probability="0.3"/>
+			<item value="golden dress" quantity="[1,1]" probability="4.5"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.04"/>
+			<item value="empty scroll" quantity="[1,4]" probability="80.0"/>
+			<item value="golden chaos armor" quantity="[1,1]" probability="0.6"/>
+			<item value="enhanced golden chaos armor" quantity="[1,1]" probability="0.2"/>
+			<item value="golden blood skull shield" quantity="[1,1]" probability="0.03"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="I will summon chaos and fury upon you!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="lifesteal" params="0.015"/>
+		</ai>
+	</creature>
+	<creature name="silver chaos dragonrider">
+		<type class="chaos" subclass="silver_chaos_dragonrider" tileid="red_chaos.png:15"/>
+		<description/>
+		<attributes>
+			<atk value="3115"/>
+			<def value="325"/>
+			<hp value="11400"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="327"/>
+		<experience value="242000"/>
+		<respawn value="67300"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[3500,29500]" probability="100.0"/>
+			<item value="mega potion" quantity="[10,21]" probability="80.0"/>
+			<item value="immortal sword" quantity="[1,1]" probability="0.8"/>
+			<item value="chaos dagger" quantity="[1,1]" probability="0.18"/>
+			<item value="golden dress" quantity="[1,1]" probability="5.5"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.1"/>
+			<item value="golden chaos armor" quantity="[1,1]" probability="0.8"/>
+			<item value="enhanced golden chaos armor" quantity="[1,1]" probability="0.5"/>
+			<item value="golden blood skull shield" quantity="[1,1]" probability="0.03"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="lifesteal" params="0.01"/>
+		</ai>
+	</creature>
+	<creature name="silver chaos lord">
+		<type class="chaos" subclass="silver_chaos_lord" tileid="red_chaos.png:16"/>
+		<description/>
+		<attributes>
+			<atk value="3252"/>
+			<def value="332"/>
+			<hp value="12400"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="332"/>
+		<experience value="246000"/>
+		<respawn value="72300"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[5500,44500]" probability="100.0"/>
+			<item value="mega potion" quantity="[10,23]" probability="90.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="0.5"/>
+			<item value="immortal sword" quantity="[1,1]" probability="0.8"/>
+			<item value="chaos dagger" quantity="[1,1]" probability="0.3"/>
+			<item value="golden dress" quantity="[1,1]" probability="6.5"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.2"/>
+			<item value="golden chaos armor" quantity="[1,1]" probability="1.2"/>
+			<item value="enhanced golden chaos armor" quantity="[1,1]" probability="1.2"/>
+			<item value="mithril dagger" quantity="[1,1]" probability="0.002"/>
+			<item value="golden devilknights clan shield" quantity="[1,1]" probability="0.05"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Chaos will rule!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="lifesteal" params="0.01"/>
+		</ai>
+	</creature>
+	<creature name="silver chaos overlord">
+		<type class="chaos" subclass="silver_chaos_overlord" tileid="red_chaos.png:17"/>
+		<description/>
+		<attributes>
+			<atk value="3680"/>
+			<def value="425"/>
+			<hp value="17200"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="335"/>
+		<experience value="352800"/>
+		<respawn value="92600"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[12500,61500]" probability="100.0"/>
+			<item value="mega potion" quantity="[15,25]" probability="90.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="5.0"/>
+			<item value="immortal sword" quantity="[1,1]" probability="1.0"/>
+			<item value="golden chaos armor" quantity="[1,1]" probability="4.5"/>
+			<item value="enhanced golden chaos armor" quantity="[1,1]" probability="2.5"/>
+			<item value="golden dress" quantity="[1,1]" probability="20.0"/>
+			<item value="golden dagger" quantity="[1,1]" probability="0.5"/>
+			<item value="mithril dagger" quantity="[1,1]" probability="0.2"/>
+			<item value="black dragon golden cloak" quantity="[1,1]" probability="0.01"/>
+			<item value="golden devilknights clan shield" quantity="[1,1]" probability="0.1"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="5,50"/>
+			<profile name="lifesteal" params="0.01"/>
+		</ai>
+	</creature>
 
 </creatures>

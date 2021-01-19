@@ -1053,6 +1053,11 @@ YAMA 虛擬銀行 Ltd. 艾朵斯總行.
   <portal x="109" y="25" ref="toskyfarmsmith">
    <destination zone="int_semos_skyfarm_smith" ref="skyfarmsmith_exit1"/>
   </portal>
+  
+  <portal x="70" y="120" ref="semos_sky_farm">
+		<destination zone="0_semos_plains_n" ref="to_semos_sky_farm"/>
+	</portal>
+  
  </zone>
  
  <!-- 2009/01/21 yamaka -->
@@ -1481,24 +1486,6 @@ YAMA 虛擬銀行 Ltd. 艾朵斯總行.
  <!-- nalwor -->
  <zone name="hell-2" level="-3" x="500160" y="500096" file="Level -3/nalwor/hell.tmx">
   <configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn" />
- </zone>
-  
- <zone name="dead_hell" level="-3" x="499744" y="500256" file="Level -3/orril/dead_hell.tmx">
-  <configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn" />
- 
-   <!-- <portal x="64" y="5" ref="downstairs">
-		<destination zone="dead_hell-2" ref="upstairs"/>
-	</portal> -->
-
- </zone>
- <!-- Level -4 -->
- <zone name="dead_hell-2" level="-4" x="499744" y="500256" file="Level -4/orril/dead_hell.tmx">
-  <configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn" />
-  
-  <!-- <portal x="64" y="5" ref="upstairs">
-		<destination zone="dead_hell" ref="downstairs"/>
-	</portal> -->
-	
  </zone>
 
  <!-- Level -5 -->

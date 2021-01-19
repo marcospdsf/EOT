@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
+
 <creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="stendhal ../creatures.xsd ">
-
-  <!-- START: demon -->
 
   <creature name="violet avenger">
     <type class="hybrid" subclass="violet_avenger" tileid="hybrid.png:8"/>
@@ -172,7 +171,7 @@
     <level value="350"/>
     <experience value="430000"/>
     <respawn value="120000"/>
-    <corpse name="enormous_humanoid" width="6" height="6"/>
+    <corpse name="enormous_humanoid"/>
     <drops>
       <item value="money" quantity="[2000,20000]" probability="100.0"/>
       <item value="mega potion" quantity="[2,4]" probability="60.0"/>
@@ -203,10 +202,6 @@
       <profile name="attack weakest"/>
     </ai>
   </creature>
-
-  <!-- END: demon -->
-
-  <!-- START: imp -->
 
   <creature name="imp">
     <type class="demon" subclass="imp" tileid="demon.png:0"/>
@@ -262,8 +257,8 @@
       <item value="money" quantity="[5,53]" probability="100.0"/>
       <item value="potion" quantity="[1,2]" probability="30.0"/>
       <item value="poison" quantity="[1,2]" probability="40.0"/>
-       <item value="blue boots" quantity="[1,1]" probability="5.0"/>
-        <item value="blue legs" quantity="[1,1]" probability="1.5"/>
+      <item value="blue boots" quantity="[1,1]" probability="5.0"/>
+      <item value="blue legs" quantity="[1,1]" probability="1.5"/>
     </drops>
     <equips>
     </equips>
@@ -279,6 +274,187 @@
     </ai>
   </creature>
 
-  <!-- END: imp -->
+  <creature name="water demon">
+    <type class="demon" subclass="water_demon" tileid="demon.png:5"/>
+    <description></description>
+    <attributes>
+      <atk value="735"/>
+      <def value="155"/>
+      <hp value="4120"/>
+      <speed value="1.0"/>
+      <size value="2,2"/>
+    </attributes>
+    <level value="212"/>
+    <experience value="86999"/>
+    <respawn value="23000"/> <!-- 115 minutes -->
+    <corpse name="puddle_light_blue_2x2" harmless="puddle_light_blue_2x2"/>
+    <drops>
+      <item value="money" quantity="[10,50]" probability="100.0"/>
+      <item value="greater potion" quantity="[2,4]" probability="30.0"/>
+      <item value="greater antidote" quantity="[1,2]" probability="20.0"/>
+    </drops>
+    <equips>
+    </equips>
+    <abilities>
+      <!-- "water" not currently supported
+      <susceptibility type="water" value="1.3"/>
+      -->
+    </abilities>
+    <ai>
+      <profile name="brave"/>
+      <profile name="offensive"/>
+      <profile name="patrolling"/>
+    </ai>
+  </creature>
+
+<!-- disabled
+  <creature name="fire demon">
+    <type class="demon" subclass="fire_demon" tileid="demon.png:6"/>
+    <description></description>
+    <attributes>
+      <atk value="874"/>
+      <def value="232"/>
+      <hp value="3600"/>
+      <speed value="1.0"/>
+      <size value="2,2"/>
+    </attributes>
+    <level value="310"/>
+    <experience value="190000"/>
+    <respawn value="48000"/>--> <!-- 240 minutes -->
+    <!--
+    <corpse name="humanoid"/>
+    <drops>
+    </drops>
+    <abilities>
+      <damage type="fire"/>
+      <susceptibility type="ice" value="1.5"/>
+      <susceptibility type="fire" value="0.5"/>
+    </abilities>
+    <ai>
+      <profile name="brave"/>
+      <profile name="offensive"/>
+      <profile name="patrolling"/>
+      <profile name="attack weakest"/>
+    </ai>
+  </creature>
+-->
+
+ <!-- Chinese -->
+  
+  <creature name="golden balrog">
+		<type class="huge_animal" subclass="golden_balrog" tileid="enormous_creature.png:1"/>
+		<description/>
+		<attributes>
+			<atk value="4218"/>
+			<def value="485"/>
+			<hp value="21000"/>
+			<speed value="1.0"/>
+			<size value="3,3"/>
+		</attributes>
+		<level value="490"/>
+		<experience value="568000"/>
+		<respawn value="43600"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[30000,80000]" probability="100.0"/>
+			<item value="huge potion" quantity="[5,25]" probability="60.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="15.0"/>
+			<item value="shadow ore" quantity="[1,3]" probability="0.5"/>
+			<item value="gold nugget" quantity="[30,80]" probability="90.0"/>
+			<item value="black dragon armor" quantity="[1,1]" probability="1.5"/>
+			<item value="black dragon boots" quantity="[1,1]" probability="1.5"/>
+			<item value="black dragon legs" quantity="[1,1]" probability="1.5"/>
+			<item value="black dragon helmet" quantity="[1,1]" probability="1.5"/>
+			<item value="black dragon golden cloak" quantity="[1,1]" probability="1.0"/>
+			<item value="black dragon shield" quantity="[1,1]" probability="1.0"/>
+			<item value="black dragon sword" quantity="[1,1]" probability="1.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="heal" params="20,50"/>
+			<profile name="lifesteal" params="0.05"/>
+		</ai>
+	</creature>
+	
+	<!-- NovasAdições 02/12/2017 -->
+	
+	<creature name="ifrit">
+		<type class="demon" subclass="ifrit" tileid="enormous_creature.png:-1"/>
+		<description>You see Ifrit the sun watcher he is an ancient warrior who was given powers from the fiery fire of hell, his soul is fully bound to the lord of darkness, responsible for bringing about the destruction of the entire neighboring continent 1000 years ago, plans to destroy faumoni in the same way.</description>
+		<attributes>
+			<atk value="2218"/>
+			<def value="414"/>
+			<hp value="25000"/>
+			<speed value="1.0"/>
+			<size value="3,3"/>
+		</attributes>
+		<level value="366"/>
+		<experience value="3200000"/>
+		<respawn value="43600"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[30000,80000]" probability="100.0"/>
+			<item value="huge potion" quantity="[5,25]" probability="60.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="15.0"/>
+			<item value="shadow ore" quantity="[1,3]" probability="0.5"/>
+			<item value="gold nugget" quantity="[30,80]" probability="90.0"/>
+			<item value="black dragon armor" quantity="[1,1]" probability="1.5"/>
+			<item value="black dragon boots" quantity="[1,1]" probability="1.5"/>
+			<item value="black dragon legs" quantity="[1,1]" probability="1.5"/>
+			<item value="black dragon helmet" quantity="[1,1]" probability="1.5"/>
+			<item value="black dragon golden cloak" quantity="[1,1]" probability="1.0"/>
+			<item value="black dragon shield" quantity="[1,1]" probability="1.0"/>
+			<item value="black dragon sword" quantity="[1,1]" probability="1.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="heal" params="20,50"/>
+			<profile name="lifesteal" params="0.05"/>
+		</ai>
+	</creature>
+	
+	<creature name="death juggernaut">
+		<type class="demon" subclass="death_juggernaut" tileid="enormous_creature.png:-1"/>
+		<description>You see Death Juggernaut , A executioner looking for blood, will devastate everything in front of him, bears the scent of death. It is believed to have been one of the creatures that escaped from the seven hells, it is probably one of the nightmares of any human being.</description>
+		<attributes>
+			<atk value="3000"/>
+			<def value="400"/>
+			<hp value="21000"/>
+			<speed value="0.7"/>
+			<size value="3,3"/>
+		</attributes>
+		<level value="330"/>
+		<experience value="1980000"/>
+		<respawn value="43600"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[30000,80000]" probability="100.0"/>
+			<item value="huge potion" quantity="[5,25]" probability="60.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="15.0"/>
+			<item value="shadow ore" quantity="[1,3]" probability="0.5"/>
+			<item value="gold nugget" quantity="[30,80]" probability="90.0"/>
+			<item value="black dragon armor" quantity="[1,1]" probability="1.5"/>
+			<item value="black dragon boots" quantity="[1,1]" probability="1.5"/>
+			<item value="black dragon legs" quantity="[1,1]" probability="1.5"/>
+			<item value="black dragon helmet" quantity="[1,1]" probability="1.5"/>
+			<item value="black dragon golden cloak" quantity="[1,1]" probability="1.0"/>
+			<item value="black dragon shield" quantity="[1,1]" probability="1.0"/>
+			<item value="black dragon sword" quantity="[1,1]" probability="1.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="heal" params="20,50"/>
+			<profile name="lifesteal" params="0.05"/>
+		</ai>
+	</creature>
 
 </creatures>

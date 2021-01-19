@@ -15,6 +15,7 @@ import java.util.Collection;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -179,6 +180,8 @@ public abstract class RPEntity extends AudibleEntity {
 	private int def;
 	
 	private int miningLevel;
+	
+	private int ratk;
 
 	private int xp;
 
@@ -240,10 +243,14 @@ public abstract class RPEntity extends AudibleEntity {
 	private int defXP;
 	
 	private int miningXP;
+	
+	private int ratkXP;
 
 	private int atkItem = -1;
 
 	private int defItem = -1;
+
+	private int ratkItem = -1;
 
 	/** A flag that gets set once the entity has been released. */
 	private boolean released;
@@ -347,7 +354,7 @@ public abstract class RPEntity extends AudibleEntity {
 	public int getDefXP() {
 		return defXP;
 	}
-/*
+
 	/**
 	 * @return Returns the miningLevel.
 	 */
@@ -360,6 +367,27 @@ public abstract class RPEntity extends AudibleEntity {
 	 */
 	public int getMiningXP() {
 		return miningXP;
+	}
+	
+	/**
+	 * @return Returns the ratk.
+	 */
+	public int getRatk() {
+		return ratk;
+	}
+
+	/**
+	 * @return Returns the ratk of items
+	 */
+	public int getRatkItem() {
+		return ratkItem;
+	}
+
+	/**
+	 * @return the ranged xp
+	 */
+	public int getRatkXP() {
+		return ratkXP;
 	}
 	
 	/**
@@ -1355,6 +1383,12 @@ public abstract class RPEntity extends AudibleEntity {
 		if (changes.has("modified_miningLevel")) {
 			miningLevel = changes.getInt("modified_miningLevel");
 		} 
+		if (changes.has("ratk")) {
+			ratk = changes.getInt("ratk");
+		}
+		if (changes.has("modified_ratk")) {
+			ratk = changes.getInt("modified_ratk");
+		}
 
 		if (changes.has("level")) {
 			level = changes.getInt("level");
@@ -1374,6 +1408,10 @@ public abstract class RPEntity extends AudibleEntity {
 		if (changes.has("mining_xp")) {
 			miningXP = changes.getInt("mining_xp");
 		}
+		
+		if (changes.has("ratk_xp")) {
+			ratkXP = changes.getInt("ratk_xp");
+		}
 
 		if (changes.has("atk_item")) {
 			atkItem = changes.getInt("atk_item");
@@ -1381,6 +1419,10 @@ public abstract class RPEntity extends AudibleEntity {
 
 		if (changes.has("def_item")) {
 			defItem = changes.getInt("def_item");
+		}
+
+		if (changes.has("ratk_item")) {
+			ratkItem = changes.getInt("ratk_item");
 		}
 
 		if (changes.has("mana")) {
@@ -1431,9 +1473,29 @@ public abstract class RPEntity extends AudibleEntity {
 			xp = newXp;
 		}
 
-		if (changes.has("level") && object.has("level")
-				&& (User.squaredDistanceTo(x, y) < HEARING_DISTANCE_SQ)) {
-			final String text = getTitle() + " reaches Level " + getLevel();
+		final Map<String, Integer> statTypes = new LinkedHashMap<>();
+		statTypes.put("level", getLevel());
+		statTypes.put("def", getDef());
+		statTypes.put("atk", getAtk());
+		statTypes.put("ratk", getRatk());
+		statTypes.put("miningLevel", getMiningLevel());
+
+		String statChange = null;
+		for (final String stype: statTypes.keySet()) {
+			if (changes.has(stype) && object.has(stype)) {
+				statChange = stype;
+				break;
+			}
+		}
+
+		if (statChange != null && (User.squaredDistanceTo(x, y) < HEARING_DISTANCE_SQ)) {
+			final StringBuilder sb = new StringBuilder(getTitle());
+			if (!statChange.equals("level")) {
+				sb.append("'s " + statChange.toUpperCase());
+			}
+			sb.append(" reaches level " + Integer.toString(statTypes.get(statChange)));
+
+			final String text = sb.toString();
 			ClientSingletonRepository.getUserInterface().addEventLine(new HeaderLessEventLine(text,
 					NotificationType.SIGNIFICANT_POSITIVE));
 
@@ -1570,6 +1632,6 @@ public abstract class RPEntity extends AudibleEntity {
 			return null;
 		}
 
-		return "data/sprites/shadow-" + shadowStyle + ".png";
+		return "data/sprites/shadow/shadow-" + shadowStyle + ".png";
 	}
 }

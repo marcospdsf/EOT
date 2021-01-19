@@ -66,18 +66,18 @@ public class SilverNPC implements ZoneConfigurator {
 
 				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
 				requiredResources.put("wood", 2);
-				requiredResources.put("ruda srebra", 1);
+				requiredResources.put("silver ore", 1);
 				requiredResources.put("money", 100);
 
 				final ProducerBehaviour behaviour = new ProducerBehaviour(
-					"drogosz_cast_silver", "cast", "sztabka srebra",
+					"drogosz_cast_silver", "cast", "silver bar",
 					requiredResources, 10 * 60);
 
 				new ProducerAdder().addProducer(this, behaviour,
 						"Pozdrawiam. Sądzę, że jesteś zainteresowany srebrem. Jeżeli tak to zapytaj mnie o #'pomoc'.");
 				addReply("wood",
 						"Musisz Drwala się zapytać. On wie jak zdobyć drzewo.");
-				addReply("ruda srebra",
+				addReply("silver ore",
 						"Jak mi wiadomo kamienie szlachetne wszelkiej maści znajdują się w kopalniach. Mój stary przyjaciel #Bercik może więcej o nich opowiedzieć.");
 				addReply("Bercik",
 						"Bercika znajdziesz na kościelisku niedaleko Zakopanego. Pamintm, że wokoło kręciło się sporo białych tygrysów.");

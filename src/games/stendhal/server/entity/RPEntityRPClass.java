@@ -14,7 +14,6 @@ package games.stendhal.server.entity;
 
 import static games.stendhal.common.constants.General.PATHSET;
 
-
 import marauroa.common.game.Definition;
 import marauroa.common.game.Definition.Type;
 import marauroa.common.game.RPClass;
@@ -51,11 +50,13 @@ public class RPEntityRPClass {
         entity.addAttribute("def_xp", Type.INT, Definition.PRIVATE);
         entity.addAttribute("def_item", Type.INT,
                 (byte) (Definition.PRIVATE | Definition.VOLATILE));
-        //entity.addAttribute("miningLevel", Type.SHORT, Definition.PRIVATE);
-        //entity.addAttribute("mining_xp", Type.INT, Definition.PRIVATE);
+        entity.addAttribute("miningLevel", Type.SHORT, Definition.PRIVATE);
+        entity.addAttribute("mining_xp", Type.INT, Definition.PRIVATE);
 
-        entity.addAttribute("ratk", Type.SHORT, Definition.VOLATILE); // TODO remove
-        entity.addAttribute("ratk_xp", Type.INT, Definition.VOLATILE);  // TODO remove
+        entity.addAttribute("ratk", Type.SHORT, (byte) (Definition.PRIVATE | Definition.VOLATILE));
+        entity.addAttribute("ratk_xp", Type.INT, (byte) (Definition.PRIVATE | Definition.VOLATILE));
+        entity.addAttribute("ratk_item", Type.INT,
+                (byte) (Definition.PRIVATE | Definition.VOLATILE));
 
         entity.addAttribute("risk", Type.BYTE, Definition.VOLATILE); // obsolete, do not use
         entity.addAttribute("damage", Type.INT, Definition.VOLATILE); // obsolete, do not use
@@ -96,6 +97,10 @@ public class RPEntityRPClass {
 
 		/* Movement */
 		entity.addAttribute(PATHSET, Type.STRING, Definition.VOLATILE);
+		// flying entities are not blocked by FlyOverArea
+		entity.addAttribute("flying", Type.FLAG, Definition.VOLATILE);
+		// animation should cycle even if entity is idle
+		entity.addAttribute("active_idle", Type.FLAG, Definition.VOLATILE);
 
         entity.addRPSlot("head", 1, Definition.PRIVATE);
         entity.addRPSlot("rhand", 1, Definition.PRIVATE);
@@ -103,7 +108,7 @@ public class RPEntityRPClass {
         entity.addRPSlot("armor", 1, Definition.PRIVATE);
         entity.addRPSlot("finger", 1, Definition.PRIVATE);
         entity.addRPSlot("finger2", 1, Definition.PRIVATE);
-        entity.addRPSlot("gloves", 1, Definition.PRIVATE);
+        entity.addRPSlot("glove", 1, Definition.PRIVATE);
         entity.addRPSlot("cloak", 1, Definition.PRIVATE);
         entity.addRPSlot("legs", 1, Definition.PRIVATE);
         entity.addRPSlot("feet", 1, Definition.PRIVATE);
@@ -112,7 +117,7 @@ public class RPEntityRPClass {
         entity.addRPSlot("smallbag", 1, Definition.PRIVATE);
         entity.addRPSlot("holder", 1, Definition.PRIVATE);
 
-        entity.addRPSlot("bag", 18, Definition.PRIVATE);
+        entity.addRPSlot("bag", 20, Definition.PRIVATE);
         entity.addRPSlot("keyring", 12, Definition.PRIVATE);
         entity.addRPSlot("scrollbag", 10, Definition.PRIVATE);
         entity.addRPSlot("weaponbag", 3, Definition.PRIVATE);

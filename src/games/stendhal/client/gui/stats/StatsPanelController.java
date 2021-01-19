@@ -24,6 +24,7 @@ import org.apache.log4j.Logger;
 import games.stendhal.client.entity.StatusID;
 import games.stendhal.common.Level;
 import games.stendhal.common.MathHelper;
+import games.stendhal.common.constants.Testing;
 import marauroa.common.game.RPObject;
 import marauroa.common.game.RPSlot;
 
@@ -67,6 +68,9 @@ public final class StatsPanelController {
 	private int miningLevel;
 	private int miningxp;
 	
+	private int ratk;
+	private int ratkxp;
+	private int weaponRatk;
 	private int mana;
 	private int baseMana;
 
@@ -121,6 +125,10 @@ public final class StatsPanelController {
 		listener = new MiningChangeListener();
 		addPropertyChangeListenerWithModifiedSupport(pcs, "miningLevel", listener);
 		pcs.addPropertyChangeListener("mining_xp", listener);
+		
+		listener = new RATKChangeListener();
+		addPropertyChangeListenerWithModifiedSupport(pcs, "ratk", listener);
+		pcs.addPropertyChangeListener("ratk_xp", listener);
 
 		listener = new XPChangeListener();
 		pcs.addPropertyChangeListener("xp", listener);
@@ -133,6 +141,13 @@ public final class StatsPanelController {
 
 		listener = new ArmorChangeListener();
 		pcs.addPropertyChangeListener("def_item", listener);
+
+		listener = new RangedWeaponChangeListener();
+		if (Testing.COMBAT) {
+			pcs.addPropertyChangeListener("ratk_item", listener);
+		} else {
+			pcs.addPropertyChangeListener("atk_item", listener);
+		}
 
 		listener = new MoneyChangeListener();
 		for (String slot : MONEY_SLOTS) {
@@ -171,10 +186,10 @@ public final class StatsPanelController {
 	 * Called when xp or level has changed.
 	 */
 	private void updateLevel() {
-		final int next = Level.getXP(level + 1) - xp;
+		final long next = Level.getXP(level + 1) - xp;
 		// Show "em-dash" for max level players rather than
 		// a confusing negative required xp.
-		final String nextS = (next < 0) ? "\u2014" : Integer.toString(next);
+		final String nextS = (next < 0) ? "\u2014" : Long.toString(next);
 
 		final String text = "Level:" + SPC + level + SPC + "(" + nextS + ")";
 		SwingUtilities.invokeLater(new Runnable() {
@@ -190,15 +205,22 @@ public final class StatsPanelController {
 	 */
 	private void updateHP() {
 
-		int maxhpvalue = maxhp;
+		final int maxhpvalue;
 		if (maxhpModified != 0) {
 			maxhpvalue = maxhpModified;
+		} else {
+			maxhpvalue = maxhp;
 		}
+
 		final String text = "HP:" + SPC + hp + "/" + maxhpvalue;
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
+				// FIXME: this seems to be run twice at level up
 				panel.setHP(text);
+				if (maxhpvalue > 0) {
+					panel.setHPBar(maxhpvalue, hp);
+				}
 			}
 		});
 	}
@@ -208,7 +230,7 @@ public final class StatsPanelController {
 	 */
 	private void updateAtk() {
 		// atk uses 10 levels shifted starting point
-		final int next = Level.getXP(atk - 9) - atkxp;
+		final long next = Level.getXP(atk - 9) - atkxp;
 		final String text = "ATK:" + SPC + atk + "×" + (1 + weaponAtk) + SPC + "(" + next + ")";
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
@@ -223,7 +245,7 @@ public final class StatsPanelController {
 	 */
 	private void updateDef() {
 		// def uses 10 levels shifted starting point
-		final int next = Level.getXP(def - 9) - defxp;
+		final long next = Level.getXP(def - 9) - defxp;
 		final String text = "DEF:" + SPC + def + "×" + (1 + itemDef) + SPC + "(" + next + ")";
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
@@ -237,9 +259,9 @@ public final class StatsPanelController {
 	 * Called when mining xp has changed.
 	*/
 	private void updateMiningLevel() {
-			final int next = Level.getXP(miningLevel - 9) - miningxp;
+			final long next = Level.getXP(miningLevel - 9) - miningxp;
 
-			final String text = "Mining:" + SPC + miningLevel + SPC + "(" + next + ")";
+			final String text = "Mining Level:" + SPC + miningLevel + SPC + "(" + next + ")";
 			//final String text = "MiningLevel:";
 			SwingUtilities.invokeLater(new Runnable() {
 				@Override
@@ -249,6 +271,35 @@ public final class StatsPanelController {
 			});
 	} 
 	
+	
+	/**
+	 * Called when ratk, ratkxp, or weaponRatk changes.
+	 */
+	private void updateRatk() {
+		if (!Testing.COMBAT) {
+			return;
+		}
+
+		// ratk uses 10 levels shifted starting point
+		final long next = Level.getXP(ratk - 9) - ratkxp;
+		final String text = "RATK:" + SPC + ratk + "×" + (1 + weaponRatk) + SPC + "(" + next + ")";
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				panel.setRatk(text);
+			}
+		});
+	}
+
+	/**
+	 * Show/Hide HP bar.
+	 *
+	 * @param show
+	 * 		If <code>true</code>, HP bar will be visible.
+	 */
+	public void toggleHPBar(final boolean show) {
+		panel.toggleHPBar(show);
+	}
 
 	/**
 	 * Listener for HP and base_hp changes.
@@ -405,6 +456,25 @@ public final class StatsPanelController {
 			updateMiningLevel();
 		}
 	}
+	
+	/**
+	 * Listener for ratk and ratk_xp changes.
+	 */
+	private class RATKChangeListener implements PropertyChangeListener {
+		@Override
+		public void propertyChange(final PropertyChangeEvent event) {
+			if (event == null) {
+				return;
+			}
+
+			if ("ratk_xp".equals(event.getPropertyName())) {
+				ratkxp = Integer.parseInt((String) event.getNewValue());
+			} else if ("ratk".equals(event.getPropertyName())) {
+				ratk = Integer.parseInt((String) event.getNewValue());
+			}
+			updateRatk();
+		}
+	}
 
 	/**
 	 * Listener for xp changes.
@@ -468,6 +538,26 @@ public final class StatsPanelController {
 			}
 			itemDef = Integer.parseInt((String) event.getNewValue());
 			updateDef();
+		}
+	}
+
+	/**
+	 * Listener for ranged weapon atk changes.
+	 */
+	private class RangedWeaponChangeListener implements PropertyChangeListener {
+		@Override
+		public void propertyChange(final PropertyChangeEvent event) {
+			if (event == null) {
+				return;
+			}
+
+			if (Testing.COMBAT) {
+				weaponRatk = Integer.parseInt((String) event.getNewValue());
+				updateRatk();
+			} else {
+				weaponAtk = Integer.parseInt((String) event.getNewValue());
+				updateAtk();
+			}
 		}
 	}
 

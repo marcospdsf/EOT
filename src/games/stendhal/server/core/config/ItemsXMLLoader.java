@@ -154,14 +154,34 @@ public final class ItemsXMLLoader extends DefaultHandler {
 		} else if (qName.equals("attributes")) {
 			attributesTag = true;
 		} else if (attributesTag) {
-			attributes.put(qName, attrs.getValue("value"));
+			boolean conditionMet = true;
+
+			// allow attributes to be disabled with system properties
+			String condition = attrs.getValue("condition");
+			if (condition != null) {
+				if (condition.startsWith("!")) {
+					condition = new StringBuilder(condition).deleteCharAt(0).toString();
+					conditionMet = System.getProperty(condition) == null;
+				} else {
+					conditionMet = System.getProperty(condition) != null;
+				}
+			}
+
+			if (conditionMet) {
+				if (qName.equals("status_resist")) {
+					this.resistances.put(attrs.getValue("type"), Double.valueOf(attrs.getValue("value")));
+					this.activeSlots = attrs.getValue("slots");
+				} else if (qName.equals("durability")) {
+					attributes.put(qName, attrs.getValue("value"));
+					attributes.put("uses", "0");
+				} else {
+					attributes.put(qName, attrs.getValue("value"));
+				}
+			}
 		} else if (qName.equals("damage")) {
 			damageType = attrs.getValue("type");
 		} else if (qName.equals("susceptibility")) {
 			susceptibilities.put(attrs.getValue("type"), Double.valueOf(attrs.getValue("value")));
-		} else if (qName.equals("resistance")) {
-			this.resistances.put(attrs.getValue("type"), Double.valueOf(attrs.getValue("value")));
-			this.activeSlots = attrs.getValue("slots");
 		} else if (qName.equals("behavior")) {
 			String className = attrs.getValue("class-name");
 			try {

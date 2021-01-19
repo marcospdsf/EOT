@@ -763,9 +763,9 @@
 		</equipable>
 	</item>
 	
-	<item name="ruda srebra">
+	<item name="silver ore">
 		<type class="resource" subclass="silver_ore" tileid="-1"/>
-		<description>Oto ruda srebra. Możesz z niej wytopić sztabę srebra.</description>
+		<description>Oto silver ore. Możesz z niej wytopić sztabę srebra.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<quantity value="1"/>
@@ -783,9 +783,9 @@
 		</equipable>
 	</item>
 
-	<item name="sztabka srebra">
+	<item name="silver bar">
 		<type class="resource" subclass="silver_bar" tileid="-1"/>
-		<description>Oto sztabka srebra. Jest sporo warta i nadaje się do wyrobu ozdób, a nawet broni.</description>
+		<description>Oto silver bar. Jest sporo warta i nadaje się do wyrobu ozdób, a nawet broni.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<quantity value="1"/>
@@ -803,9 +803,9 @@
 		</equipable>
 	</item>
 
-	<item name="puciera">
-		<type class="resource" subclass="puciera" tileid="-1"/>
-		<description>Puciera to wielki garniec, w którym ścina się mleko na bunc.</description>
+	<item name="pot">
+		<type class="resource" subclass="pot" tileid="-1"/>
+		<description>pot to wielki garniec, w którym ścina się mleko na bunc.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<quantity value="1"/>

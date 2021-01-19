@@ -22,7 +22,6 @@ import games.stendhal.server.entity.player.Player;
 public class ObtainAchievementsFactory extends AbstractAchievementFactory {
 
 	public static final String ID_APPLES = "obtain.apple";
-	public static final int COUNT_APPLES = 1000;
 
 
 	@Override
@@ -35,7 +34,7 @@ public class ObtainAchievementsFactory extends AbstractAchievementFactory {
 		final List<Achievement> achievements = new LinkedList<Achievement>();
 
 		// Wishing well achievement
-		achievements.add(createAchievement("obtain.wish", "A wish came true", "Get an item from the wishing well",
+		achievements.add(createAchievement("obtain.wish", "A Wish Came True", "Get an item from the wishing well",
 				Achievement.EASY_BASE_SCORE, true,
 				new PlayerGotNumberOfItemsFromWellCondition(0)));
 
@@ -67,18 +66,16 @@ public class ObtainAchievementsFactory extends AbstractAchievementFactory {
 				new PlayerHasHarvestedNumberOfItemsCondition(20, "arandula", "kekik", "mandragora", "sclaria")));
 
 		// loot or harvest apples
-		// XXX: it appears that looting action will not trigger check for Category.OBTAIN
-		//      inactive until fixed
 		achievements.add(createAchievement(
 				ID_APPLES, "Bobbing for Apples", "Harvest or loot 1,000 apples",
-				Achievement.EASY_BASE_SCORE, false,
+				Achievement.EASY_BASE_SCORE, true,
 				new ChatCondition() {
 					@Override
 					public boolean fire(final Player player, final Sentence sentence, final Entity npc) {
 						final int harvested = player.getQuantityOfHarvestedItems("apple");
 						final int looted = player.getNumberOfLootsForItem("apple");
 
-						return harvested + looted >= COUNT_APPLES;
+						return harvested + looted >= 1000;
 					}
 				}));
 

@@ -92,7 +92,7 @@
     <level value="250"/>
     <experience value="150000"/>
     <respawn value="3000"/>
-    <corpse name="animal_4x4" width="4" height="4" />
+    <corpse name="animal_4x4"/>
     <drops>
       <item value="mega potion" quantity="[1,2]" probability="50.0"/>
       <item value="money" quantity="[500,4000]" probability="100.0"/>
@@ -151,5 +151,398 @@
   </creature>
 
   <!-- END: specter -->
+  
+  <!-- Chinese -->
+  
+  <creature name="white death">
+		<type class="huge_animal" subclass="white_death" tileid="huge_animal.png:15"/>
+		<description/>
+		<attributes>
+			<atk value="3200"/>
+			<def value="325"/>
+			<hp value="9000"/>
+			<speed value="1.0"/>
+			<size value="3,2"/>
+		</attributes>
+		<level value="375"/>
+		<experience value="252000"/>
+		<respawn value="120000"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="mega potion" quantity="[6,18]" probability="80.0"/>
+			<item value="gold bar" quantity="[2,10]" probability="30.0"/>
+			<item value="money" quantity="[5000,30000]" probability="100.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="0.5"/>
+			<item value="emerald ring" quantity="[1,1]" probability="0.5"/>
+			<item value="mithril cloak" quantity="[1,1]" probability="0.2"/>
+			<item value="mithril dagger" quantity="[1,1]" probability="0.1"/>
+			<item value="mithril armor" quantity="[1,1]" probability="0.1"/>
+			<item value="mithril shield" quantity="[1,1]" probability="0.2"/>
+			<item value="mithril scythe" quantity="[1,1]" probability="0.1"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="You will dream of me tonight..."/>
+				<noise state="idle follow fight" value="You will pay for your greed!"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="heal" params="20,50"/>
+			<profile name="lifesteal" params="0.1"/>
+		</ai>
+	</creature>
+	
+	<creature name="stone death knight">
+		<type class="stone" subclass="stone_death_knight" tileid="stone.png:1"/>
+		<description/>
+		<attributes>
+			<atk value="871"/>
+			<def value="187"/>
+			<hp value="3450"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="106"/>
+		<experience value="11000"/>
+		<respawn value="5520"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[100,400]" probability="100.0"/>
+			<item value="greater potion" quantity="[1,6]" probability="60.0"/>
+			<item value="chaos armor" quantity="[1,1]" probability="0.5"/>
+			<item value="chaos sword" quantity="[1,1]" probability="0.5"/>
+			<item value="shadow helmet" quantity="[1,1]" probability="5.0"/>
+			<item value="night dagger" quantity="[1,1]" probability="1.5"/>
+			<item value="shadow ore" quantity="[1,1]" probability="0.005"/>
+			<item value="deadly poison" quantity="[1,4]" probability="8.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="poisonous" params="45,greater poison"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="5,50"/>
+		</ai>
+	</creature>
+	<creature name="stone demon skeleton">
+		<type class="stone" subclass="stone_demon_skeleton" tileid="stone.png:2"/>
+		<description/>
+		<attributes>
+			<atk value="916"/>
+			<def value="202"/>
+			<hp value="3660"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="116"/>
+		<experience value="13000"/>
+		<respawn value="5660"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[200,500]" probability="100.0"/>
+			<item value="greater potion" quantity="[3,7]" probability="60.0"/>
+			<item value="chaos armor" quantity="[1,1]" probability="0.6"/>
+			<item value="chaos sword" quantity="[1,1]" probability="0.6"/>
+			<item value="demon sword" quantity="[1,1]" probability="2.0"/>
+			<item value="hell dagger" quantity="[1,1]" probability="2.0"/>
+			<item value="shadow ore" quantity="[1,1]" probability="0.008"/>
+			<item value="deadly poison" quantity="[1,4]" probability="8.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="poisonous" params="45,greater poison"/>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="stone skeleton">
+		<type class="stone" subclass="stone_skeleton" tileid="stone.png:3"/>
+		<description/>
+		<attributes>
+			<atk value="1198"/>
+			<def value="207"/>
+			<hp value="3900"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="127"/>
+		<experience value="12100"/>
+		<respawn value="4900"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[200,500]" probability="100.0"/>
+			<item value="greater potion" quantity="[5,10]" probability="80.0"/>
+			<item value="chaos armor" quantity="[1,1]" probability="0.8"/>
+			<item value="chaos sword" quantity="[1,1]" probability="0.8"/>
+			<item value="shadow ore" quantity="[1,1]" probability="0.01"/>
+			<item value="deadly poison" quantity="[1,4]" probability="8.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="poisonous" params="45,greater poison"/>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+		</ai>
+	</creature>
+	<creature name="stone knight">
+		<type class="stone" subclass="stone_knight" tileid="stone.png:0"/>
+		<description/>
+		<attributes>
+			<atk value="1698"/>
+			<def value="247"/>
+			<hp value="4200"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="152"/>
+		<experience value="15100"/>
+		<respawn value="5900"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[200,500]" probability="100.0"/>
+			<item value="greater potion" quantity="[5,10]" probability="80.0"/>
+			<item value="black armor" quantity="[1,1]" probability="0.2"/>
+			<item value="black sword" quantity="[1,1]" probability="0.2"/>
+			<item value="black legs" quantity="[1,1]" probability="0.5"/>
+			<item value="shadow ore" quantity="[1,1]" probability="0.01"/>
+			<item value="deadly poison" quantity="[1,4]" probability="8.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="poisonous" params="45,greater poison"/>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="5,50"/>
+		</ai>
+	</creature>
+	
+	<creature name="golden lich">
+		<type class="undead" subclass="golden_lich" tileid="my_monsters_01.png:45"/>
+		<description/>
+		<attributes>
+			<atk value="2550"/>
+			<def value="285"/>
+			<hp value="6530"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="262"/>
+		<experience value="122600"/>
+		<respawn value="180000"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[250,7150]" probability="100.0"/>
+			<item value="mega potion" quantity="[3,5]" probability="80.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="0.5"/>
+			<item value="lich cloak" quantity="[1,1]" probability="2.0"/>
+			<item value="golden chaos armor" quantity="[1,1]" probability="0.15"/>
+			<item value="golden dress" quantity="[1,1]" probability="10.0"/>
+			<item value="golden devilknights clan shield" quantity="[1,1]" probability="0.015"/>
+			<item value="soul dagger" quantity="[1,1]" probability="0.050"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="5,50"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	<creature name="golden death knight">
+		<type class="undead" subclass="golden_death_knight" tileid="my_monsters_01.png:40"/>
+		<description/>
+		<attributes>
+			<atk value="2750"/>
+			<def value="395"/>
+			<hp value="8530"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="265"/>
+		<experience value="133000"/>
+		<respawn value="5200"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[550,5150]" probability="100.0"/>
+			<item value="mega potion" quantity="[2,6]" probability="40.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="0.5"/>
+			<item value="fire sword" quantity="[1,1]" probability="2.5"/>
+			<item value="enhanced golden chaos armor" quantity="[1,1]" probability="0.01"/>
+			<item value="golden magic shield" quantity="[1,1]" probability="0.01"/>
+			<item value="golden dress" quantity="[1,1]" probability="0.5"/>
+			<item value="night dagger" quantity="[1,1]" probability="1.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="5,50"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	<creature name="golden dead lich">
+		<type class="undead" subclass="golden_dead_lich" tileid="my_monsters_01.png:39"/>
+		<description/>
+		<attributes>
+			<atk value="2950"/>
+			<def value="315"/>
+			<hp value="9530"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="270"/>
+		<experience value="150000"/>
+		<respawn value="222950"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[1250,9150]" probability="100.0"/>
+			<item value="mega potion" quantity="[3,6]" probability="80.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="1.0"/>
+			<item value="golden chaos armor" quantity="[1,1]" probability="0.25"/>
+			<item value="lich cloak" quantity="[1,1]" probability="2.5"/>
+			<item value="golden dress" quantity="[1,1]" probability="15.0"/>
+			<item value="golden crown shield" quantity="[1,1]" probability="0.25"/>
+			<item value="soul dagger" quantity="[1,1]" probability="0.020"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="5,50"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	<creature name="golden devil queen">
+		<type class="undead" subclass="golden_devil_queen" tileid="my_monsters_01.png:42"/>
+		<description/>
+		<attributes>
+			<atk value="2750"/>
+			<def value="425"/>
+			<hp value="18530"/>
+			<speed value="0.5"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="280"/>
+		<experience value="169200"/>
+		<respawn value="2520000"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[3250,16150]" probability="100.0"/>
+			<item value="mega potion" quantity="[8,16]" probability="80.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="30.0"/>
+			<item value="golden dress" quantity="[1,1]" probability="40.0"/>
+			<item value="golden scythe" quantity="[1,1]" probability="1.5"/>
+			<item value="golden devilknights clan shield" quantity="[1,1]" probability="0.25"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Who wakes me from my meditation?"/>
+				<noise state="idle follow fight" value="You will regret this!"/>
+			</says>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="25,50"/>
+		</ai>
+	</creature>
+	<creature name="golden high lich">
+		<type class="undead" subclass="golden_high_lich" tileid="my_monsters_01.png:43"/>
+		<description/>
+		<attributes>
+			<atk value="3050"/>
+			<def value="325"/>
+			<hp value="8530"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="285"/>
+		<experience value="148000"/>
+		<respawn value="259500"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[1250,6150]" probability="100.0"/>
+			<item value="mega potion" quantity="[2,6]" probability="80.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="0.5"/>
+			<item value="golden dress" quantity="[1,1]" probability="20.0"/>
+			<item value="golden shield" quantity="[1,1]" probability="0.5"/>
+			<item value="lich cloak" quantity="[1,1]" probability="2.5"/>
+			<item value="golden blood skull shield" quantity="[1,1]" probability="0.025"/>
+			<item value="soul dagger" quantity="[1,1]" probability="0.020"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="5,50"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	<creature name="golden incorporeal armor">
+		<type class="undead" subclass="golden_incorporeal_armor" tileid="my_monsters_01.png:44"/>
+		<description/>
+		<attributes>
+			<atk value="3150"/>
+			<def value="385"/>
+			<hp value="9030"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="290"/>
+		<experience value="57200"/>
+		<respawn value="2750"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[250,850]" probability="100.0"/>
+			<item value="mega potion" quantity="[4,7]" probability="25.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="0.1"/>
+			<item value="golden dress" quantity="[1,1]" probability="0.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Thou shall not pillage!"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	<creature name="golden devil monk">
+		<type class="undead" subclass="golden_devil_monk" tileid="my_monsters_01.png:41"/>
+		<description/>
+		<attributes>
+			<atk value="3350"/>
+			<def value="325"/>
+			<hp value="12530"/>
+			<speed value="1.0"/>
+			<size value="2,1"/>
+		</attributes>
+		<level value="295"/>
+		<experience value="156000"/>
+		<respawn value="262000"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[2250,8150]" probability="100.0"/>
+			<item value="mega potion" quantity="[3,8]" probability="80.0"/>
+			<item value="power scroll" quantity="[1,1]" probability="1.0"/>
+			<item value="vulcano hammer" quantity="[1,1]" probability="0.025"/>
+			<item value="golden scythe" quantity="[1,1]" probability="0.250"/>
+			<item value="hell dagger" quantity="[1,1]" probability="3.0"/>
+			<item value="golden dress" quantity="[1,1]" probability="20.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="lifesteal" params="0.02"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
 
 </creatures>

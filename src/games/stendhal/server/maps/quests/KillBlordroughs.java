@@ -31,8 +31,11 @@ import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.condition.AndCondition;
 import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
 import games.stendhal.server.entity.npc.condition.QuestActiveCondition;
+import games.stendhal.server.entity.npc.condition.QuestCompletedCondition;
+import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.util.TimeUtil;
 
@@ -108,7 +111,7 @@ public class KillBlordroughs extends AbstractQuest {
 		final EntityManager manager = SingletonRepository.getEntityManager();
 		for (int i=0; i<BLORDROUGHS.size(); i++) {
 			Creature creature = manager.getCreature(BLORDROUGHS.get(i));
-			if (!creature.isRare()) {
+			if (!creature.isAbnormal()) {
 				blordroughs.add(creature);
 			}
 		}
@@ -198,6 +201,8 @@ public class KillBlordroughs extends AbstractQuest {
 				recsolo = 0;
 			} else if (temp.equals("")) {
 				recsolo = 0;
+			} else if (temp.startsWith("completed=")) {
+				recsolo = 0;
 			} else {
 				recsolo = Integer.parseInt(temp);
 			}
@@ -205,6 +210,8 @@ public class KillBlordroughs extends AbstractQuest {
 			if (temp == null) {
 				recshared = 0;
 			} else if (temp.equals("")) {
+				recshared = 0;
+			} else if (temp.startsWith("completed=")) {
 				recshared = 0;
 			} else {
 				recshared = Integer.parseInt(temp);
@@ -259,7 +266,7 @@ public class KillBlordroughs extends AbstractQuest {
 			sb.append(";" + shared);
 		}
 
-		sb.append(";" + getCompletedCount(player));
+		sb.append(";completed=" + getCompletedCount(player));
 
 		//player.sendPrivateText(sb.toString());
 		player.setQuest(QUEST_SLOT, sb.toString());
@@ -276,7 +283,7 @@ public class KillBlordroughs extends AbstractQuest {
 			.getItem("money");
 		money.setQuantity(50000);
 
-		player.setQuest(QUEST_SLOT, "done;" + System.currentTimeMillis() + ";" + Integer.toString(getCompletedCount(player) + 1));
+		player.setQuest(QUEST_SLOT, "done;" + System.currentTimeMillis() + ";completed=" + Integer.toString(getCompletedCount(player) + 1));
 		player.equipOrPutOnGround(money);
 		player.addKarma(karmabonus);
 		player.addXP(500000);
@@ -291,20 +298,21 @@ public class KillBlordroughs extends AbstractQuest {
 	 * 		Number of times player has completed quest.
 	 */
 	public int getCompletedCount(final Player player) {
-		int completedCount = 0;
-
 		if (player.getQuest(QUEST_SLOT) != null) {
 			final String[] slots = player.getQuest(QUEST_SLOT).split(";");
 
+			final String temp = slots[slots.length - 1];
+			if (temp.startsWith("completed=")) {
+				return Integer.parseInt(temp.split("=")[1]);
+			}
+
 			// completion count was not previously tracked, so check if quest has been completed at least once
-			if (slots.length <= 2 && slots[0].equals("done")) {
-				completedCount = 1;
-			} else if (slots.length > 2) {
-				completedCount = Integer.parseInt(slots[slots.length - 1]);
+			if (slots[0].equals("done")) {
+				return 1;
 			}
 		}
 
-		return completedCount;
+		return 0;
 	}
 
 	/**
@@ -430,6 +438,13 @@ public class KillBlordroughs extends AbstractQuest {
 		}
 
         return res;
+	}
+
+	@Override
+	public boolean isRepeatable(final Player player) {
+		return new AndCondition(
+				new QuestCompletedCondition(QUEST_SLOT),
+				new TimePassedCondition(QUEST_SLOT, 1, MathHelper.MINUTES_IN_ONE_WEEK)).fire(player, null, null);
 	}
 
 	/**

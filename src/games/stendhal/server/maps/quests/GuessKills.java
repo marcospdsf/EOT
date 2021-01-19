@@ -100,7 +100,7 @@ public class GuessKills extends AbstractQuest {
 	 */
 	public GuessKills() {
 		for (Creature creature : SingletonRepository.getEntityManager().getCreatures()) {
-			if (!creature.isRare()) {
+			if (!creature.isAbnormal()) {
 				POSSIBLE_CREATURES.add(creature);
 			}
 		}
@@ -109,7 +109,7 @@ public class GuessKills extends AbstractQuest {
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"The guessing game",
+				"The Guessing Game",
 				"Crearid plays a game where you guess how many creatures you have killed.",
 				true);
 		prepareQuestStep();

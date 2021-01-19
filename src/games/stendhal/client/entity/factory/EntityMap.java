@@ -22,6 +22,7 @@ import games.stendhal.client.entity.Block;
 import games.stendhal.client.entity.Blood;
 import games.stendhal.client.entity.BossCreature;
 import games.stendhal.client.entity.Box;
+import games.stendhal.client.entity.BreakableRing;
 import games.stendhal.client.entity.CarrotGrower;
 import games.stendhal.client.entity.Chest;
 import games.stendhal.client.entity.Corpse;
@@ -29,6 +30,7 @@ import games.stendhal.client.entity.Creature;
 import games.stendhal.client.entity.Door;
 import games.stendhal.client.entity.Entity;
 import games.stendhal.client.entity.Fire;
+import games.stendhal.client.entity.FlyOverArea;
 import games.stendhal.client.entity.GameBoard;
 import games.stendhal.client.entity.Gate;
 import games.stendhal.client.entity.GrainField;
@@ -42,7 +44,6 @@ import games.stendhal.client.entity.Pet;
 import games.stendhal.client.entity.PlantGrower;
 import games.stendhal.client.entity.Player;
 import games.stendhal.client.entity.Portal;
-import games.stendhal.client.entity.Ring;
 import games.stendhal.client.entity.Sheep;
 import games.stendhal.client.entity.SheepFood;
 import games.stendhal.client.entity.Sign;
@@ -89,9 +90,11 @@ public final class EntityMap {
 		register("pet", null, null, Pet.class);
 
 		register("npc", null, null, NPC.class);
+		register("training_dummy", null, null, NPC.class);
 
 		register("plant_grower", null, null, PlantGrower.class);
 
+		register("flyover", null, null, FlyOverArea.class);
 		register("walkblocker", null, null, WalkBlocker.class);
 
 		register("growing_entity_spawner", "items/grower/carrot_grower", null,
@@ -124,8 +127,8 @@ public final class EntityMap {
 
 		register("item", null, null, Item.class);
 		register("item", "box", null, Box.class);
-		register("item", "ring", "emerald-ring", Ring.class);
 		register("item", "ring", null, UseableRing.class);
+		register("item", "ring", "emerald-ring", BreakableRing.class);
 
 		register("item", "drink", null, UseableItem.class);
 		register("item", "flower", null, StackableItem.class);

@@ -4,120 +4,6 @@
     xsi:schemaLocation="stendhal ../creatures.xsd ">
 
 
-  <!-- START: Aquatic -->
-
-  <creature name="kraken">
-	<type class="huge_animal" subclass="kraken" tileid="huge_animal.png:13"/>
-	<description>From the depths of the sea rises a Kraken!</description>
-	<attributes>
-	<atk value="887"/>
-	<def value="114"/>
-	<hp value="1935"/>
-	<speed value="1"/>
-	<size value="3,2"/>
-	</attributes>
-	<level value="155"/>
-	<experience value="38830"/>
-    <respawn value="5400"/>
-    <corpse name="animal_2x2" harmless="bag_2x2" width="2" height="2"/>
-    <drops>
-      <item value="greater potion" quantity="[2,6]" probability="75.0"/>
-      <item value="greater poison" quantity="[1,2]" probability="90.0"/>
-      <item value="orcish sword" quantity="[1,1]" probability="0.3"/>
-      <item value="money" quantity="[30,150]" probability="100.0"/>
-    </drops>
-    <equips>
-    </equips>
-    <abilities>
-      <susceptibility type="fire" value="0.2"/>
-      <susceptibility type="ice" value="1.5"/>
-    </abilities>
-    <ai>
-      <profile name="poisonous" params="15,deadly poison"/>
-      <profile name="brave"/>
-      <profile name="animal"/>
-      <profile name="offensive"/>
-      <profile name="heal" params="5,50"/>
-      <profile name="patrolling"/>
-    </ai>
-  </creature>
-
-  <creature name="neo kraken">
-	<type class="huge_animal" subclass="kraken_neo" tileid="huge_animal.png:0"/>
-	<description></description>
-	<attributes>
-	  <atk value="992"/>
-	  <def value="122"/>
-	  <hp value="3000"/>
-	  <speed value="1"/>
-	  <size value="3,2"/>
-	</attributes>
-	<level value="180"/>
-	<experience value="57400"/>
-    <respawn value="18600"/> <!-- 93 minutes -->
-    <corpse name="animal_2x2" harmless="bag_2x2" width="2" height="2"/>
-    <drops>
-      <item value="money" quantity="[50,100]" probability="33.0"/>
-      <item value="mega potion" quantity="[1,2]" probability="2.0"/>
-      <item value="disease poison" quantity="[1,2]" probability="15.0"/>
-      <item value="magic plate legs" quantity="[1,1]" probability="0.75"/>
-    </drops>
-    <equips>
-    </equips>
-    <abilities>
-      <susceptibility type="fire" value="0.2"/>
-      <susceptibility type="ice" value="1.5"/>
-    </abilities>
-    <ai>
-      <profile name="poisonous" params="15,deadly poison"/>
-      <profile name="brave"/>
-      <profile name="animal"/>
-      <profile name="offensive"/>
-      <profile name="heal" params="5,50"/>
-      <profile name="patrolling"/>
-    </ai>
-  </creature>
-
-  <creature name="shark">
-    <type class="giant_animal" subclass="shark" tileid="giant_animal.png:2"/>
-    <description>A shark! Best move cautiously.</description>
-    <attributes>
-      <atk value="340"/>
-      <def value="50"/>
-      <hp value="180"/>
-      <speed value="0.5"/>
-      <size value="2,2"/>
-    </attributes>
-    <level value="39"/>
-    <experience value="1500" />
-    <respawn value="1230"/>
-    <corpse name="shark_2x2" harmless="shark_2x2" width="2" height="2" />
-    <drops>
-      <item value="money" quantity="[7,40]" probability="30.0"/>
-      <item value="char" quantity="[2,6]" probability="15.0"/>
-      <item value="cod" quantity="[1,5]" probability="70.0"/>
-      <item value="clownfish" quantity="[1,3]" probability="50.0"/>
-    </drops>
-    <equips>
-    </equips>
-    <abilities>
-      <susceptibility type="fire" value="0.2"/>
-      <susceptibility type="ice" value="2.0"/>
-    </abilities>
-    <ai>
-      <says>
-      </says>
-      <profile name="brave"/>
-      <profile name="animal"/>
-      <profile name="offensive"/>
-      <profile name="heal" params="5,150"/>
-      <profile name="patrolling"/>
-   </ai>
- </creature>
-
-  <!-- END: Aquatic -->
-
-
   <!-- START: crustacean -->
 
   <creature name="crab">
@@ -174,7 +60,7 @@
       <item value="meat" quantity="[1,3]" probability="60.0"/>
       <item value="ham" quantity="[1,2]" probability="30.0"/>
       <item value="antidote" quantity="[1,1]" probability="5.0"/>
-      <item value="pelt" quantity="[1,1]" probability="1.0"/>
+      <item value="pelt" quantity="[1,1]" probability="2.0"/>
     </drops>
     <equips>
     </equips>
@@ -203,7 +89,7 @@
       <item value="meat" quantity="[1,3]" probability="60.0"/>
       <item value="ham" quantity="[1,2]" probability="30.0"/>
       <item value="antidote" quantity="[1,1]" probability="5.0"/>
-      <item value="pelt" quantity="[1,1]" probability="1.0"/>
+      <item value="pelt" quantity="[1,1]" probability="2.0"/>
     </drops>
     <equips>
     </equips>
@@ -247,6 +133,8 @@
       <profile name="animal"/>
       <profile name="offensive"/>
       <profile name="patrolling"/>
+      <profile name="active_idle"/>
+      <profile name="flying"/>
     </ai>
   </creature>
 
@@ -279,6 +167,8 @@
       <profile name="brave"/>
       <profile name="offensive"/>
       <profile name="patrolling"/>
+      <profile name="active_idle"/>
+      <profile name="flying"/>
     </ai>
   </creature>
 
@@ -295,9 +185,10 @@
     <level value="150"/>
     <experience value="33501"/>
     <respawn value="12000"/> <!-- 60 minutes -->
-   	<corpse name="winged_2x2" width="2" height="2"/>
+   	<corpse name="winged_2x2"/>
     <drops>
       <item value="money" quantity="[10,50]" probability="100.0"/>
+      <item value="ham" quantity="[3,5]" probability="5.0"/>
       <item value="greater potion" quantity="[2,4]" probability="30.0"/>
     </drops>
     <equips>
@@ -311,6 +202,8 @@
       <profile name="animal"/>
       <profile name="offensive"/>
       <profile name="patrolling"/>
+      <profile name="active_idle"/>
+      <profile name="flying"/>
     </ai>
   </creature>
 
@@ -327,9 +220,10 @@
     <level value="154"/>
     <experience value="37090"/>
     <respawn value="12000"/> <!-- 60 minutes -->
-   	<corpse name="winged_2x2" width="2" height="2"/>
+   	<corpse name="winged_2x2"/>
     <drops>
       <item value="money" quantity="[10,50]" probability="100.0"/>
+      <item value="ham" quantity="[5,8]" probability="5.0"/>
       <item value="greater potion" quantity="[2,4]" probability="30.0"/>
       <item value="claymore" quantity="[1,1]" probability="0.1"/>
       <item value="royal cloak" quantity="[1,1]" probability="0.1"/>
@@ -345,6 +239,8 @@
       <profile name="animal"/>
       <profile name="offensive"/>
       <profile name="patrolling"/>
+      <profile name="active_idle"/>
+      <profile name="flying"/>
     </ai>
   </creature>
 
@@ -752,7 +648,7 @@
       <profile name="animal"/>
       <profile name="offensive"/>
       <profile name="patrolling"/>
-      <profile name="rare"/>
+      <profile name="abnormal"/>
     </ai>
   </creature>
 
@@ -847,7 +743,7 @@
     <level value="5"/>
     <experience value="50"/>
     <respawn value="1200"/>
-    <corpse name="animal_2x2" harmless="bag_2x2" width="3" height="2" />
+    <corpse name="animal_2x2"/>
     <drops>
       <item value="meat" quantity="[1,10]" probability="100.0"/>
       <item value="ham" quantity="[2,8]" probability="70.0"/>
@@ -879,7 +775,7 @@
     <level value="47"/>
     <experience value="1550"/>
     <respawn value="1680"/> <!-- 8.4 minutes -->
-    <corpse name="animal_2x2" harmless="bag_2x2" width="3" height="2" />
+    <corpse name="animal_2x2"/>
     <drops>
       <item value="meat" quantity="[1,10]" probability="100.0"/>
       <item value="ham" quantity="[2,8]" probability="70.0"/>
@@ -911,9 +807,10 @@
     <level value="86"/>
     <experience value="7175"/>
     <respawn value="3400"/> <!-- 17 minutes -->
-    <corpse name="animal_2x2" harmless="bag_2x2" width="3" height="2" />
+    <corpse name="animal_2x2"/>
     <drops>
       <item value="ham" quantity="[4,10]" probability="75.0"/>
+      <item value="placid ring" quantity="[1,1]" probability="0.5"/>
     </drops>
     <equips>
     </equips>
@@ -942,8 +839,10 @@
     <level value="191"/>
     <experience value="51000"/>
     <respawn value="17600"/> <!-- 88 minutes -->
-    <corpse name="animal_2x2" harmless="bag_2x2" width="5" height="3"/>
+    <corpse name="animal_2x2"/>
     <drops>
+      <item value="money" quantity="[100,300]" probability="70.0"/>
+      <item value="ham" quantity="[5,15]" probability="5.0"/>
       <item value="greater potion" quantity="[2,4]" probability="30.0"/>
       <item value="royal helmet" quantity="[1,1]" probability="0.03"/>
     </drops>
@@ -1040,7 +939,7 @@
     <drops>
       <item value="meat" quantity="[3,7]" probability="50.0"/>
       <item value="ham" quantity="[1,3]" probability="30.0"/>
-      <item value="pelt" quantity="[1,1]" probability="2.0"/>
+      <item value="pelt" quantity="[1,1]" probability="10.0"/>
     </drops>
     <equips>
     </equips>
@@ -1074,7 +973,7 @@
     <drops>
       <item value="meat" quantity="[3,12]" probability="60.0"/>
       <item value="ham" quantity="[2,4]" probability="40.0"/>
-      <item value="pelt" quantity="[1,1]" probability="4.0"/>
+      <item value="pelt" quantity="[1,1]" probability="10.0"/>
     </drops>
     <equips>
     </equips>
@@ -1106,6 +1005,10 @@
     <respawn value="1220"/> <!-- 6.1 minutes -->
     <corpse name="animal"/>
     <drops>
+      <item value="meat" quantity="[5,15]" probability="60.0"/>
+      <item value="ham" quantity="[4,10]" probability="40.0"/>
+      <item value="pelt" quantity="[1,1]" probability="20.0"/>
+      <item value="placid ring" quantity="[1,1]" probability="0.1"/>
     </drops>
     <equips>
     </equips>
@@ -1122,6 +1025,161 @@
   </creature>
 
   <!-- END: ursidae -->
+  
+  <!-- START: Chinese -->
+  
+  <creature name="black wolf">
+		<type class="animal" subclass="black_wolf" tileid="my_monsters_01.png:0"/>
+		<description>You see a black wolf, they are wild and very hungry!</description>
+		<attributes>
+			<atk value="246"/>
+			<def value="79"/>
+			<hp value="235"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="12"/>
+		<experience value="360"/>
+		<respawn value="900"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[20,50]" probability="90.0"/>
+			<item value="meat" quantity="[3,6]" probability="60.0"/>
+			<item value="potion" quantity="[1,3]" probability="50.0"/>
+			<item value="aquamarine ring" quantity="[1,1]" probability="0.001"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="AAAuuuuuuuuuuuuuu"/>
+				<noise state="idle follow fight" value="RAAAARRRHG"/>
+			</says>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+		</ai>
+	</creature>
+	<creature name="snow wolf">
+		<type class="animal" subclass="snow_wolf" tileid="my_monsters_01.png:1"/>
+		<description>You see a snow wolf, they are wild and very hungry!</description>
+		<attributes>
+			<atk value="316"/>
+			<def value="79"/>
+			<hp value="335"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="18"/>
+		<experience value="560"/>
+		<respawn value="900"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[30,60]" probability="90.0"/>
+			<item value="ham" quantity="[1,4]" probability="60.0"/>
+			<item value="potion" quantity="[1,3]" probability="50.0"/>
+			<item value="carbuncle ring" quantity="[1,1]" probability="0.001"/>
+			<item value="snowball" quantity="[1,3]" probability="30.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="AAAuuuuuuuuuuuuuu"/>
+				<noise state="idle follow fight" value="RAAAARRRHG"/>
+			</says>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+		</ai>
+	</creature>
+	<creature name="snow fox">
+		<type class="animal" subclass="snow_fox" tileid="my_monsters_01.png:3"/>
+		<description>You see a snow fox, they are becoming extinct!</description>
+		<attributes>
+			<atk value="355"/>
+			<def value="78"/>
+			<hp value="325"/>
+			<speed value="0.9"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="23"/>
+		<experience value="420"/>
+		<respawn value="900"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[25,50]" probability="100.0"/>
+			<item value="meat" quantity="[2,4]" probability="60.0"/>
+			<item value="antidote" quantity="[1,3]" probability="70.0"/>
+			<item value="carbuncle ring" quantity="[1,1]" probability="0.001"/>
+			<item value="snowball" quantity="[1,3]" probability="50.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+		</ai>
+	</creature>
+	
+	<creature name="golden wolf">
+		<type class="animal" subclass="golden_wolf" tileid="my_monsters_01.png:2"/>
+		<description>You see a golden wolf, they are wild and very hungry!</description>
+		<attributes>
+			<atk value="937"/>
+			<def value="158"/>
+			<hp value="3200"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="112"/>
+		<experience value="12600"/>
+		<respawn value="420000"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[300,600]" probability="100.0"/>
+			<item value="ham" quantity="[1,4]" probability="60.0"/>
+			<item value="mega potion" quantity="[3,6]" probability="80.0"/>
+			<item value="gold bar" quantity="[12,18]" probability="70.0"/>
+			<item value="carbuncle ring" quantity="[1,1]" probability="0.1"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="AAAuuuuuuuuuuuuuu"/>
+				<noise state="idle follow fight" value="RAAAARRRHG"/>
+			</says>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+		</ai>
+	</creature>
+	
+	<creature name="golden unicorn">
+		<type class="animal" subclass="golden_unicorn" tileid="my_monsters_01.png:4"/>
+		<description>You see a rare golden unicorn. They are widely believed to be only a myth.</description>
+		<attributes>
+			<atk value="1208"/>
+			<def value="178"/>
+			<hp value="4200"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="115"/>
+		<experience value="13200"/>
+		<respawn value="1928000"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="unicorn shield" quantity="[1,1]" probability="80.0"/>
+			<item value="lucky charm" quantity="[2,5]" probability="90.0"/>
+			<item value="diamond" quantity="[3,8]" probability="80.0"/>
+			<item value="gold bar" quantity="[12,18]" probability="70.0"/>
+			<item value="carbuncle ring" quantity="[1,1]" probability="0.1"/>
+			<item value="golden unicorn shield" quantity="[1,1]" probability="0.01"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="non offensive"/>
+			<profile name="animal"/>
+			<profile name="patrolling"/>
+			<profile name="rare"/>
+		</ai>
+	</creature>
 
 
 </creatures>

@@ -45,6 +45,9 @@ public class DefaultCreature {
 	/** Creature subclass. */
 	private String subclass;
 
+	/** shadow to use for entity */
+	private String shadow_style = null;
+
 	/** Creature name. */
 	private String name;
 
@@ -59,6 +62,9 @@ public class DefaultCreature {
 
 	/** attack points. */
 	private int atk;
+
+	/** ranged attack points */
+	private int ratk;
 
 	/** defense points. */
 	private int def;
@@ -138,9 +144,10 @@ public class DefaultCreature {
 		return description;
 	}
 
-	public void setRPStats(final int hp, final int atk, final int def, final double speed) {
+	public void setRPStats(final int hp, final int atk, final int ratk, final int def, final double speed) {
 		this.hp = hp;
 		this.atk = atk;
+		this.ratk = ratk;
 		this.def = def;
 		this.speed = speed;
 	}
@@ -151,6 +158,10 @@ public class DefaultCreature {
 
 	public int getAtk() {
 		return atk;
+	}
+
+	public int getRatk() {
+		return ratk;
 	}
 
 	public int getDef() {
@@ -271,7 +282,7 @@ public class DefaultCreature {
 			}
 		});
 
-		final Creature creature = new Creature(clazz, subclass, name, hp, atk, def,
+		final Creature creature = new Creature(clazz, subclass, name, hp, atk, ratk, def,
 				level, xp, width, height, speed, dropsItems, aiProfiles,
 				creatureSays, respawn, description);
 		creature.equip(equipsItems);
@@ -283,6 +294,10 @@ public class DefaultCreature {
 		creature.setSounds(Collections.unmodifiableList(sounds));
 		creature.setDeathSound(deathSound);
 		creature.setMovementSound(movementSound);
+
+		if (shadow_style != null) {
+			creature.setShadowStyle(shadow_style);
+		}
 
 		// Status attack types
 		if (statusAttack != null) {
@@ -372,6 +387,16 @@ public class DefaultCreature {
 	    statusAttackProbability = probability;
 	}
 
+	/**
+	 * Sets the style of shadow to use for this entity.
+	 *
+	 * @param style
+	 * 		Name of the style.
+	 */
+	public void setShadowStyle(final String style) {
+		shadow_style = style;
+	}
+
 	public boolean verifyItems(final EntityManager defaultEntityManager) {
 		for (final DropItem item : dropsItems) {
 			if (!defaultEntityManager.isItem(item.name)) {
@@ -402,6 +427,7 @@ public class DefaultCreature {
 		}
 		os.append("    <attributes>\n");
 		os.append("      <atk value=\"" + atk + "\"/>\n");
+		os.append("      <ratk value=\"" + ratk + "\"/>\n");
 		os.append("      <def value=\"" + def + "\"/>\n");
 		os.append("      <hp value=\"" + hp + "\"/>\n");
 		os.append("      <speed value=\"" + speed + "\"/>\n");

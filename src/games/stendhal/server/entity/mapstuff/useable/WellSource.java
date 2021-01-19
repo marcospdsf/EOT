@@ -88,7 +88,7 @@ public class WellSource extends PlayerActivityEntity {
 	 * @return The time to perform the activity (in seconds).
 	 */
 	@Override
-	protected int getDuration() {
+	protected int getDuration(Player player) {
 		return DURATION + Rand.rand(5);
 	}
 
@@ -166,7 +166,6 @@ public class WellSource extends PlayerActivityEntity {
 
 			player.equipOrPutOnGround(item);
 			player.incObtainedForItem(item.getName(), item.getQuantity());
-			SingletonRepository.getAchievementNotifier().onObtain(player);
 			player.sendPrivateText("You were lucky and found "
 					+ Grammar.quantityplnoun(amount, itemName, "a")+ ".");
 		} else {

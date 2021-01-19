@@ -24,6 +24,7 @@ import games.stendhal.server.core.events.EquipListener;
 import games.stendhal.server.entity.Entity;
 import games.stendhal.server.entity.item.Corpse;
 import games.stendhal.server.entity.item.Item;
+import games.stendhal.server.entity.item.OwnedItem;
 import games.stendhal.server.entity.item.Stackable;
 import games.stendhal.server.entity.item.StackableItem;
 import games.stendhal.server.entity.player.Player;
@@ -54,8 +55,10 @@ class SourceObject extends MoveableObject {
 		}
 
 		// source item must be there
-		if (!action.has(EquipActionConsts.SOURCE_PATH) && !action.has(EquipActionConsts.BASE_ITEM)) {
-			logger.warn("action does not have a base item. action: " + action);
+		if (!action.has(EquipActionConsts.SOURCE_PATH)
+				&& !action.has(EquipActionConsts.BASE_ITEM)
+				&& !action.has(EquipActionConsts.SOURCE_NAME)) {
+			logger.warn("action does not have a base item, path nor name. action: " + action);
 
 			return invalidSource;
 		}
@@ -164,7 +167,10 @@ class SourceObject extends MoveableObject {
 	private static SourceObject createSource(RPAction action, final Player player) {
 		List<String> path = action.getList(EquipActionConsts.SOURCE_PATH);
 		Entity entity = EntityHelper.getEntityFromPath(player, path);
-		if (!(entity instanceof Item)) {
+		if (entity == null) {
+			entity = EntityHelper.getEntityByName(player, action.get(EquipActionConsts.SOURCE_NAME));
+		}
+		if (entity == null || !(entity instanceof Item)) {
 			return invalidSource;
 		}
 		Item item = (Item) entity;
@@ -310,11 +316,22 @@ class SourceObject extends MoveableObject {
 	 * @return true if successful
 	 */
 	public boolean moveTo(final DestinationObject dest, final Player player) {
-		if (!((EquipListener) item).canBeEquippedIn(dest.getContentSlotName())) {
+		final String targetSlot = dest.getContentSlotName();
+
+		if (!((EquipListener) item).canBeEquippedIn(targetSlot)) {
 			// give some feedback
-			player.sendPrivateText("You can't carry this " + item.getTitle() + " on your " + dest.getContentSlotName() + ".");
+			player.sendPrivateText("You can't carry this " + item.getTitle() + " on your " + targetSlot + ".");
 			logger.warn("tried to equip an entity into disallowed slot: " + item.getClass() + "; equip rejected");
 			return false;
+		}
+
+		if (item instanceof OwnedItem) {
+			final OwnedItem owned = (OwnedItem) item;
+			if (owned.hasOwner() && !owned.canEquipToSlot(player, targetSlot)) {
+				owned.onEquipFail(player, targetSlot);
+				logger.warn("tried to equip an owned entity into disallowed slot: " + item.getClass() + "; equip rejected");
+				return false;
+			}
 		}
 
 		if (!dest.isValid() || !dest.preCheck(item, player)) {

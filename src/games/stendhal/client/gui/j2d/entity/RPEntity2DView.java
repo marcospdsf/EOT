@@ -273,19 +273,19 @@ abstract class RPEntity2DView<T extends RPEntity> extends ActiveEntity2DView<T> 
 			} else if (adminlevel > 0) {
 				nameColor = new Color(255, 255, 172);
 			} else {
-				if (playerlevel >= 100) {
-					nameColor = new Color(74, 20, 140);
-				} else if (playerlevel >= 200) {
-					nameColor = new Color(59, 16, 112);
-				} else if (playerlevel >= 300) {
-					nameColor = new Color(47, 13, 90);
-				} else if (playerlevel >= 400) {
-					nameColor = new Color(38, 10, 72);
+				 if (playerlevel >= 597) {
+					nameColor = new Color(24, 6, 46);
 				} else if (playerlevel >= 500) {
 					nameColor = new Color(30, 8, 58);
-				} else if (playerlevel >= 597) {
-					nameColor = new Color(24, 6, 46);
-				} else {
+				} else if (playerlevel >= 400) {
+					nameColor = new Color(38, 10, 72);
+				} else if (playerlevel >= 300) {
+					nameColor = new Color(47, 13, 90);
+				} else if (playerlevel >= 200) {
+					nameColor = new Color(59, 16, 112);
+				} else if (playerlevel >= 100) {
+					nameColor = new Color(74, 20, 140);
+				}  else {
 					nameColor = Color.white;
 				}
 			}
@@ -673,7 +673,7 @@ abstract class RPEntity2DView<T extends RPEntity> extends ActiveEntity2DView<T> 
 			 * XXX: would it be better to use an opaque image & set transparency here?
 			 */
 
-			// custom shadows are created from images with "-shadow" suffix
+			// custom shadows are created from images with "shadow-" prefix
 			String custom_shadow = entity.getShadowStyle();
 			if (custom_shadow == null && !(entity instanceof Player)) {
 				final String clazz = entity.getEntityClass();
@@ -710,7 +710,7 @@ abstract class RPEntity2DView<T extends RPEntity> extends ActiveEntity2DView<T> 
 
 			final int w_sprite = sprite.getWidth() / 3;
 			final int h_sprite = sprite.getHeight() / 4;
-			final String standard_shadow = "data/sprites/shadow-" + Integer.toString(w_sprite) + "x" + Integer.toString(h_sprite) + ".png";
+			final String standard_shadow = "data/sprites/shadow/shadow-" + Integer.toString(w_sprite) + "x" + Integer.toString(h_sprite) + ".png";
 
 			// check if corresponding standard shadow image exists
 			if (DataLoader.getResource(standard_shadow) != null) {

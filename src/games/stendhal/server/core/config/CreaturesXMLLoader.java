@@ -47,6 +47,8 @@ public final class CreaturesXMLLoader extends DefaultHandler {
 
 	private String subclass;
 
+	private String shadow_style;
+
 	private String description;
 
 	private String text;
@@ -54,6 +56,8 @@ public final class CreaturesXMLLoader extends DefaultHandler {
 	private String tileid;
 
 	private int atk;
+
+	private Integer ratk = 0;
 
 	private int def;
 
@@ -192,6 +196,7 @@ public final class CreaturesXMLLoader extends DefaultHandler {
 		} else if (qName.equals("type")) {
 			clazz = attrs.getValue("class");
 			subclass = attrs.getValue("subclass");
+			shadow_style = attrs.getValue("shadow");
 
 			tileid = "../../tileset/logic/creature/" + attrs.getValue("tileid");
 		} else if (qName.equals("level")) {
@@ -227,19 +232,19 @@ public final class CreaturesXMLLoader extends DefaultHandler {
 			harmlessCorpseName = attrs.getValue("harmless");
 			String value = attrs.getValue("width");
 
-			// Default to 1 for width and height to save the fingers
+			// Default to entity size for width and height to save the fingers
 			// of the people writing the creatures
 			if (value != null) {
 				corpseWidth = Integer.parseInt(value);
 			} else {
-				corpseWidth = 1;
+				corpseWidth = sizeWidth;
 			}
 
 			value = attrs.getValue("height");
 			if (value != null) {
 				corpseHeight = Integer.parseInt(value);
 			} else {
-				corpseHeight = 1;
+				corpseHeight = sizeHeight;
 			}
 		} else if (qName.equals("drops")) {
 			drops = true;
@@ -277,6 +282,8 @@ public final class CreaturesXMLLoader extends DefaultHandler {
 			attributes = true;
 		} else if (attributes && qName.equals("atk")) {
 			atk = Integer.parseInt(attrs.getValue("value"));
+		} else if (attributes && qName.equals("ratk")) {
+			ratk = Integer.parseInt(attrs.getValue("value"));
 		} else if (attributes && qName.equals("def")) {
 			def = Integer.parseInt(attrs.getValue("value"));
 		} else if (attributes && qName.equals("hp")) {
@@ -358,10 +365,12 @@ public final class CreaturesXMLLoader extends DefaultHandler {
 			}
 
 			final DefaultCreature creature = new DefaultCreature(clazz, subclass, name, tileid);
-			creature.setRPStats(hp, atk, def, speed);
+			creature.setRPStats(hp, atk, ratk, def, speed);
 			creature.setLevel(level, xp);
 			creature.setSize(sizeWidth, sizeHeight);
 			creature.setEquipedItems(equipsItems);
+
+			creature.setShadowStyle(shadow_style);
 
 			creature.setBlood(bloodName);
 			bloodName = null;

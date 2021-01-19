@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2020 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -11,6 +10,10 @@
  *                                                                         *
  ***************************************************************************/
 package games.stendhal.server.maps.deathmatch;
+
+import static games.stendhal.server.core.rp.achievement.factory.DeathmatchAchievementFactory.HELPER_SLOT;
+
+import org.apache.log4j.Logger;
 
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -23,12 +26,22 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.action.IncrementQuestAction;
 import games.stendhal.server.entity.npc.action.SetQuestAction;
 import games.stendhal.server.entity.player.Player;
+import marauroa.server.db.command.DBCommandPriority;
 import marauroa.server.db.command.DBCommandQueue;
 
 /**
  * Handles player claim of victory by giving reward after verifying the winning.
  */
 public class DoneAction implements ChatAction {
+
+	private static final Logger logger = Logger.getLogger(DoneAction.class);
+
+	private final DeathmatchInfo deathmatchInfo;
+
+
+	public DoneAction(final DeathmatchInfo deathmatchInfo) {
+		this.deathmatchInfo = deathmatchInfo;
+	};
 
 	/**
 	 * Creates the player bound special trophy helmet and equips it.
@@ -55,7 +68,41 @@ public class DoneAction implements ChatAction {
 	 */
 	private void updatePoints(final Player player) {
 		final DeathmatchState deathmatchState = DeathmatchState.createFromQuestString(player.getQuest("deathmatch"));
-		DBCommandQueue.get().enqueue(new WriteHallOfFamePointsCommand(player.getName(), "D", deathmatchState.getPoints(), true));
+		DBCommandQueue.get().enqueue(new WriteHallOfFamePointsCommand(player.getName(), "D", deathmatchState.getPoints(), true), DBCommandPriority.LOW);
+	}
+
+	/**
+	 * Tracks helping players & updates achievements related to helping with deathmatch.
+	 *
+	 * @param aided
+	 * 		The player who is being helped.
+	 * @param timestamp
+	 * 		Time the deathmatch was completed.
+	 */
+	private void updateHelpers(final Player aided, final long timestamp) {
+		for (final Player helper: deathmatchInfo.getArena().getPlayers()) {
+			final String helperName = helper.getName();
+			// player must have helped kill at least 3 deathmatch creatures to count towards achievement
+			final int aidedKills = deathmatchInfo.getAidedKills(helperName);
+			if (aidedKills > 2) {
+				int helpCount = 0;
+				if (helper.hasQuest(HELPER_SLOT)) {
+					try {
+						helpCount = Integer.parseInt(helper.getQuest(HELPER_SLOT, 0));
+					} catch (final NumberFormatException e) {
+						logger.error("Deathmatch helper quest slot value not an integer.");
+						e.printStackTrace();
+					}
+				}
+
+				helpCount++;
+
+				helper.setQuest(HELPER_SLOT, 0, Integer.toString(helpCount));
+				helper.setQuest(HELPER_SLOT, 1, Long.toString(timestamp));
+
+				SingletonRepository.getAchievementNotifier().onFinishDeathmatch(helper);
+			}
+		}
 	}
 
 	@Override
@@ -102,7 +149,10 @@ public class DoneAction implements ChatAction {
 		new SetQuestAction("deathmatch", 0, "done").fire(player, sentence, raiser);
 		// Track the number of wins.
 		new IncrementQuestAction("deathmatch", 6, 1).fire(player, sentence, raiser);
-		SingletonRepository.getAchievementNotifier().onFinishQuest(player);
+		SingletonRepository.getAchievementNotifier().onFinishDeathmatch(player);
+
+		// track helpers
+		updateHelpers(player, System.currentTimeMillis());
 	}
 
 }

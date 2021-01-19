@@ -33,7 +33,7 @@ import games.stendhal.server.entity.player.Player;
  */
 public class SummonScroll extends Scroll {
 
-	private static final int MAX_ZONE_NPCS = 50;
+	private static final int MAX_ZONE_NPCS = 150;
 
 	private static final Logger logger = Logger.getLogger(SummonScroll.class);
 
@@ -97,10 +97,10 @@ public class SummonScroll extends Scroll {
 		} else {
 			// pick it randomly
 			final Collection<Creature> creatures = manager.getCreatures();
-			final int magiclevel = 4;
+			final int magiclevel = 50;
 			final List<Creature> possibleCreatures = new ArrayList<Creature>();
 			for (final Creature creature : creatures) {
-				if (creature.getLevel() <= magiclevel && !creature.isRare()) {
+				if (creature.getLevel() <= magiclevel && !creature.isAbnormal()) {
 					possibleCreatures.add(creature);
 				}
 			}

@@ -23,9 +23,9 @@ public class Level {
 
 	// Max Level is LEVELS - 1.
 	// xp formula overflows for level = 599.
-	private static final int LEVELS = 1001;
+	public static final long LEVELS = 1001;
 
-	private static int[] xp;
+	private static long[] xp;
 
 	private static double[] wisdom;
 
@@ -33,7 +33,7 @@ public class Level {
 		/*
 		 * Calculate eXPerience
 		 */
-		xp = new int[LEVELS + 1];
+		xp = new long[(int) (LEVELS + 1)];
 
 		xp[0] = 0;
 		xp[1] = 50;
@@ -41,12 +41,11 @@ public class Level {
 		xp[3] = 200;
 		xp[4] = 400;
 		xp[5] = 800;
-
-		 for (int i = 5; i < LEVELS; i++) {
-			//final int exp = ((i * 16 + i * i * 5 + i * i * i * 10 + 300) / 100) * 100;
-			final int exp = ((i * 16 + i * i * 25 + i * i * i * 2 + 300) / 100) * 100;
-			xp[i + 1] = exp;
-		} 
+		
+		for (long i = 5; i < LEVELS; i++) {
+			final long exp = ((i * 16 + i * i * 5 + i * i * i * 10 + 300) / 100) * 100;
+			xp[(int)i + 1] = exp;
+		}
 
 		if (logger.isDebugEnabled()) {
 			for (int i = 0; i < LEVELS; i++) {
@@ -57,7 +56,7 @@ public class Level {
 		/*
 		 * Calculate Wisdom
 		 */
-		wisdom = new double[LEVELS];
+		wisdom = new double[(int) LEVELS];
 
 		for (int i = 0; i < LEVELS; i++) {
 			wisdom[i] = 1.0 - (1 / Math.pow(1.01, i));
@@ -68,7 +67,7 @@ public class Level {
 				logger.debug("Level " + i + ": "
 						+ (int) ((wisdom[i] * 100.0) + 0.5) + " wisdom");
 			}
-		}
+		} 
 	}
 
 	/**
@@ -88,30 +87,30 @@ public class Level {
 	 *
 	 * @return highest level
 	 */
-	public static int maxLevel() {
+	public static long maxLevel() {
 		return LEVELS - 1;
 	}
 
 	/**
 	 * calculates the level according to the experience.
 	 *
-	 * @param exp
+	 * @param l
 	 *            experience needed
 	 * @return level
 	 */
-	public static int getLevel(final int exp) {
+	public static long getLevel(final long l) {
 
 		int first = 0;
-		int last = LEVELS - 1;
-		if (exp <= xp[first]) {
+		int last = (int) (LEVELS - 1);
+		if (l <= xp[first]) {
 			return first;
 		}
-		if (exp >= xp[last]) {
+		if (l >= xp[last]) {
 			return last;
 		}
 		while (last - first > 1) {
 			final int current = first + ((last - first) / 2);
-			if (exp < xp[current]) {
+			if (l < xp[current]) {
 				last = current;
 			} else {
 				first = current;
@@ -123,12 +122,12 @@ public class Level {
 	/**
 	 * Calculates the experienced needed for a level.
 	 *
-	 * @param level level
+	 * @param l level
 	 * @return experience needed
 	 */
-	public static int getXP(final int level) {
-		if ((level >= 0) && (level < xp.length)) {
-			return xp[level];
+	public static long getXP(final long l) {
+		if ((l >= 0) && (l < xp.length)) {
+			return xp[(int) l];
 		}
 		return -1;
 	}
@@ -143,15 +142,15 @@ public class Level {
 	 *            the added Experience
 	 * @return difference of levels
 	 */
-	public static int changeLevel(final int exp, final int added) {
-		int i;
+	public static long changeLevel(final long exp, final long added) {
+		long i;
 		for (i = 0; i < LEVELS; i++) {
-			if (exp < xp[i]) {
+			if (exp < xp[(int) i]) {
 				break;
 			}
 		}
 
-		for (int j = i; j <= LEVELS; j++) {
+		for (int j = (int) i; j <= LEVELS; j++) {
 			if (exp + added < xp[j]) {
 				return j - i;
 			}
@@ -170,11 +169,11 @@ public class Level {
 	 * @return A value between <code>0.0</code> (inclusive) and
 	 *         <code>1.0</code> (exclusive).
 	 */
-	public static double getWisdom(final int level) {
+	public static double getWisdom(final long level) {
 		if (level > LEVELS) {
-			return wisdom[LEVELS];
+			return wisdom[(int) LEVELS];
 		}
 
-		return wisdom[level];
+		return wisdom[(int) level];
 	}
 }

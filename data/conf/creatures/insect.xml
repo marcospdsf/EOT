@@ -8,6 +8,7 @@
     <description>You see a killer bee which will sting you to death!</description>
     <attributes>
       <atk value="170"/>
+      <ratk value="170"/>
       <def value="25"/>
       <hp value="100"/>
       <speed value="0.6"/>
@@ -35,6 +36,8 @@
       <profile name="offensive"/>
       <profile name="archer"/>
       <profile name="patrolling"/>
+      <profile name="active_idle"/>
+      <profile name="flying"/>
     </ai>
   </creature>
 
@@ -120,6 +123,9 @@
     <experience value="9110"/>
     <respawn value="3900"/> <!-- 19.5 minutes -->
     <corpse name="carapace" harmless="carapace"/>
+    <drops>
+      <item value="placid ring" quantity="[1,1]" probability="0.75"/>
+    </drops>
     <ai>
       <profile name="brave"/>
       <profile name="offensive"/>

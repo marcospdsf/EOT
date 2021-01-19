@@ -136,8 +136,8 @@ public class GazdaWojtekDailyItemQuest extends AbstractQuest {
 		items.put("bear claws",10);
 		items.put("skóra białego tygrysa",10);
 		items.put("skóra xenocium",2);
-		items.put("ruda srebra",10);
-		items.put("sztabka srebra",1);
+		items.put("silver ore",10);
+		items.put("silver bar",1);
 		items.put("kryształ ametystu",10);
 		items.put("emerald crystal",10);
 		items.put("sapphire crystal",10);

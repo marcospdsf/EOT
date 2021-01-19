@@ -13,10 +13,14 @@
 package games.stendhal.server.entity.mapstuff.useable;
 
 import games.stendhal.common.Rand;
+import games.stendhal.common.constants.SoundLayer;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.entity.item.Item;
+import games.stendhal.server.entity.item.StackableItem;
 import games.stendhal.server.entity.player.Player;
+import games.stendhal.server.events.ImageEffectEvent;
+import games.stendhal.server.events.SoundEvent;
 import marauroa.common.game.RPClass;
 
 import org.apache.log4j.Logger;
@@ -37,16 +41,17 @@ import org.apache.log4j.Logger;
 public class SourceMithril extends PlayerActivityEntity {
 	private static final Logger logger = Logger.getLogger(SourceMithril.class);
 
+	private final String startSound = "pickaxe_01";
+	private final int SOUND_RADIUS = 20;
+	
+	private final int miningLevelRequired = 400;
+
 	/**
 	 * The equipment needed.
 	 */
-	private static final String NEEDED_EQUIPMENT_1 = "kilof";
-	private static final String NEEDED_EQUIPMENT_2 = "lina";
-
-	/**
-	 * The chance that prospecting is successful.
-	 */
-	private static final double FINDING_PROBABILITY = 0.02;
+	private static final String NEEDED_EQUIPMENT_5 = "gold pick";
+	private static final String NEEDED_EQUIPMENT_6 = "obsidian pick";
+	private static final String NEEDED_EQUIPMENT_7 = "dragon bone pick";
 
 	/**
 	 * The name of the item to be found.
@@ -57,7 +62,7 @@ public class SourceMithril extends PlayerActivityEntity {
 	 * Create a mithril source.
 	 */
 	public SourceMithril() {
-		this("bryłka mithrilu");
+		this("mithril nugget");
 	}
 
 	/**
@@ -65,7 +70,7 @@ public class SourceMithril extends PlayerActivityEntity {
 	 */
 	@Override
 	public String getName() {
-		return("surowców");
+		return("mithril source");
 	}
 
 	/**
@@ -78,8 +83,8 @@ public class SourceMithril extends PlayerActivityEntity {
 		this.itemName = itemName;
 		put("class", "source");
 		put("name", "source_mithril");
-		setMenu("Wydobądź");
-		setDescription("Wszystko wskazuje na to, że tutaj coś jest.");
+		setMenu("Mine");
+		setDescription("Everything indicates that there is something here.");
 		setResistance(100);
 	}
 
@@ -105,10 +110,10 @@ public class SourceMithril extends PlayerActivityEntity {
 	private double getSuccessProbability(final Player player) {
 		double probability = 0.02;
 
-		final String skill = player.getSkill("mining");
-
-		if (skill != null) {
-			probability = Math.max(probability, Double.parseDouble(skill));
+		final long skill = player.getMiningLevel();
+		
+		if (skill != 0) {
+			probability = Math.max(probability, skill); 
 		}
 
 		return probability + player.useKarma(0.02);
@@ -124,8 +129,17 @@ public class SourceMithril extends PlayerActivityEntity {
 	 * @return The time to perform the activity (in seconds).
 	 */
 	@Override
-	protected int getDuration() {
-		return 8 + Rand.rand(4);
+	protected int getDuration(final Player player) {
+		if (player.isEquipped(NEEDED_EQUIPMENT_5)) {
+			return 28 + Rand.rand(8);
+		} else if (player.isEquipped(NEEDED_EQUIPMENT_6)) {
+			return 24 + Rand.rand(6);
+		} else if (player.isEquipped(NEEDED_EQUIPMENT_7)) {
+			return 20 + Rand.rand(4);
+		}
+		
+		return 35 + Rand.rand(10);
+		
 	}
 
 	/**
@@ -135,11 +149,23 @@ public class SourceMithril extends PlayerActivityEntity {
 	 */
 	@Override
 	protected boolean isPrepared(final Player player) {
-		if (player.isEquipped(NEEDED_EQUIPMENT_1) && player.isEquipped(NEEDED_EQUIPMENT_2)) {
+		if (
+			player.isEquipped(NEEDED_EQUIPMENT_5) ||
+			player.isEquipped(NEEDED_EQUIPMENT_6) ||
+			player.isEquipped(NEEDED_EQUIPMENT_7) && 
+			player.getMiningLevel() >= miningLevelRequired) {
 			return true;
+		} else if (
+			player.isEquipped(NEEDED_EQUIPMENT_5) ||
+			player.isEquipped(NEEDED_EQUIPMENT_6) ||
+			player.isEquipped(NEEDED_EQUIPMENT_7) &&
+			player.getMiningLevel() < miningLevelRequired) {
+			player.sendPrivateText("You need level " + 
+			miningLevelRequired +  "in mining to be able to mine this.");
+			return false;
 		}
 
-		player.sendPrivateText("Potrzebujesz kilofa i liny do wydobywania mithrilu.");
+		player.sendPrivateText("You need at least a gold pick to mine this.");
 		return false;
 	}
 
@@ -166,18 +192,25 @@ public class SourceMithril extends PlayerActivityEntity {
 	protected void onFinished(final Player player, final boolean successful) {
 		if (successful) {
 			final Item item = SingletonRepository.getEntityManager().getItem(itemName);
+			int amount = 1;
 
 			if (item != null) {
+				if(player.isEquipped(NEEDED_EQUIPMENT_7)) {
+					amount = Rand.throwCoin();
+					((StackableItem) item).setQuantity(amount);
+				}
 				player.equipOrPutOnGround(item);
 				player.incMinedForItem(item.getName(), item.getQuantity());
 				SingletonRepository.getAchievementNotifier().onObtain(player);
-				player.sendPrivateText("Wydobyłeś "
-						+ Grammar.a_noun(item.getTitle()) + ".");
+				player.incMiningXP(1500);
+				player.sendPrivateText("You mined "
+						+ Grammar.quantityplnoun(amount, itemName, "a")+ ".");
 			} else {
 				logger.error("could not find item: " + itemName);
 			}
 		} else {
-			player.sendPrivateText("Nic nie wydobyłeś.");
+			player.incMiningXP(150);
+			player.sendPrivateText("You have not extracted anything.");
 		}
 	}
 
@@ -189,6 +222,10 @@ public class SourceMithril extends PlayerActivityEntity {
 	 */
 	@Override
 	protected void onStarted(final Player player) {
-		player.sendPrivateText("Rozpocząłeś wydobywanie mithrilu.");
+		addEvent(new SoundEvent(startSound, SOUND_RADIUS, 100, SoundLayer.AMBIENT_SOUND));
+		player.sendPrivateText("You started mining.");
+        notifyWorldAboutChanges();
+        addEvent(new ImageEffectEvent("mining", true));
+        notifyWorldAboutChanges();
 	}
 }

@@ -232,7 +232,7 @@ public class PierscienMagnata extends AbstractQuest {
 			new SetQuestAction(QUEST_SLOT, "start" ));
 
 		final List<ChatAction> amuletactions = new LinkedList<ChatAction>();
-		amuletactions.add(new DropItemAction("sztabka srebra",70));
+		amuletactions.add(new DropItemAction("silver bar",70));
 		amuletactions.add(new DropItemAction("mithril bar",70));
 		amuletactions.add(new DropItemAction("gold bar",250)); 
 		amuletactions.add(new DropItemAction("bryłka mithrilu",100));
@@ -246,7 +246,7 @@ public class PierscienMagnata extends AbstractQuest {
 		npc.add(ConversationStates.ATTENDING, Arrays.asList("challenge", "pierścień", "pierscien"),
 			new AndCondition(
 					new QuestInStateCondition(QUEST_SLOT,"start"),
-					new PlayerHasItemWithHimCondition("sztabka srebra",70),
+					new PlayerHasItemWithHimCondition("silver bar",70),
 					new PlayerHasItemWithHimCondition("mithril bar",70),
 					new PlayerHasItemWithHimCondition("gold bar",250),
 					new PlayerHasItemWithHimCondition("bryłka mithrilu",100),
@@ -260,7 +260,7 @@ public class PierscienMagnata extends AbstractQuest {
 			new AndCondition(
 					new QuestInStateCondition(QUEST_SLOT,"start"),
 					new NotCondition(
-							new AndCondition(new PlayerHasItemWithHimCondition("sztabka srebra",70),
+							new AndCondition(new PlayerHasItemWithHimCondition("silver bar",70),
 							new PlayerHasItemWithHimCondition("mithril bar",70),
 							new PlayerHasItemWithHimCondition("gold bar",250),
 							new PlayerHasItemWithHimCondition("bryłka mithrilu",100),
@@ -268,7 +268,7 @@ public class PierscienMagnata extends AbstractQuest {
 							new PlayerHasItemWithHimCondition("money",500000),
 							new PlayerHasItemWithHimCondition("pierścień barona",1)))),
 			ConversationStates.ATTENDING, "Potrzebuję:\n"
-									+"#'70 sztabka srebra'\n" 
+									+"#'70 silver bar'\n" 
 									+"#'70 sztabek mithrilu'\n"
 									+"#'250 sztabek złota'\n"
 									+"#'100 bryłek mithrilu'\n"

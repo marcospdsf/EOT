@@ -16,6 +16,7 @@ import static games.stendhal.common.constants.Actions.MOVE_CONTINUOUS;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Shape;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -44,6 +45,7 @@ import games.stendhal.server.entity.item.BreakableItem;
 import games.stendhal.server.entity.item.Item;
 import games.stendhal.server.entity.item.StackableItem;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.TrainingDummy;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.events.AttackEvent;
 import marauroa.common.game.RPObject;
@@ -92,8 +94,14 @@ public class StendhalRPAction {
 	 *            The target of attack.
 	 */
 	public static void startAttack(final Player player, final RPEntity victim) {
+
 		// Player's can't attack themselves
 		if (player.equals(victim)) {
+			return;
+		}
+
+		// if we are already attacking the target, do nothing
+		if (player.getAttackTarget() == victim) {
 			return;
 		}
 
@@ -272,6 +280,8 @@ public class StendhalRPAction {
 			return false;
 		}
 
+		final boolean usesTrainingDummy = defender instanceof TrainingDummy;
+
 		defender.rememberAttacker(player);
 		if (defender instanceof Player) {
 			player.storeLastPVPActionTime();
@@ -311,7 +321,29 @@ public class StendhalRPAction {
 			weaponClass = attackWeapon.getWeaponType();
 		}
 
-		final boolean beaten = player.canHit(defender);
+		final boolean beaten;
+		if (usesTrainingDummy) {
+			/* training dummies can always be hit except in cases of using a
+			 * ranged weapon against a melee-only dummy
+			 */
+			beaten = ((TrainingDummy) defender).canBeAttacked(player);
+
+			if (!beaten) {
+				player.sendPrivateText("You cannot attack this " + defender.getName() + " with a ranged weapon.");
+				player.stopAttack();
+
+				return false;
+			}
+		} else {
+			// Throw dices to determine if the attacker has missed the defender
+			beaten = player.canHit(defender);
+		}
+
+		// For checking if RATK XP should be incremented on successful hit
+		boolean addRatkXP = false;
+		if (Testing.COMBAT) {
+			addRatkXP = isRanged;
+		}
 
 		/* TODO: Remove if alternate attack training method implemented in
 		 *       game.
@@ -320,13 +352,19 @@ public class StendhalRPAction {
 		 * player has recently received damage from the target. ATK experience
 		 * increases even if attack is blocked.
 		 */
-		if (!Testing.COMBAT) {
-			// disabled attack xp for attacking NPC's
-			if (!(defender instanceof SpeakerNPC)
-					&& player.getsFightXpFrom(defender)) {
-					player.incAtkXP();
+		// disabled attack xp for attacking NPC's
+		if (!(defender instanceof SpeakerNPC) && player.getsFightXpFrom(defender)) {
+			if (Testing.COMBAT && isRanged) {
+				player.incRatkXP();
+				// don't allow player to receive double experience from successful hits
+				addRatkXP = false;
+			} else {
+				player.incAtkXP();
 			}
 		}
+
+		// equipment that are broken are added to this list
+		final List<BreakableItem> broken = new ArrayList<>();
 
 		if (beaten) {
 			if ((defender instanceof Player)
@@ -335,10 +373,20 @@ public class StendhalRPAction {
 			}
 
 			final List<Item> weapons = player.getWeapons();
-			final float itemAtk = player.getItemAtk();
+			final float itemAtk;
+			if (Testing.COMBAT && isRanged) {
+				itemAtk = player.getItemRatk();
+			} else {
+				itemAtk = player.getItemAtk();
+			}
 
 			int damage = player.damageDone(defender, itemAtk, player.getDamageType());
-			if (damage > 0) {
+			if (!usesTrainingDummy && damage > 0) {
+
+				if (Testing.COMBAT && addRatkXP && !(defender instanceof SpeakerNPC)) {
+					// Range attack XP is incremented for successful hits regardless of whether player has recently been hit
+					player.incRatkXP();
+				}
 
 				// limit damage to target HP
 				damage = Math.min(damage, defender.getHP());
@@ -357,20 +405,12 @@ public class StendhalRPAction {
 
 			//deteriorate weapons of attacker
 			for (Item weapon : weapons) {
-				weapon.deteriorate();
+				weapon.deteriorate(player);
 
 				if (weapon instanceof BreakableItem) {
 					final BreakableItem breakable = (BreakableItem) weapon;
-					if (breakable.isBroken() && breakable.isContained()) {
-						final RPObject slot = breakable.getContainer();
-						if (breakable.getContainerSlot().remove(breakable.getID()) != null) {
-							if (slot instanceof Entity) {
-								((Entity) slot).notifyWorldAboutChanges();
-							}
-							player.sendPrivateText("Your " + breakable.getName() + " has broken!");
-						} else {
-							logger.error("Could not remove BreakableItem \"" + breakable.getName() + "\" with ID " + breakable.getID().toString());
-						}
+					if (breakable.isBroken()) {
+						broken.add(breakable);
 					}
 				}
 			}
@@ -378,7 +418,15 @@ public class StendhalRPAction {
 			//randomly choose one defensive item to deteriorate
 			List<Item> defenseItems = defender.getDefenseItems();
 			if(!defenseItems.isEmpty()) {
-				Rand.rand(defenseItems).deteriorate();
+				final Item equip = Rand.rand(defenseItems);
+				equip.deteriorate(defender);
+
+				if (equip instanceof BreakableItem) {
+					final BreakableItem breakable = (BreakableItem) equip;
+					if (breakable.isBroken()) {
+						broken.add(breakable);
+					}
+				}
 			}
 
 			player.addEvent(new AttackEvent(true, damage, player.getDamageType(), weaponClass, isRanged));
@@ -398,6 +446,24 @@ public class StendhalRPAction {
 		}
 
 		player.notifyWorldAboutChanges();
+
+		for (final BreakableItem breakable: broken) {
+			if (breakable.isContained()) {
+				final RPObject slot = breakable.getContainer();
+				if (breakable.getContainerSlot().remove(breakable.getID()) != null) {
+					if (slot instanceof Entity) {
+						((Entity) slot).notifyWorldAboutChanges();
+					}
+
+					final String event = breakable.getName() + " has broken";
+
+					new GameEvent(player.getName(), event, "Used " + Integer.toString(breakable.getUses()) + " times (durability: " + Integer.toString(breakable.getDurability()) + ")").raise();
+					player.sendPrivateText("Your " + event + "!");
+				} else {
+					logger.error("Could not remove BreakableItem \"" + breakable.getName() + "\" with ID " + breakable.getID().toString());
+				}
+			}
+		}
 
 		return result;
 	}
