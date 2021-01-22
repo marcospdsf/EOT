@@ -42,7 +42,9 @@ public class StendhalServer {
 		while (i < args.length - 1) {
 			if (args[i].equals("-c")) {
 				serverIni = args[i + 1];
+				
 			}
+			
 			i++;
 		}
 	}

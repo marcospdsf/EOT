@@ -42,7 +42,6 @@ import games.stendhal.server.entity.player.UpdateConverter;
 import games.stendhal.server.entity.slot.BankSlot;
 import games.stendhal.server.entity.slot.Banks;
 import games.stendhal.server.entity.slot.PlayerKeyringSlot;
-import games.stendhal.server.entity.slot.PlayerMoneyPouchSlot;
 import games.stendhal.server.entity.slot.PlayerScrollbagSlot;
 import games.stendhal.server.entity.slot.PlayerSlot;
 import games.stendhal.server.entity.slot.PlayerTradeSlot;

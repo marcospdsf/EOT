@@ -1,5 +1,5 @@
 /***************************************************************************
- *                    (C) Copyright 2018-2020 - Arianne                    *
+ *                   (C) Copyright 2018 - Arianne                          *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -16,13 +16,11 @@ package games.stendhal.common.constants;
  */
 public class Occasion {
 	// Christmas time
-	public static final Boolean CHRISTMAS = System.getProperty("stendhal.christmas") != null;
+	public final static Boolean CHRISTMAS = System.getProperty("stendhal.christmas") != null;
 
 	// Easter
-	public static final Boolean EASTER = System.getProperty("stendhal.easter") != null;
+	public final static Boolean EASTER = System.getProperty("stendhal.easter") != null;
 
 	// Halloween/Mine Town Weeks
-	public static final Boolean MINETOWN = System.getProperty("stendhal.minetown") != null;
-
-	public static final boolean MINETOWN_CONSTRUCTION = System.getProperty("stendhal.minetownconstruction") != null;;
+	public final static Boolean MINETOWN = System.getProperty("stendhal.minetown") != null;
 }

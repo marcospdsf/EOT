@@ -1,5 +1,6 @@
+/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2020 - Marauroa                    *
+ *                      (C) Copyright 2003 - Marauroa                      *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -21,7 +22,6 @@ import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.events.TurnListener;
 import games.stendhal.server.entity.Entity;
 import games.stendhal.server.entity.item.Item;
-import games.stendhal.server.entity.player.Player;
 import marauroa.common.game.Definition.Type;
 import marauroa.common.game.RPClass;
 import marauroa.common.game.RPObject;
@@ -124,7 +124,6 @@ public class PassiveEntityRespawnPoint extends Entity implements TurnListener {
 					growingItemName);
 			grownItem.setPlantGrower(this);
 			grownItem.setPosition(getX(), getY());
-			grownItem.setFromCorpse(true);
 
 			// The item should not expire to avoid unnecessary loop of spawning
 			// and expiring
@@ -151,7 +150,4 @@ public class PassiveEntityRespawnPoint extends Entity implements TurnListener {
 
 	}
 
-	public void onItemPickedUp(Player player) {
-		player.incHarvestedForItem(growingItemName, 1);
-	}
 }
