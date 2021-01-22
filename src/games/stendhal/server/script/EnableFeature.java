@@ -4,7 +4,6 @@ import java.util.List;
 
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.scripting.ScriptImpl;
-import games.stendhal.server.entity.creature.Creature;
 import games.stendhal.server.entity.npc.action.EnableFeatureAction;
 import games.stendhal.server.entity.player.Player;
 /**
@@ -13,7 +12,6 @@ import games.stendhal.server.entity.player.Player;
  * @author madmetzger
  */
 public class EnableFeature extends ScriptImpl {
-	private Creature ted = new Creature();
 	@Override
 	public void execute(final Player admin, final List<String> args) {
 		if (args == null || args.size() != 2) {
@@ -22,9 +20,6 @@ public class EnableFeature extends ScriptImpl {
 		}
 		final String feature = args.get(1);
 		final String name = args.get(0);
-		final float xpMultiplier = Float.parseFloat(args.get(0));
-		ted.SERVER_XP_INCREASE = xpMultiplier;
-		
 		final Player player = SingletonRepository.getRuleProcessor().getPlayer(name);
 		new EnableFeatureAction(feature).fire(player, null, null);
 	}
