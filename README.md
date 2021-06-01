@@ -2,7 +2,7 @@
 
 Hi! This game was modified mainly by myself. The idea was to get the original open source game and merge it with the two other versions, main one called original (Stendhal Game), the second one is a chinese version (YRPG), and the third is the polish one (Polska Online).
 
-While the main version is in the release 1.33, the chinese version was in 0.80 and the polish one was in 0.60, so the biggest challenge was to do the updates and merge the main funtionabilities to the other versions.
+While the main version is in the release 1.36, the chinese version was in 0.80 and the polish one was in 0.60, so the biggest challenge was to do the updates and merge the main funtionabilities to the other versions.
 
 This version isn't done yet, still needs polish, new features, translation of the Polish version.
 
