@@ -4,7 +4,7 @@ Hi! This game was modified mainly by myself. The idea was to get the original op
 
 While the main version is in the release 1.33, the chinese version was in 0.80 and the polish one was in 0.60, so the biggest challenge was to do the updates and merge the main funtionabilities to the other versions.
 
-This version isn't done yet, still needs polish, new features, translation of the polish version, and update from java 8 to java 9 wich has deprecated the Observer class, and that the version 1.26 of the main version uses a lot.
+This version isn't done yet, still needs polish, new features, translation of the Polish version.
 
 Without further ado, I will leave with the original server description of the game. 
  
