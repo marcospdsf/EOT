@@ -2,6 +2,137 @@ Changelog
 ---------
 ---------
 
+1.37
+
+*world*
+- added Baelin NPC
+- added Deniran Space Museum
+- various small improvements to maps
+
+*fixes*
+- fixed crash on startup with Java 16 because of an incompatible API change
+- fixed halloffame on newer versions of MySQL due to "rank" now being treated as a reserved word
+
+
+
+1.36
+*world*
+- building Mine Town Revival Weeks as group quest
+- new item: lamp
+- new masks
+
+*chat*
+- New Discord Server: https://discord.gg/sw7kKgu
+
+*code*
+- batched database operations to improve performance
+
+*fixes*
+- fixed Bobbing for Apples
+- map fixes
+- do not put money into disabled money pouch
+
+1.35
+
+*world*
+- new items:
+  - ice shield: def 40, ice 0.9, fire 1.15, poison resist 50%
+- new achievements:
+  - Bobbing for Apples: harvest or loot 1,000 apples
+  - Deathmatch Helper: aid other players in 25 rounds of deathmatch
+  - Deathmatch Companion: aid other players in 50 rounds of deathmatch
+  - Deathmatch Convoy: aid other players in 100 rounds of deathmatch
+  - Magic Supplies: loot a complete magic equipment set
+- NPC changes:
+  - King Edward sells Deniran City scrolls
+  - Rengard visits 0_ados_mountain_n2_w2 instead of 0_semos_mountain_n2_w2
+- small improvements to various maps
+
+*webclient*
+- show progress bar on login
+
+*engine*
+- massive improvements to the database queue
+- support for recent versions of Java
+
+*other*
+- started to work on a list of all contributors, please help to add to it:
+  https://github.com/arianne/stendhal/blob/master/doc/contributors.md
+
+1.34
+
+*world*
+- new zones/maps:
+  - Deniran Pawn Shop
+  - Deniran Psychic Parlor
+  - Atlantis Potions Shop
+- new NPCs:
+  - Jimbo (Deniran Grocery Store)
+  - Omura Sumitada (Assassin's Dojo)
+  - Akutagawa (Assassin's Dojo)
+  - Lovena (Deniran Psychic Parlor)
+  - Rengard (a wandering adventurer)
+  - Pierre (outfit lender in Deniran Dress Shop)
+  - Ryla (greeter in Atlantis)
+  - Mirielle (Atlantis Potions Shop)
+  - Sawyer (Deniran Pawn Shop)
+  - Harley (Deniran Pawn Shop)
+  - Raven (Deniran Weapons Shop)
+- new items:
+  - bestiary
+  - training sword
+  - enhanced imperial ring (atk +1, def +1)
+- new achievements:
+  - Royally Endowed: loot a complete royal equipment set
+  - Deep Sea Fisherman: kill 500 sharks, kraken, & neo kraken
+  - Zombie Apocalypse: kill 500 zombies
+  - Chicken Nuggets: kill 100 of each type of fowl
+  - Pachyderm Mayhem: kill 100 of each type of pachyderm
+  - Imperialist Dominator: finish Kill Blordroughs quest 50 times
+  - Imperialist Dictator: finish Kill Blordroughs quest 100 times
+- achievement changes:
+  - ice giant added as requirement for "David vs. Goliath"
+  - baby angel added as requirement for "Heavenly Wrath"
+  - chess pieces no longer required for "Legend" & "Team Player" achievements
+  - "Spelunker" fixed so players do not have to revisit -2_deniran_caves_n & -2_deniran_caves_nw
+- enemy changes:
+  - giant bat & giant killer bat drop ham
+  - woolly mammoth drops ham
+  - penguin drops chicken instead of meat
+  - dodo drops chicken instead of ham
+  - baby pegasus is now non-aggressive & retreats when attacked
+  - fixed dimensions of dragon corpses
+  - blordrough general attacks weakest
+  - legendary ice elemental level & stats increased
+  - venom gland is now regular drop from king cobra
+- new enemy sounds:
+  - werewolf
+- quest changes:
+  - 5 unicorn horns added to Kirdneh Museum quest
+  - Fix KillEnemyArmy-Quest: All Blordroughs are counted
+- new quests:
+  - Collect Enemy Data
+- dojo area for training ATK stat
+- player is notified when stats level up
+- new sound effect for level up
+- commerce:
+  - sell value of mandragora reduced to 300
+  - sell value of venom gland reduced to 800
+  - sell value of disease poison reduced to 1200
+
+*fixes*
+- fixed "Westerner" achievement
+- fixed kraken & neo kraken corpse dimensions
+
+*graphics*
+- mithrilbourgh army enemies now have same skin color as mithrilbourgh wizard
+- new sprite for demon enemy
+
+*Java client*
+- rings can now be animated
+- optional health bar in stats panel
+
+
 1.33
 
 *webclient*
@@ -16,7 +147,6 @@ Changelog
   - Atlantis
   - Deniran Tannery
 - new NPCs
-  - Jimbo (Deniran Grocery Store)
   - Skinner Rawhide (Denrian Tannery)
   - Zelan (Atlantis)
 - NPC changes
@@ -2812,7 +2942,6 @@ Aug 14, 2006
 - admins / game masters
   - /supportanswer <player> <text> admin command replys to <player> and all players with support-adminlevel
   - (*) Inspect, (*) Destroy and /alter #12345 can be used on items
-  - /support and /supportanswer can now be forwarded to irc://irc.freenode.net/#arianne-support
   - added a new jail map
   - admins can summon lots of monsters with /script plague.groovy 1 rat
   - admins can create signs using /script adminsign.groovy

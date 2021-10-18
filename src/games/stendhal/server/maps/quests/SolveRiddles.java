@@ -270,9 +270,9 @@ public class SolveRiddles extends AbstractQuest {
 						player.teleport(zone, 31, 23, Direction.UP, player);
 						// clear quest slot so riddle is chosen randomly for player next time
 						player.removeQuest(QUEST_SLOT);
-						long oldXp = player.getXP();
+						int oldXp = player.getXP();
 						player.addXP(xpreward);
-						long xpDiff = player.getXP() - oldXp;
+						int xpDiff = player.getXP() - oldXp;
 						StringBuilder msg = new StringBuilder("You solved the riddle correctly");
 						if (xpDiff > 0) {
 							msg.append(" and earned " + xpreward + " XP");

@@ -38,6 +38,8 @@ import games.stendhal.server.core.account.CharacterCreator;
 import games.stendhal.server.core.engine.db.StendhalWebsiteDAO;
 import games.stendhal.server.core.engine.dbcommand.SetOnlineStatusCommand;
 import games.stendhal.server.core.engine.transformer.PlayerTransformer;
+import games.stendhal.server.core.events.TurnListener;
+import games.stendhal.server.core.events.TurnNotifier;
 import games.stendhal.server.core.events.TutorialNotifier;
 import games.stendhal.server.core.rp.StendhalQuestSystem;
 import games.stendhal.server.core.rp.StendhalRPAction;
@@ -60,11 +62,14 @@ import marauroa.common.game.RPAction;
 import marauroa.common.game.RPObject;
 import marauroa.common.io.UnicodeSupportingInputStreamReader;
 import marauroa.server.db.command.DBCommand;
+import marauroa.server.db.command.DBCommandPriority;
 import marauroa.server.db.command.DBCommandQueue;
 import marauroa.server.game.Statistics;
 import marauroa.server.game.db.DAORegister;
+import marauroa.server.game.dbcommand.LogGameEventCommand;
 import marauroa.server.game.rp.IRPRuleProcessor;
 import marauroa.server.game.rp.RPServerManager;
+
 /**
  * adds game rules for Stendhal to the marauroa environment.
  *
@@ -98,6 +103,8 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 
 	/** a list of zone that should be removed (like vaults) */
 	private final List<StendhalRPZone> zonesToRemove = new LinkedList<StendhalRPZone>();
+	
+	private LinkedList<marauroa.server.game.rp.GameEvent> gameEvents = new LinkedList();
 
 	/**
 	 * creates a new StendhalRPRuleProcessor
@@ -106,12 +113,6 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 		onlinePlayers = new PlayerList();
 		playersRmText = new LinkedList<Player>();
 		entityToKill = new LinkedList<Pair<RPEntity, Entity>>();
-	}
-
-	private void init() {
-		String[] params = {};
-		new GameEvent("server system", "startup", params).raise();
-		AfkTimeouter.create();
 	}
 
 	/**
@@ -123,8 +124,9 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 		synchronized(StendhalRPRuleProcessor.class) {
 			if (instance == null) {
 				StendhalRPRuleProcessor instance = new StendhalRPRuleProcessor();
-				instance.init();
 				StendhalRPRuleProcessor.instance = instance;
+				new GameEvent("server system", "startup").raise();
+				AfkTimeouter.create();
 			}
 		}
 		return instance;
@@ -608,6 +610,11 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 		final AccountCreator creator = new AccountCreator(username, password, email);
 		return creator.create();
 	}
+	
+	@Override
+	public AccountResult createAccountWithToken(String username, String tokenType, String token) {
+		return null;
+	}
 
 	@Override
 	public CharacterResult createCharacter(final String username, final String character, final RPObject template) {
@@ -763,6 +770,39 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 	 */
 	public static void setWelcomeMessage(String msg) {
 		StendhalRPRuleProcessor.welcomeMessage = msg;
+	}
+
+	/**
+	 * logs a gameEvent
+	 *
+	 * @param gameEvent a game event
+	 */
+	public void logGameEvent(GameEvent gameEvent) {
+		this.logGameEvent(gameEvent.getSource(), gameEvent.getEvent(), gameEvent.getParams());
+	}
+
+	/**
+	 * logs a game event
+	 *
+	 * @param source source
+	 * @param event  event
+	 * @param params parameters
+	 */
+	public void logGameEvent(String source, String event, String... params) {
+		this.gameEvents.add(new marauroa.server.game.rp.GameEvent(source, event, params));
+
+		// we collect one second of game events and write them as batch to the database
+		if (this.gameEvents.size() == 1) {
+			TurnNotifier.get().notifyInSeconds(1, new TurnListener() {
+				@Override
+				public void onTurnReached(int currentTurn) {
+					DBCommand command = new LogGameEventCommand(gameEvents);
+					gameEvents.clear();
+					DBCommandQueue.get().enqueue(command, DBCommandPriority.LOW);
+					
+				}
+			});
+		}
 	}
 
 	/**

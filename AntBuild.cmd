@@ -19,7 +19,7 @@ REM Otherwise, it will simply not work
 
 
 
-set JAVA_HOME=C:\Program Files\Java\jdk1.8.0_181
+set JAVA_HOME=C:\Program Files\Java\jdk1.8.0_241
 
 
 REM Do not change the rest of this file

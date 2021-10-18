@@ -178,7 +178,7 @@ class DeathmatchEngine implements TurnListener {
 		} else {
 			int xp = player.getLevel() * 80;
 			if (xp > player.getXP()) {
-				xp = (int) player.getXP();
+				xp = player.getXP();
 			}
 			player.subXP(xp);
 		}

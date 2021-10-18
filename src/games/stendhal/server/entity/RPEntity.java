@@ -181,6 +181,8 @@ public abstract class RPEntity extends GuidedEntity {
 	 * weak enemies
 	 */
 	private static final double WEIGHT_EFFECT = 0.5;
+	
+	public static float SERVER_XP_INCREASE = 1f;
 
 	/**
 	 * A helper class for building a size limited list of killer names. If there
@@ -832,10 +834,10 @@ public abstract class RPEntity extends GuidedEntity {
 		put("atk_xp", atk_xp);
 
 		// Handle level changes
-		final long newLevel = Level.getLevel(atk_xp);
-		final long levels = newLevel - (this.atk - 10);
+		final int newLevel = Level.getLevel(atk_xp);
+		final int levels = newLevel - (this.atk - 10);
 		if (levels != 0) {
-			setAtkInternal((int) (this.atk + levels), notify);
+			setAtkInternal(this.atk + levels, notify);
 			new GameEvent(getName(), "atk", Integer.toString(getAtk())).raise();
 		}
 	}
@@ -900,10 +902,10 @@ public abstract class RPEntity extends GuidedEntity {
 		put("def_xp", def_xp);
 
 		// Handle level changes
-		final long newLevel = Level.getLevel(def_xp);
-		final long levels = newLevel - (this.def - 10);
+		final int newLevel = Level.getLevel(def_xp);
+		final int levels = newLevel - (this.def - 10);
 		if (levels != 0) {
-			setDefInternal((int) (this.def + levels), notify);
+			setDefInternal(this.def + levels, notify);
 			new GameEvent(getName(), "def", Integer.toString(this.def)).raise();
 		}
 	}
@@ -960,10 +962,10 @@ public abstract class RPEntity extends GuidedEntity {
 		put("mining_xp", mining_xp);
 
 		// Handle level changes
-		final long newLevel = Level.getLevel(mining_xp);
-		final long levels = newLevel - (this.miningLevel - 10);
+		final int newLevel = Level.getLevel(mining_xp);
+		final int levels = newLevel - (this.miningLevel - 10);
 		if (levels != 0) {
-			setMiningInternal((int) (this.miningLevel + levels), notify);
+			setMiningInternal(this.miningLevel + levels, notify);
 			new GameEvent(getName(), "miningLevel", Integer.toString(this.miningLevel)).raise();
 		}
 	}
@@ -1051,12 +1053,12 @@ public abstract class RPEntity extends GuidedEntity {
 		put("ratk_xp", ratk_xp);
 
 		// Handle level changes
-		final long newLevel = Level.getLevel(ratk_xp);
-		final long levels = newLevel - (this.ratk - 10);
+		final int newLevel = Level.getLevel(ratk_xp);
+		final int levels = newLevel - (this.ratk - 10);
 
 		// In case we level up several levels at a single time.
 		if (levels != 0) {
-			setRatkInternal((int) (this.ratk + levels), notify);
+			setRatkInternal(this.ratk + levels, notify);
 			new GameEvent(getName(), "ratk", Integer.toString(this.ratk)).raise();
 		}
 	}
@@ -1234,11 +1236,11 @@ public abstract class RPEntity extends GuidedEntity {
 		this.updateModifiedAttributes();
 	}
 
-	public final void setXP(final float f) {
-		if (f < 0) {
+	public final void setXP(final int newxp) {
+		if (newxp < 0) {
 			return;
 		}
-		this.xp = (int) f;
+		this.xp = newxp;
 		put("xp", xp);
 	}
 
@@ -1246,18 +1248,18 @@ public abstract class RPEntity extends GuidedEntity {
 		addXP(-newxp);
 	}
 
-	public void addXP(final long l) {
-		if (Integer.MAX_VALUE - this.xp <= l) {
+	public void addXP(final int newxp) {
+		if (Integer.MAX_VALUE - this.xp <= newxp) {
 			return;
 		}
-		if (l == 0) {
+		if (newxp == 0) {
 			return;
 		}
 
 		// Increment experience points
-		this.xp += l;
+		this.xp += newxp;
 		put("xp", xp);
-		String[] params = { Long.toString(l) };
+		String[] params = { Integer.toString(newxp) };
 
 		new GameEvent(getName(), "added xp", params).raise();
 		new GameEvent(getName(), "xp", String.valueOf(xp)).raise();
@@ -1269,20 +1271,20 @@ public abstract class RPEntity extends GuidedEntity {
 	 * Change the level to match the XP, if needed.
 	 */
 	protected void updateLevel() {
-		final long newLevel = Level.getLevel(getXP());
-		final long oldLevel = has("level") ? getInt("level") : 0;
-		final long levels = newLevel - oldLevel;
+		final int newLevel = Level.getLevel(getXP());
+		final int oldLevel = has("level") ? getInt("level") : 0;
+		final int levels = newLevel - oldLevel;
 
 		// In case we level up several levels at a single time.
 		for (int i = 0; i < Math.abs(levels); i++) {
 			setBaseHP(getBaseHP() + (int) Math.signum(levels) * 10);
 			setHP(getBaseHP());
-			new GameEvent(getName(), "level", Long.toString(oldLevel+(i+1)*((int) Math.signum(levels)))).raise();
-			setLevel((int)newLevel);
+			new GameEvent(getName(), "level", Integer.toString(oldLevel+(i+1)*((int) Math.signum(levels)))).raise();
+			setLevel(newLevel);
 		}
 	}
 
-	public long getXP() {
+	public int getXP() {
 		return xp;
 	}
 
@@ -1733,7 +1735,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 				reward = 1;
 			}
 
-			killer.addXP(reward);
+			killer.addXP((int)(reward * SERVER_XP_INCREASE));
 
 			// For some quests etc., it is required that the player kills a
 			// certain creature without the help of others.
@@ -1761,9 +1763,9 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	 * Reward pets who kill enemies.  don't perks like AchievementNotifier that players.
 	 */
 	protected void rewardKillerAnimals(final int oldXP) {
-		if (!System.getProperty("stendhal.petleveling", "false").equals("true")) {
+		/*if (!System.getProperty("stendhal.petleveling", "false").equals("true")) {
 			return;
-		}
+		}*/
 		final int xpReward = (int) (oldXP * 0.05);
 
 		for (Entry<Entity, Integer> entry : damageReceived.entrySet()) {
@@ -1797,6 +1799,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			}
 
 			int reward = xpEarn;
+			int ownerReward = xpEarn;
 
 			// We ensure it gets at least 1 experience
 			// point, because getting nothing lowers motivation.
@@ -1807,9 +1810,11 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			if (killer.getLevel() >= killer.getLVCap())
 			{
 				reward = 0;
+				ownerReward /= 2;
 			}
 
-			killer.addXP(reward);
+			killer.addXP(reward / 2);
+			killer.getOwner().addXP(ownerReward); 
 
 			/*
 			// For some quests etc., it is required that the player kills a
@@ -1910,12 +1915,12 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		// Needs to be done while the killer map still has the contents
 		List<String> killers = buildKillerList(killerName);
 
-		final long oldXP = this.getXP();
+		final int oldXP = this.getXP();
 
 		// Establish how much xp points your are rewarded
 		// give XP to everyone who helped killing this RPEntity
-		rewardKillers((int)oldXP);
-		rewardKillerAnimals((int)oldXP);
+		rewardKillers(oldXP);
+		rewardKillerAnimals(oldXP);
 
 		if (!(killer instanceof Player) && !(killer instanceof Status) && !(killer instanceof Pet)) {
 			/*
@@ -3659,7 +3664,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	 * @return a predicate for matching the name
 	 */
 	private Predicate<Item> nameMatches(String name) {
-		return it -> name.equals(it.getName());
+		return it -> name.equalsIgnoreCase(it.getName());
 	}
 
 	/**

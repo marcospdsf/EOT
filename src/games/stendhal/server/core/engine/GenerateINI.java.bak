@@ -236,10 +236,6 @@ public class GenerateINI {
 	private static String getTCPPort() {
 		return "32160";
 	}
-	
-	public static String getXpMultiplier() {
-		return "1";
-	}
 
 	private static String getDatabaseImplementation() {
 		return "games.stendhal.server.core.engine.StendhalPlayerDatabase";
@@ -266,9 +262,6 @@ public class GenerateINI {
 		out.println();
 		out.println("# TCP port stendhald will use. ");
 		out.println("tcp_port=" + tcpPort);
-		out.println();
-		out.println("The amount wich the monster xp will be increased");
-		out.println("Amount to multiply XP=" + xpMultiplier);
 		out.println();
 		out.println("# World and RP configuration. Don't edit.");
 		out.println("world=" + worldImplementation);

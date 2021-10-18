@@ -116,7 +116,7 @@ public class BabyDragon extends Pet {
 
 	@Override
 	public boolean canGrow() {
-		return !System.getProperty("stendhal.petleveling", "false").equals("true");
+		return true;//!System.getProperty("stendhal.petleveling", "false").equals("true");
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class BabyDragon extends Pet {
 		//get important info before anything happens to them.
 		final Player player = this.owner;
 		final String currentTitle = this.getTitle();
-		final long currentXP = this.getXP();
+		final int currentXP = this.getXP();
 		final int currentLevel = this.getLevel();
 
 		final PurpleDragon purpledragon = new PurpleDragon(owner);

@@ -218,7 +218,7 @@ public class Creature extends NPC {
 		setAtk(copy.getAtk());
 		setRatk(copy.getRatk());
 		setDef(copy.getDef());
-		setXP(copy.getXP() * (SERVER_XP_INCREASE));
+		setXP(copy.getXP();
 		initHP(copy.getBaseHP());
 		setName(copy.getName());
 

@@ -85,7 +85,7 @@ public class Creature extends NPC {
 	 */
 	private static final double SERVER_DROP_GENEROSITY = 1;
 	
-	public float SERVER_XP_INCREASE = 1f;
+	public static double SERVER_DROP_RATE = 1;
 
 	private HealerBehavior healer = HealerBehaviourFactory.get(null);
 
@@ -218,7 +218,7 @@ public class Creature extends NPC {
 		setAtk(copy.getAtk());
 		setRatk(copy.getRatk());
 		setDef(copy.getDef());
-		setXP(copy.getXP() * SERVER_XP_INCREASE);
+		setXP((int)(copy.getXP() * SERVER_XP_INCREASE));
 		initHP(copy.getBaseHP());
 		setName(copy.getName());
 
@@ -841,7 +841,7 @@ public class Creature extends NPC {
 		final List<Item> list = new LinkedList<Item>();
 
 		for (final DropItem dropped : dropsItems) {
-			final double probability = Rand.rand(1000000) / 10000.0;
+			final double probability = (Rand.rand(1000000) / 10000.0) * SERVER_DROP_RATE;
 
 			if (probability <= (dropped.probability / SERVER_DROP_GENEROSITY)) {
 				final Item item = defaultEntityManager.getItem(dropped.name);

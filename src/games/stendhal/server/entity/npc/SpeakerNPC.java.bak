@@ -19,9 +19,11 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import games.stendhal.common.Direction;
 import games.stendhal.common.parser.ConversationParser;
 import games.stendhal.common.parser.Expression;
 import games.stendhal.common.parser.ExpressionMatcher;
+import games.stendhal.common.parser.ExpressionType;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPWorld;
@@ -118,7 +120,7 @@ import games.stendhal.server.entity.player.Player;
  * transition happens, no matter in which state the FSM really is, with the
  * exception of the IDLE state.
  */
-public class SpeakerNPC extends NPC {
+public class SpeakerNPC extends PassiveNPC {
 	/** the logger instance. */
 	private static final Logger logger = Logger.getLogger(SpeakerNPC.class);
 
@@ -173,23 +175,24 @@ public class SpeakerNPC extends NPC {
 	private boolean actingAlone=false;
 
 	/**
+	 * if set, determines direction entity will face while idle
+	 */
+	private Direction idleDirection = null;
+
+	/**
 	 * Creates a new SpeakerNPC.
 	 *
 	 * @param name
 	 *            The NPC's name. Please note that names should be unique.
 	 */
 	public SpeakerNPC(final String name) {
-		baseSpeed = 0.2;
-		createPath();
+		super();
 
 		lastMessageTurn = 0;
 
 		setName(name);
 		createDialog();
 		createDefaultReplies();
-		put("title_type", "npc");
-
-		setSize(1, 1);
 
 		// Set default collision action to reverse.
 		setCollisionAction(CollisionAction.REVERSE);
@@ -209,10 +212,6 @@ public class SpeakerNPC extends NPC {
 
 	public boolean isAllowedToActAlone() {
 		return(actingAlone);
-	}
-
-	protected void createPath() {
-		// sub classes can implement this method
 	}
 
 	protected void createDialog() {
@@ -331,6 +330,26 @@ public class SpeakerNPC extends NPC {
 			}
 			setIdea(null);
 		}
+
+		// set facing direction
+		if (idleDirection != null && !hasPath() && engine.getCurrentState() == ConversationStates.IDLE) {
+			setDirection(idleDirection);
+		}
+	}
+
+	/**
+	 * Sets the direction the entity should face while idle (not moving
+	 * & not attending).
+	 *
+	 * @param dir
+	 * 		Direction to face.
+	 */
+	public void setIdleDirection(final Direction dir) {
+		idleDirection = dir;
+
+		if (idleDirection != null && stopped()) {
+			setDirection(idleDirection);
+		}
 	}
 
 	@Override
@@ -434,13 +453,21 @@ public class SpeakerNPC extends NPC {
 		notifyWorldAboutChanges();
 	}
 
-	protected void endConversation() {
+	public void endConversation() {
 		if (goodbyeMessage != null) {
 			say(goodbyeMessage);
 		}
 		onGoodbye(attending);
 		engine.setCurrentState(ConversationStates.IDLE);
 		setAttending(null);
+	}
+
+	public boolean inConversationRange() {
+		if (attending == null) {
+			return false;
+		}
+
+		return attending.squaredDistance(this) <= squaredGoodByeRange;
 	}
 
 	public boolean isTalking() {
@@ -925,30 +952,6 @@ public class SpeakerNPC extends NPC {
 		return engine;
 	}
 
-	@Override
-	protected void handleObjectCollision() {
-		CollisionAction action = getCollisionAction();
-	    if (action == CollisionAction.REVERSE) {
-	        reversePath();
-	    } else if (action == CollisionAction.REROUTE) {
-	    	reroute();
-	    }
-	    else {
-	        stop();
-	    }
-	}
-
-	@Override
-	protected void handleSimpleCollision(final int nx, final int ny) {
-		CollisionAction action = getCollisionAction();
-	    if (action == CollisionAction.REROUTE) {
-	        reroute();
-	    }
-	    else {
-	        stop();
-	    }
-	}
-
 	/**
 	 * gets an alternative image for example for the website
 	 *
@@ -996,5 +999,46 @@ public class SpeakerNPC extends NPC {
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * Retrieves string reply to trigger word.
+	 *
+	 * @param trigger
+	 * 		Word or phrase that triggers reply.
+	 * @param state
+	 * 		The conversation state the NPC is in when trigger is activated.
+	 * @param expressionType
+	 * @return
+	 * 		String reply or <code>null</code>.
+	 */
+	public String getReply(final String trigger, ConversationStates state, String expressionType) {
+		// default to attending
+		if (state == null) {
+			state = ConversationStates.ATTENDING;
+		}
+		if (expressionType == null) {
+			expressionType = ExpressionType.UNKNOWN;
+		}
+
+		for (final Transition tr: getTransitions()) {
+			if (tr.matches(state, new Expression(trigger, expressionType))) {
+				return tr.getReply();
+			}
+		}
+
+		return null;
+	}
+
+	/**
+	 * Retrieves string reply to trigger word when NPC is in attending state.
+	 *
+	 * @param trigger
+	 * 		Word or phrase that triggers reply.
+	 * @return
+	 * 		String reply or <code>null</code>.
+	 */
+	public String getReply(final String trigger) {
+		return getReply(trigger, ConversationStates.ATTENDING, ExpressionType.UNKNOWN);
 	}
 }

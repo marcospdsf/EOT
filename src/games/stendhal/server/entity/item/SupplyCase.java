@@ -4,7 +4,7 @@ import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.ItemTools;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.entity.player.Player;
-import games.stendhal.server.entity.item.StackableItem;
+//import games.stendhal.server.entity.item.StackableItem;
 
 import java.util.Map;
 

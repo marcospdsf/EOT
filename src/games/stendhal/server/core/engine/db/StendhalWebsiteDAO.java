@@ -200,6 +200,7 @@ public class StendhalWebsiteDAO {
 			+ " '[lhand]', '[rhand]','[glove]', '[legs]', '[feet]', '[cloak]', '[finger]', '[finger2]',"
 			+ " '[zone]', '[lastseen]')";
 		Map<String, Object> params = getParamsFromPlayer(player);
+		params.put("lastseen", timestamp);
 		logger.debug("storeCharacter is running: " + query);
 		transaction.execute(query, params);
 	}
