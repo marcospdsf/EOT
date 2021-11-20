@@ -58,14 +58,14 @@ public class GazdzinaJadzkaNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting();
-				addJob("Moja niezwykła moc pomaga mi uleczyć rany.");
-				addHelp("Mogę Cię #uleczyć .");
+				addJob("My extraordinary power helps me heal your wounds.");
+				addHelp("I can #heal you .");
 				new FreeHealerAdder().addHealer(this, 0);
-				addGoodbye("Dowidzenia");
+				addGoodbye("Goodbye");
 			}
 		};
 
-		npc.setDescription("Oto Gaździna Jadźka.");
+		npc.setDescription("This is Gaździna Jadźka.");
 		npc.setEntityClass("npcgenowefa");
 		npc.setPosition(20, 10);
 		npc.initHP(100);

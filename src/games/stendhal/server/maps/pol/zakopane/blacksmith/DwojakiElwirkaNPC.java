@@ -59,41 +59,41 @@ public class DwojakiElwirkaNPC implements ZoneConfigurator  {
 
 			@Override
 			public void createDialog() {
-				addJob("Zajmuję się kuchnią kowala Andrzeja. Poproś mnie #ugotuj twofold a przygotuję dla ciebie gorące danie z gruli!");
-				addHelp("Możesz mi pomóc i przegonić szczury, które biegają dookoła domu. Nasz kot gdzieś się zapodział.");
-				addReply("potatoes", "Wieśniacy trudnią się zbieraniem ziemniaków, ale nie sądzę, że ci je dadzą z własnej woli.");
-				addReply("kiełbasa wiejska", "Z tego co wiem kiełbasa wiejska z tutejszych świń jest najlepsza na skwarki.");
-				addReply(Arrays.asList("onion", "cebula"), "Cebulę poznasz po zielonych cieńkich listkach wystających z grządki.");
-				addReply(Arrays.asList("butter", "masło"), "Bez omasty nie zrobię dobrych dwojaków.");
-				addReply(Arrays.asList("milk", "mleko"), "Trochę mleka dodam i będzie przepyszna potrawa. Idź wydoić jakąś krowę.");
+				addJob("I deal with the kitchen of the blacksmith Andrzej. Ask me to #boil the twofold and I'll make a hot potato dish for you! ");
+				addHelp("You can help me and chase away the rats that run around the house. Our cat got lost somewhere .");
+				addReply("potatoes", "The villagers have potatoes, but I don't think they will give them to you on their willing will.");
+				addReply("sausage", "As far as I know, the sausage from the local pigs is the best for greaves .");
+				addReply(Arrays.asList("onion", "cebula"), "You can recognize the onion by the thin green leaves sticking out of the soil.");
+				addReply(Arrays.asList("butter", "masło"), "I can't do a good twofold without butter .");
+				addReply(Arrays.asList("milk", "mleko"), "I will add a little milk and it will be a delicious dish. Go milk a cow.");
 				addReply(Arrays.asList("dwojak", "twofold"),
-						"twofold to gliniane naczynie, które po brzegi wypełnię kucianymi grulami. Jeśli chcesz powiedz mi po prostu #'ugotuj 1 twofold'.");
-				addOffer("Cóż. Jeśli możesz mi zaoferować grapes chętnie odkupię je od ciebie. Powiedz mi wtedy #'sprzedam grapes'.");
+						"twofold is a clay pot that I will fill to the brim with baked potatoes. If you want to tell me just #'cook 1 twofold'.");
+				addOffer("Well. If you can offer me grapes, I will gladly buy them from you. Then tell me #'sell grapes'.");
 				final Map<String, Integer> offers = new TreeMap<String, Integer>();
 				offers.put("grapes", 3);
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(offers), false);
 
 				addGoodbye();
 
-				// Elwirka makes twofold if you bring her potatoes, kiełbasa wiejska, onion, butter and milk.
+				// Elwirka makes twofold if you bring her potatoes, sausage, onion, butter and milk.
 				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
 				requiredResources.put("potatoes", 3);
-				requiredResources.put("kiełbasa wiejska", 3);
-				requiredResources.put("cebula", 1);
-				requiredResources.put("osełka masła", 1);
-				requiredResources.put("mleko", 1);
+				requiredResources.put("sausage", 3);
+				requiredResources.put("onion", 1);
+				requiredResources.put("butter", 1);
+				requiredResources.put("milk", 1);
 
 				final ProducerBehaviour behaviour = new ProducerBehaviour(
 						"elwirka_make_twofold","make", "twofold",
 						requiredResources, 5 * 60);
 
 				new ProducerAdder().addProducer(this, behaviour,
-						"Witojcie! Co was tu sprowadza? Pewnie moje legendarne #twofold.");
+						"Hello! What brings you here? Probably my legendary #twofold.");
 
 			}};
 			npc.setPosition(2, 13);
 			npc.setEntityClass("confectionerapplepienpc");
-			npc.setDescription("To Elwirka, która umie przygotować pyszne potrawy z gruli i lubi winogrona.");
+			npc.setDescription("This is Elwirka, who knows how to prepare delicious potato dishes and likes grapes.");
 			zone.add(npc);
 	}
 }

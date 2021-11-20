@@ -57,29 +57,29 @@ public class ButeleczkaNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj!");
-				addJob("Dam ci buteleczkę wody powiedz tylko #nalej.");
-				addHelp("Pomagamy Gerwazemu w napełnianiu buteleczek wodą.");
-				addGoodbye("Dowidzenia");
+				addGreeting("Welcome!");
+				addJob("I'll give you a bottle of water just say #fill.");
+				addHelp("We help Gerwazy in filling the bottles with water.");
+				addGoodbye("Goodbye");
 
 				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
-				requiredResources.put("buteleczka", 1);
+				requiredResources.put("bottle", 1);
 				requiredResources.put("money", 70);
 
 				final ProducerBehaviour behaviour = new ProducerBehaviour("nosiwoda_fill_buteleczke",
 						"fill", "water", requiredResources, 1 * 5);
 
 				new ProducerAdder().addProducer(this, behaviour,
-					"Pozdrawiam! Jeżeli przyniesiesz mi buteleczkę to naleję Tobie do niej wody ze źródełka. Powiedz tylko #nalej.");
-				addReply("buteleczka",
-							"kupisz ją u Bogusia lub w tawernie Semos.");
+					"Regards! If you bring me a bottle, I will pour you water from the spring. Just say #fill.");
+				addReply("bottle",
+							"You can buy it at Boguś or in the Semos tavern .");
 			}
 		};
 
 		npc.setEntityClass("naughtyteen2npc");
 		npc.setPosition(19, 104);
 		npc.initHP(1000);
-		npc.setDescription("Oto Nosiwoda Witek.");
+		npc.setDescription("This is Nosiwoda Witek.");
 		zone.add(npc);
 	}
 }

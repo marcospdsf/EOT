@@ -62,16 +62,16 @@ public class BartlomiejNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj. Jestem kowalem pracującym dla zbójników.");
-				addJob("Może potrzebujesz #'złoty róg'. Mogę porozmawiać z moim #bratem .");
-				addReply(Arrays.asList("brat", "bratem"), "On jeden zna tajemnice wyrabiania złotego rogu. W zamian oczekuję, że przyniesiesz mi kilka #piórek powiedz tylko #zadanie.");
-				addReply(Arrays.asList("feathers", "piórko", "piórek"), "Po zabiciu każdego anioła znajdziesz w jego zwłokach piórko");
-				addHelp("Znam kogoś kto wyrabia złote rogi w zamian chcę kolekcję piórek.");
-				addGoodbye("Życzę powodzenia i szczęścia na wyprawach.");
+				addGreeting("Hello. I am a blacksmith working for highwaymen.");
+				addJob("Maybe you need a #'golden horn'. I can talk to my #brother.");
+				addReply(Arrays.asList("brother", "bratem"), "He is the only one who knows the secrets of making a golden horn. In return, I expect you to bring me some #feathers just say #task.");
+				addReply(Arrays.asList("feathers", "piórko", "piórek"), "After killing each angel, you will find a feather in his corpse");
+				addHelp("I know someone who makes golden horns and I want a collection of feathers in exchange.");
+				addGoodbye("I wish you good luck and happiness on your expeditions.");
 			}
 		};
 
-		bartlomiejNPC.setDescription("Oto Kowal Bartłomiej. Znalazł pracę u herszta zbójników!");
+		bartlomiejNPC.setDescription("Here is the blacksmith Bartlomiej. He found a job with a robber leader !");
 		bartlomiejNPC.setEntityClass("beardmannpc");
 		bartlomiejNPC.setPosition(11, 59);
 		bartlomiejNPC.initHP(1000);

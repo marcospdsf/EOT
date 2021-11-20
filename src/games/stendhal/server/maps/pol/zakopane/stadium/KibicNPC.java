@@ -60,15 +60,15 @@ public class KibicNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj na stadionie PolskaOnLine!");
-				addJob("Jestem kibicem. Wspieram najlepszą drużynę PolskaOnLine.");
-				addHelp("W przyszłości na stadionie będzie można kupić coś do jedzenia lub picia. Na razie trzeba przynieść własny prowiant.");
+				addGreeting("Welcome to the Zakopane stadium !");
+				addJob("I am a supporter. I support the best Zakopane Team.");
+				addHelp("In the future, it will be possible to buy something to eat or drink at the stadium. For now you have to bring your own provisions.");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("mecz")));
-				addGoodbye("Dowidzenia i wpadaj często na mecze. Nasza drużyna potrzebuje prawdziwych kibiców, a nie pseudokibiców.");
+				addGoodbye("Goodbye, and come to matches often. Our team needs real fans, not hooligans.");
 			}
 		};
 
-		kibic.setDescription("Oto Kibic, który jest wiernym kibicem PolskaOnLine.");
+		kibic.setDescription("Here is a fan who is a faithful fan of Zakopane.");
 		kibic.setEntityClass("npckibic");
 		kibic.setPosition(26, 5);
 		kibic.initHP(1000);

@@ -55,11 +55,11 @@ public class JagnaNPC implements ZoneConfigurator {
 			}
 			@Override
 			protected void createDialog() {
-				addGreeting("Witam miłego gościa. Czy coś podać?");
-				addJob("Jestem kelnerką w tej karczmie. Sprzedajemy importowane i lokalne trunki oraz dobre jedzenie. Na deser też coś się znajdzie.");
-				addHelp("Karczma ta jest znana w całym Zakopanem. Można tu odpocząć i dobrze zjeść. Jeżeli chcesz poznać naszą #ofertę, to powiedz mi o tym.");
+				addGreeting("Hello, nice guy. Can I get something?");
+				addJob("I am a waitress at this inn. We sell imported and local liquors and good food. There will also be something for dessert.");
+				addHelp("This inn is known throughout Zakopane. You can relax here and eat well. If you want to know our #offer, tell me about it .");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("urodziny")));
-				addGoodbye("Smacznego i miłej zabawy do samego rana.");
+				addGoodbye("Enjoy your meal and have fun until the morning.");
 			}
 		};
 

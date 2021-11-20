@@ -62,10 +62,10 @@ public class OzoNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addJob("Chyba wiesz czym się zajmuję.");
-				addHelp("Jeśli mam być z Tobą szczery koleś to wiedz, że nie pomogę Ci z tym zbytnio, lepiej odejdź do miasta szukając odpowiedzi.");
-				addQuest("Zadanie? u mnie?..ha ha... .");
-				addOffer("Hm, mam coś co może cię zainteresować, #'magiczny bilet'.");
+				addJob("I think you know what I do.");
+				addHelp("If I have to be honest with you, dude, know that I will not help you with it too much, you better go to town looking for answers.");
+				addQuest("Task? at my place? .. ha ha ... .");
+				addOffer("Hm, I have something you might be interested in, #'magic ticket'.");
 				addGoodbye("Dowidzenia.");
 			}
 		};

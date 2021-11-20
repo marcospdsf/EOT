@@ -63,18 +63,18 @@ public class BogusNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj łowco.");
-				addJob("Poszukuję skór zwierząt. Może masz jakieś ze sobą, które mógłbyś mi #zaoferować.");
-				addHelp("Skupuję skóry zwierząt, jeżeli coś masz to #zaoferuj mi to.");
-				addOffer("Wszystko czym handluję znajdziesz w tych książkach.");
-				addQuest("O, dziękuję, ale niczego już nie potrzebuję.");
+				addGreeting("Hello hunter.");
+				addJob("I'm looking for animal skins. Maybe you have some with you that you could #offer me.");
+				addHelp("I buy animal skins, if you have something, #offer it to me.");
+				addOffer("You will find everything I trade in these books.");
+				addQuest("Oh thank you, but I don't need anything anymore.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buyskin")), false);
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellskin")), false);
-				addGoodbye("Dowidzenia.");
+				addGoodbye("Take care.");
 			}
 		};
 
-		npc.setDescription("Oto Boguś wyglądający na uczciwego.");
+		npc.setDescription("Here is Boguś who looks honest.");
 		npc.setEntityClass("npcjuhasboguslaw");
 		npc.setPosition(4, 4);
 		npc.initHP(100);

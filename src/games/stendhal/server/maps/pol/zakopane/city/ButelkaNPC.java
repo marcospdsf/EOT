@@ -57,29 +57,29 @@ public class ButelkaNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj!");
-				addJob("Napełniam, butelkę wodą powiedz tylko #nalej.");
-				addHelp("Pomagamy Gerwazemu w napełnianiu butelek wodą.");
-				addGoodbye("Żegnaj, powodzenia");
+				addGreeting("Welcome!");
+				addJob("I fill the bottle with water, just say #fill.");
+				addHelp("We help Gerwazy in filling the bottles with water.");
+				addGoodbye("Goodbye, and good luck.");
 
 				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
-				requiredResources.put("butelka", 1);
+				requiredResources.put("bottle", 1);
 				requiredResources.put("money", 100);
 
 				final ProducerBehaviour behaviour = new ProducerBehaviour("nosiwoda_fill_butelke",
 						"fill", "water", requiredResources, 1 * 10);
 
 				new ProducerAdder().addProducer(this, behaviour,
-						"Pozdrawiam! Jeżeli przyniesiesz mi butelkę to naleję Tobie do niej wody ze źródełka. Powiedz tylko #nalej.");
-				addReply("butelka",
-						"kupisz ją u Bogusia lub w tawernie Semos.");
+						"Regards! If you bring me a bottle, I will pour you water from the spring. Just say #fill.");
+				addReply("bottle",
+						"You can buy it at Boguś or in the Semos tavern .");
 			}
 		};
 
 		npc.setEntityClass("oldcowboynpc");
 		npc.setPosition(19, 95);
 		npc.initHP(1000);
-		npc.setDescription("Oto Nosiwoda Jakub.");
+		npc.setDescription("Here is Nosiwoda Jakub.");
 		zone.add(npc);
 	}
 }

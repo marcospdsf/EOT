@@ -63,10 +63,10 @@ public class RatownikNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj.");
-				addJob("Mam pełne ręce roboty. Właśnie zaginął następny turysta w górach.");
-				addHelp("Oczywiście, że możesz mi pomóc. Mam dla ciebie #zadanie.");
-				addGoodbye("Życzę powodzenia i szczęścia na wyprawach.");
+				addGreeting("Hello.");
+				addJob("I have my hands full. Another tourist in the mountains has just disappeared.");
+				addHelp("Of course you can help me. I have a #task for you.");
+				addGoodbye("I wish you good luck and happiness on your expeditions.");
 			}
 		};
 

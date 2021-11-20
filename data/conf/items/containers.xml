@@ -192,7 +192,6 @@
     </equipable>
   </item>
 
-  <!-- Not used yet
   <item name="bottle">
     <type class="container" subclass="bottle" tileid="-1"/>
     <description>You see a bottle. It is empty, someone drank the contents.</description>
@@ -210,7 +209,6 @@
       <slot name="trade"/>
     </equipable>
   </item>
-  -->
 
   <!-- Not used yet
   <item name="medium bottle">
@@ -406,9 +404,9 @@
   
   <!-- PolishContainers -->
   
-  <item name="pusty bukłak">
-		<type class="container" subclass="pusty_buklak" tileid="-1"/>
-		<description>Widzisz pusty bukłak. Jest pusty, ale możesz nalać do niego wodę.</description>
+  <item name="empty waterskin">
+		<type class="container" subclass="empty_waterskin" tileid="-1"/>
+		<description>You see an empty waterskin. It's empty, but you can pour water into it.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<quantity value="1"/>

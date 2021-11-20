@@ -615,11 +615,11 @@ public final class ShopList {
 		shops.add("sellkopalnia", "Å‚opata", 200);
 		shops.add("sellkopalnia", "lina", 150);
 		//bogus sprzedaje
-		shops.add("sellskin", "buteleczka", 5);
-		shops.add("sellskin", "butelka", 7);
-		shops.add("sellskin", "krÃ³tki miecz", 500);
-		shops.add("sellskin", "topÃ³r", 800);
+		shops.add("sellskin", "bottle", 7);
+		shops.add("sellskin", "short sword", 500);
+		shops.add("sellskin", "axe", 800);
 		shops.add("sellskin", "scythe", 2000);
+		shops.add("sellskin", "short bow", 500);
 
 		shops.add("selltsoh", "zwÃ³j tsoh", 200);
 

@@ -101,7 +101,7 @@ public class GazdaWojtekDailyItemQuest extends AbstractQuest {
 		items.put("mead",5);
 		items.put("opieńka miodowa",10);
 		items.put("goat cheese",5);
-		items.put("kiełbasa wiejska",10);
+		items.put("sausage",10);
 		items.put("hełm barbarzyńcy",1);
 		items.put("leather gloves",1);
 		items.put("leather enhanced gloves",1);

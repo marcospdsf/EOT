@@ -59,8 +59,8 @@ public class FryderykNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addJob("Jestem tutaj bo jestem.");
-				addOffer("Udzielam nowo przybyłym wskazówek gdzie znajdują się #budynki w Zakopanem.");
+				addJob("I'm here because I am.");
+				addOffer("I give new arrivals tips where #built buildings in Zakopane are.");
 			}
 		};
 

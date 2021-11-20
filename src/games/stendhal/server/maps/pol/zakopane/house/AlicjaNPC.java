@@ -72,13 +72,13 @@ public class AlicjaNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("O, cześć.");
-				addJob("Chodzę do przedszkola. A już za rok będę pasowana na #ucznia! ☺");
-				addReply("ucznia", "Czy szkoła nie jest czymś wspaniałym? Mama kupi mi kolorowy plecak, piórnik i kredki."
-						+ " Będę też miała własne zeszyty i książki, takie jak mój brat. Nie mogę się doczekać!");
-				addOffer("Mogę ci najwyżej zaoferować zabawę w berka, hihi ^^");
-				addHelp("Jestem tylko dzieckiem, moja pomoc na nic ci się nie przyda.");
-				addGoodbye("Papa! Wróć jak najszybciej, pobawimy się razem!");
+				addGreeting("Oh, HI!.");
+				addJob("I go to kindergarten. And in a year I will be fit for #school!");
+				addReply("school", "Is school not something wonderful? Mom will buy me a colorful backpack, pencil case and crayons."
+						+ " I will also have my own notebooks and books, such as my brother. I can not wait!");
+				addOffer("The best I can offer you is a game of tag, hihi ^^");
+				addHelp("I am only a child, my help will be of no use to you.");
+				addGoodbye("Bye Bye! Come back as soon as possible, we'll play together!");
 			}
 		};
 

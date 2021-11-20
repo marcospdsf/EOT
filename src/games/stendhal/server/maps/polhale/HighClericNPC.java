@@ -52,19 +52,19 @@ public class HighClericNPC implements ZoneConfigurator {
 				addGreeting(null, new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-						String reply = "Pilnuje tego magicznego miejsca przed potworami!";
+						String reply = "He guards this magical place from monsters!";
 
 						if (player.getLevel() < 50) {
-							reply += " Nie masz czego tu szukac! Uciekaj!";
+							reply += " You have nothing to look for here! Run away!";
 						} else {
-							reply += " Widze ze jestes wystarczajaco silny! Pomoz mi oczyscic ten swiat ze zla!";
+							reply += " I can see you are strong enough! Help me cleanse this world from evil!";
 						}
 						raiser.say(reply);
 					}
 				});
 
-				addReply("Szygolek",
-						"programista serwera i ?wietny go?? :D");
+				addReply("Bullshit",
+						"yeah, I do Agree :D");
 				addGoodbye();
 			}
 			
@@ -100,7 +100,7 @@ public class HighClericNPC implements ZoneConfigurator {
 		});
 
 		npc.setEntityClass("paperboynpc");
-		npc.setDescription("Oto Tahaniea. Jest Wysokim Klerykiem, który próbuje chronić Faiumoni swoimi umiejętnościami magicznymi przed mrocznymi potworami.");
+		npc.setDescription("This is Tahaniea. He is a High Cleric who tries to protect Faiumoni with his magical abilities from dark monsters.");
 		npc.setPosition(57, 37);
 		npc.setDirection(Direction.LEFT);
 		npc.initHP(85);

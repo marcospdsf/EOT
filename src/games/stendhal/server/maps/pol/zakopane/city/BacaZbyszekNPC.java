@@ -69,14 +69,14 @@ public class BacaZbyszekNPC implements ZoneConfigurator {
 					@Override
 					public boolean transactAgreedDeal(ItemParserResult res, final EventRaiser seller, final Player player) {
 						if (res.getAmount() > 1) {
-							seller.say("Hmm... Nie sądzę, abyś mógł zaopiekować się więcej niż jedną owcą naraz.");
+							seller.say("Hmm ... I don't think you can take care of more than one sheep at a time.");
 							return false;
 						} else if (!player.hasSheep()) {
 							if (!player.drop("money", getCharge(res,player))) {
-								seller.say("Nie masz tyle pieniędzy.");
+								seller.say("You don't have that much money .");
 								return false;
 							}
-							seller.say("Proszę bardzo, oto miła, puszysta mała owieczka! Opiekuj się nią dobrze...");
+							seller.say("Here you are, here's a nice fluffy little lamb! Look after her well...");
 
 							final Sheep sheep = new Sheep(player);
 							StendhalRPAction.placeat(seller.getZone(), sheep, seller.getX(), seller.getY() + 1);
@@ -85,7 +85,7 @@ public class BacaZbyszekNPC implements ZoneConfigurator {
 
 							return true;
 						} else {
-							say("Dlaczego się nie upewnisz i nie poszukasz owcy, którą już masz?");
+							say("Why don't you make sure and look for the sheep you already have?");
 							return false;
 						}
 					}
@@ -95,18 +95,18 @@ public class BacaZbyszekNPC implements ZoneConfigurator {
 				items.put("sheep", BUYING_PRICE);
 
 				addGreeting();
-				addJob("Pracuję jako sprzedawca owiec.");
-				addHelp("Sprzedaję owce. Aby kupić jedną wystarczy powiedzieć mi #buy #sheep. Jeżeli jesteś nowym w tym interesie to mogę Ci powiedzieć jak #podróżować z owcą, jak się nią #opiekować i powiem Ci, gdzie możesz ją #sprzedać. Jeżeli znajdziesz dziką owcę to możesz ją #przygarnąć.");
+				addJob("I work as a sheep salesman.");
+				addHelp("I sell sheep. To buy one, just tell me #buy #sheep. If you are new to this business, I can tell you how to #travel with sheep, how to #care for them and I will tell you where you can #sell them. If you find a wild sheep, you can #adopt it .");
 				addGoodbye();
 				new SellerAdder().addSeller(this, new SheepSellerBehaviour(items));
 				addReply(Arrays.asList("care", "opieka", "opiekować"),
-						"Moja owca kocha jeść trawe.");
+						"My sheep loves to eat grass, and red fruits from bushes.");
 				addReply(Arrays.asList("travel", "podróż", "podróżować"),
-						"Gdy zmieniasz miejsce pobytu twoja owca powinna być blisko Ciebie, aby nie zginęła. Jeżeli nie zwraca na Ciebie uwagi wystarczy powiedzieć #sheep aby wezwać ją. Jeżeli zdecydujesz się ją porzucić to kliknij na siebie prawym przyciskiem i wybierz 'Porzuć owcę', ale szczerze sądzę, że takie zachowanie jest odrażające.");
+						"When you move, your sheep should be close to you so that they don't get lost. If she doesn't pay attention to you, just say #sheep to summon her. If you decide to abandon it, right-click on yourself and select 'Leave the sheep', but I honestly think that this behavior is disgusting .");
 				addReply(Arrays.asList("sell", "sprzedać"),
-						"Kiedy twoja owca osiągnie wagę 100 to możesz ja zabrać do Sato w Semos, a on kupi ją od Ciebie.");
+						"When your sheep is 100, you can take her to Sato in Semos and he will buy it from you.");
 				addReply(Arrays.asList("own", "przygarnąć"),
-						"Jeżeli znajdziesz dziką lub porzuconą owcę to aby ją przygarnąć możesz kliknąć na nią prawym przyciskiem i wybrać 'Przygarnij'. Później musisz zobaczyć na owcę!");
+						"If you find a wild or abandoned sheep, to adopt it you can right-click on it and select 'Take in'. Later you have to see the sheep!");
 			}
 		};
 

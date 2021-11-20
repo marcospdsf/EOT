@@ -51,9 +51,9 @@ public class AdasNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj młody bohaterze.");
-				addJob("Boje się zejść do piwnicy.");
-				addHelp("Tak możesz mi pomóc, wykonaj dla mnie #zadanie.");
+				addGreeting("Hello, young hero.");
+				addJob("I'm afraid to go down to the basement.");
+				addHelp("Yes, you can help me, do the #task for me.");
 				addGoodbye();
 			}
 		};

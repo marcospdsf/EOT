@@ -60,14 +60,14 @@ public class SmokNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj. Jam jest Panem wszystkich smoków.");
-				addJob("Może zrobisz dla mnie #zadanie?");								
-				addHelp("W zamian za pomoc szepnę słówko do Krasnoluda, aby zrobił dla ciebie złotą ciupagę z dwoma wąsami.");
-				addGoodbye("Trzymaj się dzielnie");
+				addGreeting("Hello. I am the Lord of all dragons.");
+				addJob("Maybe you will do a #task for me?");								
+				addHelp("In return for your help, I will whisper a word to the Dwarf, so that he will make you a golden ciupaga with two laces.");
+				addGoodbye("Hold on bravely!");
 			}
 		};
 
-		smokNPC.setDescription("Oto Władca Smoków");
+		smokNPC.setDescription("This is the Dragon Lord.");
 		smokNPC.setEntityClass("npcsmok");
 		smokNPC.setPosition(8, 6);
 		smokNPC.initHP(5000);

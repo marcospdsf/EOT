@@ -61,12 +61,12 @@ public class GazdaJedrzejNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj w miejscu nękanym przez hordy zbójników.");
-				addJob("Czekam na silnych wojowników, aby pokonali #zbójników grasujących w naszej okolicy.");
-				addReply(Arrays.asList("misyjkę dla prawdziwego rycerza", "misyjka dla prawdziwego rycerza"), "Ach ten Andrzej z tymi swoimi hasłami. He he he. Wystarczy, że powiesz #zadanie.");
-				addReply(Arrays.asList("zbójnik", "zbójników"), "Przybyli nie wiadomo skąd i zaczęli siać strach i chaos. Czy pomożesz nam z tym problemem i wykonasz to #zadanie?");
-				addHelp("Przedtem prowadziliśmy spokojne i szczęśliwe życie, aż do czasu, gdy w naszej okolicy pojawili się wstrętni zbójnicy. Ciągle nas napadają i rabują z jedzenia. Teraz szukamy #prawdziwego #rycerza, który poradziłby sobie z tym ciężkim zadaniem.");
-				addGoodbye("Życzę powodzenia i szczęścia na wyprawach.");
+				addGreeting("Welcome to a place plagued by hordes of robbers.");
+				addJob("I am waiting for strong warriors to defeat the #robbers marauding in our area.");
+				addReply(Arrays.asList("task for a real knight", "misyjka dla prawdziwego rycerza"), "Ah, that Andrzej with his slogans. He he he. All you have to do is say #task.");
+				addReply(Arrays.asList("robbers", "zbójników"), "They came out of nowhere and spread fear and chaos. Can you help us with this problem and do this #task?");
+				addHelp("Before that, we had a quiet and happy life, until the nasty robbers appeared in our neighborhood. They keep attacking us and robbing us of our food. Now we are looking for a #real #knight who would cope with this difficult task.");
+				addGoodbye("I wish you good luck and happiness on your expeditions.");
 			}
 		};
 

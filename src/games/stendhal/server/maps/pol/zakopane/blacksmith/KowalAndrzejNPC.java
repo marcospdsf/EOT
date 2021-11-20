@@ -58,33 +58,33 @@ public class KowalAndrzejNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj!");
-				addJob("Witaj. Jestem tutejszym kowalem. Jako specjalne #zadanie mogę zrobić dla Ciebie #złotą #ciupagę lub odlać iron.");
-				addHelp("Odlewam iron oraz w ramach specjalnego zadania wykonuje #złotą #ciupagę.");
-				addOffer("Mogę odlać iron, jeżeli przyniesiesz mi #rudę #żelaza i #wood. Powiedz tylko #odlej. Mogę także w ramach specjalnego #zadania wykonać #złotą #ciupagę o ile przyniesiesz mi #ciupagę, #sztabki #złota, #polana i trochę #money oraz pod warunkiem, że udowodnisz swoją odwagę! W tym celu udaj się do Gazdy Jędrzeja i poproś o #misyjkę #dla #prawdziwego #rycerza! Tylko kiedy je wykonasz, a on da mi znać to zrobię dla Ciebie #złotą #ciupagę.");
+				addGreeting("Welcome!");
+				addJob("Hello. I am a local blacksmith. As a special #task, I can make a #gold #ciupaga for you or cast iron.");
+				addHelp("I cast iron and, as part of a special task, craft a #golden #ciupaga .");
+				addOffer("I can cast iron if you bring me # iron # ore and #wood. Just say #cast it. I can also, as part of a special #task, make a #gold #ciupaga, provided you bring me #golden #ingot, #wood and some #money, and if you can prove your courage! To do this, go to Gazda Jędrzej and ask for a #quest #for #real #knight! Only when you do them, and he lets me know, I'll make a #golden #ciupaga for you .");
 				addGoodbye("Dowidzenia.");
-				addReply(Arrays.asList("złota ciupaga", "złotą ciupagę"),"Podejmę się #zadania wykonania złotej ciupagi o ile posiadasz #ciupagę, #polana, #sztabki #złota i #money. Jestem trochę zapracowany i gdy przyjdziesz to przypomnij mi mówiąc 'przypomnij'.");
-				addReply(Arrays.asList("ciupaga", "ciupagę"),"Ciupaga to ulubiona broń zbójców w Zakopanem.");
-				addReply("wood","wood znajdziesz na obrzeżach lasów. Potrzebne mi są do podtrzymywania ognia czy wykonania rękojeści");
-				addReply("gold bar","Gold bar wytapia Joshua w Ados. Potrzebuję ich do zrobienia ostrza oraz detali.");
-				addReply("money","Każdy ich potrzebuje. Po za tym potrzebne są do zakupienia specjalnych składników bez których złota ciupaga będzie nie wiele warta. Nie zdradzę Tobie o jakie chodzi. To tajemnica rodzinna przekazywana z pokolenia na pokolenie.");
+				addReply(Arrays.asList("złota ciupaga", "gold ciupaga"),"I will undertake # the task of making the golden ciupaga, as long as you have a #ciupaga, #wood, #gold #bar and #money. I'm a bit overworked and when you come, remind me by saying 'remind' .");
+				addReply(Arrays.asList("ciupaga", "ciupagę"),"Ciupaga is the favorite weapon of thieves in Zakopane.");
+				addReply("wood","wood can be found on the edge of forests. I need them to keep the fire going or to make the handle.");
+				addReply("gold ingot","Joshua in Ados City blacksmith casts the gold bars. I need them to make the blade and the details.");
+				addReply("money","Everyone needs them. Apart from that, they are needed to buy special ingredients, without which the gold hunk won't be worth much. I will not tell you what it is about. It is a family secret passed down from generation to generation.");
 
 				// Joshua makes gold if you bring him gold nugget and wood
 				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();	
 				requiredResources.put("wood", 1);
-				requiredResources.put("ruda żelaza", 1);
+				requiredResources.put("iron ore", 1);
 
 				final ProducerBehaviour behaviour = new ProducerBehaviour("andrzej_cast_iron",
 						"cast", "iron", requiredResources, 3 * 60);
 
 				new ProducerAdder().addProducer(this, behaviour,
-				        "Cześć! Jestem tutejszym kowalem. Jeżeli będziesz chciał, abym odlał dla Ciebie #iron to daj znać!");
+				        "Hi! I am a local blacksmith. If you want me to cast #iron for you, let me know!");
 				addReply(Arrays.asList("ruda", "iron", "ruda żelaza"),
-								"Rudę żelaza znajdziesz w górach Zakopanego i Kościeliska. Uważaj tam na siebie!");
+								"You will find iron ore in the mountains of Zakopane and Kościelisko. Take care there!");
 			}
 		};
 
-		kuznia.setDescription("Oto zapracowany Kowal Andrzej. Czasami trzeba mu przypomnieć co powinien zrobić!");
+		kuznia.setDescription("Here is the busy blacksmith Andrzej. Sometimes he needs to be reminded of what to do!");
 		kuznia.setEntityClass("goldsmithnpc");
 		kuznia.setDirection(Direction.DOWN);
 		kuznia.setPosition(23, 12);

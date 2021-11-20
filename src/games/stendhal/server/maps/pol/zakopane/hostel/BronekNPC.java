@@ -57,17 +57,17 @@ public class BronekNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj wędrowcze.");
-				addJob("Skupuję smocze pazury.");
-				addHelp("Chętnie od ciebie kupię pazury smoków, bo słyszałem, że gdzieś za siedmioma lasami można będzie z niego wykonać talizman! Jeżeli coś masz to #zaoferuj mi to.");
-				addOffer("Na tablicy masz napisane jakie przedmioty skupuję.");
-				addQuest("O, dziękuję, ale niczego już nie potrzebuję.");
+				addGreeting("Hello, adventurer.");
+				addJob("I buy dragon claws.");
+				addHelp("I will gladly buy dragon claws from you, because I heard that somewhere beyond the seven forests it can be made a talisman! If you have something, #offer it to me .");
+				addOffer("I have written on the blackboard what items I buy .");
+				addQuest("Oh thank you, but I don't need anything anymore.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buydragonitems")), false);
-				addGoodbye("Dowidzenia kolego.");
+				addGoodbye("Goodbye buddy.");
 			}
 		};
 
-		npc.setDescription("Oto Bronek, wygląda na porządnego górala.");
+		npc.setDescription("Here is Bronek, he looks like a decent highlander.");
 		npc.setEntityClass("npcbronek");
 		npc.setPosition(16, 18);
 		npc.initHP(100);

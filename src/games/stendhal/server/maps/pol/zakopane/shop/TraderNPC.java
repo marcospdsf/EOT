@@ -58,18 +58,18 @@ public class TraderNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting();
-				addJob("Sprzedaję rzeczy początkującym łowcom wrażeń.");
-				addHelp("Kupuję i sprzedaję różne przedmioty. Zapytaj mnie o moja #ofertę.");
+				addJob("I sell things to novice hunters .");
+				addHelp("I buy and sell various items. Ask me for my #offer .");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellstuff")), false);
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buystuff")), false);
-				addOffer("Spójrz na tablicę na ścianie, aby zapoznać się z moją ofertą.");
-				addQuest("Nie mam dla ciebie zadania. Porozmawiaj z ludźmi może oni potrzebują pomocy.");
+				addOffer("Take a look at the board on the wall for my offerings.");
+				addQuest("I have no task for you. Talk to people they may need help with.");
 				addGoodbye();
 			}
 		};
 
 		michal.setEntityClass("weaponsellernpc");
-		michal.setDescription("Oto Michał. Jest znany wśród początkujących podróżników głównie ze względu na asortyment...");
+		michal.setDescription("Here is Michał. It is known among novice travelers mainly because of the assortment...");
 		michal.setPosition(11, 8);
 		michal.initHP(100);
 		zone.add(michal);

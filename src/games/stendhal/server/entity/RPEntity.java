@@ -1249,7 +1249,7 @@ public abstract class RPEntity extends GuidedEntity {
 	}
 
 	public void addXP(final int newxp) {
-		if (Integer.MAX_VALUE - this.xp <= newxp) {
+		if (Long.MAX_VALUE - this.xp <= newxp) {
 			return;
 		}
 		if (newxp == 0) {
@@ -1806,15 +1806,20 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			if (reward == 0) {
 				reward = 1;
 			}
+			
+			if(killer.getOwner() != null) {
+				killer.getOwner().addXP(reward / 2);
+			}
 
 			if (killer.getLevel() >= killer.getLVCap())
 			{
 				reward = 0;
 				ownerReward /= 2;
 			}
-
+			
 			killer.addXP(reward / 2);
-			killer.getOwner().addXP(ownerReward); 
+			
+			
 
 			/*
 			// For some quests etc., it is required that the player kills a

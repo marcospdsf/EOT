@@ -129,7 +129,7 @@ public class SemosBadgeQuest extends AbstractQuest {
 		
 		items.put("jabłko",15);
 		items.put("flour",30);
-		items.put("kiełbasa wiejska",30);
+		items.put("sausage",30);
 		items.put("egg",10);
 		
 		npc.add(ConversationStates.ATTENDING,

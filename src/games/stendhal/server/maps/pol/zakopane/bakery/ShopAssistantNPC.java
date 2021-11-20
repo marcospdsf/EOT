@@ -59,10 +59,10 @@ public class ShopAssistantNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 
-				addJob("Ja piekę chleb w tej piekarni.");
+				addJob("I bake bread at this bakery .");
 				addReply("flour",
-						"Do naszej pracy potrzebujemy mąkę, którą mielono we młynie na północ stąd, ale wilki pożarły chłopca, który nam ją przynosił! Jeśli przyniesiesz nam mąkę w nagrodę upieczemy przepyszny chleb dla Ciebie. Powiedz tylko #upiecz.");
-				addHelp("Chleb jest bardzo dobry, zwłaszcza dla takiego śmiałka jak ty, któremu już niedobrze, gdy widzi surowe mięsiwo. Mój szef Jaś, robi najlepsze kanapki w okolicy!");
+						"We need flour for our work, which was ground in a mill north of here, but the wolves ate the boy who brought it to us! If you bring us flour, we will bake delicious bread for you as a reward. Just say #bake.");
+				addHelp("Bread is very good, especially to a daredevil like you who is sick of raw meat. My boss, Hansel, makes the best sandwiches around! ");
 				addGoodbye();
 			}
 		};
@@ -71,10 +71,10 @@ public class ShopAssistantNPC implements ZoneConfigurator {
 		requiredResources.put("flour", 2);
 
 		final ProducerBehaviour behaviour = new ProducerBehaviour("malgosia_bake_bread",
-				"bake", "chleb", requiredResources, 7 * 60);
+				"bake", "bread", requiredResources, 7 * 60);
 
 		new ProducerAdder().addProducer(npc, behaviour,
-						"Witaj w piekarni w Zakopanem! Możemy upiec pyszny chleb dla każdego kto pomoże nam przynosząc mąkę z młyna. Powiedz tylko #upiecz.");
+						"Welcome to the bakery in Zakopane! We can bake delicious bread for anyone who will help us by bringing flour from the mill. Just say #bake.");
 
 		npc.setPosition(26, 9);
 		npc.setEntityClass("housewifenpc");

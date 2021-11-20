@@ -19,6 +19,7 @@ import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.CollisionAction;
 import games.stendhal.server.entity.Entity;
 import games.stendhal.server.entity.mapstuff.office.RentedSign;
 import games.stendhal.server.entity.mapstuff.office.RentedSignList;
@@ -38,6 +39,7 @@ import games.stendhal.server.entity.npc.condition.PlayerHasItemWithHimCondition;
 import games.stendhal.server.entity.npc.condition.PlayerHasStorableEntityCondition;
 import games.stendhal.server.entity.npc.condition.TextHasParameterCondition;
 import games.stendhal.server.entity.player.Player;
+//import games.stendhal.server.maps.semos.city.SignLessorNPC.RentSignChatAction;
 import games.stendhal.server.util.StringUtils;
 
 import java.util.Arrays;
@@ -76,84 +78,36 @@ public class HeroldNPC implements ZoneConfigurator {
 
 			@Override
 			public void createDialog() {
-				addGreeting("Witaj! Wynajmuję znaki i usuwam stare.");
-				addJob("Wynajmuję znaki na jeden dzień. Powiedz tylko #wynajmij");
-				addHelp("Jeżeli chcesz wynająć znak to powiedz #wynajmij i treść co powinno być na nim napisane. Jeśli chcesz usunąć to powiedz #usuń.");
+				addGreeting("Hi, I #rent signs and #remove outdated ones.");
+				addJob("I #rent signs for a day.");
+				addHelp("If you want to #rent a sign, just tell me what I should write on it.");
 				setPlayerChatTimeout(CHAT_TIMEOUT);
-		
+
 				add(ConversationStates.ATTENDING, "",
 					new AndCondition(getRentMatchCond(), new LevelLessThanCondition(6)),
-					ConversationStates.ATTENDING, 
-					"Przepraszam, ale nie wynajmuję znaków osobom, które mają mało doświadczenia jak ty.",
+					ConversationStates.ATTENDING,
+					"Oh sorry, I don't rent signs to people who have so little experience as you.",
 					null);
 
-				add(ConversationStates.ATTENDING, "", 
-					new AndCondition(getRentMatchCond(), new LevelGreaterThanCondition(5), new NotCondition(new TextHasParameterCondition())), 
-					ConversationStates.ATTENDING, 
-					"Powiedz mi #wynajmij, a następnie tekst, który chciałbyś, abym umieścił na nim.",
+				add(ConversationStates.ATTENDING, "",
+					new AndCondition(getRentMatchCond(), new LevelGreaterThanCondition(5), new NotCondition(new TextHasParameterCondition())),
+					ConversationStates.ATTENDING,
+					"Just tell me #rent followed by the text I should write on it.",
 					null);
 
-				add(ConversationStates.ATTENDING, "", 
-					new AndCondition(getRentMatchCond(), new LevelGreaterThanCondition(5), new TextHasParameterCondition()), 
-					ConversationStates.BUY_PRICE_OFFERED, 
-					null,
-					new ChatAction() {
-						@Override
-						public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
-							text = sentence.getOriginalText().substring(9).trim();
-
-							String reply = "Wynajęcie znaku na 24 godziny kosztuje " + MONEY + " money. Chcesz wynająć?";
-
-							if (rentedSignList.getByName(player.getName()) != null) {
-								reply = reply + " Pamintj, że zastąpię znak, który wcześniej wynająłeś.";
-							}
-
-							npc.say(reply);
-						}
-
-						@Override
-						public String toString() {
-							return "remember text";
-						}
-				});
-
-				add(ConversationStates.ATTENDING, "wynajmij", 
-					new AndCondition(getRentMatchCond(), new LevelGreaterThanCondition(5), new TextHasParameterCondition()), 
-					ConversationStates.BUY_PRICE_OFFERED, 
-					null,
-					new ChatAction() {
-						@Override
-						public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
-							text = sentence.getOriginalText().substring(9).trim();
-
-							String reply = "Wynajęcie znaku na 24 godziny kosztuje " + MONEY + " money. Chcesz wynająć?";
-
-							if (rentedSignList.getByName(player.getName()) != null) {
-								reply = reply + " Pamintj, że zastąpię znak, który wcześniej wynająłeś.";
-							}
-
-							npc.say(reply);
-						}
-
-						@Override
-						public String toString() {
-							return "remember text";
-						}
-				});
-
-				add(ConversationStates.ATTENDING, "rent", 
-					new AndCondition(getRentMatchCond(), new LevelGreaterThanCondition(5), new TextHasParameterCondition()), 
-					ConversationStates.BUY_PRICE_OFFERED, 
+				add(ConversationStates.ATTENDING, "",
+					new AndCondition(getRentMatchCond(), new LevelGreaterThanCondition(5), new TextHasParameterCondition()),
+					ConversationStates.BUY_PRICE_OFFERED,
 					null,
 					new ChatAction() {
 						@Override
 						public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 							text = sentence.getOriginalText().substring(5).trim();
 
-							String reply = "Wynajęcie znaku na 24 godziny kosztuje " + MONEY + " money. Chcesz wynająć?";
+							String reply = "A sign costs " + MONEY + " money for 24 hours. Do you want to rent one?";
 
 							if (rentedSignList.getByName(player.getName()) != null) {
-								reply = reply + " Pamintj, że zastąpię znak, który wcześniej wynająłeś.";
+								reply = reply + " Please note that I will replace the sign you already rented.";
 							}
 
 							npc.say(reply);
@@ -164,12 +118,12 @@ public class HeroldNPC implements ZoneConfigurator {
 							return "remember text";
 						}
 				});
-		
+
 				add(ConversationStates.BUY_PRICE_OFFERED,
 					ConversationPhrases.YES_MESSAGES,
 					new NotCondition(new PlayerHasItemWithHimCondition("money", MONEY)),
 					ConversationStates.ATTENDING,
-					"Przepraszam ,ale nie masz pieniędzy", null);
+					"Sorry, you do not have enough money", null);
 
 				add(ConversationStates.BUY_PRICE_OFFERED,
 					ConversationPhrases.YES_MESSAGES,
@@ -177,46 +131,46 @@ public class HeroldNPC implements ZoneConfigurator {
 					ConversationStates.IDLE, null,
 					new RentSignChatAction());
 
-				add(ConversationStates.BUY_PRICE_OFFERED, 
+				add(ConversationStates.BUY_PRICE_OFFERED,
 					ConversationPhrases.NO_MESSAGES, null,
 					ConversationStates.ATTENDING,
-					"Jeżeli zmienisz zdanie to porozmawiaj ze mną.", null);
+					"If you change your mind, just talk to me again.", null);
 
-				add(ConversationStates.ATTENDING, Arrays.asList("remove", "usuń"), 
+				add(ConversationStates.ATTENDING, "remove",
 					new PlayerHasStorableEntityCondition(rentedSignList),
 					ConversationStates.ATTENDING,
-					"Dobrze usunę twój znak.",
+					"Ok, I am going to remove your sign.",
 					new RemoveStorableEntityAction(rentedSignList));
 
-				add(ConversationStates.ATTENDING, Arrays.asList("remove", "usuń"), 
+				add(ConversationStates.ATTENDING, "remove",
 					new NotCondition(new PlayerHasStorableEntityCondition(rentedSignList)),
 					ConversationStates.ATTENDING,
-					"Nie wynająłeś żadnego znaku, więc co mam usunąć.", null);
+					"You did not rent any sign, so I cannot remove one.", null);
 
 				// admins may remove signs (even low level admins)
-				add(ConversationStates.ATTENDING, Arrays.asList("delete", "usuń"), 
+				add(ConversationStates.ATTENDING, "delete",
 					new AdminCondition(100),
 					ConversationStates.ATTENDING, null,
 					new ChatAction() {
 						@Override
 						public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 							if (sentence.getExpressions().size() < 2) {
-								npc.say("Składnia: usuń <imię wojownika>");
+								npc.say("Syntax: delete <nameofplayer>");
 								return;
 							}
 							final String playerName = sentence.getOriginalText().substring("delete ".length()).trim();
 							if (rentedSignList.removeByName(playerName)) {
-								final String message = player.getName() + " usunął znak " + playerName;
+								final String message = player.getName() + " deleted sign from " + playerName;
 								SingletonRepository.getRuleProcessor().sendMessageToSupporters("SignLessorNPC", message);
 								new GameEvent(player.getName(), "sign", "deleted", playerName).raise();
 							} else {
-								player.sendPrivateText("Nie mogę znaleść znaku postawionego przez " + playerName);
+								player.sendPrivateText("I could not find a sign by " + playerName);
 							}
 						}
 
 						@Override
 						public String toString() {
-							return "administrator usunął znak";
+							return "admin delete sign";
 						}
 				});
 
@@ -235,7 +189,7 @@ public class HeroldNPC implements ZoneConfigurator {
 		npc.setPosition(62, 32);
 		npc.setEntityClass("signguynpc");
 		zone.add(npc);
-		npc.setDescription("Oto Herold, stawia znaki z wiadomością od graczy.");
+		npc.setDescription("You see Gordon. He keeps an eye on the signs close to him.");
 	}
 
 	private static ChatCondition getRentMatchCond() {
@@ -244,8 +198,8 @@ public class HeroldNPC implements ZoneConfigurator {
 			public boolean fire(Player player, Sentence sentence, Entity npc) {
 				String txt = sentence.getOriginalText();
 
-				//TODO replaced by using sentence matching "[you] rent"
-				if (txt.startsWith("rent") || txt.startsWith("you rent")  || txt.startsWith("wynajmij")  || txt.startsWith("wynająłeś")) {
+            	//TODO replaced by using sentence matching "[you] rent"
+				if (txt.startsWith("rent") || txt.startsWith("you rent")) {
 					return true;
 				} else {
 					return false;
@@ -277,18 +231,18 @@ public class HeroldNPC implements ZoneConfigurator {
 			// confirm, log, tell postman
 			if (success) {
 				player.drop("money", MONEY);
-				npc.say("Dobrze postawie znak z twoją wiadomością.");
+				npc.say("OK, let me put your sign up.");
 
 				// inform IRC using postman
 				final Player postman = SingletonRepository.getRuleProcessor().getPlayer("postman");
-				String message = player.getName() + " wynajęty znak mówi \"" + text + "\"";
+				String message = player.getName() + " rented a sign saying \"" + text + "\"";
 				if (postman != null) {
 					postman.sendPrivateText(message);
 				}
 				logger.log(Level.toLevel(System.getProperty("stendhal.support.loglevel"), Level.DEBUG), message);
 				new GameEvent(player.getName(), "sign", "rent", text).raise();
 			} else {
-				npc.say("Przepraszam, ale teraz jest zbyt wiele postawionych znaków. Nie mam miejsca na kolejne.");
+				npc.say("Sorry, there are too many signs at the moment. I do not have a free spot left.");
 			}
 		}
 

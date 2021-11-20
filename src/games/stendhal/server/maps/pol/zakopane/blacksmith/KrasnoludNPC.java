@@ -67,30 +67,30 @@ public class KrasnoludNPC implements ZoneConfigurator {
 			// Xoderos casts iron if you bring him wood and iron ore.
 			final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();	
 			requiredResources.put("wood", 1);
-			requiredResources.put("ruda żelaza", 1);
-			requiredResources.put("piórko", 1);
+			requiredResources.put("iron ore", 1);
+			requiredResources.put("feather", 1);
 			requiredResources.put("money", 1);
 
 			final ProducerBehaviour behaviour = new ProducerBehaviour("krasnolud_cast_arrow",
 				"make", "wooden arrow", requiredResources, 1 * 60);
 
 			new ProducerAdder().addProducer(this, behaviour,
-				"Witaj! Mogę zrobić dla ciebie strzały, a może interesuje cię moja #oferta specjalna? Powiedz tylko #zrób .");
+				"Welcome! I can make arrows for you or maybe you are interested in my #special offer? Just say #make.");
 				addGreeting();
-				addJob("Produkuję strzały do kuszy.");
+				addJob("I make arrows.");
 
 				addReply("wood",
-						"Potrzebuję drewna na promień do strzały. Porozmawiaj z drwalem on ci powie gdzie można ścinać drzewa.");
+						"I need wood for the beam of the arrow. Talk to the woodcutter and he will tell you where to get wood.");
 				addReply(Arrays.asList("ore", "iron", "iron ore","ruda żelaza"),
-						"Rudę żelaza znajdziesz koło źródeł na wschód od domku poniżej jaskini zbójników. Potrzebuję ją na groty.");
-				addReply("piórko",
-						"Potrzebuję je na lotki. Zabij kilka gołębi.");
-				addReply("kilof",
-						"Przydatny przy wydobyciu siarki i węgla.");
+						"The iron ore can be found near the springs to the east of the cottage below the thieves' cave. I need her for the arrow tips.");
+				addReply("feather",
+						"I need them for darts. Kill some pigeons.");
+				addReply("pick",
+						"Useful for sulfur and coal mining.");
 
-				addReply("łopata", " no cóż czymś trzeba kopać.");
-				addReply("lina", "przydatna gdy zechcesz zejść na niższe poziomy.");
-				addHelp("Jeśli przyniesiesz mi #wood,  #'ruda żelaza' i #piórko , mogę zrobić dla ciebie strzały. Powiedz tylko #zrób .");
+				addReply("shovel", "Well, you have to dig with something.");
+				addReply("rope", "Useful when you want to go down to the lower levels .");
+				addHelp("If you bring me #wood, #'iron ore' and #feather, I can make some arrows for you. Just say #make.");
 				addGoodbye();
 			}
 		};

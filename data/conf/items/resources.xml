@@ -619,6 +619,24 @@
       <slot name="rhand"/>
     </equipable>
   </item>
+  
+  <item name="feather">
+    <type class="resource" subclass="feather" tileid="-1"/>
+    <description/>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>    <attributes>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="0.5"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
 
   <!-- PolishResources -->
   

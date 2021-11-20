@@ -57,29 +57,29 @@ public class BuklakNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj!");
-				addJob("Napełniam, pusty bukłak wodą powiedz tylko #nalej.");
-				addHelp("Nie dziękuję :) do pomocy mam swoich pomocników.");
-				addGoodbye("Trzymaj się");
+				addGreeting("Welcome!");
+				addJob("I fill an empty water bag with water, just say #fill.");
+				addHelp("No thanks :) I have my helpers to help.");
+				addGoodbye("Take care.");
 
 				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
-				requiredResources.put("pusty bukłak", 1);
+				requiredResources.put("empty waterskin", 1);
 				requiredResources.put("money", 140);
 
 				final ProducerBehaviour behaviour = new ProducerBehaviour("nosiwoda_fill_buklak",
 						"fill", "water", requiredResources, 3 * 5);
 
 				new ProducerAdder().addProducer(this, behaviour,
-					"Pozdrawiam! Jeżeli przyniesiesz mi #pusty #bukłak to naleję do niego wody ze źródełka. Powiedz tylko #nalej.");
-				addReply("pusty bukłak",
-						"Koło Wisły w krainie Kraka mieszka rymarz on ci zrobi pusty bukłak.");
+					"Regards! If you bring me a #empty #waterskin, I will pour water from the spring into it. Just say #fill.");
+				addReply("empty waterskin",
+						"A saddler lives near the Vistula in the land of Krak, he will make you an empty waterskin.");
 			}
 		};
 
 		npc.setEntityClass("npcgazda");
 		npc.setPosition(31, 107);
 		npc.initHP(1000);
-		npc.setDescription("Oto Nosiwoda Gerwazy.");
+		npc.setDescription("This is Gerwazy's Carrier.");
 		zone.add(npc);
 	}
 }

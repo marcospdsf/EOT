@@ -73,32 +73,33 @@ public class WikaryNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting(null, new ChatAction() {
+					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 						if (player.isEquipped("mega potion")) {
 							// give some money to get
 							// giant potion
 							if (Rand.throwCoin() == 1) {
-								raiser.say("Widzę, że potrzebujesz więcej.");
+								raiser.say("I can see you need more.");
 							} else {
-								raiser.say("Witaj ponownie.");
+								raiser.say("Welcome Back.");
 							}
 						} else {
-							raiser.say("Witaj! Czyżbyś przybył tutaj, aby złożyć datek?");
+							raiser.say("Welcome! Have you come here to make a donation?");
 						}
 					}
 				});
 
 				addReply("nic", "Dobrze.");
-				addJob("Jestem wikarym w Zakopanem. Zbieram pieniądze na zakup organów do kaplicy, zapytaj mnie o #ofertę, aby dowiedzieć się jak mogę Cię wynagrodzić za ten gest.");
-				addHelp("Wspomóż zakup organów do kaplicy, mówiąc #datek #<ilość> #money lub zdejmij klątwę z siebie, mówiąc #zdejmij");
-				addQuest("Jedyną rzecz jaką potrzebuje to #datek na organy do kaplicy. Po za tym za nie wielką opłatą mogę #zdjąć z Ciebie piętno zabójcy.");
-				addOffer("Dam ci miksturę, która cię uleczy w zamian za drobny #datek na organy lub zdejmę z Ciebie klątwę czaszki za odpowiednią cenę.");
+				addJob("I am a priest in Zakopane. I am collecting money to buy organs for the chapel, ask me for an #offer to find out how I can reward you for this gesture. ");
+				addHelp("Support the organ purchase for the chapel by saying #donate #<quantity> #money or lift the curse on yourself by saying #remove ");
+				addQuest("The only thing I need is a #donation for the organ for the chapel. Besides, for a fee, I can #remove the stigma of a killer off you.");
+				addOffer("I will give you a potion to heal you in exchange for a small donation to buy the organ or I will remove the skull curse off you for an appropriate price .");
 
-				addReply("datek", null,
+				addReply("donation", null,
 					new BehaviourAction(new Behaviour("money"), "charity", "offer") {
 					@Override
 					public void fireSentenceError(Player player, Sentence sentence, EventRaiser raiser) {
-						raiser.say(sentence.getErrorString() + " Próbujesz mnie oszukać?");
+						raiser.say(sentence.getErrorString() + " Are you trying to cheat me?");
 					}
 
 					@Override
@@ -107,22 +108,22 @@ public class WikaryNPC implements ZoneConfigurator {
 
 						if (sentence.getExpressions().size() == 1) {
 							// player only said 'datek'
-							raiser.say("Nie masz tyle pieniędzy, aby wesprzeć zakup organów. Przyjdź kiedy indziej.");
+							raiser.say("You don't have enough money to make a donation. Come back another time.");
 						} else {
 							if (amount < 4000) {
 								// Less than 4000 is not money for him
-								raiser.say("Nie masz tyle pieniędzy, aby wesprzeć zakup organów. Przyjdź kiedy indziej.");
+								raiser.say("You don't have enough money to make a donation. Come back another time.");
 							} else {
 								if (player.isEquipped("money", amount)) {
 									player.drop("money", amount);
-									raiser.say("Bóg Ci zapłać. Jesteśmy coraz bliżej zakupu nowych organów!");
+									raiser.say("God bless you. We are getting closer to buying new organs!");
 									final Item drink = SingletonRepository.getEntityManager().getItem(
 											"mega potion");
 									player.equipOrPutOnGround(drink);
 								} else {
 									// player gave enough but doesn't have
 									// the cash
-									raiser.say("Nie masz " + amount + " money, aby wesprzeć zakup organów. Przyjdź kiedy indziej.");
+									raiser.say("You do not have " + amount + " money to help support organ purchases. Come back another time.");
 								}
 							}
 						}
@@ -134,7 +135,7 @@ public class WikaryNPC implements ZoneConfigurator {
 							fireRequestOK(res, player, sentence, raiser);
 						} else {
 							// This bit is just in case the player says 'datek X potatoes', not money
-							raiser.say("Potrzebuję pieniędzy na zakup organów.");
+							raiser.say("I need money to buy organs.");
 						}
 					}
 				});
@@ -153,9 +154,9 @@ public class WikaryNPC implements ZoneConfigurator {
 								price = 500000;
 							}
 
-							raiser.say("Jeśli chcesz zdjąć piętno zabójcy to musisz zapłacić "
+							raiser.say("If you want to remove the stigma of a killer, you have to pay."
 											+ price
-											+ " money. Czy chcesz zapłacić?");
+											+ " money. Do you wish to pay? ");
 							raiser.setCurrentState(ConversationStates.SERVICE_OFFERED);
 						}
 					});
@@ -177,9 +178,9 @@ public class WikaryNPC implements ZoneConfigurator {
 
 							if (player.drop("money", price)) {
 								player.rehabilitate();
-								raiser.say("Zdjąłem z Ciebie piętno zabójcy. Uważaj na siebie!");
+								raiser.say("I took the stigma of a killer off you. Look after yourself!");
 							} else {
-								raiser.say("Nie masz tyle pieniędzy, aby zdjąć piętno zabójcy!");
+								raiser.say("You don't have enough money to remove the stigma of a killer!");
 							}
 						}
 					});
@@ -193,7 +194,7 @@ public class WikaryNPC implements ZoneConfigurator {
 			}
 		};
 
-		npc.setDescription("Oto Wikary. Zbiera pieniądze na zakup organów do kaplicy.");
+		npc.setDescription("Here is the Priest. He collects money to buy organs for the chapel.");
 		/*
 		 * We don't seem to be using the recruiter images that lenocas made for
 		 * the Fado Raid area so I'm going to put him to use here. If the raid

@@ -57,16 +57,16 @@ public class JuhasNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Pozdrawiam.");
-				addJob("Sprzedaję #magiczne #zwoje. Zapytaj mnie o #ofertę.");
-				addHelp("Sprzedaję #zwoje, które mogą uratować Tobie życie.");
+				addGreeting("Salute.");
+				addJob("I am selling #magical #scrolls. Ask me for a #offer.");
+				addHelp("I sell #scrolls that can save your life.");
 
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("juhas")));
 
 				add(ConversationStates.ATTENDING, ConversationPhrases.QUEST_MESSAGES,
 						null,
 						ConversationStates.ATTENDING,
-						"Nie mam dla Ciebie zadania. Jedynie mam do zaoferowania #'magiczne zwoje' takie jak #'zwój tatrzański', #'zwój krakowski', #'zwój wieliczka', #'zwój ados', #'zwój fado', #'zwój kalavan', #'zwój kirdneh' oraz #'bilet turystyczny'.", null);
+						"I have no task for you. I only offer #'magic scrolls' such as #'Tatra scroll', #'Krakow scroll', #' Wieliczka scroll', #' ados scroll', #'fado scroll ', #' kalavan scroll', #'scroll kirdneh' and #'tourist ticket'.", null);
 
 				add(ConversationStates.ATTENDING,
 						Arrays.asList("magiczne zwoje", "zwoje"),

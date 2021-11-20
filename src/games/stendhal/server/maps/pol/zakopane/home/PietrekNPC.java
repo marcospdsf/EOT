@@ -63,24 +63,24 @@ public class PietrekNPC implements ZoneConfigurator {
 
 				final List<ChatAction> actions = new LinkedList<ChatAction>();
 				actions.add(new SetQuestAction(QUEST_SLOT, 0, "start"));
-				actions.add(new StartRecordingKillsAction(QUEST_SLOT, 1, "szczur", 0, 1));
+				actions.add(new StartRecordingKillsAction(QUEST_SLOT, 1, "rat", 0, 1));
 
 				add(ConversationStates.IDLE,
 						ConversationPhrases.GREETING_MESSAGES,
 						new QuestNotStartedCondition(QUEST_SLOT),
 						ConversationStates.ATTENDING,
-						"Witaj! Założę się, że przysłano Cię tutaj byś dowiedział się nieco o przygodach jakie Cię tu spotkają. Najpierw zobaczmy z jakiej gliny jesteś ulepiony. Idź i zabij szczura wałęsającego się gdzieś na zewnątrz. Czy chcesz się nauczyć jak atakować?",
+						"Welcome! I bet you were sent here to find out a bit about the adventures that await you here. First, let's see what clay you are made of. Go and kill a rat wandering outside somewhere. Do you want to learn how to attack?",
 						new MultipleActions(actions));
 
 				add(ConversationStates.IDLE,
 						ConversationPhrases.GREETING_MESSAGES,
 						new AndCondition(new QuestCompletedCondition(QUEST_SLOT)),
 						ConversationStates.ATTENDING,
-						"Witaj ponownie. Jakiej #pomocy mogę Ci teraz udzielić?",
+						"Welcome back. What #help can I give you now?",
 						null);
 
-				addHelp("Jak już mówiłem, byłem kiedyś poszukiwaczem przygód, a teraz jestem nauczycielem. Chcesz bym nauczył Cię co sam potrafię?");
-				addJob("Moją pracą jest ochrona ludzi w Zakopanem przed potworami wałęsającymi się gdzieś w okolicy! Od kiedy młodzi wyruszyli w świat to potwory stały się zuchwalsze i zaczęły się niebezpiecznie zbliżać się do miasta. Zakopane oczekuje pomocy właśnie od ludzi takich jak ty. Idź do gazdy Wojtka i zapytaj o zadanie, z pewnością ma jakieś dla Ciebie.");
+				addHelp("As I said, I was once an adventurer and now I am a teacher. Do you want me to teach you what I can do?");
+				addJob("My job is to protect people in Zakopane from monsters wandering around somewhere! Since the young people set out into the world, the monsters have become bolder and began to approach the city dangerously. Zakopane expects help from people like you. Go to Wojtek's gazette and ask for a task, he surely has one for you.");
 				addGoodbye();
 				// further behaviour is defined in quests.
 			}
@@ -96,7 +96,7 @@ public class PietrekNPC implements ZoneConfigurator {
 
 		npc.setPosition(22, 3);
 		npc.setEntityClass("oldheronpc");
-		npc.setDescription("Oto Pietrek. Poniżej jego siwych włosów, a brudną zbroją widzisz świecące oczy i twarde mięśnie.");
+		npc.setDescription("Here is Pietrek. Below his gray hair and dirty armor you can see glowing eyes and hard muscles.");
 		npc.setBaseHP(100);
 		npc.setHP(100);
 		zone.add(npc);

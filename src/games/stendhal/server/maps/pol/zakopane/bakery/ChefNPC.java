@@ -63,22 +63,22 @@ public class ChefNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addJob("Jam jest tutejszym piekarzem. Jedną z usług jakie prowadzę na tym terenie to produkcja kanapek dla naszych drogich klientów, którzy chwalą sobie ich smak! Powiedz tylko #zrób.");
-				addHelp("Zajmuje się tylko robieniem kanapek. Powiedz #zrób jeżeli zdecydujesz się na #kanapkę.");
-				addReply("chleb", "Tym w naszej firmie zajmuje się Erna. Podejdź do niej i porozmawiaj.");
-				addReply("ser",
-						"Z serem mamy spore trudności, bo mieliśmy niedawno plagę szczurów. Zastanawia mnie jak te wstrętne szkodniki zabrały wszystko ze sobą? Dlatego do kanapek dodajemy goat cheese z mleka naszych owiec.");
+				addJob("I am the local baker. One of the services I provide in this area is the production of sandwiches for our dear customers who appreciate their taste! Just say #make.");
+				addHelp("I only do sandwiches. Say #make if you decide to have a #sandwich.");
+				addReply("bread", "This is what Erna deals with in our company. Go speak to her.");
+				addReply("cheese",
+						"We have a lot of difficulties with cheese, because we recently had a plague of rats. I wonder how these nasty pests took everything with them? That is why we add goat cheese from the milk of our sheep to our sandwiches .");
 				addReply("ham",
-						"Cóż, wyglądasz mi na dzielnego łowcę. Może po prostu idź do lasu i zapoluj. Tylko nie przynoś mi tych małych kawałków mięsiwa i suchych steaków. Do kanapek nadaje się tylko najwyższej klasy ham!");
+						"Well, you look like a brave hunter to me. Maybe just go to the forest and hunt. Just don't bring me those little pieces of meat and dry steaks. Only top-class ham is suitable for sandwiches!");
 				addReply(Arrays.asList("sandwich", "sandwiches", "sandwich", "kanapki", "kanapkę"),
-						"Moje kanapki są smaczne i pożywne. Jeśli chcesz abym zrobił jedną dla Ciebie powiedz #'zrób' .");
+						"My sandwiches are tasty and nutritious. If you want me to make one for you say #'make'.");
 				addGoodbye();
 			}
 		};
 
 		final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
-		requiredResources.put("chleb", 1);
-		requiredResources.put("ser", 2);
+		requiredResources.put("bread", 1);
+		requiredResources.put("cheese", 2);
 		requiredResources.put("ham", 1);
 
 		final ProducerBehaviour behaviour = new ProducerBehaviour(
@@ -86,7 +86,7 @@ public class ChefNPC implements ZoneConfigurator {
 				requiredResources, 3 * 60);
 
 		new ProducerAdder().addProducer(npc, behaviour,
-				"Witaj! Jakże miło, że zawitałeś do mojej piekarni, gdzie robię #kanapki.");
+				"Welcome! How nice that you came to my bakery, where I make #sandwiches.");
 
 		npc.setEntityClass("chefnpc");
 		npc.setPosition(15, 3);

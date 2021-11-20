@@ -54,11 +54,11 @@ public class GazdaWojtekNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj.");
-				addJob("Jestem gazda Wojtek. Opiekuje się miastem Zakopane!");
-				addHelp("Nasze miasto potrzebuje różnych rzeczy. Jeżeli potrzebujesz banku to znajdziesz go na południe od ratusza, a jeżeli leczenia to udaj się na wschód do Gaździny Jadźki.");
-				addOffer("Już nie sprzedaję zwojów. Tym zajmuje się teraz Juhas. Może chciałbyś się zasłużyć dla Zakopanego podejmując się #zadania. Nagroda Cię nie minie.");
-				addGoodbye("Życzę powodzenia!");
+				addGreeting("Welcome.");
+				addJob("I'm Gazda Wojtek. Looks after the city of Zakopane!");
+				addHelp("Our city has different things. If you need a bank, you can find it south of the town hall, and if you need medical treatment, go east to Gaździna Jadźka .");
+				addOffer("I don't sell scrolls anymore. That's what Juhas is doing now. Maybe you would like to deserve Zakopane by undertaking #task. The prize will not pass you by.");
+				addGoodbye("Good Luck!");
 			}
 		};
 
