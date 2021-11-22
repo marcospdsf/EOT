@@ -77,11 +77,11 @@ public class GazdzinaMaryskaNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj wędrowcze!");
-				addJob("Mam masę roboty w domu: pranie, gotowanie.");
-				addHelp("A w czym ja ci mogę pomóc?");
-				addOffer("Nie mam nic do zaoferowania, ale spytaj mego męża bacę Zbyszka");
-				addGoodbye("Dowidzenia.");
+				addGreeting("Hello, adventurer!");
+				addJob("I have a lot to do at home: washing, cooking.");
+				addHelp("How can I help you?");
+				addOffer("I have nothing to offer, but ask my husband shepherd Zbyszek.");
+				addGoodbye("Goodbye.");
 			}
 		};
 

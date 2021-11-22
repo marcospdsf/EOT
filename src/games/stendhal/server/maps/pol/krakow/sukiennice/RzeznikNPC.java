@@ -56,15 +56,15 @@ public class RzeznikNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting();
-				addJob("Dobry dzień");
-				addHelp("Tak możesz pomóc sprzedając mi jakiekolwiek mięsiwo.");
+				addJob("Good day");
+				addHelp("Yes, you can help by selling me any meat.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buymieso")), false);
-				addOffer("Oferta moja jest w książce przede mną.");
-				addGoodbye("Żegnam");
+				addOffer("My offer is in the book before me.");
+				addGoodbye("Goobye");
 			}
 		};
 
-		npc.setDescription("Oto Rzeźnik jakiś taki gburowaty.");
+		npc.setDescription("Here is the Butcher, some surly surly.");
 		npc.setEntityClass("jailedbarbariannpc");
 		npc.setPosition(26, 43);
 		npc.setDirection(Direction.LEFT);

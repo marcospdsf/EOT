@@ -24,10 +24,10 @@ public class CienNPC extends SpeakerNPCFactory {
 
 	@Override
 	public void createDialog(final SpeakerNPC npc) {
-		npc.addGreeting("Witaj wędrowcze.");
-		npc.addJob("Prowadzę spokojne życie. Pilnuje wejścia do Zakonu Rycerzy Cienia.");
+		npc.addGreeting("Hello, adventurer.");
+		npc.addJob("I live a quiet life. Guard the entrance to the Order of the Shadow Knights.");
 		npc.addHelp("hm.");
-		npc.addGoodbye("Dowidzenia kolego.");
+		npc.addGoodbye("Goodbye Friend.");
 		
 	}
 }

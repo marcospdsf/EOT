@@ -62,17 +62,17 @@ public class RybakNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Ciii, nie spłosz ryb.");
-				addJob("Kupię chętnie ryby od ciebie, nie chcę wracać do domu bez ryb. Możesz mi coś #zaoferować.");
-				addHelp("Kupię każdą rybę, jeżeli coś masz to #zaoferuj mi to.");
-				addOffer("Kupię perch 8, makrela 8, płotka 7, palia alpejska 7, błazenek 10, pokolec 9, trout 9, cod 5.");
-				addQuest("Nie mogę nic złowić a do domu nie wrócę z pustymi rękoma, #pomóż mi.");
+				addGreeting("Shhh, don't scare the fish.");
+				addJob("I will gladly buy fish from you, I don't want to go home without fish. You can #offer me something .");
+				addHelp("I will buy any fish, if you have something then #offer it to me .");
+				addOffer("I buy perch 8, makrela 8, płotka 7, palia alpejska 7, błazenek 10, pokolec 9, trout 9, cod 5.");
+				addQuest("I can't catch anything and I won't come home empty-handed, #help me .");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buyrybak")), false);
-				addGoodbye("Dowidzenia.");
+				addGoodbye("Good luck.");
 			}
 		};
 
-		npc.setDescription("Oto rybak.");
+		npc.setDescription("You see Rybak.");
 		npc.setEntityClass("fishermannpc");
 		npc.setPosition(17, 94);
 		npc.initHP(100);

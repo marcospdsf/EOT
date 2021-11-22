@@ -87,7 +87,7 @@ public class ZlotyRog extends AbstractQuest {
 					if (player.isQuestCompleted(WEAPONS_COLLECTOR_QUEST_SLOT)) {
 						if(player.getLevel() >= 200) {
 							if(player.getKarma()>=500) {
-								if(player.hasKilledSolo("archanioł")) {
+								if(player.hasKilledSolo("archangel")) {
 									if (!player.hasQuest(QUEST_SLOT) || "rejected".equals(player.getQuest(QUEST_SLOT))) {
 										raiser.say("Czyżbyś przyszedł po #'złoty róg' ?. Mój brat zna tajemnice ich wyrabiania. Jesteś zainteresowany?");
 									} else if (player.getQuest(QUEST_SLOT).startsWith("done;")) {

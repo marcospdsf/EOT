@@ -55,16 +55,16 @@ public class IrekNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting();
-				addJob("Jak każda inna, aby tylko byli klienci.");
-				addHelp("Sprzedaję różne warzywa. Na stole leży książka, w niej jest moja oferta");
+				addJob("Like any other, only there are customers.");
+				addHelp("I sell a variety of vegetables. There is a book on the table with my offer in it");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellwarzywairek")), false);
-				addOffer("Sprzedaję warzywa, oferta moja jest w książce.");
-				addQuest("Nie mam głowy do zadań.");
+				addOffer("I sell vegetables, my offer is in the book.");
+				addQuest("I have no head for tasks.");
 				addGoodbye();
 			}
 		};
 
-		npc.setDescription("Oto badylarz Irek");
+		npc.setDescription("Here is the herbalist Irek");
 		npc.setEntityClass("man_000_npc");
 		npc.setPosition(26, 4);
 		npc.setDirection(Direction.LEFT);

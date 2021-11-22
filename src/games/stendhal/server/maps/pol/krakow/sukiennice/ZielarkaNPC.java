@@ -55,15 +55,15 @@ public class ZielarkaNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting();
-				addJob("Witaj");
-				addHelp("Skupuję zioła. Na stole leży książka, w niej są ceny i rodzaje ziół, które kupię.");
+				addJob("Hello");
+				addHelp("I buy herbs. There is a book on the table with prices and types of herbs I will buy.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buyziola")), false);
-				addOffer("Skupuję zioła, oferta moja jest w książce.");
+				addOffer("I buy herbs, my offer is in the book.");
 				addGoodbye();
 			}
 		};
 
-		npc.setDescription("Oto Zielarka. Wie wszystko o ziołach.");
+		npc.setDescription("Here is the Zielarka. He knows everything about herbs.");
 		npc.setEntityClass("confectionerapplepienpc");
 		npc.setPosition(15, 44);
 		npc.setDirection(Direction.UP);

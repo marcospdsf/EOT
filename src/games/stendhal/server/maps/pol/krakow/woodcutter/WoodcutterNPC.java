@@ -64,13 +64,13 @@ public class WoodcutterNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj, jeżeli chcesz ścinać drzewa to musisz przystąpić do #egzaminu");
-				addReply(Arrays.asList("exam", "egzamin", "egzaminu"), "Egzamin składa się z trzech pytań na które musisz odpowiedzieć prawidłowo. Jedna błędna odpowiedź i zostanie niezaliczony. Do egzaminu możesz podchodzić, aż do skutku. Za zdanie go zdobędziesz umiejętność ścinania drzew. Powodzenia.");
+				addGreeting("Hello, if you want to cut trees, you have to take the #exam.");
+				addReply(Arrays.asList("exam", "egzamin", "egzaminu"), "The exam consists of three questions that you must answer correctly. One wrong answer and it will fail. You can take the exam until it is successful. For passing it, you will gain the skill of cutting trees. Good luck.");
 				// Remaining behaviour is in games.stendhal.server.maps.quests.SolveRiddles
-				addReply(Arrays.asList("test"), "Zdałeś już test. Idź teraz szukać drzew oznaczonych do wyrębu.");
-				addJob("Zajmuje się wyrębem lasu, możesz u mnie przystąpić do #egzaminu na drwala.");
-				addHelp("Organizuje egzaminy na drwala. Czy chcesz przystąpić do egzaminu, aby otrzymać pozwolenie do wyrębu drzew?");
-				addGoodbye("Do zobaczenia i uważaj na spadające drzewa podczas wyrębu...");
+				addReply(Arrays.asList("test"), "You have already passed the test. Now go look for the trees marked for felling.");
+				addJob("He is logging the forest, you can take the lumberjack #exam at my place.");
+				addHelp("Organizes lumberjack exams. Do you want to take the exam to obtain a logging permit?");
+				addGoodbye("Goodbye and watch out for falling trees while logging ...");
 			}
 		};
 

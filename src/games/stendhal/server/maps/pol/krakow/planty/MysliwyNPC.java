@@ -73,17 +73,17 @@ public class MysliwyNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj nieznajomy.");
-				addJob("Tak, mam. Przynieś mi uzębienie wszelkich zwierząt. Możesz coś #zaoferować.");
-				addHelp("Skupuję kły, zęby itp, jeżeli coś masz to #zaoferuj mi to.");
-				addOffer("Skupuję wolf tusk 10, bear tusk 15, dziób ptaka 30, ząb potwora 200, dragon tusk 500, golden grim reaper 1000.");
-				addQuest("Nie teraz, jestem zajęty. Właśnie znalazłem trop.");
+				addGreeting("Hello Stranger");
+				addJob("Yes, I have. Bring me the teeth of all animals. You can #offer something. ");
+				addHelp("I buy fangs, teeth, etc., if you have something, #offer it to me.");
+				addOffer("I buy wolf tusk 10, bear tusk 15, dziób ptaka 30, ząb potwora 200, dragon tusk 500, golden grim reaper 1000.");
+				addQuest("Not now, I'm busy. I just found a lead.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buyzeby")), false);
-				addGoodbye("Dowidzenia.");
+				addGoodbye("Good bye.");
 			}
 		};
 
-		npc.setDescription("Oto myśliwy króla.");
+		npc.setDescription("Here is the king's hunter.");
 		npc.setEntityClass("scarletarmynpc");
 		npc.setPosition(8, 127);
 		npc.initHP(100);

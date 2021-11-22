@@ -57,9 +57,9 @@ public class MinerNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj! Co cię do mnie sprowadza?");
-				addJob("Jestem sztygarem. Ludzie przychodzą tutaj, aby zdać #egzamin górniczy.");
-				addHelp("Jeżeli będziesz szukać pod ziemią to znajdziesz kilka dobrych kopalni.");
+				addGreeting("Welcome! What brings you to the me?");
+				addJob("I am a foreman. People come here to pass the mining exam.");
+				addHelp("If you search underground, you will find some good mines.");
 
 			}
 		};

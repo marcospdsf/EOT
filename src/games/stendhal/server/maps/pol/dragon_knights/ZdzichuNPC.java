@@ -56,14 +56,14 @@ public class ZdzichuNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj dzielny rycerzu!");
-				addJob("Jestem jubilerem na tych włościach. #Zadanie mam dla ciebie jeżeli okarze się, że jesteś godny zaufania.");
-				addHelp("Nie jesteś w stanie mi pomóc, więc odejdź.");
-				addGoodbye("Żegnam.");
+				addGreeting("Hello, brave knight!");
+				addJob("I am a jeweler on this estate. I have a #task for you if it turns out that you are trustworthy.");
+				addHelp("You can't help me so go away.");
+				addGoodbye("Goodbye.");
 			}
 		};
 
-		npc.setDescription("Oto Jubiler Zdzichu.");
+		npc.setDescription("Here is the jeweler Zdzichu.");
 		npc.setEntityClass("blacksmithnpc");
 		npc.setPosition(10, 6);
 		npc.initHP(1000);

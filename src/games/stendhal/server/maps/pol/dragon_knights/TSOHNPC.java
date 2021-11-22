@@ -50,19 +50,19 @@ public class TSOHNPC extends SpeakerNPCFactory {
 				ConversationPhrases.GREETING_MESSAGES,
 				new QuestNotStartedCondition("meet_tsoh"),
 				ConversationStates.ATTENDING,
-				"Witaj! Widzę, że chcesz lepiej poznać klan The Soldiers Of Honor?",
+				"Welcome! I see you want to get to know The Soldiers Of Honor clan better?",
 				new MultipleActions(actions));
 
 		npc.add(ConversationStates.IDLE,
 				ConversationPhrases.GREETING_MESSAGES,
 				null,
 				ConversationStates.ATTENDING,
-				"Witaj! Założę się, że chcesz wstąpić do naszego klanu The Soldiers Of Honor.",
+				"Welcome! I bet you want to join our The Soldiers Of Honor clan.",
 				null);
 
-		npc.addHelp("Mogę ci opowiedzieć o TSOH, a jeżeli chcesz wiedzieć jeszcze więcej to zajrzyj na stronę naszego klanu http://www.thesolidersofhonor.pl.tl/.");
-		npc.addJob("Pracuje dla elitarnego klanu The Soldiers Of Honor. Zajmuje się promocją mojego klanu.");
-		npc.addGoodbye("Dowidzenia. Zawsze będziesz mile widziany i pomyśl nad wstąpieniem do naszego klanu.");
+		npc.addHelp("I can tell you about TSOH.");
+		npc.addJob("He works for the elite clan The Soldiers Of Honor. I am promoting my clan.");
+		npc.addGoodbye("Goodbye. You will always be welcome and think about joining our clan.");
 		// further behaviour is defined in quests.
 	}
 }

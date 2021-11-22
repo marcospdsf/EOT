@@ -61,17 +61,17 @@ public class KacperNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Cześć, ładny dziś dzień mamy.");
-				addJob("Zbieram budulec na zamek lodowy. Możesz mi coś #zaoferować.");
-				addHelp("Skupuję wszystko co potrzebne do budowy zamku lodowego, jeżeli coś masz to #zaoferuj mi to.");
-				addOffer("Skupuję snowball 5, kamienie 6, ice block 8.");
-				addQuest("Poszukaj kamieni, brył lodu, śnieżek a dobrze cię wynagrodzę.");
+				addGreeting("Hi, it's nice mom's day today.");
+				addJob("I collect building materials for an ice castle. You can #offer me something .");
+				addHelp("I buy everything I need to build an ice castle, if you have something, #offer it to me .");
+				addOffer("I buy snowball 5, stones 6, ice block 8.");
+				addQuest("Look for rocks, ice blocks, snowballs and I'll reward you well.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buykacper")), false);
-				addGoodbye("Dowidzenia.");
+				addGoodbye("Goodbye.");
 			}
 		};
 
-		npc.setDescription("Oto chłopak budujący zamek lodowy.");
+		npc.setDescription("Here's a boy building an ice castle.");
 		npc.setEntityClass("kid9npc");
 		npc.setPosition(10, 2);
 		npc.initHP(100);

@@ -136,7 +136,7 @@ public final class KrakowFerry implements TurnListener {
 
 			@Override
 			public String toString() {
-				return "Prom jest zakotwiczony w Warszawie. Zajmie to "
+				return "The ferry is anchored in Warsaw. It will take  "
 						+ SingletonRepository.getKrakowFerry().getRemainingSeconds() + ".";
 			}
 		},
@@ -154,7 +154,7 @@ public final class KrakowFerry implements TurnListener {
 
 			@Override
 			public String toString() {
-				return "Prom płynie do Krakowa. Przypłynie za "
+				return "The ferry goes to Krakow. Will come in  "
 						+ SingletonRepository.getKrakowFerry().getRemainingSeconds() + ".";
 			}
 		},
@@ -172,7 +172,7 @@ public final class KrakowFerry implements TurnListener {
 
 			@Override
 			public String toString() {
-				return "Prom jest zakotwiczony w Krakowie. Zajmie to "
+				return "The ferry is anchored in Krakow. It will take  "
 						+ SingletonRepository.getKrakowFerry().getRemainingSeconds() + ".";
 			}
 
@@ -191,7 +191,7 @@ public final class KrakowFerry implements TurnListener {
 
 			@Override
 			public String toString() {
-				return "Prom płynie do Warszawy. Przypłynie za "
+				return "The ferry goes to Warsaw. Will come in "
 						+ SingletonRepository.getKrakowFerry().getRemainingSeconds() + ".";
 			}
 		};

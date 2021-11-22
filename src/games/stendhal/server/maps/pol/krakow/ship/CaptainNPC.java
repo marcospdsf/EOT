@@ -41,12 +41,12 @@ public class CaptainNPC implements ZoneConfigurator  {
 
 			@Override
 			public void createDialog() {
-				addGreeting("Ahoj szczury lądowe!");
-				addGoodbye("Na razie...");
+				addGreeting("Ahoy land rats!");
+				addGoodbye("See you...");
 				// if you can make up a help message that is more helpful to the,
 				// player, feel free to replace this one.
-				addHelp("Nie wychylaj się, bo możesz wpaść do wody!");
-				addJob("Jestem kapitanem tej łajby.");
+				addHelp("Don't lean out, you may fall into the water!");
+				addJob("I'm the captain of this boat.");
 
 				add(ConversationStates.ATTENDING,
 						"status",
@@ -77,11 +77,11 @@ public class CaptainNPC implements ZoneConfigurator  {
 					case ANCHORED_AT_WARSZAWA:
 					case ANCHORED_AT_KRAKOW:
 						// capital letters symbolize shouting
-						npc.say("ZRZUCIĆ CUMY!");
+						npc.say("DROP THE ANCHORS!");
 						break;
 
 					default:
-						npc.say("CUMY ZRZUCONE! ODPŁYWAMY!");
+						npc.say("ANCHORS PULLED! WE ARE LEAVING");
 						break;
 					}
 					// Turn back to the wheel

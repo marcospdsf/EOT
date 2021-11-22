@@ -71,14 +71,14 @@ public class EdgardNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Widzisz jak latam, pewno sam byś tak chciał ?.");
-				addJob("Przenoszę wiadomości z dalekich pól bitew i rozkazy od  Samego Mistrza Zakonu Cieni.");
-				addHelp("Latam tu i tam, nie potrzebuje od nikogo pomocy.");
-				addGoodbye("No to hej, ja lecę.");
+				addGreeting("You see me flying, you surely would like that yourself?");
+				addJob("I carry messages from distant battlefields and orders from the Master of the Order of Shadows Himself.");
+				addHelp("I fly here and there, I don't need any help from anyone.");
+				addGoodbye("Well, hey, I'm going.");
 			}
 		};
 
-		npc.setDescription("Oto Edgard, jest szybki.");
+		npc.setDescription("This is Edgard, he's fast.");
 		npc.setEntityClass("npcedgard");
 		npc.setPosition(2, 42);
 		npc.initHP(1000);

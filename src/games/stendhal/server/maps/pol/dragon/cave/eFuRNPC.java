@@ -51,9 +51,9 @@ public class eFuRNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj! dzielny wojowniku.");
-				addJob("Pilnuję koboltów w tych podziemiach.");
-				addHelp("Mi pomóc? Dziękuję nie trzeba ale mogę tobie anulować #zadanie na jeden z pierścieni lub itemy z mithrilu.");
+				addGreeting("Welcome! brave warrior.");
+				addJob("I look after the kobolds in these dungeons.");
+				addHelp("Help me? No need thank you but I can give you #task for one of the rings or mithril items.");
 				addGoodbye("Dowidzenia.");
 			}
 		};

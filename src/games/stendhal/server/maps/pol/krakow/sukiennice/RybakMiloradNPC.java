@@ -55,15 +55,15 @@ public class RybakMiloradNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting();
-				addJob("Uprzejmie witam wielmożność.");
-				addHelp("Skupuję ryby. W książce przede mną są ceny i rodzaje ryb, które kupuję.");
+				addJob("I kindly greet you.");
+				addHelp("I buy fish. In the book in front of me are the prices and the types of fish I buy.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buyryby")), false);
-				addOffer("Kupię ryby, oferta moja jest w książce.");
-				addGoodbye("Dowidzenia. Miłego dnia życzę.");
+				addOffer("I will buy fish, my offer is in the book.");
+				addGoodbye("Goodbye. I wish you a nice day.");
 			}
 		};
 
-		npc.setDescription("Oto Rybak Miłorad. Jest bardzo uprzejmy.");
+		npc.setDescription("Here is the Rybak Milorad. He is very polite.");
 		npc.setEntityClass("man_008_npc");
 		npc.setPosition(26, 36);
 		npc.setDirection(Direction.LEFT);

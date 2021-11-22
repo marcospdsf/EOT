@@ -45,10 +45,10 @@ final class ZakopaneHouseSeller extends HouseSellerNPCBase {
 				 Arrays.asList("cost", "house", "buy", "purchase", "koszt", "dom", "kupić", "cenę", "cena"),
 				 new NotCondition(new AgeGreaterThanCondition(HouseSellerNPCBase.REQUIRED_AGE)),
 				 ConversationStates.ATTENDING,
-				 "Cena za nowy dom w Zakopanym to "
+				 "The price for a new house in Zakopane is "
 				 + getCost()
-				 + " money. Ale obawiam się, że nie mogę ci jeszcze zaufać, wróć kiedy spędzisz przynajmniej " 
-				 + Integer.toString((HouseSellerNPCBase.REQUIRED_AGE / 60)) + " godzin w Zakopanym.",
+				 + " money. But I'm afraid I can't trust you yet, come back when you spend at least " 
+				 + Integer.toString((HouseSellerNPCBase.REQUIRED_AGE / 60)) + " hours in Zakopane.",
 					null);
 
 
@@ -67,9 +67,9 @@ final class ZakopaneHouseSeller extends HouseSellerNPCBase {
 																	   new QuestCompletedCondition(ZakopaneHouseSeller.ANDRZEJ_QUEST_SLOT),
 																	   new QuestCompletedCondition(ZakopaneHouseSeller.KAZIMIERZ_QUEST_SLOT)))),
 				 ConversationStates.ATTENDING, 
-				 "Koszt nowego domu w Zakopanym wynosi "
+				 "The cost of a new house in Zakopane is "
 				 + getCost()
-				 + " money. Ale obawiam się, że nie mogę sprzedać Tobie domu, jeszcze trzeba udowodnić #obywatelstwo.",
+				 + " money. But I'm afraid I can't sell the house to you, you still have to prove #Citizenship .",
 				 null);
 
 		// player is eligible to buy a house
@@ -85,11 +85,11 @@ final class ZakopaneHouseSeller extends HouseSellerNPCBase {
 									new QuestCompletedCondition(ZakopaneHouseSeller.ANDRZEJ_QUEST_SLOT),
 									new QuestCompletedCondition(ZakopaneHouseSeller.KAZIMIERZ_QUEST_SLOT)),
 				 ConversationStates.QUEST_OFFERED,
-				 "Nowy dom w Zakopanym kosztuje "
+				 "A new house in Zakopane costs "
 				 + getCost()
-				 + " money. Ponadto trzeba zapłacić podatek " + HouseTax.BASE_TAX
-				 + " money, co miesiąc. Jeśli masz jakiś dom na oku powiedz jego numer, sprawdzę czy jest wolny. "
-				 + "Domy w Zakopanym mają numery od "
+				 + " money. In addition, you have to pay tax " + HouseTax.BASE_TAX
+				 + " money every month. If you have an eye on a house, say its number, I will check if it is free. "
+				 + "Houses in Zakopane have numbers from "
 				 + getLowestHouseNumber() + " do " + getHighestHouseNumber() + ".",
 				 null);
 
@@ -102,20 +102,21 @@ final class ZakopaneHouseSeller extends HouseSellerNPCBase {
 				null,
 				new BuyHouseChatAction(getCost(), QUEST_SLOT));
 
-		addJob("Jestem agentem nieruchomości, po prostu sprzedaję domy w Zakopanym. Zapytaj o #cenę jeżeli jesteś zainteresowany. Nasz katalog domów znajduje sie na  (tu adres strony internetowej).");
-		addReply(Arrays.asList("citizen", "obywatelstwo"), "Przeprowadzam nieformalną ankietę wśród mieszkańców.\n"
-		+"A mówię o moim przyjacielu kowalu Andrzeju,\n"
-		+"małym chłopcu Adasiu, panu Fryderyku,\n"
-		+"sztygarze Berciku, bankowcu Kazimierzu,\n"
-		+"naszym burmistrzu Wojtku i pani Jadzi, która pracuje w szpitalu.\n"
-		+"Wspólnie wydadzą wiarygodną opinie.");
+		addJob("I am a real estate agent, I just sell houses in Zakopane. Ask for the #price if you are interested.");
+		addReply(Arrays.asList("citizen", "obywatelstwo"), "I conduct an informal survey among residents.\n"
+		+"And I'm talking about my friend, the blacksmith, Andrzej,\n"
+		+"little boy Adam, Mr. Fryderyk,\n"
+		+"foremen of Bercik, banker of Kazimierz,\n"
+		+"our mayor Wojtek and Mrs. Jadzia, who works in the hospital.\n"
+		+"Together, they will make a credible opinion.");
 
-		setDescription("To piewca ciepła domowego. Zapytaj czy ma dla ciebie ofertę.");
+		setDescription("He is an eulogist of home warmth. Ask if he has an offer for you.");
 		setEntityClass("estateagent2npc");
 		setPosition(24, 3);
 		initHP(100);
 	}
 
+	@Override
 	protected int getCost() {
 		return ZakopaneHouseSeller.COST_ZAKOPANE;
 	}

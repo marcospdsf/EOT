@@ -59,10 +59,10 @@ public class CoastConveyerNPC implements ZoneConfigurator  {
 
 			@Override
 			public void createDialog() {
-				addGoodbye("Dowidzenia!");
-				addGreeting("Ahoj, Przyjacielu! W czym mogę #pomóc?");
-				addHelp("Tak, możesz zejść mówiąc #zejdź, ale wtedy kiedy zacumujemy na przystani. Zapytaj mnie o #status jeżeli nie masz pojęcia gdzie jesteśmy.");
-				addJob("Zabieram pasażerów, którzy chcą zejść na ląd.");
+				addGoodbye("Goodbye!");
+				addGreeting("Ahoy my friend! How can I help you?");
+				addHelp("Yes, you can go down by saying #disembark, but only when we dock at the marina. Ask me for #status if you have no idea where we are .");
+				addJob("I am taking passengers who want to go ashore.");
 
 				add(ConversationStates.ATTENDING, "status",
 						null,
@@ -85,17 +85,17 @@ public class CoastConveyerNPC implements ZoneConfigurator  {
 							public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 								switch (ferryState) {
 									case ANCHORED_AT_WARSZAWA:
-										npc.say("Czy chcesz, abym zabrał Ciebie do Warszawy?");
+										npc.say("Do you want me to take you to Warsaw?");
 										npc.setCurrentState(ConversationStates.SERVICE_OFFERED);
 										break;
 									case ANCHORED_AT_KRAKOW:
-										npc.say("Czy chcesz, abym zabrał Ciebie do Krakowa");
+										npc.say("Do you want me to take you to Krakow?");
 										npc.setCurrentState(ConversationStates.SERVICE_OFFERED);
 										break;
 
 									default:
 										npc.say(ferryState.toString()
-											+ " Możesz zejść na ląd kiedy jesteśmy zacumowani na przystani.");
+											+ " You can go ashore while we are moored at the marina.");
 								}
 							}
 						});
@@ -117,7 +117,7 @@ public class CoastConveyerNPC implements ZoneConfigurator  {
 										npc.setCurrentState(ConversationStates.IDLE);
 										break;
 									default:
-										npc.say("Niedobrze! Statek już wypłynął.");
+										npc.say("Not good! The ship has already left.");
 								}
 							}
 						});
@@ -126,7 +126,7 @@ public class CoastConveyerNPC implements ZoneConfigurator  {
 						ConversationPhrases.NO_MESSAGES,
 						null,
 						ConversationStates.ATTENDING,
-						"Aye, przyjacielu!", null);
+						"Aye my friend!", null);
 			}
 		};
 
@@ -137,13 +137,13 @@ public class CoastConveyerNPC implements ZoneConfigurator  {
 				ferryState = status;
 				switch (status) {
 					case ANCHORED_AT_WARSZAWA:
-						npc.say("UWAGA: Prom dobił do Warszawy! Możesz teraz zejść mówiąc #zejdź.");
+						npc.say("NOTE: The ferry reached Warsaw! You can go down now by saying #disembark or #leave.");
 						break;
 					case ANCHORED_AT_KRAKOW:
-						npc.say("UWAGA: Prom dobił do Krakowa! Możesz teraz zejść mówiąc #zejdź.");
+						npc.say("NOTE: The ferry reached Krakow! You can go down now by saying #disembark or #leave.");
 						break;
 					default:
-						npc.say("UWAGA: Prom wypłynął.");
+						npc.say("NOTE: The ferry has departed.");
 						break;
 				}
 			}

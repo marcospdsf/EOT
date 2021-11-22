@@ -64,19 +64,20 @@ public class PankracyNPC implements ZoneConfigurator {
 					ConversationPhrases.GREETING_MESSAGES,
 					new AndCondition(
 						new ChatCondition() {
+							@Override
 							public boolean fire(final Player player, final Sentence sentence, final Entity entity) {
 								return !player.isGhost();
 							}
 						}),
 					ConversationStates.ATTENDING,
 					null,
-					new SayTextAction("[name]! Warzywa i owoce! Ryby i mięsiwa! Stroje i zbroje! Kup i sprzedaj!"));
+					new SayTextAction("[name]! Vegetables and fruits! Fish and Meat! Costumes and armor! Buy and sell!"));
 
 				add(ConversationStates.IDLE,
 					ConversationPhrases.GREETING_MESSAGES,
 					null,
 					ConversationStates.ATTENDING,
-					"Witaj na targu w sukiennicach.",
+					"Welcome to the market in the cloth hall.",
 					null);
 				addGoodbye();            
 
@@ -84,7 +85,7 @@ public class PankracyNPC implements ZoneConfigurator {
 		};
 
 		npc.setEntityClass("oldheronpc");
-		npc.setDescription("Mistrz Pankracy kierował odbudową sukiennic po pożarze w 1555 roku.");
+		npc.setDescription("Master Pankracy was in charge of the reconstruction of the cloth hall after the fire in 1555.");
 		npc.setPosition(12, 23);
 		npc.initHP(100);
 		zone.add(npc);

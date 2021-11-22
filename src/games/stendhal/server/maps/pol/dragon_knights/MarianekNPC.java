@@ -49,14 +49,14 @@ public class MarianekNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj dzielny rycerzu!");
-				addJob("Jestem kowalem na tych włościach. Może mam dla ciebie #zadanie.");
-				addHelp("Niczego nie potrzebuję.");
-				addGoodbye("Żegnam.");
+				addGreeting("Hello, brave knight!");
+				addJob("I am a blacksmith on this estate. Maybe I have a #task for you.");
+				addHelp("I don't need anything.");
+				addGoodbye("Goodbye.");
 			}
 		};
 
-		npc.setDescription("Oto Marianek, jest kowalem.");
+		npc.setDescription("Here is Marianek, he is a blacksmith.");
 		npc.setEntityClass("blacksmithnpc");
 		npc.setPosition(5, 4);
 		npc.initHP(1000);

@@ -56,15 +56,15 @@ public class PrzekupkaNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting();
-				addJob("Dzień dobry, co potrzeba?");
-				addHelp("Kupuję różne warzywa.");
+				addJob("Hello! What you need?");
+				addHelp("I buy a variety of vegetables.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buywarzywa")), false);
-				addOffer("W książce na stole jest napisane co skupuję.");
+				addOffer("In the book on the table it is written what I am buying.");
 				addGoodbye();
 			}
 		};
 
-		npc.setDescription("Oto Przekupka");
+		npc.setDescription("You see Przekupka");
 		npc.setEntityClass("curatornpc");
 		npc.setPosition(26, 11);
 		npc.setDirection(Direction.LEFT);

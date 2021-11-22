@@ -60,14 +60,14 @@ public class FerryConveyerNPC implements ZoneConfigurator {
 
 			@Override
 			public void createDialog() {
-				addGoodbye("Dowidzenia!");
-				addGreeting("Witam w Warszawskim #ferry service! W czym mogę #pomóc?");
-				addHelp("Możesz wejść na #prom tylko za "
+				addGoodbye("Hello!");
+				addGreeting("Welcome to #ferry service in Warsaw! How can I help you?");
+				addHelp("You can only enter #ferry for "
 						+ KrakowFerry.PRICE
-						+ " złota, ale tylko wtedy, kiedy jest zacumowany przy przystani. Zapytaj mnie o #status jeżeli chcesz wiedzieć gdzie jest prom.");
-				addJob("Jeżeli pasażerowie chcą #wejść na #prom do Warszawy to ja ich zabieram na statek.");
-				addReply(Arrays.asList("ferry", "prom", "promu"), "Prom żegluje regularnie pomiędzy Warszawą, a Krakowem. Możesz #wejść na statek tylko kiedy jest tutaj. Zapytaj mnie o #status jeżeli chcesz sprawdzić gdzie aktualnie się znajduje.");
-				addReply(Arrays.asList("Kraków", "Krakowem"), "Kraków to miasto leżące na południu Polski posiadające wiele zabytków oraz świetne miasto wypoczynku.");
+						+ " gold, but only when it is moored at the marina. Ask me for #status if you want to know where the ferry is.");
+				addJob("If passengers want to #board #ferry to Warsaw, I take them to the ship.");
+				addReply(Arrays.asList("ferry", "prom", "promu"), "The ferry sails regularly between Warsaw and Krakow. You can only #board the ship while it is here. Ask me for #status if you want to see where it is currently located .");
+				addReply(Arrays.asList("Krakow", "Krakowem"), "Krakow is a city in the south of Poland with many monuments and a great city for relaxation.");
 				add(ConversationStates.ATTENDING, "status",
 						null,
 						ConversationStates.ATTENDING,
@@ -88,12 +88,12 @@ public class FerryConveyerNPC implements ZoneConfigurator {
 							@Override
 							public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 								if (ferrystate == Status.ANCHORED_AT_WARSZAWA) {
-									npc.say("Aby wejść na prom musisz zapłacić " + KrakowFerry.PRICE
-											+ " złota. Czy chcesz zapłacić?");
+									npc.say("You have to pay to get on the ferry " + KrakowFerry.PRICE
+											+ " gold. Do you want to pay?");
 									npc.setCurrentState(ConversationStates.SERVICE_OFFERED);
 								} else {
 									npc.say(ferrystate.toString()
-											+ " Możesz wejść na prom wtedy, kiedy prom jest zacumowany.");
+											+ " You can board the ferry when the ferry is anchored.");
 								}
 							}
 						});
@@ -108,7 +108,7 @@ public class FerryConveyerNPC implements ZoneConfigurator {
 								if (player.drop("money", KrakowFerry.PRICE)) {
 									player.teleport(getShipZone(), 27, 33, Direction.LEFT, null);
 								} else {
-									npc.say("Hej! Nie masz tyle pieniędzy!");
+									npc.say("Hi! You don't have that much money!");
 								}
 							}
 						});
@@ -117,20 +117,21 @@ public class FerryConveyerNPC implements ZoneConfigurator {
 						ConversationPhrases.NO_MESSAGES,
 						null,
 						ConversationStates.ATTENDING,
-						"Nie wiesz co tracisz, szczurze lądowy!",
+						"You don't know what you're missing, land rat!",
 						null);
 			}
 		};
 
 		new KrakowFerry.FerryListener() {
+			@Override
 			public void onNewFerryState(final Status status) {
 				ferrystate = status;
 				switch (status) {
 					case ANCHORED_AT_WARSZAWA:
-						npc.say("UWAGA: Prom przybył do wybrzeża! Można wejść na statek mówiąc #wejdź.");
+						npc.say("NOTE: The ferry has arrived at the coast! You can board the ship by saying #board .");
 						break;
 					case DRIVING_TO_KRAKOW:
-						npc.say("UWAGA: Prom odpłynął. Nie można się już dostać na statek.");
+						npc.say("NOTE: The ferry has departed. The ship can no longer be reached.");
 						break;
 					default:
 						break;

@@ -24,9 +24,9 @@ public class StraznikNPC extends SpeakerNPCFactory {
 
 	@Override
 	public void createDialog(final SpeakerNPC npc) {
-		npc.addGreeting("Witaj wędrowcze.");
-		npc.addJob("Prowadzę spokojne życie. Pilnuje #wejścia na wawel.");
-		npc.addHelp("Mogę sprzedać ci zwój krakowski lub zwój tatrzański.");
+		npc.addGreeting("Hello, adventurer.");
+		npc.addJob("I live a quiet life. It guards the #entrance to the wawel castle.");
+		npc.addHelp("I can sell you a Kraków scroll or a Tatra scroll.");
 		new SellerAdder().addSeller(npc, new SellerBehaviour(SingletonRepository.getShopList().get("wawel")));
 		npc.addGoodbye();
 	}

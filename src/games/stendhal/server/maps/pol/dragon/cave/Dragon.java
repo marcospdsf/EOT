@@ -42,7 +42,7 @@ public class Dragon implements ZoneConfigurator {
 
 	private void buildDragonArea(final StendhalRPZone zone) {
 		final EntityManager manager = SingletonRepository.getEntityManager();
-		final Creature creature = new ItemGuardCreature(manager.getCreature("dwugłowy czarny smok"), "golden blade", "kill_dragon", "start");
+		final Creature creature = new ItemGuardCreature(manager.getCreature("black twinheaded dragon"), "golden blade", "kill_dragon", "start");
 		final CreatureRespawnPoint point = new CreatureRespawnPoint(zone, 135, 118, creature, 1);
 		zone.add(point);
 	}

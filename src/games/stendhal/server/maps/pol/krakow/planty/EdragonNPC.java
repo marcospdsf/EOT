@@ -44,14 +44,14 @@ public class EdragonNPC implements ZoneConfigurator {
 			}
 			@Override
 			protected void createDialog() {
-				addGreeting(null, new SayTextAction("Witaj [name]! Mam nadzieję że nie jesteś szpiegiem w takim wypadku musiałbym cię pożreć."));
-				addJob("Nie mam żadnej pracy dla ciebie... Ale możesz zrobić #zadanie na pierścień barona");
-				addHelp("Mi pomóc? Ha Ha .. Czekaj możesz zrobić #zadanie na pierścień barona.");
-				addGoodbye("Powodzenia!");
+				addGreeting(null, new SayTextAction("Hello [name]! I hope you are not a spy, in that case I would have to eat you."));
+				addJob("I have no job for you ... But you can do #task for the baron's ring");
+				addHelp("Help me? Ha Ha .. Wait you can do #quest for the baron's ring.");
+				addGoodbye("Good luck!");
 			}
 		};
 		
-    npc.setDescription("Oto smok eDragon, uciekł z siedziby przed jej zburzeniem.");
+    npc.setDescription("Here is the dragon eDragon, escaped from the abode before it was demolished.");
 		npc.setEntityClass("npc_eDragon");
 		npc.setPosition(123, 71);
 		npc.setDirection(Direction.RIGHT);

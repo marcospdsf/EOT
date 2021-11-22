@@ -1,4 +1,4 @@
-/* $Id: Owczarek.java,v 1.30 2011/02/13 15:08:40 edi18028 Exp $ */
+/* $Id: OwczarekPodhalanski.java,v 1.30 2011/02/13 15:08:40 edi18028 Exp $ */
 /***************************************************************************
  *                      (C) Copyright 2003 - Marauroa                      *
  ***************************************************************************
@@ -24,7 +24,7 @@ import marauroa.common.game.SyntaxException;
 import org.apache.log4j.Logger;
 
 /**
- * A owczarek is a domestic animal that can be owned by a player.
+ * A owczarek podhalanski is a domestic animal that can be owned by a player.
  * <p>
  * It eats meat from the ground.
  * <p>
@@ -34,19 +34,20 @@ import org.apache.log4j.Logger;
  * @author edi18028 (based on cat by kymara and on sheep by Daniel Herding)
  * 
  */
-public class Owczarek extends Pet {
+public class TatraDog extends Pet {
 
 	/** the logger instance. */
-	private static final Logger logger = Logger.getLogger(Owczarek.class);
+	private static final Logger logger = Logger.getLogger(TatraDog.class);
 
-	@Override void setUp() {
-		HP = 200;
+	@Override
+	void setUp() {
+		HP = 1000;
 		// each chicken or fish would give +5 HP
-		incHP = 4; 
+		incHP = 6; 
 
-		ATK = 10;
+		ATK = 20;
 
-		DEF = 30;
+		DEF = 60;
 
 		XP = 100;
 
@@ -61,8 +62,8 @@ public class Owczarek extends Pet {
 
 	public static void generateRPClass() {
 		try {
-			final RPClass owczarek = new RPClass("owczarek");
-			owczarek.isA("pet");
+			final RPClass tatraDog = new RPClass("tatra_sheepdog");
+			tatraDog.isA("pet");
 			// owczarek.add("weight", Type.BYTE);
 			// owczarek.add("eat", Type.FLAG);
 		} catch (final SyntaxException e) {
@@ -71,24 +72,24 @@ public class Owczarek extends Pet {
 	}
 
 	/**
-	 * Creates a new owczarek.
+	 * Creates a new Owczarek Podhalanski.
 	 */
-	public Owczarek() {
+	public TatraDog() {
 		this(null);
 	}
 
 	/**
-	 * Creates a new Owczarek that may be owned by a player.
+	 * Creates a new Owczarek Podhalanski that may be owned by a player.
 	 * @param owner 
 	 */
-	public Owczarek(final Player owner) {
+	public TatraDog(final Player owner) {
 		// call set up before parent constructor is called as it needs those
 		// values
 		super();
 		setOwner(owner);
 		setUp();
-		setRPClass("owczarek");
-		put("type", "owczarek");
+		setRPClass("tatra_sheepdog");
+		put("type", "tatra_sheepdog");
 
 		if (owner != null) {
 			// add pet to zone and create RPObject.ID to be used in setPet()
@@ -100,28 +101,28 @@ public class Owczarek extends Pet {
 	}
 
 	/**
-	 * Creates a Owczarek based on an existing owczarek RPObject, and assigns it to a
+	 * Creates a Owczarek based on an existing owczarek podhalanski RPObject, and assigns it to a
 	 * player.
 	 * 
 	 * @param object
 	 * @param owner
-	 *            The player who should own the owczarek
+	 *            The player who should own the owczarek podhalanski
 	 */
-	public Owczarek(final RPObject object, final Player owner) {
+	public TatraDog(final RPObject object, final Player owner) {
 		super(object, owner);
 		int storedHP = getInt("hp");
 		// fetch the speed etc values...
 		setUp();
-		// ...but don't heal the owczarek
+		// ...but don't heal the owczarek podhalanski
 		setHP(storedHP);
-		setRPClass("owczarek");
-		put("type", "owczarek");
+		setRPClass("tatra_sheepdog");
+		put("type", "tatra_sheepdog");
 		update();
 	}
 
 	@Override
 	protected List<String> getFoodNames() {
-		return Arrays.asList("chicken", "meat", "ham", "kiełbasa swojska", "dog bone", "steak", "goat cheese",
+		return Arrays.asList("chicken", "meat", "ham", "sausage", "dog bone", "steak", "goat cheese",
 				"sheep milk");
 	}
 

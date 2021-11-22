@@ -31,21 +31,21 @@ public class SaddlerNPC extends SpeakerNPCFactory {
 
 	@Override
 	public void createDialog(final SpeakerNPC npc) {
-		npc.addJob("Zajmuję się wyprawianiem skór. Przynieś mi skórę zwierzęcą, a uszyję Tobie bukłak na wodę.");
-		npc.addReply("skóra zwierzęca",
-					"Polując na różne zwierzęta w końcu ją zdobędziesz.");
-		npc.addHelp("Wyprawiam skóry i szyje bukłaki. Powiedz tylko #'uszyj pusty bukłak'.");
+		npc.addJob("My job is leather dressing. Bring me animal skin and I will make you a waterskin.");
+		npc.addReply("animal skin",
+					"By hunting various animals, you will eventually get it.");
+		npc.addHelp("I tan hides and make waterskin. Just say #'sew empty waterskin' .");
 		npc.addGoodbye("Dowidzenia");
 
 		// Jenny mills flour if you bring her grain.
 		final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
-		requiredResources.put("skóra zwierzęca", 1);
+		requiredResources.put("animal skin", 1);
 		requiredResources.put("money", 20);
 
 		final ProducerBehaviour behaviour = new ProducerBehaviour("rymarz_make_buklak",
-				"sew", "pusty bukłak", requiredResources, 1 * 5);
+				"sew", "empty waterskin", requiredResources, 1 * 5);
 
 		new ProducerAdder().addProducer(npc, behaviour,
-				"Pozdrawiam! Jeżeli przyniesiesz mi #skórę zwierzęcą to uszyję Tobie bukłak na wodę. Powiedz tylko #'uszyj pusty bukłak'.");
+				"Regards! If you bring me #'animal skin', I will sew a waterskin for you. Just say #'sew empty waterskin'. ");
 	}
 }

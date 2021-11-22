@@ -58,16 +58,16 @@ public class GiowaniNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj wojowniku.");
-				addJob("Mów szybko czego chcesz bo pizze muszę zjeść.");
-				addHelp("Wojownik o pomoc prosi Giowaniego?");
-				addOffer("Tylko vende i vende, nic nie mam na sprzedaż.");
-				addQuest("Mama mija pedro pu.... nie zawracaj głowy, nie miej takiej miny.");
+				addGreeting("Hello warrior.");
+				addJob("Say what you want quickly because I have to eat pizzas.");
+				addHelp("A warrior asks Giowani for help?");
+				addOffer("Vende and vende only, nothing for sale.");
+				addQuest("Mamma mia pedro pu .... don't bother, don't look like that.");
 				addGoodbye("Arrivederci.");
 			}
 		};
 
-		npc.setDescription("Ten makaroniarz przybył z dalekiej Italii.");
+		npc.setDescription("This pasta maker came from faraway Italy.");
 		npc.setEntityClass("recruiter3npc");
 		npc.setPosition(22, 16);
 		npc.initHP(100);

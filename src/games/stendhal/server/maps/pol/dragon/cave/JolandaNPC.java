@@ -44,21 +44,21 @@ public class JolandaNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj dzielny i przystojny wojowniku.");
-				addHelp("Pomóż mi. Zabij tego wstrętnego smoka, a #'golden blade' będzie twoja!");
-				addReply("golden blade", "Napadł mnie ten wstrętny smok i połknął mi ją. Jeżeli go pokonasz to w nagrodę będziesz mógł ją sobie zatrzymać.");
-				addOffer("Mam dla Ciebie #zadanie.");
-				addQuest("Szukałam rzadkiego ziela do mikstury, ale smok zablokował mi drogę do niego. Mam wielką prośbę do Ciebie, abyś zabił smoka, który zagrodził mi drogę. Jeżeli podejmiesz się tego to powiedz #zabiję.");
-				addReply("zabiję", "Wspaniale! Idź i rozpraw się z nim. Tę wpaniałą #broń, którą zdobędziesz możesz zatrzymać jako nagrodę.");
-				addReply("broń", "Zaatakował mnie i połknął ją");
-				addGoodbye("Niech moc będzie z tobą mój wybawco.");
+				addGreeting("Hello, brave and handsome warrior.");
+				addHelp("Help me. Kill that nasty dragon and the #'golden blade' will be yours!");
+				addReply("golden blade", "This nasty dragon attacked me and swallowed it. If you defeat him, you will be able to keep it as a reward.");
+				addOffer("I have #task for you.");
+				addQuest("I was looking for a rare herb for the potion, but the dragon blocked my way to it. I have a great request for you to kill the dragon that blocked my way. If you do it, say #'I will kill'.");
+				addReply("I will kill", "Excellent! Go and deal with him. You can keep this great #weapon as a reward.");
+				addReply("weapon", "He attacked me and swallowed it");
+				addGoodbye("May the strength be with you my savior.");
 			}
 		};
 
 		jolanda.setEntityClass("elegantladynpc");
 		jolanda.setPosition(127, 120);
 		jolanda.initHP(100); 
-		jolanda.setDescription("Oto Jolanda. Podczas podróży została zaatakowana przez smoka.");
+		jolanda.setDescription("Here is Jolanda. During the trip, she was attacked by a dragon.");
 		zone.add(jolanda);
 	}
 }

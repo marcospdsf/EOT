@@ -53,22 +53,22 @@ public class ObsidianNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog(){
-				addGreeting("Dzień dobry.");
-				addReply("mistrz",
-						"A wysłał Wielmożność do mnie w sprawie obsidianu. Obrobię go wystarczy, że powiecie #'oszlifuj obsidian'.");
+				addGreeting("Hello there.");
+				addReply("master",
+						"The lord master sent you here because of the obsidian. I'll work it if you say #'grind obsidian' .");
 				addGoodbye("Dowidzenia.");
 				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
 				requiredResources.put("money", 980);
-				requiredResources.put("kryształ obsidianu", 1);
+				requiredResources.put("obsidian crystal", 1);
 
 				final ProducerBehaviour behaviour = new ProducerBehaviour(
 					"sobek_cast_obsidian", "grind", "obsidian",
 					requiredResources, 4 * 60);
 
 				new ProducerAdder().addProducer(this, behaviour,
-						"Dzień dobry.");
+						"Hello there.");
 				addReply("money",
-						"Mistrz ustala ceny.");
+						"The master sets the prices.");
 			}
 		};
 

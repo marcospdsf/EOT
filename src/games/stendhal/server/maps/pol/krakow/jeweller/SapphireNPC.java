@@ -53,12 +53,12 @@ public class SapphireNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Dzień dobry.");
-				addReply("mistrz",
-						"Mistrz już mi mówił. Mam obrobić kryształ #sapphireu.");
-				addReply("sapphireu",
-						"Zrobię to bez problemu. Proszę powiedzieć tylko #'oszlifuj sapphire'.");
-				addGoodbye("Dowidzenia.");
+				addGreeting("Hello there.");
+				addReply("master",
+						"The master has already told me. I'm going to work the #sapphire crystal.");
+				addReply("sapphire",
+						"I'll do it without a problem. Just say #'grind sapphire'.");
+				addGoodbye("GoodBye.");
 				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
 				requiredResources.put("money", 380);
 				requiredResources.put("sapphire crystal", 1);
@@ -68,11 +68,11 @@ public class SapphireNPC implements ZoneConfigurator {
 					requiredResources, 4 * 60);
 
 				new ProducerAdder().addProducer(this, behaviour,
-						"Dzień dobry.");
+						"Hello there.");
 				addReply("money",
-						"Z tym pytaniem proszę zwrócić się do mistrza Drogosza.");
+						"Please ask Master Drogosz with this question.");
 				addReply("sapphire crystal",
-						"Mistrza trzeba zapytać. On wie co, gdzie i jak.");
+						"You have to ask the master. He knows what, where and how.");
 			}
 		};
 

@@ -53,21 +53,21 @@ public class CarbuncleNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Dzień dobry.");
-				addReply("mistrz",
-						"Mistrz przysłał Wielmożność do mnie w sprawie rubyu? Obrobię go, wystarczy powiedzieć #'oszlifuj ruby'.");
+				addGreeting("Hello there.");
+				addReply("master",
+						"Master sent the Lord to me about ruby? I'll work it, just say #'grind ruby'.");
 				addGoodbye("Dowidzenia.");
 				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
 				requiredResources.put("money", 580);
-				requiredResources.put("kryształ rubyu", 1);
+				requiredResources.put("ruby crystal", 1);
 				
 				final ProducerBehaviour behaviour = new ProducerBehaviour("ziemirad_cast_crbuncle",
 						"grind", "ruby", requiredResources, 4 * 60);
 				
 				new ProducerAdder().addProducer(this, behaviour,
-						"Dzień dobry.");
+						"Hello there.");
 				addReply("money",
-						"Mistrz jest w tym temacie obeznany. Proszę jego zapytać.");
+						"The Master is familiar with this subject. Please ask him.");
 			}
 		};
 

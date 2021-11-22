@@ -73,17 +73,17 @@ public class WielkoludNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj wędrowcze.");
-				addJob("Poszukuję kogoś kto rozprawi się z tutejszymi #potworami.");
-				addReply("potworami", "Biega tu masa pokutników, a i lawiny kamienne nieraz przygniotły palce u mych stóp. Jeżeli chcesz mi pomóc to przyjmij moje #zadanie.");
-				addHelp("Skupuję różne przedmioty. Jeżeli masz coś to #zaoferuj mi to, poza tym mam dla ciebie małe #zadanie.");
+				addGreeting("Hello, adventurer.");
+				addJob("I am looking for someone to deal with the local #monsters.");
+				addReply("monsters", "A lot of penitents are running here, and the avalanches of stones have more than crushed my toes. If you want to help me, accept my #task.");
+				addHelp("I buy various items. If you have something, #offer it to me, besides, I have a small #task for you. ");
 				addOffer("Skupuję: kierpce 100, highlander's shawl 200, highlander chain 200, highlanders skirt 200, highlanders corset 300, highlander helmet 300, beech pants 300, polish light shield 500, polish wooden shield 500, ciupaga 1000, chaplet 1000, highlander belt 1000, polish chainmail 1000, polish plate shield 2000, spinka 2000, polish heavy shield 1500, złota ciupaga 5000 i cerimonial sword 1000000.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buyrareitems")), false);
-				addGoodbye("Dowidzenia kolego.");
+				addGoodbye("Goodbye buddy.");
 			}
 		};
 
-		npc.setDescription("Oto Wielkolud, strzeże dzikich ostępów Kościeliska.");
+		npc.setDescription("Here is the Wielkolud, guarding the wild backwoods of Kościelisko.");
 		npc.setEntityClass("npcwielkolud");
 		npc.setPosition(1, 75);
 		npc.initHP(1000);

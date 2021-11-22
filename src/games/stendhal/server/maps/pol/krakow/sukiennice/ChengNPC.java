@@ -58,17 +58,17 @@ public class ChengNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj tubylcze.");
-				addJob("Poszukuję rzadkich kamieni, ładnych wyrobów jubilerskich. Możesz coś #zaoferować.");
-				addHelp("Skupuję rzadkie kamienie i wyroby jubilerskie, jeżeli coś masz to #zaoferuj mi to.");
-				addOffer("Zaglądnij do księgi tam znajdziesz moją ofertę.");
-				addQuest("Hm... opowiedz mi o waszych zwyczajach (regulaminie PolskaOnLine).");
+				addGreeting("Hello natives.");
+				addJob("I am looking for rare stones, nice jewelry. You can #offer something. ");
+				addHelp("I buy rare stones and jewelery, if you have something, #offer it to me. ");
+				addOffer("Look at the book, there you will find my offer.");
+				addQuest("Hmm ... tell me about your habits.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buycheng")), false);
-				addGoodbye("Dowidzenia.");
+				addGoodbye("Goodbye.");
 			}
 		};
 
-		npc.setDescription("Oto Cheng kupiec z Chin.");
+		npc.setDescription("Here is Cheng a merchant from the Orient.");
 		npc.setEntityClass("npcwikary");
 		npc.setPosition(26, 30);
 		npc.setDirection(Direction.LEFT);

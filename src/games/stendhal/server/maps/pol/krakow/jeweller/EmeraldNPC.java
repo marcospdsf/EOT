@@ -53,12 +53,12 @@ public class EmeraldNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Dzień dobry.");
-				addReply("mistrz",
-						"Mistrz?? Tak, tak znam mistrza. Co potrzeba?");
+				addGreeting("Hello there.");
+				addReply("Master",
+						"Master?? Yes, yes I know the master. What do you need?");
 				addReply("emerald",
-						"Aaaa... mam obrobić emerald crystal. A może by tak ładnie poprosić #☺ coś w rodzaju #'oszlifuj emerald'.");    
-				addGoodbye("Dowidzenia.");
+						"Aaaa ... I have to process an emerald crystal. How about if you would like you could ask #'grind emerald'.");    
+				addGoodbye("Goodbye.");
 				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
 				requiredResources.put("money", 180);
 				requiredResources.put("emerald crystal", 1);
@@ -68,9 +68,9 @@ public class EmeraldNPC implements ZoneConfigurator {
 					requiredResources, 4 * 60);
 
 				new ProducerAdder().addProducer(this, behaviour,
-						"Dzień dobry.");
+						"Hello there.");
 				addReply("money",
-						"☺ Drogo? Nie drogo, mistrz Drogosz ma zamiar podnieść i tak cenę. Więc nie ma co się zastanawiać.");
+						"Expensive? Not expensive, Master Drogosz is going to raise the price anyway. So there's no need to wonder.");
 			}
 		};
 

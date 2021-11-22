@@ -50,11 +50,11 @@ public class KowalJacekNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Cześć!");
-				addJob("Jak widzisz kowala życie nie jest łatwe, masę roboty mam.");
-				addHelp("Ja ci? Chyba raczej ty mi.");
-				addOffer("Nie mam nic do zaoferowania!");
-				addGoodbye("Dowidzenia.");
+				addGreeting("HI!");
+				addJob("As you can see a blacksmith, life is not easy, I have a lot to do.");
+				addHelp("Me? I guess you'd rather me.");
+				addOffer("I have nothing to offer!");
+				addGoodbye("Goddbye.");
 			}
 		};
 

@@ -63,18 +63,18 @@ public class JozekNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj.");
-				addJob("Może chcesz #ulepszyć #'złotą ciupagę'? Mogę to dla Ciebie wykonać.");
-				addReply(Arrays.asList("ulepsz", "ulepszyć", "złotą ciupagę"), "Potrzebnych jest mi kilka rzeczy, więc musisz wykonać #zadanie.");
-				addHelp("Zajmuję się ulepszaniem złotej ciupagi.");
-				addGoodbye("Życzę powodzenia.");
+				addGreeting("Welcome.");
+				addJob("Maybe you want to #upgrade #'golden ciupaga'? I can do it for you .");
+				addReply(Arrays.asList("upgrade", "ulepszyć", "golden ciupaga"), "I need a few things so you have to do the #task.");
+				addHelp("I deal with the improvement of the golden ciupaga.");
+				addGoodbye("Good luck.");
 			}
 		};
 
 		jozekNPC.setEntityClass("weaponsellernpc");
 		jozekNPC.setPosition(6, 2);
 		jozekNPC.initHP(1000);
-		jozekNPC.setDescription("Oto Jóżek, który jest w stanie ulepszyć twoją złotą ciupagę.");
+		jozekNPC.setDescription("Here is Jozek that can upgrade your golden ciupaga.");
 		zone.add(jozekNPC);
 	}
 }

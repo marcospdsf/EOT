@@ -69,14 +69,14 @@ public class ZakonnikNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj na terenie zakonu cienia.");
-				addJob("Nie ja nic nie mam dziś dla ciebie.");
-				addHelp("Pomocy? też nie potrzebuje.");
-				addGoodbye("Dowidzenia kolego.");
+				addGreeting("Welcome to the Order of the Shadow.");
+				addJob("I don't have anything for you today.");
+				addHelp("Help? also does not need.");
+				addGoodbye("Goodbye friend.");
 			}
 		};
 
-		npc.setDescription("Oto Zakonnik.");
+		npc.setDescription("You see Zakonnik.");
 		npc.setEntityClass("npczakonnik");
 		npc.setPosition(118, 3);
 		npc.initHP(1000);

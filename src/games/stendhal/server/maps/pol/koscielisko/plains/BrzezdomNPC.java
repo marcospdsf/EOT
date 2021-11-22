@@ -61,11 +61,11 @@ public class BrzezdomNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Zagadka tu, zagadka tam, kto je rozwiąże będzie chłop na schwał!");
-				addJob("Błąkam się po górach lasach, zwiedzam, podpatruję, wszystko w mym notesie zapisuję.");
-				addHelp("Stawiam pytania, oczekuję odpowiedzi. Mam dla ciebie małe zadanie.");
-				addOffer("Nie mam nic do zaoferowania!");
-				addGoodbye("Dowidzenia, czytaj legendy.");
+				addGreeting("A riddle here, a riddle there, who will solve them will be glorious peasant!");
+				addJob("I wander in the mountains, forests, visit, observe, write down everything in my notebook.");
+				addHelp("I ask questions, expect answers. I have a little task for you.");
+				addOffer("I have nothing to offer!");
+				addGoodbye("Goodbye, read the legends!.");
 			}
 		};
 

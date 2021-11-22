@@ -54,15 +54,15 @@ public class SilverNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog(){
 				addGreeting("Witaj!");
-				addJob("Jesteśmy znanym zakładem złotniczym. Ja i moi czeladnicy zajmujemy się obróbką wielu kamieni szlachetnych\n"
-					+ "i tak ja obrabiam rudę srebra, wystarczy, że powiesz #odlej.\n"
-					+ "Ziemirad zajmuje się obrabianiem kryształy rubyu.\n"
-					+ "Sobek jest bardzo dobry w obróbce kryształów obsidianu.\n"
-					+ "Mieszek, ☺ ach ten Mieszek, kawalarz z niego, ale do rzeczy. On obrobi Tobie emerald crystal.\n"
-					+ "No i najzdolniejszy z całej czwórki Krzesim, zdolności swe poświęcił kryształom sapphireu.\n"
-					+ "Jeżeli chcesz obrobić któryś z tych kamieni to podejdź i powiedz #mistrz, a czeladnicy będą wiedzieć, że ja ciebie wysłałem.");
-				addHelp ("Jakiego typu pomocy oczekujesz? Jeżeli chcesz się czegoś dowiedzieć czym się zajmuję to powiedz #praca, a chętnie opowiem.");
-				addGoodbye("Dowidzenia.");
+				addJob("We are a famous goldsmith's workshop. My journeymen and I deal with the processing of many precious stones\n"
+					+ "I work silver ore anyway, just say #cast.\n"
+					+ "Ziemirad is engaged in processing ruby crystals.\n"
+					+ "Sobek is very good at working with obsidian crystals.\n"
+					+ "Mieszko, oh that Mieszko, a bachelor of him, but to the point. He will process you an emerald crystal.\n"
+					+ "And the most talented of the four, Krzesim, devoted his abilities to sapphire crystals.\n"
+					+ "If you want to work any of these stones, come over and say #master and the journeymen will know that I sent you.");
+				addHelp ("What kind of help do you expect? If you want to know something about what I do, say #cast, and I will be happy to tell you.");
+				addGoodbye("Goodbye.");
 
 				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
 				requiredResources.put("wood", 2);
@@ -74,13 +74,13 @@ public class SilverNPC implements ZoneConfigurator {
 					requiredResources, 10 * 60);
 
 				new ProducerAdder().addProducer(this, behaviour,
-						"Pozdrawiam. Sądzę, że jesteś zainteresowany srebrem. Jeżeli tak to zapytaj mnie o #'pomoc'.");
+						"Regards. I guess you are interested in silver. If so, ask me for # 'help'.");
 				addReply("wood",
-						"Musisz Drwala się zapytać. On wie jak zdobyć drzewo.");
+						"You have to ask the Lumberjack. He knows how to get a tree.");
 				addReply("silver ore",
-						"Jak mi wiadomo kamienie szlachetne wszelkiej maści znajdują się w kopalniach. Mój stary przyjaciel #Bercik może więcej o nich opowiedzieć.");
+						"As far as I know, all kinds of precious stones are found in mines. My old friend #Bercik can tell you more about them.");
 				addReply("Bercik",
-						"Bercika znajdziesz na kościelisku niedaleko Zakopanego. Pamintm, że wokoło kręciło się sporo białych tygrysów.");
+						"You will find Bercik at the church near Zakopane. I remember there were a lot of white tigers around.");
 			}
 		};
 
