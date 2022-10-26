@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                      (C) Copyright 2003 - Marauroa                      *
+ *                   (C) Copyright 2003-2022 - Marauroa                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -12,18 +11,13 @@
  ***************************************************************************/
 package games.stendhal.server.entity;
 
-import static games.stendhal.common.Constants.KARMA_SETTINGS;
-import static games.stendhal.common.constants.General.COMBAT_KARMA;
-
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.WeakHashMap;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -59,7 +53,6 @@ import games.stendhal.server.entity.item.Corpse;
 import games.stendhal.server.entity.item.Item;
 import games.stendhal.server.entity.item.StackableItem;
 import games.stendhal.server.entity.mapstuff.portal.Portal;
-import games.stendhal.server.entity.npc.TrainingDummy;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.entity.slot.EntitySlot;
 import games.stendhal.server.entity.slot.Slots;
@@ -80,7 +73,11 @@ import marauroa.server.db.command.DBCommandQueue;
 import marauroa.server.game.Statistics;
 import marauroa.server.game.db.DAORegister;
 
-public abstract class RPEntity extends GuidedEntity {
+public abstract class RPEntity extends CombatEntity {
+
+	/** the logger instance. */
+	private static final Logger logger = Logger.getLogger(RPEntity.class);
+
 	/**
 	 * The title attribute name.
 	 */
@@ -95,15 +92,9 @@ public abstract class RPEntity extends GuidedEntity {
 	private static final float SHIELD_DEF_MULTIPLIER = 4.0f;
 	private static final float RING_DEF_MULTIPLIER = 1.0f;
 	private static final float RING2_DEF_MULTIPLIER = 1.0f;
-	/**
-	 * To prevent players from gaining attack and defense experience by fighting
-	 * against very weak creatures, they only gain atk and def xp for so many
-	 * turns after they have actually been damaged by the enemy. //
-	 */
-	private static final int TURNS_WHILE_FIGHT_XP_INCREASES = 22;
-	/** the logger instance. */
-	private static final Logger logger = Logger.getLogger(RPEntity.class);
 	private static Statistics stats;
+
+	protected static final int HIT_CHANCE_MULTIPLIER = 20;
 
 	private String name;
 	protected int atk;
@@ -130,14 +121,7 @@ public abstract class RPEntity extends GuidedEntity {
 	protected ImmutableList<StatusAttacker> statusAttackers = ImmutableList.of();
 	/** a list of current statuses */
 	protected StatusList statusList;
-	/**
-	 * Maps each enemy which has recently damaged this RPEntity to the turn when
-	 * the last damage has occurred.
-	 *
-	 * You only get ATK and DEF experience by fighting against a creature that
-	 * is in this list.
-	 */
-	private final Map<RPEntity, Integer> enemiesThatGiveFightXP;
+
 	/** List of all enemies that are currently attacking this entity. */
 	private final List<Entity> attackSources;
 	/** the enemy that is currently attacked by this entity. */
@@ -181,6 +165,8 @@ public abstract class RPEntity extends GuidedEntity {
 	 * weak enemies
 	 */
 	private static final double WEIGHT_EFFECT = 0.5;
+	
+	public static float SERVER_XP_INCREASE = 1f;
 
 	/**
 	 * A helper class for building a size limited list of killer names. If there
@@ -296,7 +282,6 @@ public abstract class RPEntity extends GuidedEntity {
 		super(object);
 		attackSources = new ArrayList<>();
 		damageReceived = new CounterMap<>(true);
-		enemiesThatGiveFightXP = new WeakHashMap<>();
 		totalDamageReceived = 0;
 	}
 
@@ -304,7 +289,6 @@ public abstract class RPEntity extends GuidedEntity {
 		super();
 		attackSources = new ArrayList<>();
 		damageReceived = new CounterMap<>(true);
-		enemiesThatGiveFightXP = new WeakHashMap<>();
 		totalDamageReceived = 0;
 	}
 
@@ -566,7 +550,7 @@ public abstract class RPEntity extends GuidedEntity {
 	 * @return The number of hitpoints that the target should lose. 0 if the
 	 *         attack was completely blocked by the defender.
 	 */
-	int damageDone(RPEntity defender, double attackingWeaponsValue, Nature damageType,
+	protected int damageDone(RPEntity defender, double attackingWeaponsValue, Nature damageType,
 			boolean isRanged, int maxRange) {
 		// Don't start from 0 to mitigate weird behaviour at very low levels
 		final int effectiveAttackerLevel = getLevel() + 5;
@@ -589,23 +573,8 @@ public abstract class RPEntity extends GuidedEntity {
 		 */
 		final int levelDifferenceToNotNeedKarmaDefending = (int) (IGNORE_KARMA_MULTIPLIER * defender.getLevel());
 
-		// this attribute determines how karma is used in combat
-		String karmaMode = null;
-		if (defender.has(COMBAT_KARMA)) {
-			karmaMode = defender.get(COMBAT_KARMA);
-		}
-
-		boolean useKarma = false;
-		if (karmaMode == null || karmaMode.equals(KARMA_SETTINGS.get(1))) {
-			if (!(effectiveDefenderLevel - levelDifferenceToNotNeedKarmaDefending  > effectiveAttackerLevel)) {
-				useKarma = true;
-			}
-		} else if (karmaMode.equals(KARMA_SETTINGS.get(2))) {
-			useKarma = true;
-		}
-
 		// using karma here decreases damage done by enemy
-		if (useKarma) {
+		if (!(effectiveDefenderLevel - levelDifferenceToNotNeedKarmaDefending  > effectiveAttackerLevel)) {
 			defence += defence * defender.useKarma(0.1);
 		}
 
@@ -657,22 +626,8 @@ public abstract class RPEntity extends GuidedEntity {
 		 */
 		final int levelDifferenceToNotNeedKarmaAttacking = (int) (IGNORE_KARMA_MULTIPLIER * getLevel());
 
-		karmaMode = null;
-		if (this.has(COMBAT_KARMA)) {
-			karmaMode = this.get(COMBAT_KARMA);
-		}
-
-		useKarma = false;
-		if (karmaMode == null || karmaMode.equals(KARMA_SETTINGS.get(1))) {
-			if (!(effectiveAttackerLevel - levelDifferenceToNotNeedKarmaAttacking > effectiveDefenderLevel)) {
-				useKarma = true;
-			}
-		} else if (karmaMode.equals(KARMA_SETTINGS.get(2))) {
-			useKarma = true;
-		}
-
 		// using karma here increases damage to enemy
-		if (useKarma) {
+		if (!(effectiveAttackerLevel - levelDifferenceToNotNeedKarmaAttacking > effectiveDefenderLevel)) {
 			attack += attack * useKarma(0.1);
 		}
 
@@ -1363,25 +1318,6 @@ public abstract class RPEntity extends GuidedEntity {
 		}
 	}
 
-	public boolean getsFightXpFrom(final RPEntity enemy) {
-		if (enemy instanceof TrainingDummy) {
-			// training dummies always give fight XP
-			return true;
-		}
-
-		final Integer turnWhenLastDamaged = enemiesThatGiveFightXP.get(enemy);
-		if (turnWhenLastDamaged == null) {
-			return false;
-		}
-		final int currentTurn = SingletonRepository.getRuleProcessor()
-				.getTurn();
-		if (currentTurn - turnWhenLastDamaged > TURNS_WHILE_FIGHT_XP_INCREASES) {
-			enemiesThatGiveFightXP.remove(enemy);
-			return false;
-		}
-		return true;
-	}
-
 	public void stopAttacking(final Entity attacker) {
 		if (attacker.has("target")) {
 			attacker.remove("target");
@@ -1733,7 +1669,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 				reward = 1;
 			}
 
-			killer.addXP(reward);
+			killer.addXP((reward * SERVER_XP_INCREASE));
 
 			// For some quests etc., it is required that the player kills a
 			// certain creature without the help of others.
@@ -2854,13 +2790,6 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	 * Retrieves total ATK value of held weapons.
 	 */
 	public float getItemAtk() {
-		/** int weapon = 0;
-		final List<Item> weapons = getWeapons();
-		for (final Item weaponItem : weapons) {
-			weapon += weaponItem.getAttack();
-		} **/
-
-	
 		int ring = 0;
 		int ring2 = 0;
 		int weapon = 0;
@@ -3659,7 +3588,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	 * @return a predicate for matching the name
 	 */
 	private Predicate<Item> nameMatches(String name) {
-		return it -> name.equals(it.getName());
+		return it -> name.equalsIgnoreCase(it.getName());
 	}
 
 	/**

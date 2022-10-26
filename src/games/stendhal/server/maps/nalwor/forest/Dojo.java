@@ -1,5 +1,5 @@
 /***************************************************************************
- *                     Copyright © 2020 - Arianne                          *
+ *                   Copyright © 2003-2020 - Arianne                       *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -276,11 +276,19 @@ public class Dojo implements ZoneConfigurator {
 
 	/**
 	 * Calculates the amount of time player can spend in dojo.
+	 *
+	 * - below level 60: 20 minutes
+	 * - levels 60 & above: 24 minutes
+	 *
+	 * @param player
+	 *     Player that wants to train.
+	 * @return
+	 *     Time in seconds player is allowed to train.
 	 */
 	private int calculateTrainTime(final Player player) {
 		int trainTime = BASE_TRAIN_TIME;
 
-		if (player.getLevel() >= 60) {
+		if (player.getLevel() > 59) {
 			trainTime = trainTime + 4;
 		}
 

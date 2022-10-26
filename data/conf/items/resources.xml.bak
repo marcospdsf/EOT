@@ -280,6 +280,46 @@
       <slot name="trade"/>
     </equipable>
   </item>
+  	
+	<item name="silver ore">
+		<type class="resource" subclass="silver_ore" tileid="-1"/>
+		<description>You see a silver ore. You can melt a silver bar from it.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+		<attributes>
+			<quantity value="1"/>
+			<max_quantity value="2147483647"/>
+		</attributes>
+		<weight value="2.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
+	<item name="silver bar">
+		<type class="resource" subclass="silver_bar" tileid="-1"/>
+		<description>You see a silver bar. It is worth a lot and is suitable for making decorations and even weapons.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+		<attributes>
+			<quantity value="1"/>
+			<max_quantity value="2147483647"/>
+		</attributes>
+		<weight value="2.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
 
   <item name="golden egg">
     <type class="resource" subclass="golden_egg" tileid="-1"/>
@@ -579,9 +619,28 @@
       <slot name="rhand"/>
     </equipable>
   </item>
+  
+  <item name="feather">
+    <type class="resource" subclass="feather" tileid="-1"/>
+    <description/>
+    <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>    <attributes>
+      <quantity value="1"/>
+    </attributes>
+    <weight value="0.5"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
 
   <!-- PolishResources -->
   
+  <!-- Unsude 
   <item name="kartka (200) ataku">
 		<type class="resource" subclass="kartka_atak_200" tileid="-1"/>
 		<description>To kartka (200) ataku. Poszukaj kogoś kto w zamian za to nauczy cie jak walczyć.</description>
@@ -780,71 +839,33 @@
 			<slot name="bag"/>
 			<slot name="trade"/>
 		</equipable>
-	</item>
+	</item>  
 	
-	<item name="ruda srebra">
-		<type class="resource" subclass="silver_ore" tileid="-1"/>
-		<description>Oto ruda srebra. Możesz z niej wytopić sztabę srebra.</description>
-		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
-		<attributes>
-			<quantity value="1"/>
-			<max_quantity value="2147483647"/>
-		</attributes>
-		<weight value="2.0"/>
-		<value value="1"/>
-		<equipable>
-			<slot name="ground"/>
-			<slot name="content"/>
-			<slot name="lhand"/>
-			<slot name="rhand"/>
-			<slot name="bag"/>
-			<slot name="trade"/>
-		</equipable>
-	</item>
+	-->
 
-	<item name="sztabka srebra">
-		<type class="resource" subclass="silver_bar" tileid="-1"/>
-		<description>Oto sztabka srebra. Jest sporo warta i nadaje się do wyrobu ozdób, a nawet broni.</description>
-		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
-		<attributes>
-			<quantity value="1"/>
-			<max_quantity value="2147483647"/>
-		</attributes>
-		<weight value="2.0"/>
-		<value value="1"/>
-		<equipable>
-			<slot name="ground"/>
-			<slot name="content"/>
-			<slot name="lhand"/>
-			<slot name="rhand"/>
-			<slot name="bag"/>
-			<slot name="trade"/>
-		</equipable>
-	</item>
-
-	<item name="puciera">
-		<type class="resource" subclass="puciera" tileid="-1"/>
-		<description>Puciera to wielki garniec, w którym ścina się mleko na bunc.</description>
-		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
-		<attributes>
-			<quantity value="1"/>
-			<max_quantity value="2147483647"/>
-		</attributes>
-		<weight value="2.0"/>
-		<value value="1"/>
-		<equipable>
-			<slot name="ground"/>
-			<slot name="content"/>
-			<slot name="lhand"/>
-			<slot name="rhand"/>
-			<slot name="bag"/>
-			<slot name="trade"/>
-		</equipable>
-	</item>
-
-	<item name="grudziarka">
+	<!-- <item name="grudziarka">
 		<type class="resource" subclass="grudziarka" tileid="-1"/>
 		<description>To ścierka płócienna do przecedzania ściętego mleka.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+		<attributes>
+			<quantity value="1"/>
+			<max_quantity value="2147483647"/>
+		</attributes>
+		<weight value="2.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+	
+	<item name="pot">
+		<type class="resource" subclass="pot" tileid="-1"/>
+		<description>It is a big pot, for trying to make cheese.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<quantity value="1"/>
@@ -1800,6 +1821,5 @@
 			<slot name="bag"/>
 			<slot name="trade"/>
 		</equipable>
-	</item>
-
+	</item> -->
 </items>

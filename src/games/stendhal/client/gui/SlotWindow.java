@@ -12,8 +12,13 @@
  ***************************************************************************/
 package games.stendhal.client.gui;
 
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.geom.Rectangle2D;
+
+import javax.swing.SwingUtilities;
+
+import org.apache.log4j.Logger;
 
 import games.stendhal.client.StendhalClient;
 import games.stendhal.client.entity.IEntity;
@@ -25,6 +30,9 @@ import marauroa.common.game.RPObject;
  * A window for showing contents of an entity's slot in a grid of ItemPanels
  */
 public class SlotWindow extends InternalManagedWindow implements Inspectable {
+
+	private static Logger logger = Logger.getLogger(SlotWindow.class);
+
 	/**
 	 * when the player is this far away from the container, the panel is closed.
 	 */
@@ -40,11 +48,49 @@ public class SlotWindow extends InternalManagedWindow implements Inspectable {
 	 * @param width number of slot columns
 	 * @param height number of slot rows
 	 */
-	public SlotWindow(String title, int width, int height) {
+	public SlotWindow(final String title, final int width, final int height) {
 		super(title, title);
 
 		content = new SlotGrid(width, height);
 		setContent(content);
+	}
+
+	protected void setSlotsLayout(final int width, final int height) {
+		content.setSlotsLayout(width, height);
+		setContent(content);
+
+		final String slotName = content.getSlotName();
+		if (parent != null && slotName != null) {
+			content.setSlot(parent, slotName);
+		}
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				revalidate();
+				repaint();
+			}
+		});
+
+		// workaround to update component sizes
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					logger.error(e, e);
+				}
+				SwingUtilities.invokeLater(new Runnable() {
+					@Override
+					public void run() {
+						Component window = SwingUtilities.getRoot(getParent());
+						window.doLayout();
+						window.revalidate();
+						window.repaint();
+					}
+				});
+			}
+		}).start();
 	}
 
 	/**

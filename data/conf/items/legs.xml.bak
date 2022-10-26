@@ -22,7 +22,7 @@
       <slot name="legs"/>
     </equipable>
   </item>
-	
+
   <item name="blue legs">
     <type class="legs" subclass="blue_legs" tileid="-1"/>
     <description>You see a pair of shiny new blue legs.</description>
@@ -41,7 +41,7 @@
       <slot name="trade"/>
     </equipable>
   </item>
-	
+
   <item name="chain legs">
     <type class="legs" subclass="chain_legs" tileid="-1"/>
     <description>You see a pair of well made chain legs. They should protect you against any attacks aimed low.</description>
@@ -59,7 +59,7 @@
       <slot name="trade"/>
     </equipable>
   </item>
-	
+
   <item name="chaos legs">
     <type class="legs" subclass="chaos_legs" tileid="-1"/>
     <description>You see a pair of chaos legs. The strange colours confuse you.</description>
@@ -78,7 +78,7 @@
       <slot name="legs"/>
     </equipable>
   </item>
-  
+
   <item name="dwarvish legs">
     <type class="legs" subclass="dwarvish_legs" tileid="-1"/>
     <description>You see a pair of dwarvish legs, designed by master craftsmen.</description>
@@ -97,7 +97,7 @@
       <slot name="trade"/>
     </equipable>
   </item>
-  
+
   <item name="elvish legs">
     <type class="legs" subclass="elvish_legs" tileid="-1"/>
     <description>You see a pair of elvish legs.</description>
@@ -116,7 +116,7 @@
       <slot name="trade"/>
     </equipable>
   </item>
-  
+
   <item name="golden legs">
     <type class="legs" subclass="golden_legs" tileid="-1"/>
     <description>You see a pair of shining, strong golden legs.</description>
@@ -135,7 +135,7 @@
       <slot name="trade"/>
     </equipable>
   </item>
-  
+
   <item name="jewelled legs">
     <type class="legs" subclass="jewelled_legs" tileid="-1"/>
     <description>You see a beautiful pair of jewelled legs. A large red gem glints at you and they're encrusted all over with sapphires.</description>
@@ -154,7 +154,7 @@
       <slot name="legs"/>
     </equipable>
   </item>
-  
+
   <item name="leather legs">
     <type class="legs" subclass="leather_legs" tileid="-1"/>
     <description>You see a pair of leather legs. They look new but they're poor quality.</description>
@@ -214,7 +214,7 @@
       <slot name="legs"/>
     </equipable>
   </item>
-  
+
   <item name="mithril legs">
     <type class="legs" subclass="mithril_legs" tileid="-1"/>
     <description>You see a pair of mithril legs. They will serve you well.</description>
@@ -235,7 +235,7 @@
       <slot name="legs"/>
     </equipable>
   </item>
-  
+
   <item name="red legs">
     <type class="legs" subclass="red_legs" tileid="-1"/>
     <description>A pair of red legs are in your grasp.</description>
@@ -254,14 +254,13 @@
     </equipable>
   </item>
 
-<!-- Atlantis not ready
   <item name="royal legs">
     <type class="legs" subclass="royal_legs" tileid="-1"/>
     <description>You see a pair of royal legs.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="16"/>
-      <min_level value="200"/>
+      <min_level value="250"/>
     </attributes>
     <weight value="25.0"/>
     <value value="23625"/>
@@ -277,7 +276,6 @@
       <slot name="legs"/>
     </equipable>
   </item>
--->
 
   <item name="shadow legs">
     <type class="legs" subclass="shadow_legs" tileid="-1"/>
@@ -320,7 +318,7 @@
       <slot name="trade"/>
     </equipable>
   </item>
-  
+
   <item name="studded legs">
     <type class="legs" subclass="studded_legs" tileid="-1"/>
     <description>You see a pair of blood stained studded legs. You're not sure if the blood came from their last owner ... or his enemies.</description>

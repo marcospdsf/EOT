@@ -1,5 +1,5 @@
 /***************************************************************************
- *                   (C) Copyright 2003-2017 - Marauroa                    *
+ *                   (C) Copyright 2003-2022 - Marauroa                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -193,7 +193,7 @@ public abstract class RPEntity extends AudibleEntity {
 	 * The outfit code.
 	 */
 	private String outfit_ext;
-	private int outfit;
+	private int outfit_old;
 
 	private int baseHP;
 
@@ -259,12 +259,15 @@ public abstract class RPEntity extends AudibleEntity {
 	private boolean castShadow = true;
 	private String shadowStyle;
 
+	private static final boolean testclient = System.getProperty("stendhal.testclient") != null;
+
 	/** Possible attack results. */
 	public enum Resolution {
 		HIT,
 		BLOCKED,
 		MISSED;
 	}
+
 
 	/** Creates a new game entity. */
 	RPEntity() {
@@ -389,7 +392,7 @@ public abstract class RPEntity extends AudibleEntity {
 	public int getRatkXP() {
 		return ratkXP;
 	}
-	
+
 	/**
 	 * Get the ratio of HP to base HP.
 	 *
@@ -434,13 +437,24 @@ public abstract class RPEntity extends AudibleEntity {
 	}
 
 	/**
-	 * Get the outfit code.
+	 * Get the old outfit code.
 	 *
 	 * @return The outfit code.
 	 */
+	public int getOldOutfitCode() {
+		return outfit_old;
+	}
+
+	/**
+	 * Get the outfit code.
+	 *
+	 * @return The outfit code.
+	 * @deprecated
+	 *     Use {@link #getOldOutfitCode()}.
+	 */
 	@Deprecated
 	public int getOutfit() {
-		return outfit;
+		return getOldOutfitCode();
 	}
 
 	/**
@@ -907,7 +921,7 @@ public abstract class RPEntity extends AudibleEntity {
 
 		// Scene settings messages should not disturb playing, just create some atmosphere
 		if (type != NotificationType.SCENE_SETTING) {
-			ClientSingletonRepository.getUserInterface().addGameScreenText(
+			ClientSingletonRepository.getScreenController().addText(
 					getX() + (getWidth() / 2.0), getY(),
 					text.replace("|", ""), type, false);
 		}
@@ -961,9 +975,16 @@ public abstract class RPEntity extends AudibleEntity {
 
 			text = trimText(text);
 
-			ClientSingletonRepository.getUserInterface().addGameScreenText(
+			if (testclient) {
+				// add stationary speech bubble
+				ClientSingletonRepository.getScreenController().addText(
 					getX() + getWidth(), getY(), text,
 					NotificationType.NORMAL, true);
+			} else {
+				// add speech bubble that follows entity
+				ClientSingletonRepository.getScreenController().addText(
+					this, text, NotificationType.NORMAL, true);
+			}
 		}
 	}
 
@@ -1067,9 +1088,9 @@ public abstract class RPEntity extends AudibleEntity {
 		}
 
 		if (object.has("outfit")) {
-			outfit = object.getInt("outfit");
+			outfit_old = object.getInt("outfit");
 		} else {
-			outfit = OUTFIT_UNSET;
+			outfit_old = OUTFIT_UNSET;
 		}
 
 		/*
@@ -1228,7 +1249,7 @@ public abstract class RPEntity extends AudibleEntity {
 					fireChange(PROP_OUTFIT);
 				}
 				if (changes.has("outfit")) {
-					outfit = changes.getInt("outfit");
+					outfit_old = changes.getInt("outfit");
 				}
 
 				fireChange(PROP_OUTFIT);
@@ -1499,7 +1520,7 @@ public abstract class RPEntity extends AudibleEntity {
 			ClientSingletonRepository.getUserInterface().addEventLine(new HeaderLessEventLine(text,
 					NotificationType.SIGNIFICANT_POSITIVE));
 
-			ClientSingletonRepository.getUserInterface().addGameScreenText(
+			ClientSingletonRepository.getScreenController().addText(
 					getX() + (getWidth() / 2.0), getY(),
 					text, NotificationType.SIGNIFICANT_POSITIVE, false);
 		}
@@ -1532,7 +1553,7 @@ public abstract class RPEntity extends AudibleEntity {
 				outfit_ext = null;
 			}
 			if (changes.has("outfit")) {
-				outfit = OUTFIT_UNSET;
+				outfit_old = OUTFIT_UNSET;
 				/*
 				outfitMouth = OUTFIT_UNSET;
 				outfitEyes = OUTFIT_UNSET;
@@ -1632,6 +1653,6 @@ public abstract class RPEntity extends AudibleEntity {
 			return null;
 		}
 
-		return "data/sprites/shadow/shadow-" + shadowStyle + ".png";
+		return "data/sprites/shadow/" + shadowStyle + ".png";
 	}
 }

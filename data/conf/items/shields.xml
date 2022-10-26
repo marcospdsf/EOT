@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
 <items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="stendhal ../items.xsd ">
+    xsi:schemaLocation="stendhal ../equipment.xsd">
 
   <item name="black shield">
     <type class="shield" subclass="black_shield" tileid="-1"/>
@@ -50,6 +51,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="6"/>
+      <min_level value="0"/>
     </attributes>
     <weight value="12.0"/>
     <value value="1512"/>
@@ -189,6 +191,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="16"/>
+      <min_level value="3"/>
     </attributes>
     <weight value="24.0"/>
     <value value="28672"/>
@@ -252,7 +255,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="45"/>
-      <min_level value="250"/>
+      <min_level value="330"/>
     </attributes>
     <weight value="30.0"/>
     <value value="718616"/>
@@ -274,6 +277,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="14"/>
+      <min_level value="2"/>
     </attributes>
     <weight value="24.0"/>
     <value value="19208"/>
@@ -313,7 +317,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="41"/>
-      <min_level value="250"/>
+      <min_level value="150"/>
     </attributes>
     <weight value="24.0"/>
     <value value="448000"/>
@@ -379,6 +383,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="12"/>
+      <min_level value="1"/>
     </attributes>
     <weight value="15.0"/>
     <value value="12096"/>
@@ -398,6 +403,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="18"/>
+      <min_level value="4"/>
     </attributes>
     <weight value="24.0"/>
     <value value="40824"/>
@@ -419,6 +425,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="10"/>
+      <min_level value="0"/>
     </attributes>
     <weight value="12.0"/>
     <value value="7000"/>
@@ -451,15 +458,15 @@
       <slot name="rhand"/>
     </equipable>
   </item>
-  
+
   <item name="ice shield">
     <type class="shield" subclass="ice_shield" tileid="-1"/>
-    <description></description>
+    <description/>
     <implementation class-name="games.stendhal.server.entity.item.StatusResistantItem"/>
     <attributes>
       <def value="40"/>
-      <min_level value="110"/>
-      <status_resist type="poisoned" value="0.50" slots="lhand;rhand;"/>
+      <status_resist slots="lhand;rhand;" type="poisoned" value="0.50"/>
+      <min_level value="100"/>
     </attributes>
     <susceptibility type="ice" value="0.9"/>
     <susceptibility type="fire" value="1.15"/>
@@ -480,6 +487,7 @@
     <description>You see a black dragon shield. You will most surely be protected.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
       <def value="52"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="10.0"/>
     <value value="732476"/>
@@ -498,6 +506,7 @@
     <description>You see a red dragon shield. You will most surely be protected.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
       <def value="43"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="10.0"/>
     <value value="752476"/>
@@ -516,6 +525,7 @@
     <description>You see a blue dragon shield. You will most surely be protected.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
       <def value="38"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="10.0"/>
     <value value="762476"/>
@@ -534,6 +544,7 @@
     <description>You see an fairy shield. It looks like one big tree leaf!</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
       <def value="41"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="34.0"/>
     <value value="275128"/>
@@ -552,6 +563,7 @@
     <description>You see a blue magic shield. Its has a magical quality surrounding it.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
       <def value="45"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="14.0"/>
     <value value="265128"/>
@@ -570,6 +582,7 @@
     <description>You see a golden magic shield. Its has a magical quality surrounding it.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
       <def value="46"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="12.0"/>
     <value value="428000"/>
@@ -588,6 +601,7 @@
     <description>The face of a blood skull scowls at you from this fearsome skull shield.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
       <def value="21"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="26.0"/>
     <value value="73536"/>
@@ -606,6 +620,7 @@
     <description>The face of a golden blood skull scowls at you from this fearsome skull shield.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
       <def value="38"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="27.0"/>
     <value value="75536"/>
@@ -624,6 +639,7 @@
     <description>You see a mighty golden crown shield. It is in perfect condition.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
       <def value="29"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="26.0"/>
     <value value="97768"/>
@@ -642,6 +658,7 @@
     <description>You see a green snake shield.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
       <def value="43"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="24.0"/>
     <value value="136768"/>
@@ -660,6 +677,7 @@
     <description>The face of a golden devilknights clan shield.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
       <def value="54"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="42.0"/>
     <value value="83536"/>
@@ -678,6 +696,7 @@
     <description>ou see a golden unicorn shield.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
       <def value="56"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="12.0"/>
     <value value="33536"/>
@@ -699,6 +718,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="45"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="24.0"/>
     <value value="40824"/>
@@ -720,6 +740,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="42"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="24.0"/>
     <value value="40824"/>
@@ -741,6 +762,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="39"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="24.0"/>
     <value value="40824"/>

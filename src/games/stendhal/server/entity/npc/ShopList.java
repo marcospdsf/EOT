@@ -22,6 +22,11 @@ import java.util.Set;
  * Singleton class that contains inventory and prices of NPC stores.
  */
 public final class ShopList {
+	
+	/** The singleton instance. */
+	private static ShopList instance;
+
+private final Map<String, Map<String, Integer>> contents;
 
 	static {
 		final ShopList shops = ShopList.get();
@@ -681,8 +686,6 @@ public final class ShopList {
 		shops.add("buyanimalmaterials", "mythical egg", 2500);
 	}
 
-	private static ShopList instance;
-
 	/**
 	 * Returns the Singleton instance.
 	 *
@@ -695,8 +698,9 @@ public final class ShopList {
 		return instance;
 	}
 
-	private final Map<String, Map<String, Integer>> contents;
-
+	/**
+	 * Hidden singleton constructor.
+	 */
 	private ShopList() {
 		contents = new HashMap<String, Map<String, Integer>>();
 	}

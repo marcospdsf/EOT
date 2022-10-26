@@ -82,7 +82,7 @@
   </item>
 
   <item name="diamond">
-    <type class="jewellery" subclass="greater_brilliant" tileid="-1"/>
+    <type class="jewellery" subclass="diamond" tileid="-1"/>
     <description>You see a diamond, not just a beautiful gem but also the hardest naturally occurring material .</description>
     <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
     <attributes>
@@ -100,7 +100,7 @@
       <slot name="rhand"/>
     </equipable>
   </item>
-  
+
    <item name="black pearl">
     <type class="jewellery" subclass="blackpearl" tileid="-1"/>
     <description>You see a black pearl, so dark and shiny.</description>
@@ -394,9 +394,9 @@
 		</equipable>
 	</item>
 
-	<item name="ruby crystal">
+	<item name="carbuncle crystal">
 		<type class="jewellery" subclass="carbuncle_crystal" tileid="-1"/>
-		<description>You see a ruby crystal, a precious uncut gem.</description>
+		<description>You see a carbuncle crystal, a precious uncut gem.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<quantity value="1"/>

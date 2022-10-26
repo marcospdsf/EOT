@@ -13,6 +13,7 @@
 package games.stendhal.client.gui.j2d.entity;
 
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -51,6 +52,8 @@ class NPC2DView<T extends NPC> extends RPEntity2DView<T> {
 	 */
 	private Sprite ideaSprite;
 
+	private List<String> animatedSprites = Arrays.asList("love");
+
 	//
 	// RPEntity2DView
 	//
@@ -69,7 +72,7 @@ class NPC2DView<T extends NPC> extends RPEntity2DView<T> {
 
 		try {
 			final RPEntity npc = entity;
-			final int code = npc.getOutfit();
+			final int code = npc.getOldOutfitCode();
 			final String strcode = npc.getExtOutfit();
 
 			final OutfitColor color = OutfitColor.get(npc.getRPObject());
@@ -157,8 +160,13 @@ class NPC2DView<T extends NPC> extends RPEntity2DView<T> {
 			return null;
 		}
 
-		return SpriteStore.get().getSprite(
-				"data/sprites/ideas/" + idea + ".png");
+		final SpriteStore ss = SpriteStore.get();
+		Sprite ideaSprite = ss.getSprite("data/sprites/ideas/" + idea + ".png");
+		if (animatedSprites.contains(idea)) {
+			ideaSprite = ss.getAnimatedSprite(ideaSprite, 100);
+		}
+
+		return ideaSprite;
 	}
 
 	@Override

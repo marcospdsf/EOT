@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
 <items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="stendhal ../items.xsd ">
+    xsi:schemaLocation="stendhal ../items.xsd">
 
   <!-- capture-the-flag stuff -->
 
@@ -123,7 +124,7 @@
   </item>
 
   <item name="fumble snowball">
-    <type class="missile" subclass="snowballs" tileid="-1"/>
+    <type class="missile" subclass="snowball" tileid="-1"/>
     <description>You see a fumble snowball. With a supply of these, you can try to make a flag carrier drop the flag.</description>
     <implementation class-name="games.stendhal.server.entity.item.NoStatsStackableItem"/>
     <attributes>
@@ -145,7 +146,7 @@
   </item>
 
   <item name="slowdown snowball">
-    <type class="missile" subclass="snowballs" tileid="-1"/>
+    <type class="missile" subclass="snowball" tileid="-1"/>
     <description>You see a slowdown snowball. With a supply of these, you can try to slow down any CTF player.</description>
     <implementation class-name="games.stendhal.server.entity.item.NoStatsStackableItem"/>
     <attributes>
@@ -166,4 +167,5 @@
     </equipable>
   </item>
 ************************* -->
+
 </items>

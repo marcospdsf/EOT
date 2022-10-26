@@ -445,7 +445,7 @@ class SwingClientGUI implements J2DClientGUI {
 		keyring.setVisible(false);
 		scrollbag.setVisible(true);
 		//portfolio.setVisible(false);
-		spells.setVisible(true);
+		spells.setVisible(false);
 	}
 
 	private void setupWindowWideListeners(JFrame frame) {

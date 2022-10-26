@@ -186,10 +186,10 @@ public final class StatsPanelController {
 	 * Called when xp or level has changed.
 	 */
 	private void updateLevel() {
-		final long next = Level.getXP(level + 1) - xp;
+		final int next = Level.getXP(level + 1) - xp;
 		// Show "em-dash" for max level players rather than
 		// a confusing negative required xp.
-		final String nextS = (next < 0) ? "\u2014" : Long.toString(next);
+		final String nextS = (next < 0) ? "\u2014" : Integer.toString(next);
 
 		final String text = "Level:" + SPC + level + SPC + "(" + nextS + ")";
 		SwingUtilities.invokeLater(new Runnable() {
@@ -230,7 +230,7 @@ public final class StatsPanelController {
 	 */
 	private void updateAtk() {
 		// atk uses 10 levels shifted starting point
-		final long next = Level.getXP(atk - 9) - atkxp;
+		final int next = Level.getXP(atk - 9) - atkxp;
 		final String text = "ATK:" + SPC + atk + "×" + (1 + weaponAtk) + SPC + "(" + next + ")";
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
@@ -245,7 +245,7 @@ public final class StatsPanelController {
 	 */
 	private void updateDef() {
 		// def uses 10 levels shifted starting point
-		final long next = Level.getXP(def - 9) - defxp;
+		final int next = Level.getXP(def - 9) - defxp;
 		final String text = "DEF:" + SPC + def + "×" + (1 + itemDef) + SPC + "(" + next + ")";
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
@@ -259,7 +259,7 @@ public final class StatsPanelController {
 	 * Called when mining xp has changed.
 	*/
 	private void updateMiningLevel() {
-			final long next = Level.getXP(miningLevel - 9) - miningxp;
+			final int next = Level.getXP(miningLevel - 9) - miningxp;
 
 			final String text = "Mining Level:" + SPC + miningLevel + SPC + "(" + next + ")";
 			//final String text = "MiningLevel:";
@@ -281,7 +281,7 @@ public final class StatsPanelController {
 		}
 
 		// ratk uses 10 levels shifted starting point
-		final long next = Level.getXP(ratk - 9) - ratkxp;
+		final int next = Level.getXP(ratk - 9) - ratkxp;
 		final String text = "RATK:" + SPC + ratk + "×" + (1 + weaponRatk) + SPC + "(" + next + ")";
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override

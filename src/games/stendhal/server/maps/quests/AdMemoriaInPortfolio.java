@@ -18,8 +18,6 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.entity.item.Item;
@@ -38,6 +36,7 @@ import games.stendhal.server.entity.npc.condition.AndCondition;
 import games.stendhal.server.entity.npc.condition.PlayerHasItemWithHimCondition;
 import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
+import games.stendhal.server.entity.npc.condition.SystemPropertyCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
@@ -116,8 +115,6 @@ import games.stendhal.server.maps.Region;
 
 public class AdMemoriaInPortfolio extends AbstractQuest {
 
-	private static Logger logger = Logger.getLogger(AdMemoriaInPortfolio.class);
-
 	private static final int APPLE_AMOUNT = 1;
 	private static final String QUEST_SLOT = "admemoriainportfolio";
 
@@ -144,7 +141,7 @@ public class AdMemoriaInPortfolio extends AbstractQuest {
         npc.add(
             ConversationStates.ATTENDING, //initial state
             "reset", //trigger word
-            null, //chat condition
+            new SystemPropertyCondition("stendhal.testserver"), //chat condition
             ConversationStates.IDLE, //state after reset
             "reset complete", //reply to trigger word
             new MultipleActions(reset_brosoklelo), //reset actions

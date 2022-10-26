@@ -110,7 +110,7 @@ public class AdminMaker extends ScriptImpl {
 				}
 			}
 			// turn on their keyring for them
-			player.setFeature("keyring", true);
+			player.setFeature("keyring", "3 4");
 		}
 
 		private void admin(final Player player) {

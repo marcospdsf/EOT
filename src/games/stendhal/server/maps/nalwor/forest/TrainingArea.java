@@ -75,15 +75,31 @@ public class TrainingArea extends Area implements LoginListener,LogoutListener {
 	private static final Map<String, TrainingTimer> activeTimers = new HashMap<>();
 
 
+	/**
+	 * Creates a restricted area for training.
+	 *
+	 * @param slot
+	 *     Quest slot identifier to track training session.
+	 * @param zone
+	 *     Zone where training area is located.
+	 * @param shape
+	 *     Training area boundaries.
+	 * @param trainer
+	 *     NPC that handles access to training area.
+	 * @param endPos
+	 *     Position where player is teleported after session.
+	 * @param gatePos
+	 *     Position of gate that manages access.
+	 * @param entersFrom
+	 *     Direction from which access is granted.
+	 */
 	public TrainingArea(final String slot, final StendhalRPZone zone, final Rectangle shape,
 			final TrainerNPC trainer, final Point endPos, final Point gatePos, final Direction entersFrom) {
 		super(zone, shape);
 
 		this.QUEST_SLOT = slot;
 		this.trainer = trainer;
-		/** position where player is teleported after session ends */
 		this.END_POS = endPos;
-		/** position of gate that manages access to training area */
 		this.GATE_POS = gatePos;
 		this.entersFrom = entersFrom;
 
@@ -108,8 +124,33 @@ public class TrainingArea extends Area implements LoginListener,LogoutListener {
 		SingletonRepository.getLogoutNotifier().addListener(this);
 	}
 
-	public TrainingArea(final String slot, final StendhalRPZone zone, final int x, final int y, final int width, final int height,
-			final TrainerNPC trainer, final Point endPos, final Point gatePos, final Direction entersFrom) {
+	/**
+	 * Creates a restricted area for training.
+	 *
+	 * @param slot
+	 *     Quest slot identifier to track training session.
+	 * @param zone
+	 *     Zone where training area is located.
+	 * @param x
+	 *     Training area boundaries X position.
+	 * @param y
+	 *     Training area boundaries Y position.
+	 * @param width
+	 *     Training area boundaries width.
+	 * @param height
+	 *     Training area boundaries height.
+	 * @param trainer
+	 *     NPC that handles access to training area.
+	 * @param endPos
+	 *     Position where player is teleported after session.
+	 * @param gatePos
+	 *     Position of gate that manages access.
+	 * @param entersFrom
+	 *     Direction from which access is granted.
+	 */
+	public TrainingArea(final String slot, final StendhalRPZone zone, final int x, final int y,
+			final int width, final int height, final TrainerNPC trainer, final Point endPos,
+			final Point gatePos, final Direction entersFrom) {
 		this(slot, zone, new Rectangle(x, y, width, height), trainer, endPos, gatePos, entersFrom);
 	}
 
@@ -147,6 +188,11 @@ public class TrainingArea extends Area implements LoginListener,LogoutListener {
 
 	/**
 	 * Calculates the stat level cap at which a player cannot train.
+	 *
+	 * - up to level 55: player level
+	 * - above level 55: (player level / 10) + 50
+	 *
+	 * At max level (597), cap is 109.
 	 *
 	 * @param playerLevel
 	 * 		Level of player to be checked.
@@ -439,7 +485,9 @@ public class TrainingArea extends Area implements LoginListener,LogoutListener {
 			if (skipNotify) {
 				skipNotify = false;
 			} else {
-				trainer.say(player.getName() + ", you have " + TimeUtil.timeUntil(minsRemain * 60) + " left.");
+				if (minsRemain > 0) {
+					trainer.say(player.getName() + ", you have " + TimeUtil.timeUntil(minsRemain * 60) + " left.");
+				}
 			}
 
 			SingletonRepository.getTurnNotifier().notifyInSeconds(notifyIn * 60, this);

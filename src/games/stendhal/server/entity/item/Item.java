@@ -245,6 +245,15 @@ public class Item extends PassiveEntity implements TurnListener, EquipListener,
 
 		// player that owns the item
 		entity.addAttribute("owner", Type.STRING, Definition.HIDDEN);
+
+		// name of itemset
+		entity.addAttribute("itemset", Type.STRING);
+
+		// sound played when item is used
+		entity.addAttribute("use_sound", Type.STRING, Definition.VOLATILE);
+
+		// marked scroll
+		entity.addAttribute("dest", Type.STRING, Definition.VOLATILE);
 	}
 
 

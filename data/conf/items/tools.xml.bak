@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
 <items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="stendhal ../items.xsd ">
+    xsi:schemaLocation="stendhal ../items.xsd">
 
   <item name="food mill">
     <type class="tool" subclass="foodmill" tileid="-1"/>
@@ -39,7 +40,7 @@
       <slot name="rhand"/>
     </equipable>
   </item>
-  
+
   <item name="scroll eraser">
     <type class="tool" subclass="scrolleraser" tileid="-1"/>
     <description>You see a scroll eraser. Put a marked scroll in the opposite hand to clean the scroll.</description>
@@ -112,6 +113,24 @@
       <slot name="rhand"/>
     </equipable>
   </item>
+  
+  <item name="lamp">
+    <type class="tool" subclass="lamp" tileid="-1"/>
+    <description>You see a lamp.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
 
   <item name="magical scissors">
     <type class="tool" subclass="magical_scissors" tileid="-1"/>
@@ -138,24 +157,6 @@
     <attributes>
     </attributes>
     <weight value="0.5"/>
-    <value value="1"/>
-    <equipable>
-      <slot name="ground"/>
-      <slot name="content"/>
-      <slot name="bag"/>
-      <slot name="trade"/>
-      <slot name="lhand"/>
-      <slot name="rhand"/>
-    </equipable>
-  </item>
-  
-  <item name="pick">
-    <type class="tool" subclass="pick" tileid="-1"/>
-    <description>You see a pick. It is a tool which helps you to get some coal.</description>
-    <implementation class-name="games.stendhal.server.entity.item.Item"/>
-    <attributes>
-    </attributes>
-    <weight value="10.0"/>
     <value value="1"/>
     <equipable>
       <slot name="ground"/>
@@ -203,8 +204,6 @@
       <slot name="rhand"/>
     </equipable>
   </item>
-
-</items>
   
   <!-- PolishTools -->
   
@@ -241,5 +240,134 @@
 			<slot name="rhand"/>
 		</equipable>
 	</item>
+	
+	<!-- Mining tools -->
+	
+	  
+  <item name="pick">
+    <type class="tool" subclass="pick" tileid="-1"/>
+    <description>You see a pick. It is a tool which helps you to get some coal.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+    </attributes>
+    <weight value="10.0"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="iron pick">
+    <type class="tool" subclass="pick" tileid="-1"/>
+    <description>You see a iron pick. It is a tool which helps you to get ores faster-ish.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+    </attributes>
+    <weight value="10.0"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="steel pick">
+    <type class="tool" subclass="pick" tileid="-1"/>
+    <description>You see a steel pick. It is a tool which helps you to get ores faster, and even some valuable ones.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+    </attributes>
+    <weight value="10.0"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="silver pick">
+    <type class="tool" subclass="pick" tileid="-1"/>
+    <description>You see a silver pick. It is a tool which helps you to get some ores way faster, and mine some crystals.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+    </attributes>
+    <weight value="10.0"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="gold pick">
+    <type class="tool" subclass="pick" tileid="-1"/>
+    <description>You see a gold pick. It is a tool which helps you to get some ores much more faster, and new kinds of crystals.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+    </attributes>
+    <weight value="10.0"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="obsidian pick">
+    <type class="tool" subclass="pick" tileid="-1"/>
+    <description>You see a obsidian pick. It is a tool which helps you to get all ores, and all crystals.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+    </attributes>
+    <weight value="10.0"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+  
+  <item name="dragon bone pick">
+    <type class="tool" subclass="pick" tileid="-1"/>
+    <description>You see a dragon bone pick. Said to be the rarest pick of all, capable of mining faster and eventually giving extra ores.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+    </attributes>
+    <weight value="10.0"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
   
 </items>

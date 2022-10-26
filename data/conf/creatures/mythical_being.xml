@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="stendhal ../creatures.xsd ">
-
+    xsi:schemaLocation="stendhal ../creatures.xsd">
 
   <!-- START: mermaid -->
 
@@ -214,7 +213,6 @@
 
   <!-- END: mermaid -->
 
-
   <!-- START: unicorn -->
 
   <creature name="unicorn">
@@ -261,7 +259,6 @@
     <respawn value="36000"/> <!-- 180 minutes -->
     <corpse name="animal_2x2"/>
     <drops>
-      <item value="money" quantity="[10,250]" probability="100.0"/>
       <item value="greater potion" quantity="[2,4]" probability="30.0"/>
       <item value="royal cloak" quantity="[1,1]" probability="0.5"/>
       <item value="unicorn horn" quantity="[1,1]" probability="100.0"/>
@@ -289,7 +286,6 @@
     <respawn value="40000"/> <!-- 200 minutes -->
     <corpse name="animal_2x2"/>
     <drops>
-      <item value="money" quantity="[10,250]" probability="100.0"/>
       <item value="greater potion" quantity="[2,4]" probability="30.0"/>
       <item value="unicorn horn" quantity="[1,1]" probability="100.0"/>
       <item value="turtle shell ring" quantity="[1,1]" probability="0.5"/>
@@ -319,7 +315,6 @@
     <respawn value="44000"/> <!-- 220 minutes -->
     <corpse name="animal_2x2"/>
     <drops>
-      <item value="money" quantity="[10,250]" probability="100.0"/>
       <item value="greater potion" quantity="[2,4]" probability="30.0"/>
       <item value="unicorn horn" quantity="[1,1]" probability="100.0"/>
       <item value="royal armor" quantity="[1,1]" probability="0.5"/>
@@ -334,7 +329,6 @@
   </creature>
 
   <!-- END: unicorn -->
-
 
   <!-- START: pegasus -->
 
@@ -354,11 +348,9 @@
     <respawn value="12096000"/>
     <corpse name="animal"/>
     <drops>
-      <item value="money" quantity="[10,250]" probability="100.0"/>
       <item value="greater potion" quantity="[2,4]" probability="30.0"/>
       <item value="ice sword" quantity="[1,1]" probability="20.0"/>
       <item value="apple" quantity="[10,30]" probability="80.0"/>
-      <item value="mithril armor" quantity="[1,1]" probability="0.9"/>
     </drops>
     <equips/>
     <ai>
@@ -385,7 +377,6 @@
     <respawn value="7400"/> <!-- 37 minutes -->
     <corpse name="animal"/>
     <drops>
-     <item value="money" quantity="[10,100]" probability="100.0"/>
      <item value="greater potion" quantity="[2,4]" probability="30.0"/>
      <item value="imperial ring" quantity="[1,1]" probability="0.5"/>
     </drops>
@@ -411,7 +402,6 @@
     <respawn value="50000"/> <!-- 250 minutes -->
     <corpse name="animal_2x2"/>
     <drops>
-      <item value="money" quantity="[10,250]" probability="100.0"/>
       <item value="greater potion" quantity="[2,4]" probability="30.0"/>
       <item value="royal armor" quantity="[1,1]" probability="0.5"/>
       <item value="royal boots" quantity="[1,1]" probability="0.5"/>
@@ -439,7 +429,6 @@
     <respawn value="52000"/> <!-- 260 minutes -->
     <corpse name="animal_2x2"/>
     <drops>
-      <item value="money" quantity="[10,250]" probability="100.0"/>
       <item value="greater potion" quantity="[2,4]" probability="30.0"/>
       <item value="royal dagger" quantity="[1,1]" probability="0.1"/>
       <item value="royal legs" quantity="[1,1]" probability="0.5"/>
@@ -467,7 +456,6 @@
     <respawn value="54000"/> <!-- 270 minutes -->
     <corpse name="animal_2x2"/>
     <drops>
-      <item value="money" quantity="[10,250]" probability="100.0"/>
       <item value="greater potion" quantity="[2,4]" probability="30.0"/>
       <item value="royal dagger" quantity="[1,1]" probability="0.1"/>
       <item value="royal helmet" quantity="[1,1]" probability="0.5"/>
@@ -481,7 +469,6 @@
   </creature>
 
   <!-- END: pegasus -->
-
 
   <!-- START: centaur -->
 
@@ -502,7 +489,6 @@
     <!-- uh, should this one be an animal or humanoid? -->
     <corpse name="humanoid"/>
     <drops>
-      <item value="money" quantity="[10,100]" probability="70.0"/>
       <item value="greater potion" quantity="[1,4]" probability="30.0"/>
       <item value="wooden spear" quantity="[20,40]" probability="30.0"/>
       <item value="imperial ring" quantity="[1,1]" probability="20.0"/>
@@ -533,14 +519,14 @@
     <respawn value="14000"/> <!-- 70 minutes -->
     <corpse name="animal_2x2"/>
     <drops>
-      <item value="money" quantity="[10,250]" probability="100.0"/>
       <item value="greater potion" quantity="[2,4]" probability="30.0"/>
       <item value="royal cloak" quantity="[1,1]" probability="0.5"/>
+      <item value="fire arrow" quantity="[3,22]" probability="36.0"/>
     </drops>
     <abilities>
       <damage type="fire"/>
-      <susceptibility type="fire" value="1.2"/>
-      <susceptibility type="ice" value="0.8"/>
+      <susceptibility type="fire" value="0.8"/>
+      <susceptibility type="ice" value="1.2"/>
     </abilities>
     <ai>
       <profile name="brave"/>
@@ -566,14 +552,14 @@
     <respawn value="15000"/> <!-- 75 minutes -->
     <corpse name="animal_2x2"/>
     <drops>
-      <item value="money" quantity="[10,250]" probability="100.0"/>
       <item value="greater potion" quantity="[2,4]" probability="30.0"/>
       <item value="royal boots" quantity="[1,1]" probability="0.5"/>
+      <item value="ice arrow" quantity="[3,22]" probability="36.0"/>
     </drops>
     <abilities>
       <damage type="ice"/>
-      <susceptibility type="ice" value="1.2"/>
-      <susceptibility type="fire" value="0.8"/>
+      <susceptibility type="ice" value="0.8"/>
+      <susceptibility type="fire" value="1.2"/>
     </abilities>
     <ai>
       <profile name="brave"/>
@@ -599,10 +585,10 @@
     <respawn value="16000"/> <!-- 80 minutes -->
     <corpse name="animal_2x2"/>
     <drops>
-      <item value="money" quantity="[10,250]" probability="100.0"/>
       <item value="greater potion" quantity="[2,4]" probability="30.0"/>
       <item value="royal boots" quantity="[1,1]" probability="0.5"/>
       <item value="royal legs" quantity="[1,1]" probability="0.5"/>
+      <item value="power arrow" quantity="[3,22]" probability="36.0"/>
     </drops>
     <ai>
       <profile name="brave"/>
@@ -613,6 +599,5 @@
   </creature>
 
   <!-- END: centaur -->
-
 
 </creatures>

@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                      (C) Copyright 2003 - Marauroa                      *
+ *                   (C) Copyright 2003-2022 - Marauroa                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -12,18 +11,13 @@
  ***************************************************************************/
 package games.stendhal.server.entity;
 
-import static games.stendhal.common.Constants.KARMA_SETTINGS;
-import static games.stendhal.common.constants.General.COMBAT_KARMA;
-
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.WeakHashMap;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -59,7 +53,6 @@ import games.stendhal.server.entity.item.Corpse;
 import games.stendhal.server.entity.item.Item;
 import games.stendhal.server.entity.item.StackableItem;
 import games.stendhal.server.entity.mapstuff.portal.Portal;
-import games.stendhal.server.entity.npc.TrainingDummy;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.entity.slot.EntitySlot;
 import games.stendhal.server.entity.slot.Slots;
@@ -80,7 +73,11 @@ import marauroa.server.db.command.DBCommandQueue;
 import marauroa.server.game.Statistics;
 import marauroa.server.game.db.DAORegister;
 
-public abstract class RPEntity extends GuidedEntity {
+public abstract class RPEntity extends CombatEntity {
+
+	/** the logger instance. */
+	private static final Logger logger = Logger.getLogger(RPEntity.class);
+
 	/**
 	 * The title attribute name.
 	 */
@@ -95,15 +92,9 @@ public abstract class RPEntity extends GuidedEntity {
 	private static final float SHIELD_DEF_MULTIPLIER = 4.0f;
 	private static final float RING_DEF_MULTIPLIER = 1.0f;
 	private static final float RING2_DEF_MULTIPLIER = 1.0f;
-	/**
-	 * To prevent players from gaining attack and defense experience by fighting
-	 * against very weak creatures, they only gain atk and def xp for so many
-	 * turns after they have actually been damaged by the enemy. //
-	 */
-	private static final int TURNS_WHILE_FIGHT_XP_INCREASES = 22;
-	/** the logger instance. */
-	private static final Logger logger = Logger.getLogger(RPEntity.class);
 	private static Statistics stats;
+
+	protected static final int HIT_CHANCE_MULTIPLIER = 20;
 
 	private String name;
 	protected int atk;
@@ -130,14 +121,7 @@ public abstract class RPEntity extends GuidedEntity {
 	protected ImmutableList<StatusAttacker> statusAttackers = ImmutableList.of();
 	/** a list of current statuses */
 	protected StatusList statusList;
-	/**
-	 * Maps each enemy which has recently damaged this RPEntity to the turn when
-	 * the last damage has occurred.
-	 *
-	 * You only get ATK and DEF experience by fighting against a creature that
-	 * is in this list.
-	 */
-	private final Map<RPEntity, Integer> enemiesThatGiveFightXP;
+
 	/** List of all enemies that are currently attacking this entity. */
 	private final List<Entity> attackSources;
 	/** the enemy that is currently attacked by this entity. */
@@ -298,7 +282,6 @@ public abstract class RPEntity extends GuidedEntity {
 		super(object);
 		attackSources = new ArrayList<>();
 		damageReceived = new CounterMap<>(true);
-		enemiesThatGiveFightXP = new WeakHashMap<>();
 		totalDamageReceived = 0;
 	}
 
@@ -306,7 +289,6 @@ public abstract class RPEntity extends GuidedEntity {
 		super();
 		attackSources = new ArrayList<>();
 		damageReceived = new CounterMap<>(true);
-		enemiesThatGiveFightXP = new WeakHashMap<>();
 		totalDamageReceived = 0;
 	}
 
@@ -568,7 +550,7 @@ public abstract class RPEntity extends GuidedEntity {
 	 * @return The number of hitpoints that the target should lose. 0 if the
 	 *         attack was completely blocked by the defender.
 	 */
-	int damageDone(RPEntity defender, double attackingWeaponsValue, Nature damageType,
+	protected int damageDone(RPEntity defender, double attackingWeaponsValue, Nature damageType,
 			boolean isRanged, int maxRange) {
 		// Don't start from 0 to mitigate weird behaviour at very low levels
 		final int effectiveAttackerLevel = getLevel() + 5;
@@ -591,23 +573,8 @@ public abstract class RPEntity extends GuidedEntity {
 		 */
 		final int levelDifferenceToNotNeedKarmaDefending = (int) (IGNORE_KARMA_MULTIPLIER * defender.getLevel());
 
-		// this attribute determines how karma is used in combat
-		String karmaMode = null;
-		if (defender.has(COMBAT_KARMA)) {
-			karmaMode = defender.get(COMBAT_KARMA);
-		}
-
-		boolean useKarma = false;
-		if (karmaMode == null || karmaMode.equals(KARMA_SETTINGS.get(1))) {
-			if (!(effectiveDefenderLevel - levelDifferenceToNotNeedKarmaDefending  > effectiveAttackerLevel)) {
-				useKarma = true;
-			}
-		} else if (karmaMode.equals(KARMA_SETTINGS.get(2))) {
-			useKarma = true;
-		}
-
 		// using karma here decreases damage done by enemy
-		if (useKarma) {
+		if (!(effectiveDefenderLevel - levelDifferenceToNotNeedKarmaDefending  > effectiveAttackerLevel)) {
 			defence += defence * defender.useKarma(0.1);
 		}
 
@@ -659,22 +626,8 @@ public abstract class RPEntity extends GuidedEntity {
 		 */
 		final int levelDifferenceToNotNeedKarmaAttacking = (int) (IGNORE_KARMA_MULTIPLIER * getLevel());
 
-		karmaMode = null;
-		if (this.has(COMBAT_KARMA)) {
-			karmaMode = this.get(COMBAT_KARMA);
-		}
-
-		useKarma = false;
-		if (karmaMode == null || karmaMode.equals(KARMA_SETTINGS.get(1))) {
-			if (!(effectiveAttackerLevel - levelDifferenceToNotNeedKarmaAttacking > effectiveDefenderLevel)) {
-				useKarma = true;
-			}
-		} else if (karmaMode.equals(KARMA_SETTINGS.get(2))) {
-			useKarma = true;
-		}
-
 		// using karma here increases damage to enemy
-		if (useKarma) {
+		if (!(effectiveAttackerLevel - levelDifferenceToNotNeedKarmaAttacking > effectiveDefenderLevel)) {
 			attack += attack * useKarma(0.1);
 		}
 
@@ -1249,7 +1202,7 @@ public abstract class RPEntity extends GuidedEntity {
 	}
 
 	public void addXP(final int newxp) {
-		if (Long.MAX_VALUE - this.xp <= newxp) {
+		if (Integer.MAX_VALUE - this.xp <= newxp) {
 			return;
 		}
 		if (newxp == 0) {
@@ -1363,25 +1316,6 @@ public abstract class RPEntity extends GuidedEntity {
 
 			attackTarget = null;
 		}
-	}
-
-	public boolean getsFightXpFrom(final RPEntity enemy) {
-		if (enemy instanceof TrainingDummy) {
-			// training dummies always give fight XP
-			return true;
-		}
-
-		final Integer turnWhenLastDamaged = enemiesThatGiveFightXP.get(enemy);
-		if (turnWhenLastDamaged == null) {
-			return false;
-		}
-		final int currentTurn = SingletonRepository.getRuleProcessor()
-				.getTurn();
-		if (currentTurn - turnWhenLastDamaged > TURNS_WHILE_FIGHT_XP_INCREASES) {
-			enemiesThatGiveFightXP.remove(enemy);
-			return false;
-		}
-		return true;
 	}
 
 	public void stopAttacking(final Entity attacker) {
@@ -1763,9 +1697,9 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	 * Reward pets who kill enemies.  don't perks like AchievementNotifier that players.
 	 */
 	protected void rewardKillerAnimals(final int oldXP) {
-		/*if (!System.getProperty("stendhal.petleveling", "false").equals("true")) {
+		if (!System.getProperty("stendhal.petleveling", "false").equals("true")) {
 			return;
-		}*/
+		}
 		final int xpReward = (int) (oldXP * 0.05);
 
 		for (Entry<Entity, Integer> entry : damageReceived.entrySet()) {
@@ -1799,27 +1733,19 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			}
 
 			int reward = xpEarn;
-			int ownerReward = xpEarn;
 
 			// We ensure it gets at least 1 experience
 			// point, because getting nothing lowers motivation.
 			if (reward == 0) {
 				reward = 1;
 			}
-			
-			if(killer.getOwner() != null) {
-				killer.getOwner().addXP(reward / 2);
-			}
 
 			if (killer.getLevel() >= killer.getLVCap())
 			{
 				reward = 0;
-				ownerReward /= 2;
 			}
-			
-			killer.addXP(reward / 2);
-			
-			
+
+			killer.addXP(reward);
 
 			/*
 			// For some quests etc., it is required that the player kills a
@@ -2864,13 +2790,6 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	 * Retrieves total ATK value of held weapons.
 	 */
 	public float getItemAtk() {
-		/** int weapon = 0;
-		final List<Item> weapons = getWeapons();
-		for (final Item weaponItem : weapons) {
-			weapon += weaponItem.getAttack();
-		} **/
-
-	
 		int ring = 0;
 		int ring2 = 0;
 		int weapon = 0;
@@ -2944,7 +2863,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 
 		return weapon + armor + boots + cloak + glove + helmet + legs + shield + ring + ring2;
 	}
-	
+
 	/**
 	 * Retrieves total range attack value of held weapon & ammunition.
 	 */
@@ -3244,22 +3163,8 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		 */
 		final int levelDifferenceToNotNeedKarmaAttacking = (int) (IGNORE_KARMA_MULTIPLIER * getLevel());
 
-		String karmaMode = null;
-		if (this.has(COMBAT_KARMA)) {
-			karmaMode = this.get(COMBAT_KARMA);
-		}
-
-		boolean useKarma = false;
-		if (karmaMode == null || karmaMode.equals(KARMA_SETTINGS.get(1))) {
-			if (!(getLevel() - levelDifferenceToNotNeedKarmaAttacking > defender.getLevel())) {
-				useKarma = true;
-			}
-		} else if (karmaMode.equals(KARMA_SETTINGS.get(2))) {
-			useKarma = true;
-		}
-
 		// using karma here increases chance to hit enemy
-		if (useKarma) {
+		if (!(getLevel() - levelDifferenceToNotNeedKarmaAttacking > defender.getLevel())) {
 			final double karmaMultiplier = this.useKarma(0.1);
 			// the karma effect must be cast to an integer to affect the roll
 			// but in most cases this means the karma use was lost. so multiply by 2 to
@@ -3268,27 +3173,19 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			roll -= (int) karmaEffect;
 		}
 
-		int risk = calculateRiskForCanHit(roll, defenderDEF, attackerATK);
+		final int risk = calculateRiskForCanHit(roll, defenderDEF, attackerATK);
 
 		if (logger.isDebugEnabled() || Testing.DEBUG) {
 			logger.debug("attack from " + this + " to " + defender
 					+ ": Risk to strike: " + risk);
 		}
 
-		if (risk < 0) {
-			risk = 0;
-		}
-
-		if (risk > 1) {
-			risk = 1;
-		}
-
-		return (risk != 0);
+		return risk > 0;
 	}
 
-	int calculateRiskForCanHit(final int roll, final int defenderDEF,
+	protected int calculateRiskForCanHit(final int roll, final int defenderDEF,
 			final int attackerATK) {
-		return 20 * attackerATK - roll * defenderDEF;
+		return HIT_CHANCE_MULTIPLIER * attackerATK - roll * defenderDEF;
 	}
 
 	/**

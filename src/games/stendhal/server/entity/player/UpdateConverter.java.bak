@@ -21,7 +21,7 @@ import org.apache.log4j.Logger;
 
 import games.stendhal.common.ItemTools;
 import games.stendhal.common.KeyedSlotUtil;
-
+import games.stendhal.common.constants.Testing;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.rule.EntityManager;
 import games.stendhal.server.entity.Outfit;
@@ -78,7 +78,7 @@ public abstract class UpdateConverter {
 			      "ice gloves","golden gloves","shadow gloves","black gloves",
 			      "mithril gloves");
 
-private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
+	private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
 	static {
 		ZONE_MAPPING.put("0_deniran_n_w2", "0_deniran_forest_n2_w");
 		ZONE_MAPPING.put("0_deniran_nw", "0_deniran_forest_nw");
@@ -117,11 +117,9 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
 		ZONE_MAPPING.put("-1_deniran_caves_wall", "-1_deniran_caves_e2");
 		ZONE_MAPPING.put("-1_deniran_caves_wall_s", "-1_deniran_caves_s_e2");
 		ZONE_MAPPING.put("-2_deniran_lost_caves_nw2", "-2_deniran_lost_caves_n2_w");
-		ZONE_MAPPING.put("-2_deniran_lost_caves_nw", "-2_deniran_lost_caves_n2");
 		ZONE_MAPPING.put("-2_deniran_caves_w", "-2_deniran_caves_w");
 		ZONE_MAPPING.put("-2_deniran_caves_sw", "-2_deniran_caves_sw");
-		ZONE_MAPPING.put("-2_deniran_lost_caves_n2", "-2_deniran_lost_caves_n2");
-		ZONE_MAPPING.put("-2_deniran_lost_caves_n", "-2_deniran_lost_caves");
+		ZONE_MAPPING.put("-2_deniran_lost_caves", "-2_deniran_lost_caves_n");
 		ZONE_MAPPING.put("-2_deniran_caves_deniran", "-2_deniran_caves");
 		ZONE_MAPPING.put("-2_deniran_caves_s", "-2_deniran_caves_s");
 		ZONE_MAPPING.put("-2_deniran_lost_caves_ne2", "-2_deniran_lost_caves_n2_e");
@@ -150,6 +148,7 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
 		ZONE_MAPPING.put("-3_deniran_caves_wall_s", "-3_deniran_caves_s_e2");
 
 	}
+
 	/**
 	 * quest name, quest index, creatures to kill.
 	 */
@@ -233,7 +232,7 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
 			final int number = 0;
 			final String[] parts = name.split(" ");
 			if (parts.length > 2) {
-			   	try {
+				try {
 					// house number
 					final int id;
 					id = Integer.parseInt(parts[2]);
@@ -322,6 +321,10 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
     		object.put("atk_xp", "0");
     		object.put("def_xp", "0");
     	}
+    	
+    	if(!object.has("mining_xp")){
+    		object.put("mining_xp", "0");
+    	}
 
     	if (object.has("devel")) {
     		object.remove("devel");
@@ -333,60 +336,68 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
     		object.put("atk", "10");
     		object.put("def", "10");
     	}
-
-    	if (!object.has("age")) {
-    		object.put("age", "0");
+    	
+    	if (!object.has("miningLevel")){
+    		object.put("miningLevel", "1");
     	}
 
-    	if (!object.has("karma")) {
-    		// A little beginner's luck
-    		object.put("karma", 10);
-    	}
-    	if (!object.has("mana")) {
-    		object.put("mana", 0);
-    	}
-    	if (!object.has("base_mana")) {
-    		object.put("base_mana", 0);
-    	}
+		if (Testing.COMBAT && !object.has("ratk_xp")) {
+			object.put("ratk_xp", "0");
+		}
 
-    	// Renamed to skills
-    	if (object.has("!skills")) {
-    		object.remove("!skills");
-    	}
+		if (!object.has("age")) {
+			object.put("age", "0");
+		}
 
-    	if (!object.has("height")) {
-    		object.put("height", 2);
-    	}
-    	if (!object.has("width")) {
-    		object.put("width", 1);
-    	}
+		if (!object.has("karma")) {
+			// A little beginner's luck
+			object.put("karma", 10);
+		}
+		if (!object.has("mana")) {
+			object.put("mana", 0);
+		}
+		if (!object.has("base_mana")) {
+			object.put("base_mana", 0);
+		}
 
-    	// port to 0.66
-    	transformKillSlot(object);
+		// Renamed to skills
+		if (object.has("!skills")) {
+			object.remove("!skills");
+		}
 
-    	// port to 0.81 because of a bug in 0.80 which allowed 0 hp by double killing on logout during dying
-    	if (object.getInt("hp") <= 0) {
-    		logger.warn("Setting hp to 1 for player " + object);
-    		object.put("hp", 1);
-    	}
+		if (!object.has("height")) {
+			object.put("height", 2);
+		}
+		if (!object.has("width")) {
+			object.put("width", 1);
+		}
 
-    	// port to 0.85 added buddy list as map - copy buddies to map
-    	if (object.hasSlot("!buddy")) {
-    		for (RPObject buddy : object.getSlot("!buddy")) {
-    			for (final String buddyname : buddy) {
-    				if (buddyname.startsWith("_")) {
-    					boolean online = false;
-    					if (buddy.get(buddyname).equals("1")) {
-    						online = true;
-    					}
-    					//strip out the _ in the beginning
-    					object.put("buddies", buddyname.substring(1), online);
-    				}
-    			}
-    			buddy.remove("_db_id");
-    		}
-    		// remove buddy slot for 0.87
-    		object.removeSlot("!buddy");
+		// port to 0.66
+		transformKillSlot(object);
+
+		// port to 0.81 because of a bug in 0.80 which allowed 0 hp by double killing on logout during dying
+		if (object.getInt("hp") <= 0) {
+			logger.warn("Setting hp to 1 for player " + object);
+			object.put("hp", 1);
+		}
+
+		// port to 0.85 added buddy list as map - copy buddies to map
+		if (object.hasSlot("!buddy")) {
+			for (RPObject buddy : object.getSlot("!buddy")) {
+				for (final String buddyname : buddy) {
+					if (buddyname.startsWith("_")) {
+						boolean online = false;
+						if (buddy.get(buddyname).equals("1")) {
+							online = true;
+						}
+						//strip out the _ in the beginning
+						object.put("buddies", buddyname.substring(1), online);
+					}
+				}
+				buddy.remove("_db_id");
+			}
+			// remove buddy slot for 0.87
+			object.removeSlot("!buddy");
 		}
 		object.remove("buddies", "db_id");
 
@@ -400,6 +411,12 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
 				object.put("features", "portfolio", "");
 			}
 			*/
+
+	    	// money pouch
+			if (KeyedSlotUtil.getKeyedSlot(object, "!features", "pouch") != null) {
+				object.put("features", "pouch");
+			}
+
 			object.removeSlot("!features");
 		}
 		if (KeyedSlotUtil.getKeyedSlot(object, "!quests", "learn_karma") != null) {
@@ -420,7 +437,14 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
 
 		// port to 1.31: zone zones
 		transformVisitedSlot(object);
+
+		// port to 1.39: keyring size
+		String keyring = object.get("features", "keyring");
+		if (keyring != null && keyring.equals("")) {
+			object.put("features", "keyring", "3 4");
+		}
 	}
+
 
 	/**
 	 * Transform kill slot content to the new kill recording system.

@@ -849,9 +849,9 @@ public class Player extends DressedEntity implements UseListener {
 		int oldValue = getMagicSkillXp(nature);
 		int newValue = oldValue + amount;
 		// Handle level changes
-		final long newLevel = Level.getLevel(newValue);
-		long oldLevel = Level.getLevel(oldValue);
-		final long levels = newLevel - (oldLevel - 10);
+		final int newLevel = Level.getLevel(newValue);
+		int oldLevel = Level.getLevel(oldValue);
+		final int levels = newLevel - (oldLevel - 10);
 
 		// In case we level up several levels at a single time.
 		for (int i = 0; i < Math.abs(levels); i++) {
@@ -2192,8 +2192,8 @@ public class Player extends DressedEntity implements UseListener {
 			sus *= glove.getSusceptibility(type);
 		}
 
-		//String[] armorSlots = { "armor", "head", "legs", "feet", "cloak", "glove", "finger", "finger2" };
-		String[] armorSlots = { "armor", "head", "legs", "feet", "cloak"};
+		String[] armorSlots = { "armor", "head", "legs", "feet", "cloak", "glove", "finger", "finger2" };
+		//String[] armorSlots = { "armor", "head", "legs", "feet", "cloak"};
 		for (String slot : armorSlots) {
 			RPObject object = getSlot(slot).getFirst();
 			if (object instanceof Item) {

@@ -30,6 +30,8 @@ import games.stendhal.server.entity.item.Item;
 import games.stendhal.server.entity.slot.EntitySlot;
 import games.stendhal.server.entity.slot.KeyedSlot;
 import games.stendhal.server.entity.slot.PlayerSlot;
+import games.stendhal.server.entity.slot.PlayerScrollbagSlot;
+import games.stendhal.server.entity.slot.PlayerWeaponbagSlot;
 import marauroa.common.Pair;
 import marauroa.common.game.RPObject;
 import marauroa.common.game.RPSlot;
@@ -78,7 +80,7 @@ public abstract class UpdateConverter {
 			      "ice gloves","golden gloves","shadow gloves","black gloves",
 			      "mithril gloves");
 
-private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
+	private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
 	static {
 		ZONE_MAPPING.put("0_deniran_n_w2", "0_deniran_forest_n2_w");
 		ZONE_MAPPING.put("0_deniran_nw", "0_deniran_forest_nw");
@@ -232,7 +234,7 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
 			final int number = 0;
 			final String[] parts = name.split(" ");
 			if (parts.length > 2) {
-			   	try {
+				try {
 					// house number
 					final int id;
 					id = Integer.parseInt(parts[2]);
@@ -345,59 +347,59 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
 			object.put("ratk_xp", "0");
 		}
 
-    	if (!object.has("age")) {
-    		object.put("age", "0");
-    	}
+		if (!object.has("age")) {
+			object.put("age", "0");
+		}
 
-    	if (!object.has("karma")) {
-    		// A little beginner's luck
-    		object.put("karma", 10);
-    	}
-    	if (!object.has("mana")) {
-    		object.put("mana", 0);
-    	}
-    	if (!object.has("base_mana")) {
-    		object.put("base_mana", 0);
-    	}
+		if (!object.has("karma")) {
+			// A little beginner's luck
+			object.put("karma", 10);
+		}
+		if (!object.has("mana")) {
+			object.put("mana", 0);
+		}
+		if (!object.has("base_mana")) {
+			object.put("base_mana", 0);
+		}
 
-    	// Renamed to skills
-    	if (object.has("!skills")) {
-    		object.remove("!skills");
-    	}
+		// Renamed to skills
+		if (object.has("!skills")) {
+			object.remove("!skills");
+		}
 
-    	if (!object.has("height")) {
-    		object.put("height", 2);
-    	}
-    	if (!object.has("width")) {
-    		object.put("width", 1);
-    	}
+		if (!object.has("height")) {
+			object.put("height", 2);
+		}
+		if (!object.has("width")) {
+			object.put("width", 1);
+		}
 
-    	// port to 0.66
-    	transformKillSlot(object);
+		// port to 0.66
+		transformKillSlot(object);
 
-    	// port to 0.81 because of a bug in 0.80 which allowed 0 hp by double killing on logout during dying
-    	if (object.getInt("hp") <= 0) {
-    		logger.warn("Setting hp to 1 for player " + object);
-    		object.put("hp", 1);
-    	}
+		// port to 0.81 because of a bug in 0.80 which allowed 0 hp by double killing on logout during dying
+		if (object.getInt("hp") <= 0) {
+			logger.warn("Setting hp to 1 for player " + object);
+			object.put("hp", 1);
+		}
 
-    	// port to 0.85 added buddy list as map - copy buddies to map
-    	if (object.hasSlot("!buddy")) {
-    		for (RPObject buddy : object.getSlot("!buddy")) {
-    			for (final String buddyname : buddy) {
-    				if (buddyname.startsWith("_")) {
-    					boolean online = false;
-    					if (buddy.get(buddyname).equals("1")) {
-    						online = true;
-    					}
-    					//strip out the _ in the beginning
-    					object.put("buddies", buddyname.substring(1), online);
-    				}
-    			}
-    			buddy.remove("_db_id");
-    		}
-    		// remove buddy slot for 0.87
-    		object.removeSlot("!buddy");
+		// port to 0.85 added buddy list as map - copy buddies to map
+		if (object.hasSlot("!buddy")) {
+			for (RPObject buddy : object.getSlot("!buddy")) {
+				for (final String buddyname : buddy) {
+					if (buddyname.startsWith("_")) {
+						boolean online = false;
+						if (buddy.get(buddyname).equals("1")) {
+							online = true;
+						}
+						//strip out the _ in the beginning
+						object.put("buddies", buddyname.substring(1), online);
+					}
+				}
+				buddy.remove("_db_id");
+			}
+			// remove buddy slot for 0.87
+			object.removeSlot("!buddy");
 		}
 		object.remove("buddies", "db_id");
 
@@ -437,6 +439,12 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
 
 		// port to 1.31: zone zones
 		transformVisitedSlot(object);
+
+		// port to 1.39: keyring size
+		String keyring = object.get("features", "keyring");
+		if (keyring != null && keyring.equals("")) {
+			object.put("features", "keyring", "3 4");
+		}
 	}
 
 
@@ -579,7 +587,9 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
 		// fix Maze
 		fixMazeQuestSlot(player);
 
+		fixQuestDoneState(player);
 	}
+
 
 	/**
 	 * Convert keyring feature to keyring item. Moves the contents of the
@@ -595,23 +605,20 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
 			 * if that happens. The old keyrings still work.
 			 */
 			Item keyring = SingletonRepository.getEntityManager().getItem("keyring");
-			Item scrollbag = SingletonRepository.getEntityManager().getItem("scrollbag");
-			Item weaponbag = SingletonRepository.getEntityManager().getItem("weaponbag");
 			if (keyring == null) {
 				logger.error("Failed to create keyring item");
 				return;
 			}
-			
+			Item scrollbag = SingletonRepository.getEntityManager().getItem("scrollbag");
 			if (scrollbag == null) {
-				logger.error("Failed to create scrollbag item");
+				logger.error("Failed to create keyring item");
 				return;
 			}
-			
+			Item weaponbag = SingletonRepository.getEntityManager().getItem("weaponbag");
 			if (weaponbag == null) {
-				logger.error("Failed to create weaponbag item");
+				logger.error("Failed to create keyring item");
 				return;
 			}
-			
 			keyring.setBoundTo(player.getName());
 			scrollbag.setBoundTo(player.getName());
 			weaponbag.setBoundTo(player.getName());
@@ -835,6 +842,14 @@ private static final HashMap<String, String> ZONE_MAPPING = new HashMap<>();
 		}
 	}
 
-
+	private static void fixQuestDoneState(Player player) {
+		List<String> quests = Arrays.asList("kill_gnomes", "clean_athors_underground", "coal_for_haunchy");
+		for (String quest : quests) {
+			String value = player.getQuest(quest, 0);
+			if (value != null && (value.equals("killed") || value.equals("waiting"))) {
+				player.setQuest(quest, 0, "done");
+			}
+		}
+	}
 
 }

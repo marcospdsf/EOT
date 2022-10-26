@@ -1,5 +1,5 @@
 /***************************************************************************
- *                   (C) Copyright 2003-2011 - Stendhal                    *
+ *                   (C) Copyright 2003-2019 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -14,7 +14,6 @@ package games.stendhal.server.maps;
 
 /**
  * contains region names
- *
  */
 public final class Region {
 	public static final String ADOS_CITY = "Ados City";

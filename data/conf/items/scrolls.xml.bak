@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
 <items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="stendhal ../items.xsd ">
+    xsi:schemaLocation="stendhal ../items.xsd">
 
     <!--template
     <equipable>
@@ -36,7 +37,7 @@
       <slot name="portfolio"/>
     </equipable>
   </item>
-  
+
    <item name="summon pet scroll">
     <type class="scroll" subclass="summon_pet" tileid="-1"/>
     <description/>
@@ -48,19 +49,18 @@
     <weight value="0.01"/>
     <value value="1"/>
     <equipable>
-      <slot name="ground"/>
+     <slot name="ground"/>
       <slot name="content"/>
       <slot name="lhand"/>
       <slot name="rhand"/>
       <slot name="bag"/>
-	  <slot name="scrollbag"/>
       <slot name="trade"/>
-      <slot name="lhand"/>
+	  <slot name="scrollbag"/>
       <slot name="rhand"/>
       <slot name="portfolio"/>
     </equipable>
   </item>
-  
+
   <item name="blank pet scroll">
     <type class="scroll" subclass="blank_pet_scroll" tileid="-1"/>
     <description/>
@@ -72,11 +72,13 @@
     <weight value="0.01"/>
     <value value="1"/>
     <equipable>
-      <slot name="ground"/>
+     <slot name="ground"/>
       <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
       <slot name="bag"/>
       <slot name="trade"/>
-      <slot name="lhand"/>
+	  <slot name="scrollbag"/>
       <slot name="rhand"/>
       <slot name="portfolio"/>
     </equipable>
@@ -96,10 +98,11 @@
     <equipable>
       <slot name="ground"/>
       <slot name="content"/>
-      <slot name="bag"/>
-	  <slot name="scrollbag"/>
-      <slot name="trade"/>
       <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+	  <slot name="scrollbag"/>
       <slot name="rhand"/>
       <slot name="portfolio"/>
     </equipable>
@@ -119,10 +122,11 @@
     <equipable>
       <slot name="ground"/>
       <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
       <slot name="bag"/>
       <slot name="trade"/>
 	  <slot name="scrollbag"/>
-      <slot name="lhand"/>
       <slot name="rhand"/>
       <slot name="portfolio"/>
     </equipable>
@@ -220,6 +224,30 @@
     </equipable>
   </item>
 
+  <item name="deniran city scroll">
+    <type class="scroll" subclass="deniran" tileid="-1"/>
+    <description>You see a deniran city scroll, it will take you back to deniran city.</description>
+    <implementation class-name="games.stendhal.server.entity.item.scroll.MarkedScroll"/>
+    <attributes>
+      <infostring value="0_deniran_city 32 74"/>
+      <quantity value="1"/>
+      <menu value="Use|Use"/>
+    </attributes>
+    <weight value="0.01"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+      <slot name="bag"/>
+	  <slot name="scrollbag"/>
+      <slot name="trade"/>
+      <slot name="portfolio"/>
+    </equipable>
+  </item>
+
   <item name="marked scroll">
     <type class="scroll" subclass="marked" tileid="-1"/>
     <description/>
@@ -236,8 +264,10 @@
       <slot name="lhand"/>
       <slot name="rhand"/>
       <slot name="bag"/>
-	  <slot name="scrollbag"/>
       <slot name="trade"/>
+	  <slot name="scrollbag"/>
+      <slot name="rhand"/>
+      <slot name="portfolio"/>
     </equipable>
   </item>
 
@@ -257,30 +287,10 @@
       <slot name="lhand"/>
       <slot name="rhand"/>
       <slot name="bag"/>
-	  <slot name="scrollbag"/>
       <slot name="trade"/>
-    </equipable>
-  </item>
-
-  <item name="home scroll">
-    <type class="scroll" subclass="home" tileid="-1"/>
-    <description>You see a home scroll, it will take you back to semos city.</description>
-    <implementation class-name="games.stendhal.server.entity.item.scroll.MarkedScroll"/>
-    <attributes>
-      <infostring value="0_semos_city 30 40"/>
-      <quantity value="1"/>
-      <menu value="Use|Use"/>
-    </attributes>
-    <weight value="0.01"/>
-    <value value="100"/>
-    <equipable>
-      <slot name="ground"/>
-      <slot name="content"/>
-      <slot name="bag"/>
 	  <slot name="scrollbag"/>
-      <slot name="trade"/>
-      <slot name="lhand"/>
       <slot name="rhand"/>
+      <slot name="portfolio"/>
     </equipable>
   </item>
 
@@ -297,11 +307,13 @@
     <equipable>
       <slot name="ground"/>
       <slot name="content"/>
-      <slot name="bag"/>
-	  <slot name="scrollbag"/>
-      <slot name="trade"/>
       <slot name="lhand"/>
       <slot name="rhand"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+	  <slot name="scrollbag"/>
+      <slot name="rhand"/>
+      <slot name="portfolio"/>
     </equipable>
   </item>
 
@@ -319,11 +331,13 @@
     <equipable>
       <slot name="ground"/>
       <slot name="content"/>
-      <slot name="bag"/>
-	  <slot name="scrollbag"/>
-      <slot name="trade"/>
       <slot name="lhand"/>
       <slot name="rhand"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+	  <slot name="scrollbag"/>
+      <slot name="rhand"/>
+      <slot name="portfolio"/>
     </equipable>
   </item>
 
@@ -341,11 +355,13 @@
     <equipable>
       <slot name="ground"/>
       <slot name="content"/>
-      <slot name="bag"/>
-	  <slot name="scrollbag"/>
-      <slot name="trade"/>
       <slot name="lhand"/>
       <slot name="rhand"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+	  <slot name="scrollbag"/>
+      <slot name="rhand"/>
+      <slot name="portfolio"/>
     </equipable>
   </item>
 
@@ -363,37 +379,17 @@
     <equipable>
       <slot name="ground"/>
       <slot name="content"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
       <slot name="bag"/>
+      <slot name="trade"/>
 	  <slot name="scrollbag"/>
-      <slot name="trade"/>
-      <slot name="lhand"/>
       <slot name="rhand"/>
-    </equipable>
-  </item>
-  
-  <item name="deniran city scroll">
-    <type class="scroll" subclass="deniran" tileid="-1"/>
-    <description>You see a deniran city scroll, it will take you back to deniran city.</description>
-    <implementation class-name="games.stendhal.server.entity.item.scroll.MarkedScroll"/>
-    <attributes>
-      <infostring value="0_deniran_city 32 74"/>
-      <quantity value="1"/>
-      <menu value="Use|Use"/>
-    </attributes>
-    <weight value="0.01"/>
-    <value value="1"/>
-    <equipable>
-      <slot name="ground"/>
-      <slot name="content"/>
-      <slot name="bag"/>
-      <slot name="lhand"/>
-      <slot name="rhand"/>
-      <slot name="trade"/>
       <slot name="portfolio"/>
     </equipable>
   </item>
-  
-  <!-- Chinese -->
+
+<!-- Chinese -->
   
   <item name="shepherd scroll">
     <type class="scroll" subclass="shepherd" tileid="-1"/>

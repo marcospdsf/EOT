@@ -12,6 +12,7 @@
 package games.stendhal.server.core.scripting;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
@@ -35,6 +36,7 @@ public class ScriptInJava extends ScriptingSandbox {
 	private Script script;
 
 	private final String classname;
+	private URLClassLoader classloader;
 
 	/**
 	 * Creates a new script written in Java.
@@ -64,10 +66,10 @@ public class ScriptInJava extends ScriptingSandbox {
 		// Create new class loader
 		// with current dir as CLASSPATH
 		final File file = new File("./data/script");
-		final ClassLoader loader = new URLClassLoader(new URL[] { file.toURI().toURL() });
+		this.classloader = new URLClassLoader(new URL[] { file.toURI().toURL() });
 		// load class through new loader
-		final Class< ? > aClass = loader.loadClass(classname);
-		script = (Script) aClass.newInstance();
+		final Class< ? > aClass = classloader.loadClass(classname);
+		script = (Script) aClass.getDeclaredConstructor().newInstance();
 	}
 
 	/**
@@ -148,6 +150,12 @@ public class ScriptInJava extends ScriptingSandbox {
 		} catch (final Exception e) {
 			logger.error(e, e);
 			setMessage(e.getMessage());
+		}
+
+		try {
+			this.classloader.close();
+		} catch (IOException e) {
+			logger.warn("tried to close loader", e);
 		}
 
 		super.unload(admin, args);

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="stendhal ../creatures.xsd ">
-
+    xsi:schemaLocation="stendhal ../creatures.xsd">
 
   <!-- START: cyclops -->
 
@@ -21,7 +20,6 @@
     <respawn value="1200"/>
     <corpse name="humanoid"/>
     <drops>
-      <item value="money" quantity="[6,13]" probability="100.0"/>
       <item value="chain armor" quantity="[1,1]" probability="1.0"/>
       <item value="leather cuirass" quantity="[1,1]" probability="10.0"/>
       <item value="studded boots" quantity="[1,1]" probability="0.5"/>
@@ -35,9 +33,9 @@
       <says>
         <sound value="cyclops-scream-01"/>
         <sound value="cyclops-yell-01"/>
-      	<sound value="cyclops-laugh-01"/>
-      	<sound value="cyclops-laugh-02"/>
-      	<sound value="cyclops-grunt-01"/>
+        <sound value="cyclops-laugh-01"/>
+        <sound value="cyclops-laugh-02"/>
+        <sound value="cyclops-grunt-01"/>
       </says>
       <profile name="brave"/>
       <profile name="offensive"/>
@@ -47,7 +45,6 @@
   </creature>
 
   <!-- END: cyclops -->
-
 
   <!-- START: troll -->
 
@@ -66,7 +63,6 @@
     <respawn value="1210"/>
     <corpse name="humanoid"/>
     <drops>
-      <item value="money" quantity="[3,7]" probability="90.0"/>
       <item value="chain armor" quantity="[1,1]" probability="3.0"/>
       <item value="chain legs" quantity="[1,1]" probability="2.0"/>
       <item value="enhanced chainmail" quantity="[1,1]" probability="0.05"/>
@@ -102,7 +98,6 @@
     <respawn value="1230"/>
     <corpse name="humanoid"/>
     <drops>
-      <item value="money" quantity="[3,17]" probability="90.0"/>
       <item value="scale armor" quantity="[1,1]" probability="3.0"/>
       <item value="chain legs" quantity="[1,1]" probability="4.0"/>
       <item value="flail" quantity="[1,1]" probability="30.0"/>
@@ -138,7 +133,6 @@
     <respawn value="1870"/>
     <corpse name="humanoid_2x2"/>
     <drops>
-      <item value="money" quantity="[1,30]" probability="100.0"/>
       <item value="meat" quantity="[1,5]" probability="10.5"/>
       <!--<item value="tripe" quantity="[1,2]" probability="50.0"/>-->
       <item value="ugmash" quantity="[1,1]" probability="1.0"/>
@@ -151,9 +145,9 @@
       <says>
         <noise state="idle follow fight" value="Uggga yggga arghhhhh"/>
         <noise state="idle follow fight" value="Ooggga UGGga arhhh"/>
-        <sound value="growl-large-3" />
-        <sound value="grunt-large-1" />
-        <sound value="grunt-large-2" />
+        <sound value="growl-large-3"/>
+        <sound value="grunt-large-1"/>
+        <sound value="grunt-large-2"/>
       </says>
       <profile name="brave"/>
       <profile name="offensive"/>
@@ -162,6 +156,5 @@
   </creature>
 
   <!-- END: troll -->
-
 
 </creatures>

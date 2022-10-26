@@ -27,11 +27,8 @@ import java.util.Map;
 
 import games.stendhal.client.IGameScreen;
 import games.stendhal.client.entity.ActionType;
-import games.stendhal.client.entity.Creature;
 import games.stendhal.client.entity.Entity;
 import games.stendhal.client.entity.IEntity;
-import games.stendhal.client.entity.NPC;
-import games.stendhal.client.entity.Player;
 import games.stendhal.client.entity.RPEntity;
 import games.stendhal.client.entity.StatusID;
 import games.stendhal.client.entity.TextIndicator;
@@ -673,28 +670,8 @@ abstract class RPEntity2DView<T extends RPEntity> extends ActiveEntity2DView<T> 
 			 * XXX: would it be better to use an opaque image & set transparency here?
 			 */
 
-			// custom shadows are created from images with "shadow-" prefix
-			String custom_shadow = entity.getShadowStyle();
-			if (custom_shadow == null && !(entity instanceof Player)) {
-				final String clazz = entity.getEntityClass();
-				final String subclazz = entity.getEntitySubclass();
-
-				custom_shadow = "data/sprites/";
-				if (entity instanceof Creature) {
-					custom_shadow += "monsters/";
-				} else if (entity instanceof NPC) {
-					custom_shadow += "npc/";
-				}
-
-				if (subclazz == null && clazz != null) {
-					custom_shadow += clazz;
-				} else if (subclazz != null && clazz != null) {
-					custom_shadow += clazz + "/" + subclazz;
-				}
-
-				custom_shadow += "-shadow.png";
-			}
-
+			// custom shadows are created with attribute set in .xml config
+			final String custom_shadow = entity.getShadowStyle();
 			final ImageSprite shadowed;
 			final Graphics g;
 
@@ -710,7 +687,7 @@ abstract class RPEntity2DView<T extends RPEntity> extends ActiveEntity2DView<T> 
 
 			final int w_sprite = sprite.getWidth() / 3;
 			final int h_sprite = sprite.getHeight() / 4;
-			final String standard_shadow = "data/sprites/shadow/shadow-" + Integer.toString(w_sprite) + "x" + Integer.toString(h_sprite) + ".png";
+			final String standard_shadow = "data/sprites/shadow/" + Integer.toString(w_sprite) + "x" + Integer.toString(h_sprite) + ".png";
 
 			// check if corresponding standard shadow image exists
 			if (DataLoader.getResource(standard_shadow) != null) {
@@ -873,8 +850,6 @@ abstract class RPEntity2DView<T extends RPEntity> extends ActiveEntity2DView<T> 
 			g2d.setColor(Color.cyan);
 			g2d.drawRect(x, y, width, height);
 		}
-
-		drawFloaters(g2d, x, y, width);
 	}
 
 	/**
@@ -895,6 +870,7 @@ abstract class RPEntity2DView<T extends RPEntity> extends ActiveEntity2DView<T> 
 	@Override
 	protected void drawTop(final Graphics2D g2d, final int x, final int y,
 			final int width, final int height) {
+		drawFloaters(g2d, x, y, width);
 		drawStatusBar(g2d, x, y + statusBarYOffset, width);
 	}
 

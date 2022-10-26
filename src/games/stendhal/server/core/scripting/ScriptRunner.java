@@ -496,8 +496,8 @@ public class ScriptRunner extends StendhalServerExtension implements
 	 * Initializes Lua globals & loads built-in scripts.
 	 */
 	private void initLua() {
-		ScriptInLua.getInstance().init();
-		initLuaMods();
+		ScriptInLua.get().init();
+		//initLuaMods();
 	}
 
 	/**

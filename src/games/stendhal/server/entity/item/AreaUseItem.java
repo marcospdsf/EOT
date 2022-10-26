@@ -1,5 +1,5 @@
 /***************************************************************************
- *                   (C) Copyright 2003-2013 - Stendhal                    *
+ *                   Copyright (C) 2003-2022 - Arianne                     *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -11,52 +11,77 @@
  ***************************************************************************/
 package games.stendhal.server.entity.item;
 
-import java.util.List;
 import java.util.Map;
 
-import games.stendhal.common.Direction;
+import games.stendhal.common.constants.SoundLayer;
 import games.stendhal.server.core.engine.StendhalRPZone;
-import games.stendhal.server.entity.Entity;
 import games.stendhal.server.entity.RPEntity;
-import games.stendhal.server.entity.mapstuff.area.ConditionAndActionArea;
-import games.stendhal.server.entity.player.Player;
+import games.stendhal.server.events.SoundEvent;
+
 
 public class AreaUseItem extends Item {
-    public AreaUseItem(final String name, final String clazz, final String subclass, final Map<String, String> attributes) {
-        super(name, clazz, subclass, attributes);
-    }
 
-    public AreaUseItem(AreaUseItem item) {
-        super(item);
-    }
+	protected String use_sound;
 
-    @Override
-    public boolean onUsed(RPEntity player) {
-        boolean success = false;
 
-        StendhalRPZone zone = player.getZone();
-        Direction facing = player.getDirection();
-        int posX = player.getX();
-        int posY = player.getY();
+	public AreaUseItem(final String name, final String clazz, final String subclass,
+			final Map<String, String> attributes) {
+		super(name, clazz, subclass, attributes);
 
-        // Tarrget one step in front of player
-        if (facing == Direction.RIGHT) {
-            posX += 1;
-        } else if (facing == Direction.LEFT) {
-            posX -= 1;
-        } else if (facing == Direction.DOWN) {
-            posY += 1;
-        } else if (facing == Direction.UP) {
-            posY += 1;
-        }
+		if (attributes.containsKey("use_sound")) {
+			use_sound = attributes.get("use_sound");
+		}
+	}
 
-        List<Entity> entityList = zone.getEntitiesAt(posX, posY);
-        for (Entity entity : entityList) {
-            if (entity instanceof ConditionAndActionArea) {
-                success = ((ConditionAndActionArea) entity).use((Player) player);
-            }
-        }
+	/**
+	 * Copy constructor.
+	 *
+	 * @param item Item to copy.
+	 */
+	public AreaUseItem(final AreaUseItem item) {
+		super(item);
+		use_sound = item.use_sound;
+	}
 
-        return success;
-    }
+	@Override
+	public boolean onUsed(final RPEntity user) {
+		if (use_sound != null) {
+			user.addEvent(new SoundEvent(use_sound, SoundLayer.FIGHTING_NOISE));
+			user.notifyWorldAboutChanges();
+		}
+
+		return onUsedInArea(user);
+	}
+
+	/**
+	 * Inheriting classes can override this to determine action to execute
+	 * when item is used in correct area.
+	 *
+	 * @param user
+	 *     Entity using the item.
+	 * @param zone
+	 *     Zone the entity is currently in.
+	 * @param x
+	 *     X coordinate of entity's position.
+	 * @param y
+	 *     Y coordinate of entity's position.
+	 * @return
+	 *     <code>true</item> if item used successfully.
+	 */
+	protected boolean onUsedInArea(final RPEntity user, final StendhalRPZone zone, final int x, final int y) {
+		return true;
+	}
+
+	/**
+	 * Inheriting classes can override this to determine action to execute
+	 * when item is used in correct area.
+	 *
+	 * @param user
+	 *     Entity using the item.
+	 * @return
+	 *     <code>true</item> if item used successfully.
+	 */
+	protected boolean onUsedInArea(final RPEntity user) {
+		return onUsedInArea(user, user.getZone(), user.getX(), user.getY());
+	}
 }

@@ -21,10 +21,12 @@ import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.CollisionAction;
 import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.QuestCompletedBuyerBehaviour;
+
 
 /**
  * Builds an albino elf NPC .
@@ -76,6 +78,7 @@ public class CraftsmanNPC implements ZoneConfigurator {
 		npc.setPosition(3, 11);
 		npc.initHP(100);
 		npc.setDescription("You see Lupos. As you can see, he is an albino elf.");
+		npc.setCollisionAction(CollisionAction.STOP);
 		zone.add(npc);
 	}
 }

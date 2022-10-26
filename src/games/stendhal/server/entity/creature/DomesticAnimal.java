@@ -48,10 +48,6 @@ public abstract class DomesticAnimal extends Creature {
 	 */
 	public DomesticAnimal() {
 		put("title_type", "friend");
-
-		// make pets passable so players don't get trapped
-		setResistance(75);
-
 		setPosition(0, 0);
 		setSize(1, 1);
 	}
@@ -91,12 +87,10 @@ public abstract class DomesticAnimal extends Creature {
 			wasOwned = true;
 		}
 		int storedHP = getInt("hp");
-		int storedXP = getInt("xp");
 		// fetch the speed etc values...
 		setUp();
 		// ...but don't heal the animal
 		setHP(storedHP);
-		setXP(storedXP);
 	}
 
 	public void setOwner(final Player owner) {
@@ -106,6 +100,10 @@ public abstract class DomesticAnimal extends Creature {
 			if (takesPartInCombat() && getZone() != null) {
 				getZone().addToPlayersAndFriends(this);
 			}
+			// make pets passable so players don't get trapped
+			setResistance(75);
+		} else {
+			setResistance(100);
 		}
 	}
 
@@ -144,12 +142,6 @@ public abstract class DomesticAnimal extends Creature {
 		super.update();
 		if (has("weight")) {
 			weight = getInt("weight");
-		}
-		if(has("level")) {
-			level = getInt("level");
-			for(int i = 0; i < level; i++) {
-				setAtk(getAtk() + 5); 
-			}
 		}
 	}
 

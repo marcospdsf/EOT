@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                      (C) Copyright 2003 - Marauroa                      *
+ *                    (C) Copyright 2003-2020 - Marauroa                   *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -77,17 +76,18 @@ import marauroa.server.game.rp.RPServerManager;
  */
 public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 
+	/** The logger instance. */
+	private static final Logger logger = Logger.getLogger(StendhalRPRuleProcessor.class);
+
+	/** The Singleton instance. */
+	protected static StendhalRPRuleProcessor instance;
+
 	/** only log the first exception while reading welcome URL. */
 	private static boolean firstWelcomeException = true;
-	/** the logger instance. */
-	private static final Logger logger = Logger.getLogger(StendhalRPRuleProcessor.class);
 	/** list of super admins read from admins.list. */
 	private static Map<String, String> adminNames;
 	/** welcome message unless overwritten by an URL */
 	private static String welcomeMessage = "Welcome to Stendhal. Need help? #https://stendhalgame.org/player-guide/ask-for-help.html - please report problems, suggestions and bugs. Remember to keep your password completely secret, never tell to another friend, player, or admin.";
-
-	/** The Singleton instance. */
-	protected static StendhalRPRuleProcessor instance;
 
 	private RPServerManager rpman;
 
@@ -103,17 +103,9 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 
 	/** a list of zone that should be removed (like vaults) */
 	private final List<StendhalRPZone> zonesToRemove = new LinkedList<StendhalRPZone>();
-	
-	private LinkedList<marauroa.server.game.rp.GameEvent> gameEvents = new LinkedList();
 
-	/**
-	 * creates a new StendhalRPRuleProcessor
-	 */
-	protected StendhalRPRuleProcessor() {
-		onlinePlayers = new PlayerList();
-		playersRmText = new LinkedList<Player>();
-		entityToKill = new LinkedList<Pair<RPEntity, Entity>>();
-	}
+	private LinkedList<marauroa.server.game.rp.GameEvent> gameEvents = new LinkedList<>();
+
 
 	/**
 	 * gets the singleton instance of StendhalRPRuleProcessor
@@ -129,7 +121,17 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 				AfkTimeouter.create();
 			}
 		}
+
 		return instance;
+	}
+
+	/**
+	 * creates a new StendhalRPRuleProcessor
+	 */
+	protected StendhalRPRuleProcessor() {
+		onlinePlayers = new PlayerList();
+		playersRmText = new LinkedList<Player>();
+		entityToKill = new LinkedList<Pair<RPEntity, Entity>>();
 	}
 
 	/**
@@ -165,6 +167,9 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 
 			/* initialize quests stored in cache */
 			questSystem.loadCachedQuests();
+
+			/* actions registered to be executed at end of server startup */
+			CachedActionManager.get().run();
 
 			final Configuration config = Configuration.getConfiguration();
 			try {
@@ -610,7 +615,7 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 		final AccountCreator creator = new AccountCreator(username, password, email);
 		return creator.create();
 	}
-	
+
 	@Override
 	public AccountResult createAccountWithToken(String username, String tokenType, String token) {
 		return null;
@@ -799,7 +804,7 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 					DBCommand command = new LogGameEventCommand(gameEvents);
 					gameEvents.clear();
 					DBCommandQueue.get().enqueue(command, DBCommandPriority.LOW);
-					
+
 				}
 			});
 		}

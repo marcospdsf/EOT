@@ -225,11 +225,11 @@ public class StendhalPlayerDatabase {
 			transaction.execute("ALTER TABLE halloffame_archive_alltimes MODIFY COLUMN fametype char(10) NOT NULL", null);
 			transaction.execute("ALTER TABLE halloffame_archive_recent   MODIFY COLUMN fametype char(10) NOT NULL", null);
 		}
-		
-		/*if (!transaction.doesTableExist("pets")) {
-			transaction.execute();
-		}*/
 
+		// 1.38: entity is cloned from another NPC
+		if (!transaction.doesColumnExist("npcs", "cloned")) {
+			transaction.execute("ALTER TABLE npcs ADD COLUMN (cloned VARCHAR(64));", null);
+		}
 	}
 
 

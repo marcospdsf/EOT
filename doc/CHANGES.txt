@@ -2,6 +2,308 @@ Changelog
 ---------
 ---------
 
+
+1.42
+
+*world*
+- added non-interactive tadpole to Ados Rock map
+
+*graphics*
+- reworked chaos sprites for Cabbit bases
+- touched up Wrviliza sprite
+
+*clients*
+- changed level-up sound back to "tadaa"
+
+
+1.41.2
+
+*bugfixes*
+- fixed creature DEF being set to 10 during combat
+
+*world*
+- re-enabled hack to increase hit chance & lower damage
+
+
+1.41.1
+
+*world*
+- disabled hack that increased hit chance & lowered damage
+
+
+1.41
+
+*world*
+- added/changed mimimum level to many items to make them more useful
+- increased heal rate of some food/drink items
+- adventure island guarantees spawn for daily monster quest
+- Find Jef's mom quest added to Private Detective achievement
+- centaur king drops power arrows
+- glacier centaur drops ice arrows
+- solar centaur drops fire arrows
+- charcoal added to daily item quest
+- int_ados_fishermans_hut_south whitelisted for rat spawns in The Pied Piper quest
+- new rare creature: golden orc
+- orc spearman drops golden orc sword
+- added to Ultimate Collector Quest:
+  - golden orc sword
+  - ice war hammer
+  - orcish sword
+  - black halberd
+- added to Kirdneh Museum quest:
+  - engagement ring
+- removed from Kirdneh Museum quest items requested by Ultimate Collector
+- magic cloak & hell dagger changed to medium difficulty in Kirdneh Museum quest
+- summon scrolls can be used inside deathmatch arena
+- deathmatch announcements not repeated until after 15 minutes
+- added missing dark elf ranger to Kill Enemy Army quest
+- combat changes (creatures only, PvP not affected)
+  - ATK XP rewarded for successful or blocked hits regardless of having recently taken damage
+  - missed hits never reward ATK XP
+  - player hit chance is increased by 50% during combat
+  - player hit damage is decreased by 50% to compensate for increased hit chance
+
+*graphics*
+- item sprites touch ups
+- replaced some item sprites:
+  - l/r hand swords
+  - elvish shield
+  - elvish legs
+  - elvish boots
+- entity sprites touch ups
+- more player outfits
+
+*sound*
+- added sounds for Rose Leigh, Marianne, & Princess Esclara
+
+*clients*
+- chest collision is visible on minimap
+- "busty" variants can be drawn for dress outfit layer
+
+*webclient*
+- own/leave options for pets
+- entity size used to offset speech bubble position
+- travel log shows when quests are repeatable
+- players represented with blue + on minimap
+- fixed distance check for automatically closing corpse & chest windows
+- Ctrl is used instead of Shift key to change facing direction
+- character will not move when scrolling chat history (holding Shift key + arrow up/down)
+- text is not highlighted when scrolling chat history
+- fixed dragging items & corpses under other entities
+- fixed re-ordering items in inventory
+- setting to enable quick pickup from chests
+- support for moving items via touch
+- fixed tutorial notifications to show NPC profile image
+
+*java client*
+- fixed inaccurate marked scroll tooltips
+- fixed wrong cursor for bestiary
+
+*misc*
+- marked scroll tooltips now show custom labels
+
+
+1.40
+
+*world*
+- King Edward buys royal equipment
+- training swords now autobind & have min level 20
+- Deniran bank zone added as requirement for "Safe Deposit" achievement
+
+*graphics*
+- added polka dots to red cloak to match description
+- touched up blordrough sprites
+- added outlines to many item sprites
+- added some missing shadows for entities
+
+*clients*
+- floaters are drawn above roof layers
+- "Mark all" option for contained empty scrolls
+- speech bubbles follow owning entity
+- contained marked scrolls display a tooltip with destination info
+
+*web client*
+- rounded corners of speech bubbles
+- shadows drawing supported
+- mouse wheel changes facing direction
+- "walk" option added to player context menu
+- autowalk can be stopped with corresponding direction key
+- action context menu closes when game screen clicked
+- emoji support
+- chat log context menu with "clear" & "copy" to clipboard commands
+- font & background theme customizations
+- windows for shop lists & bestiary
+- some item animation support
+- fixed tally marks in Kill Monks travel log info
+- fixed path to bee sprite in Atlantis
+- screenshot support
+- notification bubble support
+- many UI touch-ups
+- animated "love" NPC idea
+- XP to next level displayed (WIP)
+- dialog window positions persist for session
+- walking away automatically closes corpse & chest windows
+- emerald ring image updates when broken
+- title & health bar remain in view when reaching top of game window
+- fixed collision check for entities that ignore collsion
+- persistent settings
+- setting to enable/disable shadows
+- setting to enable/disable blood & gory images
+- setting to enable/disable item double-click mode
+- setting to enable/disable continuous movement
+- setting to enable/disable covering naked entities
+- setting to enable/disable creature speech bubbles
+
+*misc*
+- fixed exploit that allowed players to repair emerald ring for free using Sawyer
+
+
+1.39
+
+*world*
+- Sawyer is showing off a shiny golden blade that he acquired
+- Sawyer loans out metal detector
+- new NPCs
+  - Ari
+  - Emeric
+  - Emma
+- new sounds
+  - vampirette_hiss: vampirette & vampire bride
+- emerald ring notifies player effects work in any character slot
+- metal detector item to find lost engagement ring
+- new achievements:
+  - Community Supporter: Spend money around the world (medium difficulty)
+  - Determination: Increase trophy helmet to max defense (hard difficulty)
+- creature changes:
+  - musth elephant def decreased
+- quest changes:
+  - magic cloak added to Kirdneh Museum quest
+- new quest: Lost Engagement Ring
+- new items:
+  - shovel
+  - metal detector
+- Balduin sells replacement l/r hand swords after Ultimate Collector
+- knocking on house doors can be heard on second floors
+- deathmatch area is non-PvP
+- Thanatos announces when a deathmatch begins
+
+*graphics*
+- touched up some entity, outfit, item, & corpse sprites
+- replaced some entity & item sprites
+- some changes to client cursor theme
+
+*client*
+- experimental Android client created that links to web client
+- Java client
+  - updated Win32 executable (no longer requires registry configuration)
+  - new icon
+  - channel tab blinking can be disabled in settings
+  - audio notification for personal messages can be enabled
+- Web client:
+  - ported to TypeScript
+  - floaters for xp & hp changes enabled
+  - arrow keys don't scroll page
+  - character & theme can be set in query string (?char=<name>&theme=<theme>)
+  - fixed button mushroom grower sprite
+
+
+1.38
+
+*world*
+- quest changes
+  - added elvish hat to required items in Elvish Armor
+  - Sally rewards charcoal in Campfire
+  - requirement for doing Money Pouch lowered to loot 100,000 money
+- pegasus no longer drops mithril armor
+- new NPCs:
+  - Claude Conteur
+  - fish in Semos Temple
+  - citizens in Denrian City
+- new items:
+  - charcoal
+- disabled inaccessible items:
+  - angel figurine
+  - ankh
+  - blank scroll
+  - ice scroll
+  - keyring
+  - mana
+  - necromancers staff
+  - reptile egg
+  - rift cloak
+- added creature descriptions:
+  - blue mohiko
+  - fallen high priest
+  - imperial general giant
+  - kasarkutominubat
+- altered creature descriptions:
+  - archangel
+  - emperor dalmung
+- altered item descriptions:
+  - snowball
+- removed money drops from many creatures
+- added "boss" profiles (can drop up to six items):
+  - amazoness giant
+  - angel, archangel, dark angel, dark archangel, & fallen angel
+  - arachne
+  - balrog
+  - black & golden death
+  - black dragon
+  - black giant
+  - Dhohr Nuggetcutter
+  - emperor dalmung
+  - gashadokuro
+  - giant dwarf
+  - ice giant
+  - kasarkutominubat
+  - legendary ice elemental
+  - Lord Durin
+  - minotaur king
+  - necrosophia
+  - xenocium
+- blocked access to Sikhw from Kalavan Castle West
+- values changed of items sold to Harley in Deniran
+- pelts are dropped more often & by more animals
+- new achievements:
+  - Moving up in the World: Loot 100,000 money
+
+*graphics*
+- added a postman outfit
+- touched up many outfit/character/creature sprites with scaling artifacts
+- touched up many item sprites
+- replaced many item sprites
+- replaced NPC sprites:
+  - mithrilforgernpc (Baldemar, Kampusch, Pedinghaus, & Whiggins)
+- ents have leafy blood
+- replaced slime sprites
+
+*client*
+- corpse window displays 6 slots when creature drops more than 4 items
+- new cursor theme
+- Java client:
+  - setting to enable/disable character "nudity"
+- Web client:
+  - fixed layer index formatting in outfit dialog
+  - outfit dialog used "outfit_ext_orig" if set (same behavior as Java client)
+
+*fixes*
+- solar & glacier centaur susceptibilities were backward
+- hair layer is not drawn with hats 996 & 997
+- original outfit colors are restored with Player.returnToOriginalOutfit()
+- correspending layer color is unset when renting outfits from Liliana & Saskia
+- fixed Santa hat being removed on login during Christmas season
+- fixed Santa unsetting outfit colors when giving hat to player
+- updated log4j to https://github.com/ltslog/ltslog
+
+*development*
+- starting with the next version after this release, an installation of Node.js will be required for developers
+- "min_level" is now required attribute for equipment
+- cloned NPCs set title to original NPCs name by default
+
+*administration*
+- script RestoreOriginalOutfit to remove temp outfit & restore original
+
+
 1.37
 
 *world*
@@ -14,8 +316,8 @@ Changelog
 - fixed halloffame on newer versions of MySQL due to "rank" now being treated as a reserved word
 
 
-
 1.36
+
 *world*
 - building Mine Town Revival Weeks as group quest
 - new item: lamp
@@ -31,6 +333,7 @@ Changelog
 - fixed Bobbing for Apples
 - map fixes
 - do not put money into disabled money pouch
+
 
 1.35
 
@@ -58,6 +361,7 @@ Changelog
 *other*
 - started to work on a list of all contributors, please help to add to it:
   https://github.com/arianne/stendhal/blob/master/doc/contributors.md
+
 
 1.34
 
@@ -281,8 +585,8 @@ Changelog
 - mithril cloak quest can be reset to an earlier state in case of lost items
 
 
-
 1.32
+
 *world*
 - new enemies
   - amethyst mermaid, emerald mermaid, ruby mermaid, & sapphire mermaid
@@ -396,6 +700,7 @@ Changelog
 
 
 1.31
+
 *world*
 - added Deniran interior maps:
   - potions shop
@@ -454,6 +759,7 @@ Changelog
 
 
 1.30
+
 *world*
 - added Deniran Caves
 - continued on Deniran city and region
@@ -466,7 +772,6 @@ Changelog
 
 *fixes*
 - fixed position for hay cart
-
 
 
 1.29
@@ -496,11 +801,13 @@ Changelog
 - deleted sound files from sources which might have provided wrong license information
 
 
-
 1.28.1
+
 - Server only security update: Marauroa failed to verify username on client transfer (thanks to pepzs for the report)
 
+
 1.28
+
 *world*
 - many new enemy & NPC sprites
 - some item sprites re-drawn
@@ -535,6 +842,7 @@ Changelog
 
 
 1.27
+
 *world*
 - many new NPC and enemy sprite images
 - separate sprites for mountain orcs: chief, hunter, warrior
@@ -640,6 +948,7 @@ the huge task of creating & replacing sprite & tileset images.
 
 
 1.26
+
 *world*
 - made new image for Gashadokuro
 - made new image for Stone Golem
@@ -682,7 +991,6 @@ the huge task of creating & replacing sprite & tileset images.
 - removed dependency on polymer
 
 
-
 1.24
 
 *world*
@@ -700,7 +1008,6 @@ the huge task of creating & replacing sprite & tileset images.
 - updated polymer and webcomponentsjs, but MS Edge is still broken :-/
 - improved drag and drop of items from corpse and chest
 - added dragable PopupWindow (e. g. for corpse inventory, menus and dialogs)
-
 
 
 1.23
@@ -749,7 +1056,6 @@ the huge task of creating & replacing sprite & tileset images.
 - Fighting pets will attack things along side their owners. Instead of just in self-defense.
 
 
-
 1.20
 
 *world*
@@ -772,8 +1078,6 @@ the huge task of creating & replacing sprite & tileset images.
 - Database index are now created automatically
 
 
-
-
 1.19
 
 *world*
@@ -789,8 +1093,6 @@ the huge task of creating & replacing sprite & tileset images.
 
 *client*
 - added cancel buttons on all dialog boxes (for window managers which do not add an X to the title bar)
-
-
 
 
 1.18
@@ -883,7 +1185,6 @@ the huge task of creating & replacing sprite & tileset images.
 - Fix mouse wheel walking bug where character walks endlessly
 
 
-
 1.16
 15th December 2014
 
@@ -892,17 +1193,14 @@ the huge task of creating & replacing sprite & tileset images.
 - Falling snow
 - Leaderhosen outfit
 
-
 *code*
 - weather layer
-
 
 
 1.15.1
 26th October 2014
 
 - fixed a bug which caused poisoned summon creates to die multiple times
-
 
 
 1.15
@@ -929,7 +1227,6 @@ the huge task of creating & replacing sprite & tileset images.
 - code cleanup, fixed compiler warnings
 
 
-
 1.14
 2nd June 2014
 
@@ -947,7 +1244,6 @@ the huge task of creating & replacing sprite & tileset images.
 - gallery for screenshots
 - website now works on small devices
 
-
 *fixes*
 - length of text messages limited and line breaks fixed on Java 7/8
 - wedding ring supports double click
@@ -955,7 +1251,6 @@ the huge task of creating & replacing sprite & tileset images.
 - code cleanup and documentation improvements
 - excessly high atk and def level are capped for fighters with little experience
   (average players should not notice much of a difference)
-
 
 
 1.13
@@ -975,7 +1270,6 @@ the huge task of creating & replacing sprite & tileset images.
 
 *website*
 - removed myopenid as it is going to be discontinued
-
 
 *developer's note*
 - If you developed a game based on stendhal and use the automatic updater,
@@ -1015,7 +1309,6 @@ the huge task of creating & replacing sprite & tileset images.
 - Replaced commons-lang.jar with guava.jar (needs to be changed in Eclise: Project | Properties | Build Path | Libraries)
 
 
-
 1.11
 15th October 2013
 
@@ -1044,7 +1337,6 @@ the huge task of creating & replacing sprite & tileset images.
 *code*
 - Status icon positions are automatically arranged
 - Poisoning and new status effects handled with new system
-
 
 
 1.10
@@ -1076,6 +1368,7 @@ the huge task of creating & replacing sprite & tileset images.
 - NPC sound effects are handled by server
 - Sheep sounds are generated server side
 - Domestic animals and NPCs use the same idea handling code in the client
+
 
 1.09
 25th July 2013
@@ -1119,7 +1412,6 @@ the huge task of creating & replacing sprite & tileset images.
 - QuestCheckingPortal can now check quest state
 
 
-
 1.08
 5th June 2013
 
@@ -1143,14 +1435,12 @@ the huge task of creating & replacing sprite & tileset images.
 - Fish added to fountain in Ados City
 - 3 kitten added to Felina's house
 
-
 *client*
 - Option to turn off creature speech bubbles
 - Fixed accidental looting on drag by deactivating ctrl-click as looting command
 - Immediate response when starting to move with arrow keys
 - Attack sprites are scaled according to attacker size
 - Player now faces attack target if not doing so on each turn
-
 
 *fixes*
 - quest log of EmotionCrystals fixed
@@ -1164,7 +1454,6 @@ the huge task of creating & replacing sprite & tileset images.
 - @Override added where applicable
 - Reduced visibility of several classes, methods and fields
 - Unused old code removed
-
 
 
 1.07
@@ -1301,8 +1590,6 @@ the huge task of creating & replacing sprite & tileset images.
 - email-address can now be changed
 
 
-
-
 1.02
 7th August 2012
 
@@ -1345,12 +1632,12 @@ the huge task of creating & replacing sprite & tileset images.
 - some dependency cleanup
 
 
-
 1.01.1
 5th July 2012
 
 *fixes*
 - fixed slow processing of sound data causing lag on zone change and on spawning of sound aware creatures
+
 
 1.01
 1st July 2012
@@ -1397,7 +1684,6 @@ the huge task of creating & replacing sprite & tileset images.
 * added social buttons to website
 
 
-
 0.99
 5th February 2012
 
@@ -1425,7 +1711,6 @@ the huge task of creating & replacing sprite & tileset images.
 - A menu item for taking screenshots
 - Bleach mode supports colored light
 - Blend layers can use any available blend mode
-
 
 
 0.98
@@ -1504,7 +1789,6 @@ the huge task of creating & replacing sprite & tileset images.
 - Working on some maps fixed layer errors
 - Decreased number of sheep to eight in Semos city (they were starving before)
 
-
 *internal code changes*
 - table itemid was replaced with table item.
 
@@ -1566,13 +1850,9 @@ read https://stendhalgame.org/wiki/Automatic_Software_Updater
 - Andy, at Ados cemetery, seeks revenge
 - Harold pays owed earnings instantly on start of dialogue
 
-
-
 *fixes*
 - fixed not showing zone achievements
 - fixed webstart which did not work on the most recent OpenJDK version (Ubuntu 11.04, SuSE)
-
-
 
 
 0.94
@@ -1642,7 +1922,6 @@ read https://stendhalgame.org/wiki/Automatic_Software_Updater
 - fix a memory hole in the market
 
 
-
 0.92: Achievements and Expedition Groups
 26th February 2011
 
@@ -1677,7 +1956,6 @@ read https://stendhalgame.org/wiki/Automatic_Software_Updater
 - improved server side performance by changing Creature.getArea() to not create lots and lots of short lived objects
 
 
-
 0.91: Quest progress
 2nd January 2011
 
@@ -1699,10 +1977,8 @@ read https://stendhalgame.org/wiki/Automatic_Software_Updater
 - NPC text matching improvements
 
 
-
 0.90.1
 - fixed a bug which prevented logging in without at least one saved profile
-
 
 
 0.90: Seasons Greetings
@@ -1727,7 +2003,6 @@ read https://stendhalgame.org/wiki/Automatic_Software_Updater
 - fixed some fish sources in amazon
 - 70% of FindBugs warnings and most of all Eclipse warnings fixed
 - all tests now pass using the Eclipse JUnit plugin
-
 
 
 0.89: Food, flowers and fights
@@ -1762,7 +2037,6 @@ read https://stendhalgame.org/wiki/Automatic_Software_Updater
 - all NPCs defined with a zone configurator (standardisation across code)
 - old style quests refactored to use standard conditions and actions
 - drawing of the ground layers sped up
-
 
 
 0.88: Newcomers and new trading
@@ -1800,6 +2074,7 @@ read https://stendhalgame.org/wiki/Automatic_Software_Updater
 
 - fixed an issue causing the client to be unresponsive for some windows users
 
+
 0.87: New client!
 13th September 2010
 
@@ -1826,7 +2101,6 @@ read https://stendhalgame.org/wiki/Automatic_Software_Updater
 *code*
 - improved performance of pathfinder
 - use external program for twitter access instead of disabled http basic auth API
-
 
 
 0.86: The Wizards Circle
@@ -1867,6 +2141,7 @@ read https://stendhalgame.org/wiki/Automatic_Software_Updater
 - support messages will get sent using postman if the player was offline
 - postman uses an admin action to store messages in table
 
+
 0.85: Wood, wood everywhere
 27th June 2010
 
@@ -1901,7 +2176,6 @@ read https://stendhalgame.org/wiki/Automatic_Software_Updater
 - weekly item quest xp reward
 - quest completed check where completed state is set to other than 'done'
 - initial Hayunn dialog/tutorial cleaned up
-
 
 
 0.84: Don't deny the desperate Despot
@@ -1944,6 +2218,7 @@ read https://stendhalgame.org/wiki/Automatic_Software_Updater
 - performance optimisation
 - bugfixes including player display on firefox
 - spouse of a married player is displayed
+
 
 0.83: Dark or Light, Fire or Ice?
 30th April 2010
@@ -2032,11 +2307,13 @@ read https://stendhalgame.org/wiki/Automatic_Software_Updater
 - fixed Harold telling players about expiring earnings every minute
 
 
-
 0.81.3
+
 - prevent crash on "No line matching interface" (fixes #2970406)
 
+
 0.81.2
+
 *bug fixes*
 - fixed a crash on Linux using alsa (non pulse) audio drivers and Sun Java (not OpenJDK)
   if all channels are in use by another application
@@ -2045,10 +2322,13 @@ read https://stendhalgame.org/wiki/Automatic_Software_Updater
 - handle failure to load sprite images more gracefully
 - improved logging of uncaught exceptions
 
+
 0.81.2 contains the first results of the Client Quality Weeks. Thanks everyone for providing
 your error log files and pleace continue to do so.
 
+
 0.81.1
+
 *bug fixes*
 - fixed an issue with 0 hp created by logging out while dying (thanks to Andrzej Kofański)
 - prevent client crash on empty soundNameList
@@ -2091,10 +2371,10 @@ your error log files and pleace continue to do so.
 - adminlevel shown
 
 
-
-
 0.80.1: server only release
+
 * fixed logout while dying
+
 
 0.80: Harold's new job, Trade Manager!
 8th January 2010
@@ -2134,11 +2414,15 @@ your error log files and pleace continue to do so.
 
 
 0.79.2: server only release
+
 - decorated semos for christmas
 - added Santa
 
+
 0.79.1: server only release
+
 - fixed a duplicated corpse bug
+
 
 0.79: Back to reality
 13th November 2009
@@ -2202,6 +2486,7 @@ your error log files and pleace continue to do so.
 - buddy list is sorted alphabetically
 - outside semos tavern is a better seating area
 
+
 0.76: Ported to Marauroa 3.0
 2nd August 2009
 
@@ -2209,6 +2494,7 @@ your error log files and pleace continue to do so.
 - support for OpenJDK IcedTea (thanks to omair)
 - corpse images used are now specified in xml
 - corpses redrawn and new kinds added
+
 
 0.75: Beauty and Balance
 12th July 2009
@@ -2233,6 +2519,7 @@ your error log files and pleace continue to do so.
   - player history available at https://stendhalgame.org
   - new command /adminnote
   - /gmhelp_script and /gmehlp_alter replaced by /gmhelp script and /gmhelp alter
+
 
 0.74: What goes around comes around
 23rd May 2009
@@ -2270,7 +2557,7 @@ your error log files and pleace continue to do so.
 - added missing logic to BringListOfItemsQuests
 - monogenes shows map, ilisa shows picture, liliana shows outfits again
 - don't allow pets or sheep in death match
-- remove possibility of	dropping or displacing	items to places	where they can't be retrieved (or where it would be v long walk to fetch them)
+- remove possibility of dropping or displacing  items to places where they can't be retrieved (or where it would be v long walk to fetch them)
 - minor map and graphical fixes
 - unignore: check first, and if target not being ignored, tell player so.
 - now getting points in dm for the final creature killed
@@ -2280,6 +2567,7 @@ your error log files and pleace continue to do so.
 - QuestsXMLReader changed from singleton to just create one.
 - Iquest.getName() abstract in Abstractquest. every quest knows its name now (not the descriptive one yet)
 - moved a lot of tilesets to correct homes
+
 
 0.73: Houses sweet houses!
 31st March 2009
@@ -2326,6 +2614,7 @@ to players inside
 - changing locks feature
 - can ask npc what houses are available
 - many houses redecorated inside to use new tiles
+
 
 0.72: New abilities
 22nd February 2009
@@ -2409,6 +2698,7 @@ semos and ados)
 - semos mine town revival weeks celebrated - outfit lender + more
 - jailreport is available to level 50 admins, and takes an optional player argument
 
+
 0.70: Rules of War
 3rd October 2008
 
@@ -2453,6 +2743,7 @@ engaged player is online
 - admin inspect and admin destroy now work for contained items too.
 - pushing creatures with an area > 4 is no longer possible
 
+
 0.69: Wrath of Angels
 12th August 2008
 
@@ -2490,6 +2781,7 @@ engaged player is online
 - -D switch available if you want your eating/poisoned/choking icons drawn on top most layer
 - on death player is told what items their corpse contains
 
+
 0.68.1: Fix it and tidy up
 30th June 2008
 
@@ -2509,6 +2801,7 @@ engaged player is online
 - ados coastline is complete
 - unused classes in client removed
 - some shop selling/buying bugs fixed
+
 
 0.68: Gnome Sweet Gnome
 29th May 2008
@@ -2547,6 +2840,7 @@ engaged player is online
 - scrolls now available by bartering with gardener lady in kalavan
 - milk now available from semos farm
 - honey now availble from beekeeper in fado forest
+
 
 0.67: Happy Valentines
 14th February 2008
@@ -2593,9 +2887,12 @@ engaged player is online
   - based on infrastructure created in this release we will be able to implements lots of previously impossible features
 - 26.7% of code (block counts) is now covered by automated Junit tests
 
+
 0.65.1 (server only)
+
 - fixed a problem with access to chests
 - added additional log to simplify querying of item history
+
 
 0.65: Christmas is coming!
 3rd December 2007
@@ -2619,6 +2916,7 @@ kikareukin islands.
   - some client pathfinding bugs fixed
   - doors should use correct sprite now, closed doors have a reject message
 
+
 0.64: *grr* Baby Dragons! *grr*
 15th November 2007
 
@@ -2633,6 +2931,7 @@ kikareukin islands.
   - 14.2% of code is now covered by automated Junit tests
   - started to improve the way quests are coded
   - improved state transition diagrams for NPCs
+
 
 0.63: Huge, strange, sweet, wild, safe
 18th October 2007
@@ -2697,6 +2996,7 @@ kikareukin islands.
  - ados bank, townhall_0 both easier to travel across
  - level 170-210 creatures rebalanced
 
+
 0.62: Sky towers and deep dungeons
 13th August 2007
 
@@ -2722,6 +3022,7 @@ kikareukin islands.
 - Speed up creature logic
 - Bug fixes to some quests
 
+
 0.61: Wofol opens its doors
 22nd June 2007
 
@@ -2736,6 +3037,7 @@ kikareukin islands.
 - Add Push so you can push players, creatures, etc...
 - Make a Wish at Wishing Wells, to get money, gold nuggets, gems, wood, etc
 - Added several new creatures for levels 30-90: sheepmen, frogmen and several undead creatures.
+
 
 0.60: A Marriage of Beauty and Chaos
 22nd May 2007
@@ -2767,6 +3069,7 @@ kikareukin islands.
 - Added around 30 new creatures and around 40 new items that are dropped by them.
 - Refactored all the creatures' drops so they do drop less but more useful stuff.
 - Added new maps that communicate drows mines with ados caves.
+
 
 0.59: Beach or Battle? Pizza or Perish? You decide ...
 14th April 2007
@@ -2804,6 +3107,7 @@ Technical:
 - zone xml now uses <parameter> values for factory arguments, and entity types may include <attribute> values to set instance attributes
 - use zone level/coordinates from data/conf/zones/*.xml instead of tmx files
 
+
 0.58: Vampires roam Semos Catacombs!
 10th March 2007
 
@@ -2824,6 +3128,7 @@ Technical:
 - new nalwor interiors including a weapons buyer
 - catacombs in semos plains n
 - vampire sword quest
+
 
 0.57: big changes for a little world!
 27th January 2007
@@ -2855,6 +3160,7 @@ Technical:
 - monks and elementals are worshipping on the mountains to the west
 - Balduin is excited about weapons from the new creatures
 
+
 0.56: Merry Christmas!
 19th December 2006
 
@@ -2875,13 +3181,15 @@ Technical:
 
 0.55.1
 Nov 4, 2006
+
 - fixed /drop
 - readded missing files for key autorepeat handling on Linux based systems
 - improved downloading files on update to retry in case the SF webserver is having some problems
 
 
 0.55: Halloween night!
- Oct 31, 2006
+Oct 31, 2006
+
 - improved language of nearly all NPCs
 - smart updater for future versions (so that you do not have to download the complete client on every new version)
 - Semos Mine Town Revival Weeks
@@ -2900,6 +3208,7 @@ Oct 07, 2006
 - fixed dice gambling to only accept dices thrown on the table inside Semos Tavern
 - fixed consolation price of dice gambling to be a bottle of beer
 
+
 0.54: Dice Gambling
 Oct 01, 2006
 
@@ -2913,6 +3222,7 @@ Oct 01, 2006
 - changed our default server to stendhalgame.org
 - converted admin / game master commands from groovy to reloadable java classes
 
+
 0.53: Archers and Farmers
 Sep 03, 2006
 
@@ -2921,6 +3231,7 @@ Sep 03, 2006
 - added a bakery and an NPC who bakes bread from flour
 - gave archer elf and archer kobold something to shoot
 - made iron casting take time
+
 
 0.52
 Aug 14, 2006
@@ -3061,9 +3372,11 @@ Apr 31, 2006
 - Added a new area on the top east, near Ados.
 
 
-0.47.1 Mar 24, 2006
+0.47.1
+Mar 24, 2006
 
 - Fixed a important problem at StendhalPlayerDatabase
+
 
 0.47: Liches and Kobolds
 Mar 23, 2006
@@ -3232,7 +3545,8 @@ Jan 03, 2005
 - Fixed legs slot not working
 
 
-0.40 Dec 21, 2005
+0.40
+Dec 21, 2005
 
 - Fixed a bug when dropping an item over itself
 - Modified private and hidden attributes
@@ -3259,7 +3573,8 @@ Jan 03, 2005
 - Code to avoid trainer campers.
 
 
-0.39.1 Oct 26, 2005
+0.39.1
+Oct 26, 2005
 
 - Fixed chat bug
 - Fixed inspected slot and sync problem
@@ -3502,6 +3817,7 @@ Apr 05, 2005
 - Added GUI
 
 
-0.00 Mar 01, 2005
+0.00
+Mar 01, 2005
 
 - Initial release

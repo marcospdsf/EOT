@@ -1,13 +1,15 @@
-/*
- * @(#) src/games/stendhal/server/entity/GuidedEntity.java
- *
- * $Id$
- */
-
+/***************************************************************************
+ *                    Copyright © 2003-2022 - Arianne                      *
+ ***************************************************************************
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
 package games.stendhal.server.entity;
-
-//
-//
 
 import static games.stendhal.common.constants.General.PATHSET;
 
@@ -164,7 +166,7 @@ public abstract class GuidedEntity extends ActiveEntity {
 	/**
 	 * Causes entity to retrace its path backwards when it reaches the end.
 	 */
-	public void retracePath() {
+	public void setRetracePath() {
 		if (!hasPath()) {
 			logger.warn("Cannot set path to be retraced when entity does not have path set");
 			return;
@@ -176,6 +178,16 @@ public abstract class GuidedEntity extends ActiveEntity {
 		}
 
 		setPath(new FixedPath(nodes, guide.path.isLoop()), guide.pathPosition);
+	}
+
+	/**
+	 * backward compatibility
+	 *
+	 * @deprecated Use {@link #setRetracePath()}.
+	 */
+	@Deprecated
+	public void retracePath() {
+		setRetracePath();
 	}
 
 	/**

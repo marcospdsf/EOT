@@ -31,26 +31,26 @@ public class Outfits {
 	public static final int HEAD_OUTFITS = 4;
 
 	/** number of player selectable dresses */
-	public static final int CLOTHES_OUTFITS = 63;
+	public static final int CLOTHES_OUTFITS = 65;
 
 	/** number of player selectable hair styles */
-	public static final int HAIR_OUTFITS = 48;
+	public static final int HAIR_OUTFITS = 57;
 
 	/** number of player selectable body shapes */
 	public static final int BODY_OUTFITS = 3;
 	private static final List<Integer> DRESS_COMPATIBLE_BODIES = Arrays.asList(980, 981); // populate with any other bodies that a dress layer can be worn over
 
 	/** number of player selectable eyes */
-	public static final int EYES_OUTFITS = 26;
+	public static final int EYES_OUTFITS = 28;
 
 	/** number of player selectable mouths */
 	public static final int MOUTH_OUTFITS = 5;
 
 	public static final int MASK_OUTFITS = 9;
-	public static final int HAT_OUTFITS = 14;
+	public static final int HAT_OUTFITS = 19;
 
 	// hair should not be drawn with hat indexes in this list
-	public static final List<Integer> HATS_NO_HAIR = Arrays.asList(3, 4, 13, 992, 993, 994);
+	public static final List<Integer> HATS_NO_HAIR = Arrays.asList(3, 4, 13, 16, 992, 993, 994, 996, 997);
 
 	// layers used for building outfits
 	public static final List<String> LAYER_NAMES = Arrays.asList(
@@ -61,6 +61,8 @@ public class Outfits {
 	// layers that can be re-colored
 	public static final List<String> RECOLORABLE_OUTFIT_PARTS = Arrays.asList(
 			"detail", "dress", "hair", "body", "head", "eyes", "mask", "hat");
+
+	public static final List<String> SKIN_LAYERS = Arrays.asList("body", "head");
 
 
 	/**

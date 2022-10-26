@@ -12,8 +12,11 @@
 package games.stendhal.server.entity;
 
 import static games.stendhal.common.Outfits.RECOLORABLE_OUTFIT_PARTS;
+import static games.stendhal.common.Outfits.SKIN_LAYERS;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -137,16 +140,17 @@ public abstract class DressedEntity extends RPEntity {
 		// a temporary outfit already, store the current outfit in a
 		// second slot so that we can return to it later.
 		if (temporary) {
-			if (has("outfit_ext") && !has("outfit_ext_orig")) {
-				put("outfit_ext_orig", get("outfit_ext"));
-			}
+			// remember original outfit & colors
+			storeOriginalOutfit();
+
+			// backward compatibility
 			if (has("outfit") && !has("outfit_org")) {
 				put("outfit_org", get("outfit"));
 			}
 
 			if (has("outfit_ext") || has("outfit")) {
 				// remember the old color selections.
-				for (String part : RECOLORABLE_OUTFIT_PARTS) {
+				for (final String part : getColorableLayers()) {
 					String tmp = part + "_orig";
 					String color = get("outfit_colors", part);
 					if (color != null) {
@@ -170,7 +174,7 @@ public abstract class DressedEntity extends RPEntity {
 
 			if (has("outfit_ext_orig") || has("outfit_org")) {
 				// clear colors
-				for (String part : RECOLORABLE_OUTFIT_PARTS) {
+				for (final String part : getColorableLayers()) {
 					if (has("outfit_colors", part)) {
 						remove("outfit_colors", part);
 					}
@@ -182,7 +186,7 @@ public abstract class DressedEntity extends RPEntity {
 		// contain null parts.
 		final Outfit newOutfit = outfit.putOver(getOutfit());
 
-		StringBuilder sb = new StringBuilder();
+		final StringBuilder sb = new StringBuilder();
 		sb.append("body=" + newOutfit.getLayer("body") + ",");
 		sb.append("dress=" + newOutfit.getLayer("dress") + ",");
 		sb.append("head=" + newOutfit.getLayer("head") + ",");
@@ -291,6 +295,10 @@ public abstract class DressedEntity extends RPEntity {
 		setOutfitColor(part, color.getRGB());
 	}
 
+	public void setOutfitColor(final String part, final String color) {
+		put("outfit_colors", part, color);
+	}
+
 	/**
 	 * Set colors for the entire outfit.
 	 *
@@ -319,6 +327,49 @@ public abstract class DressedEntity extends RPEntity {
 	 */
 	public void unsetOutfitColor(final String part) {
 		remove("outfit_colors", part);
+	}
+
+
+	private List<String> getColorableLayers() {
+		final List<String> new_list = new ArrayList<>();
+		for (final String part : RECOLORABLE_OUTFIT_PARTS) {
+			if (!SKIN_LAYERS.contains(part)) {
+				new_list.add(part);
+			}
+		}
+
+		new_list.add("skin");
+		return new_list;
+	}
+
+	private void storeOriginalOutfit() {
+		if (has("outfit_ext") && !has("outfit_ext_orig")) {
+			put("outfit_ext_orig", get("outfit_ext"));
+		}
+
+		for (final String part : getColorableLayers()) {
+			final String color_orig = get("outfit_colors", part + "_orig");
+			if (color_orig == null) {
+				final String color = get("outfit_colors", part);
+				if (color != null) {
+					put("outfit_colors", part + "_orig", color);
+				}
+			}
+		}
+	}
+
+	public void restoreOriginalOutfit() {
+		if (has("outfit_ext_orig")) {
+			setOutfitWithDetail(new Outfit(get("outfit_ext_orig")), false);
+
+			for (final String part : getColorableLayers()) {
+				final String color_orig = get("outfit_colors", part + "_orig");
+				if (color_orig != null) {
+					put("outfit_colors", part, color_orig);
+					remove("outfit_colors", part + "_orig");
+				}
+			}
+		}
 	}
 
 	@Override

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="stendhal ../creatures.xsd ">
+    xsi:schemaLocation="stendhal ../creatures.xsd">
 
   <creature name="bandit">
     <type class="human" subclass="bandit" tileid="human_evil.png:1"/>
@@ -218,7 +218,7 @@
 
   <creature name="samurai">
     <type class="human" subclass="samurai" tileid="human_evil.png:5"/>
-    <description>If this samurai failed to uphold his honor, he could only regain it by performing seppuku</description>
+    <description>If this samurai failed to uphold his honor, he could only regain it by performing seppuku.</description>
     <attributes>
       <atk value="585"/>
       <def value="73"/>

@@ -21,6 +21,7 @@ import games.stendhal.server.core.rp.group.GroupManager;
 import games.stendhal.server.core.rp.pvp.PlayerVsPlayerChallengeManager;
 import games.stendhal.server.core.rule.EntityManager;
 import games.stendhal.server.core.rule.defaultruleset.DefaultEntityManager;
+import games.stendhal.server.entity.npc.CloneManager;
 import games.stendhal.server.entity.npc.NPCList;
 import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.behaviour.journal.MerchantsRegister;
@@ -48,10 +49,35 @@ import marauroa.server.db.TransactionPool;
  */
 public class SingletonRepository {
 
+	/** The singleton instance. */
+	private static SingletonRepository instance;
+
 	private static EntityManager entityManager;
 	private static Jail jailInstance;
 	private static GroupManager groupManager;
 	private static PlayerVsPlayerChallengeManager challengeManager;
+
+
+	/**
+	 * Singleton access method.
+	 *
+	 * @return
+	 *     The static instance.
+	 */
+	public static SingletonRepository get() {
+		if (instance == null) {
+			instance = new SingletonRepository();
+		}
+
+		return instance;
+	}
+
+	/**
+	 * Hidden singleton constructor.
+	 */
+	private SingletonRepository() {
+		// singleton
+	}
 
 	/**
 	 * @return the actual StendhalRPRuleProcessor instance
@@ -221,7 +247,23 @@ public class SingletonRepository {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	/**
+	 * Retrieves the CachedActionManager.
+	 *
+	 * @return
+	 *     CachedActionManager instance.
+	 */
+	public static CachedActionManager getCachedActionManager() {
+		return CachedActionManager.get();
+	}
 
-
-
+	/**
+	 * Retrieves the CloneManager.
+	 *
+	 * @return
+	 *     CloneManager instance.
+	 */
+	public static CloneManager getCloneManager() {
+		return CloneManager.get();
+	}
 }

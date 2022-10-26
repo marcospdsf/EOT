@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
 <items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	  xsi:schemaLocation="stendhal ../items.xsd ">
+    xsi:schemaLocation="stendhal ../items.xsd">
 
   <item name="note">
     <type class="documents" subclass="paper" tileid="-1"/>
@@ -140,7 +141,8 @@
     </equipable>
   </item>
 
-  <item name="blank scroll">
+<!-- disabled
+  <item name="blank scroll" condition="stendhal.testserver">
     <type class="documents" subclass="scroll" tileid="-1"/>
     <description>You see a rolled up blank scroll.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
@@ -159,7 +161,7 @@
     </equipable>
   </item>
 
-  <item name="ice scroll">
+  <item name="ice scroll" condition="stendhal.testserver">
     <type class="documents" subclass="ice_scroll" tileid="-1"/>
     <description>You see a scroll, circled by ice crystals. You can feel its cold aura.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
@@ -177,9 +179,8 @@
       <slot name="rhand"/>
     </equipable>
   </item>
-  
-  <!-- PolishDocuments -->
- <!-- <item name="recipe">
+
+  <item name="recipe" condition="stendhal.testserver">
     <type class="documents" subclass="recipe" tileid="-1"/>
     <description>You see a recipe, ready for being delivered to Imorgen. It names ingredients for a powerful potion against werewolves. </description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
@@ -195,23 +196,7 @@
       <slot name="lhand"/>
       <slot name="rhand"/>
     </equipable>
-  </item>-->
-  
-  <!--<item name="note to apothecary">
-    <type class="documents" subclass="paper" tileid="-1"/>
-    <description>You see a note to apothecary. It is a recommendation from Klaas.</description>
-    <implementation class-name="games.stendhal.server.entity.item.Item"/>
-    <attributes>
-    </attributes>
-    <weight value="0.01"/>
-    <value value="1"/>
-    <equipable>
-      <slot name="ground"/>
-      <slot name="content"/>
-      <slot name="bag"/>
-      <slot name="lhand" />
-      <slot name="rhand" />
-    </equipable>
-  </item>-->
-  
+  </item>
+-->
+
 </items>

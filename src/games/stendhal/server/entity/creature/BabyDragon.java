@@ -116,7 +116,7 @@ public class BabyDragon extends Pet {
 
 	@Override
 	public boolean canGrow() {
-		return true;//!System.getProperty("stendhal.petleveling", "false").equals("true");
+		return !System.getProperty("stendhal.petleveling", "false").equals("true");
 	}
 
 	/**

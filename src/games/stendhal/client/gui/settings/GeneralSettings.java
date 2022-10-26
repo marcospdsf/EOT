@@ -13,8 +13,8 @@ package games.stendhal.client.gui.settings;
 
 import static games.stendhal.client.gui.settings.SettingsProperties.DOUBLE_TAP_AUTOWALK_PROPERTY;
 import static games.stendhal.client.gui.settings.SettingsProperties.MOVE_CONTINUOUS_PROPERTY;
-import static games.stendhal.common.Constants.KARMA_SETTINGS;
-import static games.stendhal.common.constants.General.COMBAT_KARMA;
+import static games.stendhal.client.gui.settings.SettingsProperties.MSG_BLINK;
+import static games.stendhal.client.gui.settings.SettingsProperties.MSG_SOUND;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -23,14 +23,10 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.border.TitledBorder;
 
-import games.stendhal.client.StendhalClient;
 import games.stendhal.client.actions.MoveContinuousAction;
-import games.stendhal.client.actions.SetCombatKarmaAction;
 import games.stendhal.client.gui.j2DClient;
 import games.stendhal.client.gui.layout.SBoxLayout;
 import games.stendhal.client.gui.layout.SLayout;
@@ -38,7 +34,6 @@ import games.stendhal.client.gui.styled.Style;
 import games.stendhal.client.gui.styled.StyleUtil;
 import games.stendhal.client.gui.wt.core.SettingChangeListener;
 import games.stendhal.client.gui.wt.core.WtWindowManager;
-import marauroa.common.game.RPObject;
 
 /**
  * Page for general settings.
@@ -111,11 +106,13 @@ class GeneralSettings {
 		});
 		page.add(moveContinuousToggle);
 
+		final JCheckBox msgBlinkToggle = SettingsComponentFactory.createSettingsToggle(
+			MSG_BLINK, true, "Blink on channel message", "Chat channel tab blinks on message when not focused");
+		page.add(msgBlinkToggle);
 
-		if (System.getProperty("stendhal.karmaconfig") != null) {
-			// combat karma
-			page.add(createCombatKarmaSelector());
-		}
+		final JCheckBox msgSoundToggle = SettingsComponentFactory.createSettingsToggle(
+			MSG_SOUND, true, "Personal message audio notification", "Play sound for personal messages channel when not focused");
+		page.add(msgSoundToggle);
 
 		// Client dimensions
 		JComponent clientSizeBox = SBoxLayout.createContainer(SBoxLayout.VERTICAL, pad);
@@ -171,76 +168,5 @@ class GeneralSettings {
 	private void resetClientDimensions() {
 		j2DClient clientFrame = j2DClient.get();
 		clientFrame.resetClientDimensions();
-	}
-
-	/**
-	 * Creates a drop-down selector for setting battle karma mode.
-	 */
-	private JComponent createCombatKarmaSelector() {
-		int pad = SBoxLayout.COMMON_PADDING;
-
-		final JLabel selectorLabel = new JLabel("Use karma in combat:");
-
-		final JComboBox<String> selector = new JComboBox<>();
-		for (final String mode : KARMA_SETTINGS) {
-			selector.addItem(mode);
-		}
-
-		final RPObject player = StendhalClient.get().getPlayer();
-
-		// use player attribute if available to set combat karma mode
-		final String currentMode;
-		if (player.has(COMBAT_KARMA) && KARMA_SETTINGS.contains(player.get(COMBAT_KARMA))) {
-			currentMode = player.get(COMBAT_KARMA);
-		} else {
-			currentMode = KARMA_SETTINGS.get(1);
-		}
-		selector.setSelectedItem(currentMode);
-
-		selector.addActionListener(new ActionListener() {
-			/**
-			 * Sends action to the server.
-			 */
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				new SetCombatKarmaAction().sendAction(selector.getSelectedItem().toString());
-			}
-		});
-
-		WtWindowManager.getInstance().registerSettingChangeListener("combat.karma",
-				new SettingChangeListener() {
-			/**
-			 * Updates the GUI when setting is changed via slash command.
-			 */
-			@Override
-			public void changed(final String newValue) {
-				selector.setSelectedItem(newValue);
-			}
-		});
-
-		final JComponent karmaBox = SBoxLayout.createContainer(SBoxLayout.VERTICAL, pad);
-		final JComponent karmaHBox = SBoxLayout.createContainer(SBoxLayout.HORIZONTAL, pad);
-
-		karmaHBox.add(selectorLabel);
-		karmaHBox.add(selector);
-
-		// tooltip info
-		final String[][] tooltipData = {
-				{"Never", KARMA_SETTINGS.get(0), "Karma will never be used."},
-				{"Normal (default)", KARMA_SETTINGS.get(1), "Karma is used for stronger enemies."},
-				{"Always", KARMA_SETTINGS.get(2), "Karma is used regardless of how strong or weak enemy is."}
-		};
-
-		final StringBuilder descr = new StringBuilder();
-		descr.append("Karma can be used in combat to give a slight edge. It helps in three ways:");
-		descr.append("<br>1) Increases attack strength.");
-		descr.append("<br>2) Increases defense.");
-		descr.append("<br>3) Increases chances of hitting enemy.");
-		descr.append("<br><br>The following three settings define when karma is used in combat:");
-		karmaHBox.setToolTipText(ConvenienceMapper.createTooltip(descr.toString(), tooltipData));
-
-		karmaBox.add(karmaHBox);
-
-		return karmaBox;
 	}
 }

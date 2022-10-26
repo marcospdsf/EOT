@@ -154,6 +154,7 @@ public class StendhalQuestSystem {
 		loadQuest(new MeetZynn());
 		loadQuest(new MithrilCloak());
 		loadQuest(new MixtureForOrtiv());
+		loadQuest(new MuseumEntranceFee());
 		loadQuest(new NewsFromHackim());
 		loadQuest(new ObsidianKnife());
 		loadQuest(new PizzaDelivery());
@@ -253,6 +254,9 @@ public class StendhalQuestSystem {
 		if (Occasion.MINETOWN) {
 			loadQuest(new PaperChase()); // needs to be loaded before SemosMineTownRevivalWeeks
 			loadQuest(new MineTownRevivalWeeks());
+		}
+		if (Occasion.MINETOWN_CONSTRUCTION) {
+			loadQuest(new MineTownRevivalWeeksConstruction());
 		}
 
 		TurnNotifier.get().notifyInTurns(10, new DumpGameInformationForWebsite());

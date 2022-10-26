@@ -60,7 +60,7 @@ public class ElvishArmor extends AbstractQuest implements
 
 	private static final List<String> NEEDEDITEMS = Arrays.asList(
 			"elvish armor", "elvish legs", "elvish boots", "elvish sword",
-			"elvish cloak", "elvish shield");
+			"elvish cloak", "elvish shield", "elvish hat");
 
 	@Override
 	public String getSlotName() {
@@ -232,7 +232,7 @@ public class ElvishArmor extends AbstractQuest implements
 				ConversationPhrases.OFFER_MESSAGES,
 				new QuestCompletedCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
-				"If you have found any more elvish items, I'd be glad if you would #sell them to me. I would buy elvish armor, shield, legs, boots, cloak or sword. I would also buy a drow sword if you have one.",
+				"If you have found any more elvish items, I'd be glad if you would #sell them to me. I would buy elvish armor, shield, legs, boots, cloak, sword, or hat. I would also buy a drow sword if you have one.",
 				null);
 
 

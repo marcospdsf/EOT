@@ -1,6 +1,6 @@
 /* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2022 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -12,6 +12,7 @@
  ***************************************************************************/
 package games.stendhal.client;
 
+import games.stendhal.client.gui.ScreenController;
 import games.stendhal.client.gui.UserInterface;
 import games.stendhal.client.sound.facade.SoundSystemFacade;
 import marauroa.client.ClientFramework;
@@ -62,6 +63,16 @@ public class ClientSingletonRepository {
 	 */
 	public static void setUserInterface(UserInterface userInterface) {
 		ClientSingletonRepository.userInterface = userInterface;
+	}
+
+	/**
+	 * Gets the screen controller.
+	 *
+	 * @return
+	 *     ScreenController instance.
+	 */
+	public static ScreenController getScreenController() {
+		return ScreenController.get();
 	}
 
 	/**

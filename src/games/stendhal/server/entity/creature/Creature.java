@@ -19,7 +19,6 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Observer;
 
 import org.apache.log4j.Logger;
 
@@ -58,6 +57,7 @@ import games.stendhal.server.entity.status.StatusAttacker;
 import games.stendhal.server.entity.status.StatusAttackerFactory;
 import games.stendhal.server.events.SoundEvent;
 import games.stendhal.server.util.CounterMap;
+import games.stendhal.server.util.Observer;
 import marauroa.common.game.Definition;
 import marauroa.common.game.Definition.Type;
 import marauroa.common.game.RPClass;
@@ -680,17 +680,17 @@ public class Creature extends NPC {
 		for (final Item item : dropItemInstances) {
 			item.setFromCorpse(true);
 			corpse.add(item);
-			if (corpse.isFull()) {
+			if (corpse.isFull(isBoss())) {
 				break;
 			}
 		}
 
 		for (final Item item : createDroppedItems(SingletonRepository.getEntityManager())) {
-			if (!corpse.isFull()) {
+			if (!corpse.isFull(isBoss())) {
 				corpse.add(item);
 				item.setFromCorpse(true);
 			} else {
-				LOGGER.warn("Cannot add item to full corpse: " + item.getName());
+				LOGGER.debug("Cannot add item to full corpse: " + item.getName());
 			}
 		}
 	}
@@ -798,6 +798,13 @@ public class Creature extends NPC {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Check if the entity is a "boss". Bosses have higher capacity corpses.
+	 */
+	public boolean isBoss() {
+		return aiProfiles.containsKey("boss");
 	}
 
 	/**
@@ -1182,5 +1189,4 @@ public class Creature extends NPC {
 		}
 		return getZone() == player.getZone();
 	}
-
 }

@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2022 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -15,6 +14,7 @@ package games.stendhal.client.gui;
 
 import javax.swing.SwingUtilities;
 
+import games.stendhal.client.entity.factory.EntityMap;
 import games.stendhal.client.listener.FeatureChangeListener;
 
 /**
@@ -22,6 +22,8 @@ import games.stendhal.client.listener.FeatureChangeListener;
  */
 @SuppressWarnings("serial")
 class KeyRing extends SlotWindow implements FeatureChangeListener {
+
+
 	/**
 	 * Create a key ring.
 	 */
@@ -33,26 +35,6 @@ class KeyRing extends SlotWindow implements FeatureChangeListener {
 		setCloseable(false);
 	}
 
-	//
-	// KeyRing
-	//
-
-	/**
-	 * Disable the keyring.
-	 */
-	private void disableKeyring() {
-		/*
-		 * You can not really lose a keyring for now, but
-		 * a disable message is received at every map change.
-		 * Just ignore it. (And after keyrings are made to
-		 * real items, this whole file will be obsolete anyway).
-		 */
-	}
-
-	//
-	// FeatureChangeListener
-	//
-
 	/**
 	 * A feature was disabled.
 	 *
@@ -62,7 +44,7 @@ class KeyRing extends SlotWindow implements FeatureChangeListener {
 	@Override
 	public void featureDisabled(final String name) {
 		if (name.equals("keyring")) {
-			disableKeyring();
+			setVisible(false);
 		}
 	}
 
@@ -75,8 +57,15 @@ class KeyRing extends SlotWindow implements FeatureChangeListener {
 	 *            Optional feature specific data.
 	 */
 	@Override
-	public void featureEnabled(final String name, final String value) {
+	public void featureEnabled(final String name, String value) {
 		if (name.equals("keyring")) {
+			if (value.equals("")) {
+				value = "4 3";
+			}
+			String[] values = value.split(" ");
+			setSlotsLayout(Integer.parseInt(values[0]), Integer.parseInt(values[1]));
+			setAcceptedTypes(EntityMap.getClass("item", null, null));
+
 			SwingUtilities.invokeLater(new Runnable() {
 				@Override
 				public void run() {

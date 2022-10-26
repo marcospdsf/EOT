@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
 <items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="stendhal ../items.xsd ">
-	 <item name="wood">
+    xsi:schemaLocation="stendhal ../items.xsd">
+
+  <item name="wood">
     <type class="resource" subclass="wood" tileid="-1"/>
     <description>You see some wood, fallen from a nearby tree.</description>
     <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
@@ -365,7 +367,8 @@
     </equipable>
   </item>
 
- <item name="reptile egg">
+<!-- disabled
+ <item name="reptile egg" condition="stendhal.testserver">
     <type class="resource" subclass="green_egg" tileid="-1"/>
     <description>You see a valuable reptile egg.</description>
     <implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
@@ -384,6 +387,7 @@
       <slot name="rhand"/>
     </equipable>
   </item>
+-->
 
   <item name="silk gland">
     <type class="resource" subclass="silkgland" tileid="-1"/>
@@ -484,7 +488,7 @@
       <slot name="trade"/>
     </equipable>
   </item>
-  
+
   <item name="horse hair">
     <type class="resource" subclass="horsehair" tileid="-1"/>
     <description>You see some horse hairs.</description>
@@ -524,7 +528,7 @@
       <slot name="trade"/>
     </equipable>
   </item>
-  
+
   <item name="candle">
     <type class="resource" subclass="candle" tileid="-1"/>
     <description>You see a candle in a candle stick.</description>

@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
 <items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="stendhal ../items.xsd ">
+    xsi:schemaLocation="stendhal ../items.xsd">
 
   <item name="food mill">
     <type class="tool" subclass="foodmill" tileid="-1"/>
@@ -39,7 +40,7 @@
       <slot name="rhand"/>
     </equipable>
   </item>
-  
+
   <item name="scroll eraser">
     <type class="tool" subclass="scrolleraser" tileid="-1"/>
     <description>You see a scroll eraser. Put a marked scroll in the opposite hand to clean the scroll.</description>
@@ -113,6 +114,24 @@
     </equipable>
   </item>
 
+  <item name="lamp">
+    <type class="tool" subclass="lamp" tileid="-1"/>
+    <description>You see a lamp.</description>
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
+    <attributes>
+    </attributes>
+    <weight value="1.0"/>
+    <value value="1"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="lhand"/>
+      <slot name="rhand"/>
+    </equipable>
+  </item>
+
   <item name="magical scissors">
     <type class="tool" subclass="magical_scissors" tileid="-1"/>
     <description>You see a sparkling pair of magical scissors. Just think what they could cut!</description>
@@ -130,7 +149,7 @@
       <slot name="rhand"/>
     </equipable>
   </item>
-  
+
   <item name="magical needle">
     <type class="tool" subclass="magical_needle" tileid="-1"/>
     <description>You see a magical needle with a very sharp point.</description>

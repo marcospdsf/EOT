@@ -22,6 +22,11 @@ import java.util.Set;
  * Singleton class that contains inventory and prices of NPC stores.
  */
 public final class ShopList {
+	
+	/** The singleton instance. */
+	private static ShopList instance;
+
+private final Map<String, Map<String, Integer>> contents;
 
 	static {
 		final ShopList shops = ShopList.get();
@@ -37,6 +42,8 @@ public final class ShopList {
 
 		shops.add("adosfoodseller", "apple", 50);
 		shops.add("adosfoodseller", "carrot", 50);
+		shops.add("adosfoodseller", "olive oil", 135);
+		shops.add("adosfoodseller", "vinegar", 135);
 
 		shops.add("buyfood", "cheese", 5);
 		shops.add("buyfood", "meat", 10);
@@ -129,9 +136,15 @@ public final class ShopList {
 		shops.add("selltools", "hammer", 60);
 		// used for harvest grain.
 		shops.add("selltools", "old scythe", 120);
-        // for harvesting cane fields
+		// for harvesting cane fields
 		shops.add("selltools", "sickle", 80);
 		shops.add("selltools", "gold pan", 230);
+		
+		shops.add("buyores", "coal", 20);
+		shops.add("buyores", "iron", 40);
+		shops.add("buyores", "silver nugget", 70);
+		shops.add("buyores", "gold nugget", 150);
+		shops.add("buyores", "mithril nugget", 330);
 
 		shops.add("buyiron", "iron", 75);
 
@@ -159,7 +172,7 @@ public final class ShopList {
 		shops.add("buyrare", "plate armor", 62);
 		shops.add("buyrare", "plate shield", 40);
 		shops.add("buyrare", "lion shield", 50);
-        shops.add("buyrare", "blue legs",500);
+		shops.add("buyrare", "blue legs",500);
 
 		// rare elf weapons buyer
 		shops.add("elfbuyrare", "battle axe", 70);
@@ -177,7 +190,7 @@ public final class ShopList {
 		shops.add("buyrare2", "great sword", 250);
 		shops.add("buyrare2", "fire sword", 2000);
 		shops.add("buyrare2", "ice sword", 5000);
-        shops.add("buyrare2", "hell dagger", 8000);
+		shops.add("buyrare2", "hell dagger", 8000);
 
 		// very rare armor shop (ados)
 		shops.add("buyrare3", "golden legs", 3000);
@@ -223,9 +236,8 @@ public final class ShopList {
 		shops.add("boots&helm", "shadow boots", 2000);
 		shops.add("boots&helm", "stone boots", 2500);
 		shops.add("boots&helm", "chaos boots", 4000);
-        shops.add("boots&helm", "green thing boots", 6000);
-        shops.add("boots&helm", "xeno boots", 8000);
-        shops.add("boots&helm", "xeno helmet", 8000);
+		shops.add("boots&helm", "green thing boots", 6000);
+		shops.add("boots&helm", "xeno boots", 8000);
 
 		// helmet shop (mithrilbourgh)
 		// Note the shop sign is done by hand in
@@ -235,6 +247,7 @@ public final class ShopList {
 		shops.add("boots&helm", "horned golden helmet", 5000);
 		shops.add("boots&helm", "chaos helmet", 6000);
 		shops.add("boots&helm", "magic chain helmet", 8000);
+		shops.add("boots&helm", "xeno helmet", 8000);
 		shops.add("boots&helm", "black helmet", 10000);
 
 		// buy axes (woodcutter)
@@ -260,6 +273,7 @@ public final class ShopList {
 		shops.add("buyelvish", "drow sword", 1200);
 		shops.add("buyelvish", "elvish cloak", 400);
 		shops.add("buyelvish", "elvish armor", 400);
+		shops.add("buyelvish", "elvish hat", 150);
 
 		// magic items or 'relics' (witch in magic city)
 		shops.add("buymagic", "demon sword", 4000);
@@ -436,6 +450,11 @@ public final class ShopList {
 		shops.add("buyblack", "black halberd", 30000);
 
 		// ados market
+		shops.add("buyadosarmors", "blue helmet", 900);
+		shops.add("buyadosarmors", "blue boots", 200);
+		shops.add("buyadosarmors", "blue striped cloak", 500);
+		shops.add("buyadosarmors", "blue armor", 13000);
+		shops.add("buyadosarmors", "blue legs", 400);
 		shops.add("buyadosarmors", "blue shield", 900);
 
 		// Athor ferry
@@ -601,11 +620,11 @@ public final class ShopList {
 		shops.add("sellkopalnia", "Å‚opata", 200);
 		shops.add("sellkopalnia", "lina", 150);
 		//bogus sprzedaje
-		shops.add("sellskin", "buteleczka", 5);
-		shops.add("sellskin", "butelka", 7);
-		shops.add("sellskin", "krÃ³tki miecz", 500);
-		shops.add("sellskin", "topÃ³r", 800);
+		shops.add("sellskin", "bottle", 7);
+		shops.add("sellskin", "short sword", 500);
+		shops.add("sellskin", "axe", 800);
 		shops.add("sellskin", "scythe", 2000);
+		shops.add("sellskin", "short bow", 500);
 
 		shops.add("selltsoh", "zwÃ³j tsoh", 200);
 
@@ -640,6 +659,31 @@ public final class ShopList {
 		shops.add("zrc", "niezapisany zwÃ³j", 2000);
 		shops.add("zrc", "zwÃ³j tatrzaÅ„ski", 250);
 
+		// atlantis potions shop prices are twice as much as magic city
+		for (final Entry<String, Integer> potion: shops.get("superhealing").entrySet()) {
+			shops.add("atlantispotions", potion.getKey(), potion.getValue() * 2);
+		}
+		shops.add("atlantispotions", "sedative", 800);
+		shops.add("atlantispotions", "empty scroll", 4000);
+
+		shops.add("deniranpawnbuy", "skull ring", 250);
+		shops.add("deniranpawnbuy", "engagement ring", 1000);
+		shops.add("deniranpawnbuy", "medicinal ring", 2500);
+		shops.add("deniranpawnbuy", "placid ring", 2800);
+		//shops.add("deniranpawnbuy", "emerald ring", 9000); // should avoid selling bound rings
+		shops.add("deniranpawnbuy", "insulated ring", 25000);
+		shops.add("deniranpawnbuy", "turtle shell ring", 25000);
+		shops.add("deniranpawnbuy", "imperial ring", 50000);
+
+		//shops.add("buyanimalmaterials", "wool", 50); // is this item obtainable?
+		shops.add("buyanimalmaterials", "leather thread", 50);
+		shops.add("buyanimalmaterials", "bat entrails", 100);
+		shops.add("buyanimalmaterials", "pelt", 250);
+		shops.add("buyanimalmaterials", "vampirette entrails", 700);
+		shops.add("buyanimalmaterials", "venom gland", 800);
+		shops.add("buyanimalmaterials", "silk gland", 1000);
+		shops.add("buyanimalmaterials", "unicorn horn", 1100);
+		shops.add("buyanimalmaterials", "mythical egg", 2500);
 	}
 
 	private static ShopList instance;

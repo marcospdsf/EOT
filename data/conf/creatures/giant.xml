@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
+
 <creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="stendhal ../creatures.xsd ">
+    xsi:schemaLocation="stendhal ../creatures.xsd">
 
   <!-- START: amazon -->
 
@@ -34,6 +35,7 @@
       <profile name="offensive"/>
       <profile name="heal" params="20,50"/>
       <profile name="patrolling"/>
+      <profile name="boss"/>
     </ai>
   </creature>
 
@@ -195,6 +197,7 @@
       <profile name="heal" params="5,50"/>
       <profile name="patrolling"/>
       <profile name="strategy" params="archer,attack weakest,dual attack"/>
+      <profile name="boss"/>
     </ai>
   </creature>
 
@@ -204,7 +207,7 @@
 
   <creature name="imperial general giant">
     <type class="giant_human" subclass="imperial_general_giant" tileid="giant_human.png:8"/>
-    <description></description>
+    <description>You see an imperial general giant. He lurks in caves with his comrades to take you down.</description>
     <attributes>
       <atk value="738"/>
       <def value="100"/>
@@ -242,7 +245,7 @@
 
   <creature name="kasarkutominubat">
     <type class="madaram" subclass="kasarkutominubat" tileid="madaram.png:0"/>
-    <description></description>
+    <description>You see kasarkutominubat, a creature not known to many, told it was a human champion long ago, now it resembles nothing but that, with a mask bearing thousands of souls on it and hands running with nothing but blood.</description>
     <attributes>
       <atk value="606"/>
       <def value="86"/>
@@ -265,6 +268,7 @@
       <profile name="brave"/>
       <profile name="offensive"/>
       <profile name="human"/>
+      <profile name="boss"/>
     </ai>
   </creature>
 

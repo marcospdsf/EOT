@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
+
 <creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="stendhal ../creatures.xsd ">
+    xsi:schemaLocation="stendhal ../creatures.xsd">
 
   <!-- START: dark -->
 
@@ -47,6 +48,7 @@
       <profile name="lifesteal" params="0.1"/>
       <profile name="patrolling"/>
       <profile name="attack weakest"/>
+      <profile name="boss"/>
     </ai>
   </creature>
 
@@ -94,6 +96,7 @@
       <profile name="heal" params="15,50"/>
       <profile name="lifesteal" params="0.05"/>
       <profile name="patrolling"/>
+      <profile name="boss"/>
     </ai>
   </creature>
 
@@ -135,6 +138,7 @@
       <profile name="offensive"/>
       <profile name="heal" params="5,50"/>
       <profile name="patrolling"/>
+      <profile name="boss"/>
     </ai>
   </creature>
 
@@ -155,7 +159,7 @@
     <level value="90"/>
     <experience value="8190"/>
     <respawn value="3530"/>
-    <corpse name="humanoid" harmless="halo" />
+    <corpse name="humanoid" harmless="halo"/>
     <drops>
       <item value="money" quantity="[30,60]" probability="100.0"/>
       <item value="fairy cake" quantity="[1,5]" probability="10.0"/>
@@ -174,7 +178,7 @@
     <ai>
       <says>
         <noise state="idle follow fight" value="I want to grow to be mighty!"/>
-	<sound value="sneeze-baby-1"/>
+  <sound value="sneeze-baby-1"/>
       </says>
       <profile name="brave"/>
       <profile name="offensive"/>
@@ -223,12 +227,13 @@
       <profile name="offensive"/>
       <profile name="heal" params="10,50"/>
       <profile name="patrolling"/>
+      <profile name="boss"/>
     </ai>
   </creature>
 
   <creature name="archangel">
     <type class="angel" subclass="archangel" tileid="angel.png:3"/>
-    <description>You see an archangel. She wants to kill you because she doesn't want you in the clouds.</description>
+    <description>You see an archangel. It is Heaven's most terrifying weapon, a fierce and absolute force of primordial creation.</description>
     <attributes>
       <atk value="1455"/>
       <ratk value="1455"/>
@@ -271,49 +276,10 @@
       <profile name="heal" params="10,50"/>
       <profile name="lifesteal" params="0.01"/>
       <profile name="patrolling"/>
+      <profile name="boss"/>
     </ai>
   </creature>
 
   <!-- END: light -->
-  
-  
-  <creature name="angel2">
-    <type class="giant_human" subclass="angel" tileid="giant_human.png:4"/>
-    <description>You see an angel. With his flame sword he guards the way and doesn't let you pass.</description>
-    <attributes>
-      <atk value="1187"/>
-      <def value="3000"/>
-      <hp value="4000"/>
-      <speed value="1.0"/>
-      <size value="3,2"/>
-    </attributes>
-    <level value="230"/>
-    <experience value="123000"/>
-    <respawn value="36000"/>
-    <corpse name="humanoid_3x2" harmless="halo_3x2" width="3" height="2" />
-    <drops>
-      <item value="greater potion" quantity="[1,4]" probability="50.0"/>
-      <item value="giant heart" quantity="[1,1]" probability="85.0"/>
-      <item value="money" quantity="[300,3000]" probability="100.0"/>
-      <item value="magic plate armor" quantity="[1,1]" probability="0.1"/>
-      <item value="magic chain helmet" quantity="[1,1]" probability="1.0"/>
-      <item value="immortal sword" quantity="[1,1]" probability="1.0"/>
-    </drops>
-    <equips>
-    </equips>
-    <abilities>
-      <damage type="light"/>
-      <susceptibility type="dark" value="1.2"/>
-      <susceptibility type="light" value="0.7"/>
-    </abilities>
-    <ai>
-      <says>
-        <noise state="idle follow fight" value="Meet thy maker!"/>
-        <noise state="idle follow fight" value="Mere mortals cannot challenge me!"/>
-      </says>
-	  <profile name="gandhi"/>
-      <profile name="heal" params="10,50"/>
-    </ai>
-  </creature>
 
 </creatures>

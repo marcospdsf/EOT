@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
 <items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="stendhal ../items.xsd ">
+    xsi:schemaLocation="stendhal ../equipment.xsd">
 
   <item name="leather helmet">
     <type class="helmet" subclass="leather_helmet" tileid="-1"/>
@@ -8,6 +9,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="1"/>
+      <min_level value="0"/>
     </attributes>
     <weight value="2.0"/>
     <value value="7"/>
@@ -27,6 +29,7 @@
     <attributes>
       <def value="1"/>
       <autobind value=""/>
+      <min_level value="0"/>
     </attributes>
     <weight value="10.0"/>
     <value value="7"/>
@@ -45,6 +48,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="2"/>
+      <min_level value="1"/>
     </attributes>
     <weight value="6.0"/>
     <value value="56"/>
@@ -63,6 +67,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="2"/>
+      <min_level value="1"/>
     </attributes>
     <weight value="3.0"/>
     <value value="56"/>
@@ -78,9 +83,10 @@
   <item name="elvish hat">
     <type class="helmet" subclass="elvish_hat" tileid="-1"/>
     <description>You see an elvish hat. The elf craftmanship has made the leafy material stronger than one would think.</description>
-    <implementation class-name="games.stendhal.server.entity.item.Item" />
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="3"/>
+      <min_level value="3"/>
     </attributes>
     <weight value="1.0"/>
     <value value="7"/>
@@ -99,6 +105,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="4"/>
+      <min_level value="5"/>
     </attributes>
     <weight value="6.0"/>
     <value value="448"/>
@@ -117,6 +124,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="5"/>
+      <min_level value="7"/>
     </attributes>
     <weight value="6.0"/>
     <value value="875"/>
@@ -135,7 +143,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="6"/>
-      <min_level value="5"/>
+      <min_level value="10"/>
     </attributes>
     <weight value="6.0"/>
     <value value="1512"/>
@@ -154,7 +162,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="7"/>
-      <min_level value="10"/>
+      <min_level value="15"/>
     </attributes>
     <weight value="8.0"/>
     <value value="3012"/>
@@ -173,7 +181,7 @@
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="7"/>
-      <min_level value="10"/>
+      <min_level value="15"/>
     </attributes>
     <weight value="6.0"/>
     <value value="1512"/>
@@ -260,21 +268,21 @@ xenocium at 1.5%
 Possibly add to weekly item quest. -->
 
   <item name="xeno helmet">
-    <type class="helmet" subclass="xeno_helmet" tileid="-1" />
+    <type class="helmet" subclass="xeno_helmet" tileid="-1"/>
     <description>You see a xeno helmet.</description>
-    <implementation class-name="games.stendhal.server.entity.item.Item" />
+    <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
-      <def value="13" />
-      <min_level value="45" />
+      <def value="13"/>
+      <min_level value="45"/>
     </attributes>
-    <weight value="4.0" />
-    <value value="75000" />
+    <weight value="4.0"/>
+    <value value="75000"/>
     <equipable>
-      <slot name="ground" />
-      <slot name="content" />
-      <slot name="bag" />
-      <slot name="trade" />
-      <slot name="head" />
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="head"/>
     </equipable>
   </item>
 
@@ -385,7 +393,7 @@ Possibly add to weekly item quest. -->
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="29"/>
-      <min_level value="200"/>
+      <min_level value="330"/>
     </attributes>
     <weight value="12.0"/>
     <value value="323032"/>
@@ -406,7 +414,7 @@ Possibly add to weekly item quest. -->
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="23"/>
-      <min_level value="250"/>
+      <min_level value="120"/>
     </attributes>
     <weight value="15.0"/>
     <value value="74536"/>
@@ -430,6 +438,7 @@ Possibly add to weekly item quest. -->
     <description>You see a black dragon helmet. You can't fathom what they are made of.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
       <def value="31"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="15.0"/>
     <value value="123032"/>
@@ -447,6 +456,7 @@ Possibly add to weekly item quest. -->
     <description>You see a fairy helmet.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
       <def value="18"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="8.0"/>
     <value value="3012"/>
@@ -468,6 +478,7 @@ Possibly add to weekly item quest. -->
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
       <def value="58"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="2.0"/>
     <value value="7"/>
@@ -485,6 +496,7 @@ Possibly add to weekly item quest. -->
     <description>You see the Crown of Demon Prayer, this crown has a vile appearance of the fire of hell, the brand imbued with a demonic aura, the blue flame that exudes it can feel a monstrous power, the lord of darkness will pour his blessing on him who he uses it, since her soul will be bounded to him and his days will serve only to worship his master.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
       <def value="66"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="8.0"/>
     <value value="3012"/>
@@ -505,6 +517,7 @@ Possibly add to weekly item quest. -->
     <description>You see a black shadow helmet. The dark itself will fear you.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>    <attributes>
       <def value="26"/>
+	  <min_level value="0"/>
     </attributes>
     <weight value="15.0"/>
     <value value="123032"/>

@@ -1,5 +1,5 @@
 /***************************************************************************
- *                   (C) Copyright 2003-2016 - Stendhal                    *
+ *                   (C) Copyright 2003-2022 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -254,17 +254,17 @@ public class WizardBank extends AbstractQuest implements LoginListener,LogoutLis
 						new AndCondition(
 								new PlayerHasItemWithHimCondition("money", COST),
 								new QuestNotActiveCondition(QUEST_SLOT)),
-								ConversationStates.ATTENDING,
-								"Semos, Nalwor and Fado bank chests are to my right. The chests owned by Ados Bank Merchants and your friend Zara are to my left. If you are finished before your time here is done, please say #leave.",
-								new MultipleActions(
-										new DropItemAction("money", COST),
-										new TeleportAction(ZONE_NAME, 10, 10, Direction.DOWN),
-										new SetQuestAction(QUEST_SLOT, "start"),
-										new ChatAction() {
-											@Override
-											public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-												SingletonRepository.getTurnNotifier().notifyInTurns(0, new Timer(player));
-											}}));
+						ConversationStates.IDLE,
+						"Semos, Nalwor and Fado bank chests are to my right. The chests owned by Deniran and Ados Bank Merchants and your friend Zara are to my left. If you are finished before your time here is done, please say #leave.",
+						new MultipleActions(
+								new DropItemAction("money", COST),
+								new TeleportAction(ZONE_NAME, 10, 10, Direction.DOWN),
+								new SetQuestAction(QUEST_SLOT, "start"),
+								new ChatAction() {
+									@Override
+									public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
+										SingletonRepository.getTurnNotifier().notifyInTurns(0, new Timer(player));
+									}}));
 
 				add(ConversationStates.ATTENDING,
 						ConversationPhrases.YES_MESSAGES,
@@ -307,7 +307,7 @@ public class WizardBank extends AbstractQuest implements LoginListener,LogoutLis
 				add(ConversationStates.ATTENDING,
 						"leave",
 						new QuestActiveCondition(QUEST_SLOT),
-						ConversationStates.ATTENDING,
+						ConversationStates.IDLE,
 						"Thank you for using the Wizard's Bank",
 						// we used to use teleportAway() here
 						new MultipleActions(
@@ -342,6 +342,7 @@ public class WizardBank extends AbstractQuest implements LoginListener,LogoutLis
 		npc.setEntityClass("brownwizardnpc");
 		npc.setPosition(15, 10);
 		npc.initHP(100);
+		npc.setIdleDirection(Direction.DOWN);
 		zone.add(npc);
 	}
 

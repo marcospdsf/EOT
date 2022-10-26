@@ -146,7 +146,7 @@ public class Bootstrap {
 		ClassLoader orgClassloader = Bootstrap.class.getClassLoader();
 		String[] includedJarFiles = new String[] { "lib/log4j.jar", "lib/marauroa.jar", "lib/jorbis.jar",
 				"lib/stendhal.jar", "lib/stendhal-data.jar", "lib/stendhal-sound-data.jar",
-				"lib/stendhal-music-data.jar"};
+				"lib/stendhal-music-data.jar", "lib/json-simple-1.1.1.jar"};
 		for (String includedJarFile : includedJarFiles) {
 			URL url = orgClassloader.getResource(includedJarFile);
 			if (url != null) {
@@ -214,7 +214,7 @@ public class Bootstrap {
 				// start update handling
 				final Class< ? > clazz = classLoader.loadClass("games.stendhal.client.update.UpdateManager");
 				final Method method = clazz.getMethod("process", String.class, Properties.class, Boolean.class, ClassLoader.class);
-				method.invoke(clazz.newInstance(), jarFolder, bootProp, initialDownload, classLoader);
+				method.invoke(clazz.getDeclaredConstructor().newInstance(), jarFolder, bootProp, initialDownload, classLoader);
 			} catch (final SecurityException e) {
 				throw e;
 			} catch (final Exception e) {
@@ -288,7 +288,7 @@ public class Bootstrap {
 				}
                 System.err.println("Skipping unknown signature: " + keyStr + " from " + cert);
                 if (cert instanceof X509Certificate) {
-                	System.err.println("   " + ((X509Certificate) cert).getSubjectDN());
+                    System.err.println("   " + ((X509Certificate) cert).getSubjectX500Principal());
                 }
 
 			}

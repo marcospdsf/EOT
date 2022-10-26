@@ -14,6 +14,24 @@
 var marauroa = window.marauroa = window.marauroa || {};
 var stendhal = window.stendhal = window.stendhal || {};
 
+var Chat = require("../../build/ts/util/Chat").Chat;
+
+var ui = require("../../build/ts/ui/UI").ui;
+var UIComponentEnum = require("../../build/ts/ui/UIComponentEnum").UIComponentEnum;
+var DesktopUserInterfaceFactory = require("../../build/ts/ui/factory/DesktopUserInterfaceFactory").DesktopUserInterfaceFactory;
+
+var FloatingWindow = require("../../build/ts/ui/toolkit/FloatingWindow").FloatingWindow;
+
+var ChatLogComponent = require("../../build/ts/ui/component/ChatLogComponent").ChatLogComponent;
+var ItemInventoryComponent = require("../../build/ts/ui/component/ItemInventoryComponent").ItemInventoryComponent;
+
+var ActionContextMenu = require("../../build/ts/ui/dialog/ActionContextMenu").ActionContextMenu;
+var ApplicationMenuDialog = require("../../build/ts/ui/dialog/ApplicationMenuDialog").ApplicationMenuDialog;
+var DropQuantitySelectorDialog = require("../../build/ts/ui/dialog/DropQuantitySelectorDialog").DropQuantitySelectorDialog;
+var ImageViewerDialog = require("../../build/ts/ui/dialog/ImageViewerDialog").ImageViewerDialog;
+var OutfitDialog = require("../../build/ts/ui/dialog/outfit/OutfitDialog").OutfitDialog;
+
+
 stendhal.main = {
 	errorCounter: 0,
 	zoneFile: null,
@@ -28,14 +46,12 @@ stendhal.main = {
 		// Object { file: "Level 0/semos/city_easter.tmx", danger_level: "0.036429932929822995", zoneid: "", readable_name: "Semos city", id: "-1", color_method: "multiply" }
 	},
 
-
 	/**
 	 * register marauroa event handlers.
 	 */
 	registerMarauroaEventHandlers: function() {
-
 		marauroa.clientFramework.onDisconnect = function(reason, error){
-			stendhal.ui.chatLog.addLine("error", "Disconnected: " + error);
+			Chat.log("error", "Disconnected: " + error);
 		};
 
 		marauroa.clientFramework.onLoginRequired = function() {
@@ -51,25 +67,30 @@ stendhal.main = {
 		};
 
 		marauroa.clientFramework.onAvailableCharacterDetails = function(characters) {
-			var name = null;
+			let name = null;
 			if (window.location.hash) {
 				name = window.location.hash.substring(1);
+				stendhal.config.character = name;
 			} else {
-				name = marauroa.util.first(characters)["a"]["name"];
-				var admin = 0;
-				for (var i in characters) {
-					if (characters.hasOwnProperty(i)) {
-						if (characters[i]["a"]["adminlevel"] > admin) {
-							admin = characters[i]["a"]["adminlevel"];
-							name = characters[i]["a"]["name"];
+				name = stendhal.config.character;
+
+				if (name == null || typeof(name) === "undefined" || name === "") {
+					name = marauroa.util.first(characters)["a"]["name"];
+					var admin = 0;
+					for (var i in characters) {
+						if (characters.hasOwnProperty(i)) {
+							if (characters[i]["a"]["adminlevel"] > admin) {
+								admin = characters[i]["a"]["adminlevel"];
+								name = characters[i]["a"]["name"];
+							}
 						}
 					}
 				}
 			}
 			marauroa.clientFramework.chooseCharacter(name);
-			var body = document.getElementById("body")
+			var body = document.getElementById("body");
 			body.style.cursor = "auto";
-			stendhal.ui.chatLog.addLine("client", "Loading world...");
+			Chat.log("client", "Loading world...");
 		};
 
 
@@ -101,10 +122,10 @@ stendhal.main = {
 		if (document.getElementById("gamewindow")) {
 			marauroa.perceptionListener.onPerceptionEnd = function(type, timestamp) {
 				stendhal.zone.sortEntities();
-				stendhal.ui.minimap.draw();
-				stendhal.ui.buddyList.update();
+				ui.get(UIComponentEnum.MiniMap).draw();
+				ui.get(UIComponentEnum.BuddyList).update();
 				stendhal.ui.equip.update();
-				stendhal.ui.stats.update();
+				ui.get(UIComponentEnum.PlayerEquipment).update();
 				if (!stendhal.main.loaded) {
 					stendhal.main.loaded = true;
 					// delay visibile change of client a little to allow for initialisation in the background for a smoother experience
@@ -118,14 +139,13 @@ stendhal.main = {
 	},
 
 	toggleSound: function() {
-		stendhal.config.sound.play = !stendhal.config.sound.play;
-
+		stendhal.config.set("ui.sound", !stendhal.config.getBoolean("ui.sound"));
 		stendhal.main.onSoundToggled();
 	},
 
 	onSoundToggled: function() {
 		var soundbutton = document.getElementById("soundbutton");
-		if (stendhal.config.sound.play) {
+		if (stendhal.config.getBoolean("ui.sound")) {
 			soundbutton.textContent = "🔊";
 		} else {
 			soundbutton.textContent = "🔇";
@@ -140,45 +160,41 @@ stendhal.main = {
 		document.addEventListener("keyup", stendhal.ui.keyhandler.onKeyUp);
 		document.addEventListener("contextmenu", stendhal.main.preventContextMenu);
 
+		document.getElementById("body").addEventListener("mouseenter", stendhal.main.onMouseEnter);
+
 		var gamewindow = document.getElementById("gamewindow");
 		gamewindow.setAttribute("draggable", true);
 		gamewindow.addEventListener("mousedown", stendhal.ui.gamewindow.onMouseDown);
-		gamewindow.addEventListener("touchstart", stendhal.ui.gamewindow.onMouseDown);
 		gamewindow.addEventListener("dblclick", stendhal.ui.gamewindow.onMouseDown);
 		gamewindow.addEventListener("dragstart", stendhal.ui.gamewindow.onDragStart);
 		gamewindow.addEventListener("mousemove", stendhal.ui.gamewindow.onMouseMove);
-		gamewindow.addEventListener("touchmove", stendhal.ui.gamewindow.onMouseMove);
+		gamewindow.addEventListener("touchend", stendhal.ui.gamewindow.onTouchEnd);
 		gamewindow.addEventListener("dragover", stendhal.ui.gamewindow.onDragOver);
 		gamewindow.addEventListener("drop", stendhal.ui.gamewindow.onDrop);
 		gamewindow.addEventListener("contextmenu", stendhal.ui.gamewindow.onContentMenu);
-
-		var minimap = document.getElementById("minimap");
-		minimap.addEventListener("click", stendhal.ui.minimap.onClick);
-		minimap.addEventListener("dblclick", stendhal.ui.minimap.onClick);
-
-		var buddyList = document.getElementById("buddyList");
-		buddyList.addEventListener("mouseup", stendhal.ui.buddyList.onMouseUp);
-		buddyList.addEventListener("contextmenu", stendhal.ui.gamewindow.onContentMenu);
+		gamewindow.addEventListener("wheel", stendhal.ui.gamewindow.onMouseWheel);
 
 		var menubutton = document.getElementById("menubutton");
-		menubutton.addEventListener("click", stendhal.ui.menu.onOpenAppMenu);
+		menubutton.addEventListener("click", (event) => {
+			const dialogState = stendhal.config.dialogstates["menu"];
+			const menuContent = new ApplicationMenuDialog();
+			const menuFrame = ui.createSingletonFloatingWindow(
+					"Menu", menuContent, dialogState.x, dialogState.y);
+			menuContent.setFrame(menuFrame);
+		});
 
 		var soundbutton = document.getElementById("soundbutton");
 		soundbutton.addEventListener("click", stendhal.main.toggleSound);
 		// update button state
 		stendhal.main.onSoundToggled();
-
-		var chatinput = document.getElementById("chatinput");
-		chatinput.addEventListener("keydown", stendhal.ui.chatinput.onKeyDown);
-		chatinput.addEventListener("keypress", stendhal.ui.chatinput.onKeyPress);
 	},
 
 	devWarning: function() {
 		console.log("%c ", "padding: 30px; background: url(" + window.location.protocol + "://" + window.location.host + "/images/buttons/devtools-warning.png) no-repeat; color: #AF0");
-		console.log("%cIf someone told you, to copy and paste something here, it's a scam and will give them access to your account.", "color:#A00; background-color:#FFF");
+		console.log("%cIf someone told you, to copy and paste something here, it's a scam and will give them access to your account.", "color:#A00; background-color:#FFF; font-size:150%");
 		console.log("If you are a developer and curious about Stendhal, have a look at https://stendhalgame.org/development/introduction.html to get the source code. And perhaps, contribute a feature or a bugfix. ");
-		console.log("");
-		console.log("");
+		console.log(" ");
+		console.log(" ");
 		window["eval"] = undefined;
 	},
 
@@ -188,15 +204,63 @@ stendhal.main = {
 	startup: function() {
 		stendhal.main.devWarning();
 
-		stendhal.ui.chatLog.addLine("error", "This is an early stage of an experimental web-based client. Please use the official client at https://stendhalgame.org to play Stendhal.");
-		stendhal.ui.chatLog.addLine("client", "Client loaded. Connecting...");
+		stendhal.config.init(new URL(document.location).searchParams);
+
+		// update user interface after config is loaded
+		stendhal.config.refreshTheme();
+		document.getElementById("body").style.setProperty("font-family", stendhal.config.get("ui.font.body"));
+
+		// cache tileset animations
+		// FIXME: how to wait for animations to finish loading?
+		stendhal.data.tileset.loadAnimations();
+
+		new DesktopUserInterfaceFactory().create();
+
+		Chat.log("error", "This is an early stage of an experimental web-based client. Please use the official client at https://stendhalgame.org to play Stendhal.");
+		Chat.log("client", "Client loaded. Connecting...");
 
 		stendhal.main.registerMarauroaEventHandlers();
 		stendhal.main.registerBrowserEventHandlers();
 		marauroa.clientFramework.connect(null, null);
 
+		if (stendhal.ui.dialogHandler) {
+			stendhal.ui.actionContextMenu = stendhal.ui.dialogHandler.copy();
+			stendhal.ui.globalInternalWindow = stendhal.ui.dialogHandler.copy();
+		} else {
+			console.error("stendhal.ui.dialogHandler not found, some dialogs may not function");
+		}
+
 		if (document.getElementById("gamewindow")) {
 			stendhal.ui.gamewindow.draw.apply(stendhal.ui.gamewindow, arguments);
+		}
+
+		// attributes to set after connection made
+		if (stendhal.config.getBoolean("input.movecont")) {
+			const socket = marauroa.clientFramework.socket;
+			let tries = 0;
+
+			function checkConnection() {
+				setTimeout(function() {
+					tries++;
+					if (socket.readyState === WebSocket.OPEN) {
+						marauroa.clientFramework.sendAction({
+							"type": "move.continuous",
+							"move.continuous": ""
+						});
+						return;
+					}
+
+					if (tries > 5) {
+						console.warn("could not set \"move.continuous\" attribute,"
+								+ " gave up after " + tries + " tries");
+						return;
+					}
+
+					checkConnection();
+				}, 3000);
+			}
+
+			checkConnection();
 		}
 	},
 
@@ -230,6 +294,11 @@ stendhal.main = {
 
 	preventContextMenu: function(event) {
 		event.preventDefault();
+	},
+
+	onMouseEnter: function(e) {
+		// use Stendhal's built-in cursor for entire page
+		e.target.style.cursor = "url(/data/sprites/cursor/normal.png) 1 3, auto";
 	}
 }
 

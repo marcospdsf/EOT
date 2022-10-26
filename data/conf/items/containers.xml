@@ -1,16 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="stendhal ../items.xsd ">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<!-- currently unobtainable
-  <item name="backpack">
+<items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="stendhal ../items.xsd">
+
+<!-- disabled
+  <item name="backpack" condition="stendhal.testserver">
     <type class="container" subclass="backpack" tileid="-1"/>
     <description>You see a backpack.</description>
      <implementation class-name="games.stendhal.server.entity.item.Container"/>
     <attributes>
       <slot_name value="bag"/>
-      <undroppableondeath value="1" />
-      <autobind value="1" />
+      <undroppableondeath value="1"/>
+      <autobind value="1"/>
       <slot_size value="15"/>
     </attributes>
     <weight value="1.0"/>
@@ -48,14 +49,14 @@
     </equipable>
   </item>
 
-<!-- currently unobtainable
-  <item name="portfolio">
+<!-- disabled
+  <item name="portfolio" condition="stendhal.testserver">
     <type class="container" subclass="portfolio" tileid="-1"/>
     <description>You see a portfolio. It can hold some of your scrolls!</description>
      <implementation class-name="games.stendhal.server.entity.item.Container"/>
     <attributes>
       <slot_name value="portfolio"/>
-      <undroppableondeath value="1" />
+      <undroppableondeath value="1"/>
       <autobind value="1"/>
       <slot_size value="9"/>
     </attributes>
@@ -192,6 +193,7 @@
     </equipable>
   </item>
 
+  <!-- Not used yet
   <item name="bottle">
     <type class="container" subclass="bottle" tileid="-1"/>
     <description>You see a bottle. It is empty, someone drank the contents.</description>
@@ -209,6 +211,7 @@
       <slot name="trade"/>
     </equipable>
   </item>
+  -->
 
   <!-- Not used yet
   <item name="medium bottle">

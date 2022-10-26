@@ -46,12 +46,20 @@ public class SlotGrid extends JComponent implements ContentChangeListener, Inspe
 	private String slotName;
 
 
-	public SlotGrid(int width, int height) {
-		setLayout(new GridLayout(height, width, PADDING, PADDING));
+	public SlotGrid(final int width, final int height) {
 		panels = new ArrayList<ItemPanel>();
 
+		setSlotsLayout(width, height);
+	}
+
+	public void setSlotsLayout(final int width, final int height) {
+		setLayout(new GridLayout(height, width, PADDING, PADDING));
+		for (ItemPanel panel : panels) {
+			remove(panel);
+		}
+		panels.clear();
 		for (int i = 0; i < width * height; i++) {
-			ItemPanel panel = new ItemPanel(null, null);
+			final ItemPanel panel = new ItemPanel(null, null);
 			panel.setItemNumber(i);
 			panels.add(panel);
 			add(panel);

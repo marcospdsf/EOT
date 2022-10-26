@@ -13,7 +13,6 @@
 package games.stendhal.server.entity.player;
 
 import static games.stendhal.common.NotificationType.getServerNotificationType;
-import static games.stendhal.common.Outfits.RECOLORABLE_OUTFIT_PARTS;
 import static games.stendhal.common.constants.Actions.ADMINLEVEL;
 import static games.stendhal.common.constants.Actions.AUTOWALK;
 import static games.stendhal.common.constants.Actions.AWAY;
@@ -929,6 +928,17 @@ public class Player extends DressedEntity implements UseListener {
 	}
 
 	/**
+	 * Checks if player has a feature.
+	 *
+	 * @param name
+	 *     The feature mnemonic.
+	 * @return <code>true</code> if the feature value is not <code>null</code>.
+	 */
+	public boolean hasFeature(final String name) {
+		return getFeature(name) != null;
+	}
+
+	/**
 	 * Get a client feature value.
 	 *
 	 * @param name
@@ -1653,38 +1663,11 @@ public class Player extends DressedEntity implements UseListener {
 	public boolean returnToOriginalOutfit() {
 		removeOutfitExpireNotification();
 
-		final Outfit originalOutfit = getOriginalOutfit();
-		if (originalOutfit != null) {
+		final String outfit_orig = get("outfit_ext_orig");
+		restoreOriginalOutfit();
 
-			// do not restore details layer, unless the detail is still present
-			if (originalOutfit.getLayer("detail") > 0) {
-				final Outfit currentOutfit = getOutfit();
-				if (!currentOutfit.getLayer("detail").equals(
-						originalOutfit.getLayer("detail"))) {
-					originalOutfit.removeDetail();
-				}
-			}
-
-			remove("outfit_ext_orig");
-			remove("outfit_org");
-			setOutfit(originalOutfit, false);
-
-			// restore old colors
-			for (String part : RECOLORABLE_OUTFIT_PARTS) {
-				String tmp = part + "_orig";
-				String color = get("outfit_colors", tmp);
-				if (color != null) {
-					put("outfit_colors", part, color);
-					remove("outfit_colors", tmp);
-				} else if (has("outfit_colors", part)) {
-					// clear any colors from the temporary outfit if there was
-					// no saved color
-					remove("outfit_colors", part);
-				}
-			}
-			return true;
-		}
-		return false;
+		// FIXME: need to check outfit colors as well
+		return get("outfit_ext").equals(outfit_orig);
 	}
 
 	private void removeOutfitExpireNotification() {
@@ -2081,7 +2064,7 @@ public class Player extends DressedEntity implements UseListener {
 
 	@Override
 	protected void applyDefXP(final RPEntity entity) {
-		if (getsFightXpFrom(entity)) {
+		if (getsDefXpFrom(entity)) {
 			incDefXP();
 		}
 	}
@@ -2326,14 +2309,27 @@ public class Player extends DressedEntity implements UseListener {
 	}
 
 	/**
-	 * Checks if the player has visited the given zone
+	 * Checks if the player has visited the given zone.
+	 *
+	 * @param zoneName
+	 *     String name of the zone to check for.
+	 * @return
+	 *     <code>true</code> if player visited the zone.
+	 */
+	public boolean hasVisitedZone(final String zoneName) {
+		return getKeyedSlot("!visited", zoneName) != null;
+	}
+
+	/**
+	 * Checks if the player has visited the given zone.
 	 *
 	 * @param zone
-	 *            the zone to check for
-	 * @return true if player visited the zone
+	 *     The zone to check for.
+	 * @return
+	 *     <code>true</code> if player visited the zone.
 	 */
-	public boolean hasVisitedZone(StendhalRPZone zone) {
-		return null != getKeyedSlot("!visited", zone.getName());
+	public boolean hasVisitedZone(final StendhalRPZone zone) {
+		return hasVisitedZone(zone.getName());
 	}
 
 	/**
@@ -2597,6 +2593,57 @@ public class Player extends DressedEntity implements UseListener {
 		itemCounter.incBoughtForItem(name, quantity);
 		// check achievements in commerce category
 		AchievementNotifier.get().onTrade(this);
+	}
+
+	/**
+	 * Stores information about amount of money used & gained in NPC transactions.
+	 *
+	 * @param npcName
+	 *     Name of NPC with whom transactions is being done.
+	 * @param price
+	 *     Amount of money exchanged.
+	 * @param soldToNPC
+	 *     <code>true</code> means player is selling to NPC, <code>false</code> player is buying from.
+	 */
+	public void incCommerceTransaction(final String npcName, final int price, final boolean soldToNPC) {
+		int curAmount = 0;
+		if (soldToNPC) {
+			if (has("npc_sales", npcName)) {
+				curAmount = Integer.parseInt(get("npc_sales", npcName));
+			}
+		} else {
+			if (has("npc_purchases", npcName)) {
+				curAmount = Integer.parseInt(get("npc_purchases", npcName));
+			}
+		}
+
+		if (soldToNPC) {
+			put("npc_sales", npcName, curAmount + price);
+		} else {
+			put("npc_purchases", npcName, curAmount + price);
+		}
+
+		AchievementNotifier.get().onTrade(this);
+	}
+
+	public int getCommerceTransactionAmount(final String npcName, final boolean soldToNPC) {
+		int amount = 0;
+
+		try {
+			if (soldToNPC) {
+				if (has("npc_sales", npcName)) {
+					amount = Integer.parseInt(get("npc_sales", npcName));
+				}
+			} else {
+				if (has("npc_purchases", npcName)) {
+					amount = Integer.parseInt(get("npc_purchases", npcName));
+				}
+			}
+		} catch (final NumberFormatException e) {
+			logger.error(e, e);
+		}
+
+		return amount;
 	}
 
 	/**
@@ -2898,5 +2945,42 @@ public class Player extends DressedEntity implements UseListener {
 
 			this.stop();
 		}
+	}
+
+	/**
+	 * returns the maximum size of a slot
+	 *
+	 * @param slot name of slot
+	 * @return size, or -1 if no maximum is known
+	 */
+	public int getMaxSlotSize(String slot) {
+		String value = this.getFeature(slot);
+		if (value == null || value.equals("")) {
+			return -1;
+		}
+		String[] values = value.split(" ");
+		return Integer.parseInt(values[0]) * Integer.parseInt(values[1]);
+	}
+
+	/**
+	 * This hack increases chance that a player can hit an enemy
+	 * to make the game feel more fair. Hit chance is based on
+	 * raw atk stat, which is much higher for creatues. In order
+	 * to avoid drastic changes to the game's balance, we also
+	 * need to reduce the amount of damage done by players. See:
+	 *     Player.damageDone.
+	 */
+	@Override
+	protected int calculateRiskForCanHit(final int roll, final int defenderDEF,
+			final int attackerATK) {
+		// use 30 as multiple for players instead of 20
+		return ((int) Math.round(HIT_CHANCE_MULTIPLIER * 1.5)) * attackerATK - roll * defenderDEF;
+	}
+
+	@Override
+	public int damageDone(final RPEntity defender, double attackingWeaponsValue,
+			final Nature damageType) {
+		// compensate for player increased chance of hit
+		return (int) Math.round(super.damageDone(defender, attackingWeaponsValue, damageType) / 1.5);
 	}
 }
