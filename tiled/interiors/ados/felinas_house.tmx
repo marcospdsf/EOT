@@ -115,7 +115,7 @@
  <tileset firstgid="256" name="double_red" tilewidth="32" tileheight="32">
   <image source="../../tileset/furniture/bed/double_red.png"/>
  </tileset>
- <layer name="0_floor" width="25" height="25" visible="0">
+ <layer name="0_floor" width="25" height="25">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAGNhYGBgGeRYjQCmtfnUsIMe/hgMdtAjzoeLHUMl7RJjBzXDDBtmgmJ8aliR1FGC
 6WkHNcwatWPUjlE7yLcDWx6HYWT1uPI+Ax55fHawo+nhQMPE2gEAeFN7IMQJAAA=
@@ -132,11 +132,11 @@ hG9I+ZiRhgxkXzwjB3ko+JihKzHjABeCPp8dEvuPPGMDS6IRjGFiMLOFB8XGpt3ECQAA
  </layer>
  <layer name="2_object" width="25" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgIB0cJUMPCKRCMTJ4jEVdCRAfQ+I/gtJXgfgaEF+H8h9i0ZsDxJlQdi0Q1yHJ
+   H4sIAAAAAAAAAGNgIB0cJUMPCKRCMTJ4jEVdCRAfQ+I/gtJXgfgaEF+H8h9i0ZsFxJlQdi0Q1yHJ
 lSGxS4H4OJpeJyC+AcQ3gfgWlI8N5AFxAR7xw0B8BE3uDQ6zhgpwwSXBCESMuPXVA3EDhXYzAc1n
 xmMHKQCXP1iA5rNSyQ56AJzxQUPQCsRtA2AvLoAt/5MCXAnI22ARe4RFDBsAlWtn0MTssKhzgNJe
 QOwMZXsyYI/faCCOgeJYqNhlHOaRC+KAOB6KE4DYBypeDsQVQFxJofn4QBUQVwNxDQ3tIBWAwiOB
-gBpnHOIXcIhfItMtOgy46yRcABSmxIanBx459HSGD4Dq0FskqMcHyA2rkQQA1OVOaMQJAAA=
+gBpnHOIXcIhfItMtOgy46yRcABSmxIanBx459HSGD4Dq0FskqMcHyA2rkQQAGoH3osQJAAA=
   </data>
  </layer>
  <layer name="3_roof" width="25" height="25">
@@ -157,7 +157,7 @@ JpBlysQJAAA=
    H4sIAAAAAAAAAGNgGAUDDX4PtANGAVHAb6AdMApGwSgYBaNgFCABAJWBS+TECQAA
   </data>
  </layer>
- <layer name="collision" width="25" height="25" opacity="0.25">
+ <layer name="collision" width="25" height="25" visible="0" opacity="0.25">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAN1TWwrAMAjzgr3/dfovGuOjLVugMMQYjXOJyPrh0/ByMnGrdiaGgHpgwORGHrFc
 pMvuI9Jhe7k1B+IiHaaPjk8Rd3IfyLfKbd64/y9oeDU0PB7KqdyH9436nYCe6YSGpcl4ztbQcUuj
