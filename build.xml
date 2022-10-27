@@ -74,11 +74,11 @@
       <available file="${build-archive}/stendhal-${version.old}.zip"/>
     </not>
   </condition>
-  <condition property="exclude.webclient" value="true">
+  <!-- <condition property="exclude.webclient" value="true">
     <not>
       <available file="${executable.npm}" filepath="${env.PATH}"/>
     </not>
-  </condition>
+  </condition> -->
 
   <!-- Windows fails to execute "ng" unless it is invoked as "ng.cmd" -->
   <condition property="executable.suffix" value=".cmd">
