@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="128" height="128" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="../../tileset/ground/brown.png" tilewidth="32" tileheight="32" tilecount="5" columns="5">
+  <image source="../../tileset/ground/brown.png" trans="ff00ff" width="160" height="32"/>
+ </tileset>
+ <tileset firstgid="6" name="../../tileset/building/wall/wall_brown.png" tilewidth="32" tileheight="32" tilecount="12" columns="3">
+  <image source="../../tileset/building/wall/wall_brown.png" width="96" height="128"/>
+ </tileset>
+ <tileset firstgid="18" name="../../tileset/furniture/light/torch_top.png" tilewidth="32" tileheight="32" tilecount="4" columns="1">
+  <image source="../../tileset/furniture/light/torch_top.png" trans="ff00ff" width="32" height="128"/>
+ </tileset>
+ <tileset firstgid="22" name="../../tileset/building/door/door_n.png" tilewidth="32" tileheight="32" tilecount="6" columns="3">
+  <image source="../../tileset/building/door/door_n.png" width="96" height="64"/>
+ </tileset>
+ <tileset firstgid="28" name="../../tileset/building/roof/yellow.png" tilewidth="32" tileheight="32" tilecount="20" columns="5">
+  <image source="../../tileset/building/roof/yellow.png" width="160" height="128"/>
+ </tileset>
+ <tileset firstgid="48" name="../../tileset/object/arrows.png" tilewidth="32" tileheight="32" tilecount="10" columns="2">
+  <image source="../../tileset/object/arrows.png" trans="ff00ff" width="64" height="160"/>
+ </tileset>
+ <tileset firstgid="58" name="../../tileset/logic/portal.png" tilewidth="32" tileheight="32" tilecount="7" columns="7">
+  <image source="../../tileset/logic/portal.png" width="224" height="32"/>
+ </tileset>
+ <tileset firstgid="65" name="../../tileset/logic/collision.png" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="66" name="Sin nombre" tilewidth="32" tileheight="32" tilecount="9" columns="9">
+  <image source="../../tileset/logic/creature/human_soldier.png" width="288" height="32"/>
+ </tileset>
+ <tileset firstgid="75" name="Sin nombre" tilewidth="32" tileheight="32" tilecount="5" columns="5">
+  <image source="../../tileset/logic/creature/mountain_dwarf.png" width="160" height="32"/>
+ </tileset>
+ <tileset firstgid="80" name="../../tileset/ground/rock/pebbles.png" tilewidth="32" tileheight="32" tilecount="3" columns="1">
+  <image source="../../tileset/ground/rock/pebbles.png" width="32" height="96"/>
+ </tileset>
+ <tileset firstgid="83" name="../../tileset/ground/rock/rocks.png" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/ground/rock/rocks.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="87" name="../../tileset/plant/bush/various_small.png" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+  <image source="../../tileset/plant/bush/various_small.png" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="96" name="../../tileset/ground/rock/green_crystal2.png" tilewidth="32" tileheight="32" tilecount="20" columns="5">
+  <image source="../../tileset/ground/rock/green_crystal2.png" width="160" height="128"/>
+ </tileset>
+ <tileset firstgid="116" name="../../tileset/item/corpse/skull_pale.png" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/item/corpse/skull_pale.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="117" name="../../tileset/ground/earth_edges.png" tilewidth="32" tileheight="32" tilecount="18" columns="6">
+  <image source="../../tileset/ground/earth_edges.png" width="192" height="96"/>
+ </tileset>
+ <tileset firstgid="135" name="../../tileset/ground/water/pool.png" tilewidth="32" tileheight="32" tilecount="72" columns="3">
+  <image source="../../tileset/ground/water/pool.png" width="96" height="768"/>
+ </tileset>
+ <tileset firstgid="207" name="../../tileset/ground/ground.png" tilewidth="32" tileheight="32" tilecount="33" columns="3">
+  <image source="../../tileset/ground/ground.png" width="96" height="352"/>
+ </tileset>
+ <tileset firstgid="240" name="../../tileset/ground/grass_corners.png" tilewidth="32" tileheight="32" tilecount="24" columns="6">
+  <image source="../../tileset/ground/grass_corners.png" width="192" height="128"/>
+ </tileset>
+ <tileset firstgid="264" name="../../tileset/ground/blue_paving.png" tilewidth="32" tileheight="32" tilecount="2" columns="1">
+  <image source="../../tileset/ground/blue_paving.png" width="32" height="64"/>
+ </tileset>
+ <tileset firstgid="266" name="wall/int_rock" tilewidth="32" tileheight="32" tilecount="140" columns="10">
+  <image source="../../tileset/building/wall/int_rock.png" width="320" height="448"/>
+ </tileset>
+ <tileset firstgid="406" name="hybrid" tilewidth="32" tileheight="32" tilecount="15" columns="15">
+  <image source="../../tileset/logic/creature/hybrid.png" trans="ff00ff" width="480" height="32"/>
+ </tileset>
+ <tileset firstgid="421" name="rocks" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/ground/rock/rocks.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="425" name="pebbles" tilewidth="32" tileheight="32" tilecount="3" columns="1">
+  <image source="../../tileset/ground/rock/pebbles.png" width="32" height="96"/>
+ </tileset>
+ <tileset firstgid="428" name="dark_stairs" tilewidth="32" tileheight="32" tilecount="2" columns="1">
+  <image source="../../tileset/building/stairs/dark_stairs.png" width="32" height="64"/>
+ </tileset>
+ <tileset firstgid="430" name="undead_fallen" tilewidth="32" tileheight="32" tilecount="9" columns="9">
+  <image source="../../tileset/logic/creature/undead_fallen.png" width="288" height="32"/>
+ </tileset>
+ <tileset firstgid="439" name="animal" tilewidth="32" tileheight="32" tilecount="30" columns="30">
+  <image source="../../tileset/logic/creature/animal.png" width="960" height="32"/>
+ </tileset>
+ <tileset firstgid="469" name="madaram" tilewidth="32" tileheight="32" tilecount="13" columns="13">
+  <image source="../../tileset/logic/creature/madaram.png" width="416" height="32"/>
+ </tileset>
+ <tileset firstgid="482" name="rocks" tilewidth="32" tileheight="32" tilecount="40" columns="5">
+  <image source="../../tileset/object/rock/rocks.png" width="160" height="256"/>
+ </tileset>
+ <tileset firstgid="522" name="mythical_being" tilewidth="32" tileheight="32" tilecount="3" columns="3">
+  <image source="../../tileset/logic/creature/mythical_being.png" width="96" height="32"/>
+ </tileset>
+ <tileset firstgid="525" name="giant_human" tilewidth="32" tileheight="32" tilecount="13" columns="13">
+  <image source="../../tileset/logic/creature/giant_human.png" width="416" height="32"/>
+ </tileset>
+ <layer name="0_floor" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJztwwEJAAAMBKGD7995Qabgqqmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvr+ASB4wAE=
+  </data>
+ </layer>
+ <layer name="1_terrain" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   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
+  </data>
+ </layer>
+ <layer name="2_object" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoADwAB
+  </data>
+ </layer>
+ <layer name="3_roof" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoADwAB
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoADwAB
+  </data>
+ </layer>
+ <layer name="objects" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt3EsOgjAQAFB0a7z/UbwCXkDxQyI3YY8x+AnYmb63ZkEK6Uw70zYNAAAAAADwynHz7zcAoHQHsQIAANLoFsrvb9YNT4wJAABRLbVuAIBatWIrEIg+IYBynMzJAMCEfiQAoGb2r/O7+sYAQCB3uQsUTb0dAPjEbjv/jHt7AQDI4CyvBUhH3RKYepgX4GvRagH66wFiupi/AYpknw1+pxYJ9dm/0X8LGTinBkBterEPgITUAQAAAAAAAADW0arPMqPzjwBACIOYDUAyNd/V6qw0AJCde7oBAAAAAACANYyDAhp7
+  </data>
+ </layer>
+ <layer name="collision" width="128" height="128" opacity="0.4">
+  <data encoding="base64" compression="zlib">
+   eJztlgGK40AMBPO1/P9TS1jCBjPrjG1J1fJ0QRPI5caSSmP2+Xg8no7jOI7jDDMDXaPDud9C1+xw7rfQPTic+zd0L06M/5m9GP2G7sWJ8b9l9nfv3zp9kgHdk8P6f0P35rD+P6H77JaqORLQs1UOMUMSet5KGc2mYnaK0C5I90ed3HUHXtBeqt0fmUvkjFSh3Si6z5iTOrQnZfdvlGrJhnan4n97zir+X9D+FPxvUaolG9qfiv+Id0BXaIdR/kcOznqx/x6J6n/03Sr+X9Ae6R0YoVJHBbRDxR1QqKEK2p/qDjzgZ1dBu1PfgUjUaqWdrbYLSvXRjlbeAxrai/eAg3bhHWChPXgHOOj501kdev50VkZx9go1rICad6rGVVH2XllrV6701sl9Zs1ZZJ/dKTP9VPZfQdZzaJeZs65y0xHao/Jduzu0Q8q99+cX2mOkfzs9Bu0w+u7b/zFojxH+7fwctMOM+393InunHdo/C+0w07935DuEJ/r++/3xB/1+pnbA/EL7v1rD3pnmO6T3qDrMNWj3ETVEsOpeVfh/bj4z6jiC3y1/0Hc/so6M81egwn2Wn2/1KOy2OpGzuTKvyB2Izp1RmQnteFX/LxTmQTte2f+Lqjn8dw7teHX/ZzgzmxX8V+8MtaPfnnukLtpxZ/93gHbs9z8L7dj+WWjHds9Ce7Z7DtrznnvvQT6065Hj/7x7H+Lp8D6392vs3SdF36O6vQPnqHZvargyazX3M///7B5348jfQ1eeUeH+ufn8Vs/eGVdqN38o3fvK2s267rvvQEQvGe6rZtqt3qtE91TpPmPGHXf2DFmeiLsfNefqugloj6pz7Fr3EWiHyjPsXv83aIcV89v+9rnzb9vfKdSfBe1PfX7d69+Ddpc1v6i53mF/96Ddqc6ve/0z0N4UZ9i59qPQzpTm2LXus9CulGbZseaj/Y2+u3NmZqISArpnx/4dzv9joi7nvu4fg1qcddy/oWewalSg57Bi1KDnsVIUoWdy90SSdX5kf/S87+J6S/azI/ulPXRzO0N2jdHzoH11972lqu6o82l/Wd6p/ajc26hzaZed7/roO7V+/nvW8+NTNRl9ZxLZX9UMaMcd7vosav5noF0fda+8Hx33nPZ9dBYqcxtxtefq3mjn1D3IeG6X3j+hvSvMIAqV3mfPpJ1H9Z+5PxWzjGbmXNr5kf7V3w/0/lfXq/gOoOjWP+1ZYQYjzjw/u/eImdBOlXfgyvOo3md/S3tU2oGoMzv0TbtTns0ZuvRK+1HJVej6HcdxHMdxHMdxHMdxHMdxHMdx6PwA3VoWUA==
+  </data>
+ </layer>
+ <layer name="protection" width="128" height="128" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoADwAB
+  </data>
+ </layer>
+</map>

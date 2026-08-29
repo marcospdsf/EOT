@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="128" height="128" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="earthen.png" tilewidth="32" tileheight="32" tilecount="36" columns="6">
+  <image source="../../tileset/pol/waly/wall_earthen.png" trans="ff00ff" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="37" name="earthen_2.png" tilewidth="32" tileheight="32" tilecount="27" columns="9">
+  <image source="../../tileset/pol/waly/wall_earthen_2.png" trans="ff00ff" width="288" height="96"/>
+ </tileset>
+ <tileset firstgid="64" name="dark_stairs.png" tilewidth="32" tileheight="32" tilecount="2" columns="1">
+  <image source="../../tileset/building/stairs/dark_stairs.png" trans="ff00ff" width="32" height="64"/>
+ </tileset>
+ <tileset firstgid="66" name="collision.png" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="67" name="ziemia" tilewidth="32" tileheight="32" tilecount="18" columns="3">
+  <image source="../../tileset/pol/podloze/ground_magma011.png" width="96" height="192"/>
+ </tileset>
+ <tileset firstgid="85" name="zbojcy" tilewidth="32" tileheight="32" tilecount="6" columns="6">
+  <image source="../../tileset/logic/creature/pol_zbojnicy_gorscy.png" width="192" height="32"/>
+ </tileset>
+ <tileset firstgid="91" name="fog" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../tileset/logic/creature/pol_niesmiertelne.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="95" name="latarnia_blask" tilewidth="32" tileheight="32" tilecount="25" columns="5">
+  <image source="../../tileset/pol/oswietlenie/latarnia_blask.png" width="160" height="160"/>
+ </tileset>
+ <layer name="0_floor" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt3GtyokAUBlD3RsyYmUz2v5yJVVJjUf1ETV/g/DhljICYr5umH+btdDq9AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPASU4BzII7zzejz4Gek6v9P5e/ac2zyP/bffQp0LozJf/Q5AGmp+umavX2P3N9Pt/2X5WC6e1Q+Ypvzz+VUym9KHCf3vEY5iZX/lPn9vE/q9VR9n+4YS9qOXL65MsG+lLKeFkafK8/NvFQOav2A0r2fshKbuk4q+/vntX3OmZ9r7zP6s5LO5LIyo1L2799+nVxTIlu26a/ISfZxfX77+8KMrsf9CvA5qef0jOO8P/l4bI/sj+l6Lzi3J8vyoG8Z3zOySfUHjCdvw5yP+ZtjSo3v1sz3e5fCPuYE4yjN864Zy/+obKfdj2WZw7Je5uYG1tZfucdSyrI299f7PrKPZ21d7i0Tst+eWmYtc4SpNWDKQixr1oCeC68v1xa23FMQT0/9f+ZxiZF1rf7XjqePvy29ff1amz/68/B4GVizf6ruKxP7U1sTXNuWmFragdy8npz3oZZjqf/HNpTGfXvXgLsebE9P/rntasdZ8/6M9Xn6v063dA04Lx5782esUv1rye4VYzzajLh6xofMD+9Ta0a5PqM2f9ta+wTq87Hk1goqA/uSy7i2FqD1Ne3DOK3/y6u1Dcit+ZHxNrSsC63NDfReL4iReS77+X84XF0y2/T0EZSDeEq5XL/f8fvmjzx3qXR9n7/Pe/W12E72+9K6jmc6PacMKENx5PJ8dT7yH+8+9xH1WRkYn//aTJZlp3UeUf5x9OTfs1ZkOW605ntHjC8Lqddavg/Sejz5x1Eb3+0d33/0PdkO4/ywTa7BxyZ/OCb9sGOT+7HJHwAgvn/qVwDU
+  </data>
+ </layer>
+ <layer name="1_terrain" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt3L1OwzAUgFEvsNAHATbKBgz0/V+KWCJCqgpNihP/3HOlsyLkz3UMinpMKR0BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYxGHy/u2hgd+H7fpe8pF+5i3ZAyM5nPVdMnkP/LVfrrF/2vGa9h9nSDtq9M9z7QyxP8buf22cEbH757EHYvfP85Lqr9HI9I9N/9juJ8+La+w/+u+zB55Sm/vg0t+J7oTbaP1ZMI+/C2L3z+O5oH/t9RqN/rHpH1sv/R8nd6n+eo1ifv9j7XsAtcZnv2z7Xrrn8dkvq6czP/+PSvuY/Z35+tdeqxHpH5v+cfV099c/bvs8+pfVy7k/j/76116zkegfm/6x9dbfO1+x++exB8pp/b3v38ZzIPYe0L+s3p4D+utfe81Gon9s+semf2z6x6Z/bPrHpn9s+semf2wl+p8mnwV+zpLRv73+e47++tdes5HoH1tv7wDov80eaPX7/85H/233Qet7QP9ttX4f0F//2ms0Mv1jW9t//l6eW9xy19C/rf7/6bH2vum7v8bqP++BpeeF9uP1py36x6Z/bPrHtuZO7j4+pqV3cu0B2vMFOde7Ng==
+  </data>
+ </layer>
+ <layer name="2_object" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoADwAB
+  </data>
+ </layer>
+ <layer name="3_roof" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoADwAB
+  </data>
+ </layer>
+ <layer name="objects" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt3UEKwCAMBEA/aWvp///RBzSXQjUBZ445LXiRlWBrAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAF3cwG8tTAAAAALs7swMAy0XdJAAAADl0MwAAAFCTd1UAACq4sgMAAADw0rMDAFDOkR2AXzlPAIA96XwAgJnsqAAAwHzu3UT8CQkAUM8DqeYE1Q==
+  </data>
+ </layer>
+ <layer name="collision" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt0jFSQ0EQQ0Gfzfc/FBEBEZgCa6XtV9Wx15r/fDweTwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOBffJZ+B/9735+Ufiu52/9F6f9L9v6PX7yRrft/V3qTm5xaepdbnFx6mxucXHqbG5xceptbnFp6l9ucVnqP2zSU3mhZS+mdVrWU3mlVS+mdVrWU3mlVQ+mNljWU3mhRS+mdFjWU3mhZQ+mNljWU3mhZQ+mNljWU3mhZQ+mNVrWU3mlRU+mtFjWV3mpRU+mtFjWV3mpRU+mtFrWV3mtRW+m9FjWV3mpRU+mtFjWV3mpRU+mtFjWV3mpRU+mtFjWV3mpRU+mtFjWV3mpRU+mtFjWV3mpRU+mtFjWV3mpRU+mtFjWV3mpRU+mtVrWU3mnd6aX3ucHJpbe5wcmlt7nByaW3ucHJpbe5wSu9+1tLb3ODV3rn76V3ucUrpd+K++P+uD/uz/u+gfQbAYCvPgBvHzFn
+  </data>
+ </layer>
+ <layer name="protection" width="128" height="128" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoADwAB
+  </data>
+ </layer>
+ <layer name="secret" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoADwAB
+  </data>
+ </layer>
+ <layer name="blend_ground" width="128" height="128" opacity="0.4">
+  <data encoding="base64" compression="zlib">
+   eJztzlkOglAUBUF2iuKE8wDo9j2reDeaqqT/u+sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/kOfVmmdhrQpvaG1bdqlfTqksXaHxo7plM7pkq61OzR2S/f0SM/0qt2hsSnNaUnv9KndAQAAAAAAAAAA+HlfcEcKdA==
+  </data>
+ </layer>
+ <layer name="blend_roof" width="128" height="128" opacity="0.4">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoADwAB
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,37 @@
+<?xml version='1.0'?>
+
+<project xmlns:if="ant:if" xmlns:unless="ant:unless">
+
+	<!-- Delete all build files and directories. -->
+	<target name="clean">
+		<delete includeEmptyDirs="true" quiet="true">
+			<fileset dir="${buildroot}" excludes="eclipse/" defaultExcludes="false"/>
+		</delete>
+		<delete dir="${build_cobertura}"/>
+		<delete dir="${build_cobertura_report}"/>
+		<delete file="cobertura.ser"/>
+		<delete dir="android/app/build/"/>
+		<delete>
+			<fileset dir=".">
+				<include name="TEST-*.xml"/>
+			</fileset>
+		</delete>
+	</target>
+
+
+	<!-- Delete client data build files and directories. -->
+	<target name="clean_client_data">
+		<delete dir="${build_client_data}"/>
+		<delete dir="${build_client_music_data}"/>
+		<delete dir="${build_client_sound_data}"/>
+	</target>
+
+
+	<!-- Delete web client build files and directories. -->
+	<target name="cleanjs">
+		<delete dir="${buildroot}/js"/>
+		<delete dir="${buildroot}/ts"/>
+	</target>
+
+
+</project>

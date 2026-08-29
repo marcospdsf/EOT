@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='utf-8'?>
+<items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="stendhal ../items.xsd">
+
+	<item name="arrow game token">
+		<type class="token" subclass="darkyellow_round_token" tileid="-1" />
+		<description>You see a token, that when placed in the right spot could point you in the right direction.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.Token" />
+		<attributes>
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+		</equipable>
+	</item>
+
+	<item name="o board token">
+		<type class="token" subclass="red_o_token" tileid="-1" />
+		<description>You see an O token.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.BoardToken" />
+		<attributes>
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+		</equipable>
+	</item>
+
+	<item name="x board token">
+		<type class="token" subclass="blue_x_token" tileid="-1" />
+		<description>You see an X token.</description>
+		<implementation class-name="games.stendhal.server.entity.item.token.BoardToken" />
+		<attributes>
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+		</equipable>
+	</item>
+
+	<item name="ados badge">
+		<type class="special" subclass="puchar" tileid="-1" />
+		<description>You see the prestigious Ados Badge, awarded for assisting the capital of Faumonia.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes />
+		<weight value="0.1" />
+		<value value="5000" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+	<item name="semos badge">
+		<type class="special" subclass="puchar" tileid="-1" />
+		<description>You see the Semos Badge, awarded for assisting the town of Semos.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes />
+		<weight value="0.1" />
+		<value value="5000" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+	<item name="kirdneh badge">
+		<type class="special" subclass="puchar" tileid="-1" />
+		<description>You see the Kirdneh Badge, awarded for assisting the settlement of Kirdneh.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes />
+		<weight value="0.1" />
+		<value value="5000" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+	<item name="nalwor badge">
+		<type class="special" subclass="puchar" tileid="-1" />
+		<description>You see the Nalwor Badge, awarded for assisting the city of Nalwor.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes />
+		<weight value="0.1" />
+		<value value="5000" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+	<item name="emerald medal">
+		<type class="special" subclass="medal_red" tileid="-1" />
+		<description>You see an emerald medal, awarded for valor by the Knight Trainer.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes />
+		<weight value="0.1" />
+		<value value="5000" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+	<item name="diamond medal">
+		<type class="special" subclass="medal_black" tileid="-1" />
+		<description>You see a diamond medal, awarded by Major Klykh.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes />
+		<weight value="0.1" />
+		<value value="5000" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+	<item name="sapphire medal">
+		<type class="special" subclass="medal_gold" tileid="-1" />
+		<description>You see a sapphire medal, awarded by the Mage Trainer.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes />
+		<weight value="0.1" />
+		<value value="5000" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+	<item name="obsidian medal">
+		<type class="special" subclass="medal_silver" tileid="-1" />
+		<description>You see an obsidian medal, awarded by the Archer Trainer.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes />
+		<weight value="0.1" />
+		<value value="5000" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+</items>

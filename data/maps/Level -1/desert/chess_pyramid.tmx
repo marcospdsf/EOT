@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="kafel" tilewidth="32" tileheight="32" tilecount="8" columns="4">
+  <image source="../../tileset/pol/domki/podloga/wiezienie_kafelki.png" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="9" name="scianka" tilewidth="32" tileheight="32" tilecount="30" columns="6">
+  <image source="../../tileset/pol/domki/sciany_kamienne.png" width="192" height="160"/>
+ </tileset>
+ <tileset firstgid="39" name="krew" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="../../tileset/pol/podloze/krewka.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="55" name="portal" tilewidth="32" tileheight="32" tilecount="7" columns="7">
+  <image source="../../tileset/logic/portal.png" width="224" height="32"/>
+ </tileset>
+ <tileset firstgid="62" name="collision" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="63" name="potworki slabe" tilewidth="32" tileheight="32" tilecount="10" columns="10">
+  <image source="../../tileset/logic/creature/pol_smoki.png" width="320" height="32"/>
+ </tileset>
+ <tileset firstgid="73" name="schody" tilewidth="32" tileheight="32" tilecount="2" columns="1">
+  <image source="../../tileset/building/stairs/dark_stairs.png" width="32" height="64"/>
+ </tileset>
+ <tileset firstgid="75" name="cos" tilewidth="32" tileheight="32" tilecount="6" columns="6">
+  <image source="../../tileset/logic/creature/pol_zjawy_wielkie.png" width="192" height="32"/>
+ </tileset>
+ <tileset firstgid="81" name="olbrzymy" tilewidth="32" tileheight="32" tilecount="3" columns="3">
+  <image source="../../tileset/logic/creature/pol_olbrzymy.png" width="96" height="32"/>
+ </tileset>
+ <tileset firstgid="84" name="latarnia_blask" tilewidth="32" tileheight="32" tilecount="25" columns="5">
+  <image source="../../tileset/pol/oswietlenie/latarnia_blask.png" width="160" height="160"/>
+ </tileset>
+ <tileset firstgid="109" name="latarnia_blaszczysko" tilewidth="32" tileheight="32" tilecount="25" columns="5">
+  <image source="../../tileset/pol/oswietlenie/latarnia_blaszczysko.png" width="160" height="160"/>
+ </tileset>
+ <tileset firstgid="134" name="protection" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../tileset/logic/protection.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="136" name="cobblestones" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/ground/cobblestones.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="140" name="stone_floors" tilewidth="32" tileheight="32" tilecount="6" columns="3">
+  <image source="../../tileset/ground/stone_floors.png" width="96" height="64"/>
+ </tileset>
+ <tileset firstgid="146" name="tiles" tilewidth="32" tileheight="32" tilecount="8" columns="2">
+  <image source="../../tileset/ground/indoor/tiles.png" width="64" height="128"/>
+ </tileset>
+ <tileset firstgid="154" name="int_rock_blue" tilewidth="32" tileheight="32" tilecount="140" columns="10">
+  <image source="../../tileset/building/wall/int_rock_blue.png" width="320" height="448"/>
+ </tileset>
+ <tileset firstgid="294" name="winding" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <image source="../../tileset/building/stairs/winding.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="358" name="stairs" tilewidth="32" tileheight="32" tilecount="12" columns="2">
+  <image source="../../tileset/building/stairs/stairs.png" width="64" height="192"/>
+ </tileset>
+ <tileset firstgid="370" name="faumonia_huge_animal" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../tileset/logic/creature/faumonia_huge_animal.png" width="65" height="32"/>
+ </tileset>
+ <tileset firstgid="372" name="huge_animal" tilewidth="32" tileheight="32" tilecount="14" columns="14">
+  <image source="../../tileset/logic/creature/huge_animal.png" width="451" height="32"/>
+ </tileset>
+ <tileset firstgid="386" name="pol_mutanty_wielkie" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../tileset/logic/creature/pol_mutanty_wielkie.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="390" name="giant_human" tilewidth="32" tileheight="32" tilecount="13" columns="13">
+  <image source="../../tileset/logic/creature/giant_human.png" width="416" height="32"/>
+ </tileset>
+ <layer name="0_floor" width="100" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3DwQkAAAwDodv/m4ULnUPBVVNVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf8BNIdAbECcAAA=
+  </data>
+ </layer>
+ <layer name="1_terrain" width="100" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2du07DQBBFzQ/zbYA7JDokOh7KdwAl0OG0Fgm21zN7dnOudDvizN1T+GqC7MMwDAettdZad+ebyXc61OMKHveDitbTIA+S5MGSPFgq5fEw+QXo1wbmnM94VCmPNZ/P9HxW4pyl53nu87Qu/Dib8xYw07zTRvLw3rJc585MHvmSB0vyYKkWD2LHJHXabB7EjpntyDPbem1aF472sVuPhWcWyeMS7y1bz0UeMZIHS/JgqTUe0V04c7+7tdOSeER34cz9bq1zifjeqC6csd8dA8+lFo+W7y0R2eWxXfJgSR4sXQoP4l44otO2woO4FyZmz56JsBceK2Un8iDcW7LzyeO85CEPeZyWPPbpwlv2u9mdtgceS+fdst9tKR9t3v+68Jr97gjM1xqPPe8tpAzyYGWQByuDPFgZ5MHKIA9WBnmwMsiDlaF3HtdX//8NKUPvPJaIlEEerAzyYGWQByuDPFgZ5MHKIA9WBnmwMrTK43nY739B34D5WuMR4dbyEeaNfI7V/Df3Gvla45EtechDHqclD3lQeZR02r2eB1CrCxN5lHh+3dJrErO31Gn3fh5Adhcm8WhF8mBJHizJg6Ueeey5p812ZBeuxaMH98CD9L4B4l44m0fvkgdL8mBJHiyRedTotLXf51XahSN5EDporVlIPGp2Wsr7vLZ24Qge6m/JgyV5sCQPljJ4tLynzfaSLlzKQ693BI+e9rSkLryVh9pX8mBJHizJg6U1PFrrtO+TPyZ/AmZZ24V79Nfk78k/gFm01lprrX8BbkFoM0CcAAA=
+  </data>
+ </layer>
+ <layer name="2_object" width="100" height="100" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BMQEAAADCoPVP7WULoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBt5RKnmQJwAAA==
+  </data>
+ </layer>
+ <layer name="3_roof" width="100" height="100" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BMQEAAADCoPVP7WULoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBt5RKnmQJwAAA==
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="100" height="100" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BMQEAAADCoPVP7WULoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBt5RKnmQJwAAA==
+  </data>
+ </layer>
+ <layer name="objects" width="100" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3cu27CQBAFUPNlvOokPP4EEkVKEDRQIME/01O4sD2eXTin9+wUa+/VSp6mAQAAop0m4695T1iTcnz1fH5n/wAAHS2zG2B058DsOIsrDQAQ5t/dGgAAhbpUnlUX2Q1QvGl2A5DsWPl3HoD38cq57dd5zIv4sZcJ8mdvAQBU57slw13lO+jt4D0CgFRtmfY2wjk9i18CSBb5H34JzDgDaM907lDr0XduI+XYZjcAQLOXgQCKsg6ouQqoCQAAETYD1voYsFYtzPsCAKhL5DyPz7jS4cxnBIBx1JwX6G7IO9iu3GO+j3l2AwAAAE8eo+j9FUCcAAA=
+  </data>
+ </layer>
+ <layer name="collision" width="100" height="100" opacity="0.5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3VQW6DQBBEUZ/MZ/fRvMomYhCYZrqA96VaRTYzPEV+v16vt5mZmZmdPp0bj6x4ZMUjq6Me3b9nW8/afZZ/+/zt6Ps8+nkePALPOcVD2+KRFY+seGTV5RHwuxmxhffCo3EL74VH4xbeS7vH0+KRFY+seGR1NY+9z/1lM5+38+48Jj5rw915THzWhrtHe1w1HlnxyIpHVk/x2HumWSu8H4+CFd6PR8EK73dZj+548OAxjgePK3n8etaw+/HIuh+PrPvd0qMqHjx4jOPBg8c4Hjx4jOPBg8c4Hjx4jOPBg8c4Ho/x+DR4rH33pudW/e3XGv4HeKzEg8cdPc5Y4Tl5FKzwnDwKVnjOR3jMjgcPHuN48Ej2OLLq79x5Bx4r38uDx108rhKPrHhkxSOru3rcYV3vpeu56et6L13PTV/Xe6l67t3jkRWPrHhkle7RsZSz8ODBI99Dy/HIikdWPLKa5WElv/U8eNhJHqqNR1Y8suKR1V6Pq+0JdzQzMzOz/fsCyQMi9kCcAAA=
+  </data>
+ </layer>
+ <layer name="protection" width="100" height="100" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3DAQkAAAwEoUv/uQfLoeCqqaqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq/wB+I8RNQJwAAA==
+  </data>
+ </layer>
+ <layer name="blend_ground" width="100" height="100" visible="0" opacity="0.3">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BMQEAAADCoPVP7WULoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBt5RKnmQJwAAA==
+  </data>
+ </layer>
+ <layer name="blend_roof" width="100" height="100" visible="0" opacity="0.3">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3RwQkAAAgDse7v0m7gVwoJ3ASXAAAAAAAAAAAAAAAAAAAAzeaIHz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHRbkFoiSUCcAAA=
+  </data>
+ </layer>
+</map>

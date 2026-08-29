@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<!-- START: mutanty -->
+
+	<creature name="dziub dziub bird">
+		<type class="pol/mutanty" subclass="dziub_dziub" tileid="pol_mutanty.png:0"/>
+		<description>You see a comical Dziub-Dziub bird pecking at the ground.</description>
+		<attributes>
+			<atk value="44"/>
+			<def value="9"/>
+			<hp value="250"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="3"/>
+		<experience value="15"/>
+		<respawn value="222"/>
+		<corpse name="small_animal"/>
+		<drops>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Do I have a beak or a snout?"/>
+				<noise state="idle follow fight" value="Am I fluttering or flying?"/>
+			</says>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="coward"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="wolf raven">
+		<type class="pol/mutanty" subclass="wilczykruk" tileid="pol_mutanty.png:1"/>
+		<description>You see a bizarre wolf raven mutant howling at the moon.</description>
+		<attributes>
+			<atk value="166"/>
+			<def value="66"/>
+			<hp value="999"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="99"/>
+		<experience value="666"/>
+		<respawn value="666"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[1,3]" probability="100.0"/>
+			<item value="water" quantity="[1,3]" probability="20.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Grrrrr!"/>
+				<noise state="idle follow fight" value="Awoooo!"/>
+				<noise state="idle follow fight" value="Auuu!"/>
+				<sound value="pol-growl"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="cerberus hound">
+		<type class="pol/mutanty" subclass="cerber" tileid="pol_mutanty.png:2"/>
+		<description>You see Cerberus, the infernal multi-headed hound.</description>
+		<attributes>
+			<atk value="186"/>
+			<def value="30"/>
+			<hp value="582"/>
+			<speed value="0.9"/>
+			<size value="2,1"/>
+		</attributes>
+		<level value="70"/>
+		<experience value="4130"/>
+		<respawn value="99999"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="money" quantity="[1,1]" probability="100.0"/>
+			<item value="meat" quantity="[1,19]" probability="80.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Rrraar!"/>
+				<sound value="pol-growl"/>
+			</says>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+			<profile name="heal" params="5,30"/>
+		</ai>
+	</creature>
+
+	<creature name="yellow slime mutant">
+		<type class="pol/mutanty" subclass="yellow_slime" tileid="pol_mutanty.png:3"/>
+		<description>You see an acidic yellow slime mutant leaving a sticky trail.</description>
+		<attributes>
+			<atk value="350"/>
+			<def value="46"/>
+			<hp value="390"/>
+			<speed value="0.6"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="142"/>
+		<experience value="1441"/>
+		<respawn value="42187"/>
+		<corpse name="other"/>
+		<drops>
+			<item value="money" quantity="[9,209]" probability="100.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="red slime mutant">
+		<type class="pol/mutanty" subclass="red_slime" tileid="pol_mutanty.png:4"/>
+		<description>You see a ferocious red slime mutant oozing across the floor.</description>
+		<attributes>
+			<atk value="390"/>
+			<def value="49"/>
+			<hp value="7700"/>
+			<speed value="0.6"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="197"/>
+		<experience value="2649"/>
+		<respawn value="75216"/>
+		<corpse name="other"/>
+		<drops>
+			<item value="money" quantity="[99,239]" probability="100.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<!-- END: mutanty -->
+
+</creatures>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="92" height="92" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="Unbenannt" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../tileset/ground/brown_paving.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="3" name="Unbenannt" tilewidth="32" tileheight="32" tilecount="8" columns="4">
+  <image source="../../tileset/building/wall/int_green_blue_2.png" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="11" name="Unbenannt" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="../../tileset/building/wall/int_blue_green.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="27" name="Unbenannt" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="../../tileset/building/wall/int_green_blue.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="43" name="Unbenannt" tilewidth="32" tileheight="32" tilecount="33" columns="3">
+  <image source="../../tileset/ground/ground.png" width="96" height="352"/>
+ </tileset>
+ <tileset firstgid="76" name="Unbenannt" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="77" name="Unbenannt" tilewidth="32" tileheight="32" tilecount="6" columns="6">
+  <image source="../../tileset/logic/creature/mutant.png" width="192" height="32"/>
+ </tileset>
+ <tileset firstgid="83" name="wall/int_rock" tilewidth="32" tileheight="32" tilecount="140" columns="10">
+  <image source="../../tileset/building/wall/int_rock.png" width="320" height="448"/>
+ </tileset>
+ <tileset firstgid="223" name="../../tileset/ground/brown.png" tilewidth="32" tileheight="32" tilecount="5" columns="5">
+  <image source="../../tileset/ground/brown.png" trans="ff00ff" width="160" height="32"/>
+ </tileset>
+ <tileset firstgid="228" name="rocks" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/ground/rock/rocks.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="232" name="pebbles" tilewidth="32" tileheight="32" tilecount="3" columns="1">
+  <image source="../../tileset/ground/rock/pebbles.png" width="32" height="96"/>
+ </tileset>
+ <tileset firstgid="235" name="floor_sparkle" tilewidth="32" tileheight="32" tilecount="18" columns="3">
+  <image source="../../tileset/building/decoration/floor_sparkle.png" width="96" height="192"/>
+ </tileset>
+ <tileset firstgid="253" name="faumonia_duchy" tilewidth="32" tileheight="32" tilecount="6" columns="6">
+  <image source="../../tileset/logic/creature/faumonia_duchy.png" width="192" height="32"/>
+ </tileset>
+ <tileset firstgid="259" name="animal" tilewidth="32" tileheight="32" tilecount="30" columns="30">
+  <image source="../../tileset/logic/creature/animal.png" width="960" height="32"/>
+ </tileset>
+ <layer name="0_floor" width="92" height="92">
+  <data encoding="base64" compression="zlib">
+   eJztw0ENAAAMA6HzL7NK5mFvSFg1VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVX19QBJZjHU
+  </data>
+ </layer>
+ <layer name="1_terrain" width="92" height="92">
+  <data encoding="base64" compression="zlib">
+   eJztnMtuGzEMRfm7Tbtr0F0B7vr4zizifEJXyQARqqp68KnhxLzARYHY9UhnKIojyX4EgMd0Op1Op9PptIs/vflz4y8B2vWRXDP+Dv/rIbmbsu4x7ukhmZuwfiHyPoQB2n1Fc+K6Vsb4PtZFGKAPV/JXEeW/yhinWxvbRRigL1ewNraLMsbted8Wr2OA/kS3VXwfwgD9iW5L3plT9vI+hAH6FNkU3k+E9xRhgD5FtVUtWAsD9Cuqqbnkmfi+QxigX1E9492r/SjrWBigX1Hd481ZG+wJA/SL495+CtXcWsy6NjmEhix2cNbMX2Xfhcr+HnlbcO6Jwv6eeHtx7qn33OdRC46udba1fZXMae0erya2r7RuxWHNqXupKtw9xxVCfyx7zPkre+RMirR1Hkclp0hypvVZixFvCo8n4K1lSGR1Xw5u2lrLgjk1vlc50lre91EiC+Zn5ZNooo4jLXMt791xP9OuMYGwl7dHnVJ/tufnU3TctxJHvbhHyHzS0w18xh+CnPePN/9afH7EuetMIeScuVPaOZMS45byzs8vIK/bqW1D2B/jZ89rVqpzPPU+Ieh4a2Jc+wxY+juaJySf712nIuh4j2J85zrHLlHm/9V7EPS8ezHuwZuTX/84XN9CCHrehflP8J8/rz5uEGx4S7mXfPnt/f8V76x7duno42+w5d1yp7ptx+5as73f2nt+g3+fUz1ZW96zXcxxcH1OzHDiSet6r8lyL8n6HOZIaNhmb7d7mdzzIxFiHJXt3OlZDFqw554PpLxW6wq5dcRjVq/V7Dn8petiq3q9vIbEdkSw5gwKdQ/bex0y4tkeTxaz/krup2Q97CrMe7zreqHX915e7eV5r7NqIyGcz3NHfLfacXZqdN3oMU6dK611XMvznByH+87fDlrVam3uKIxmZ6wirEmtuFN/O+iM579Dmr0qqbT383hfW8POGI9keZbwjD3jem3pePbs8Yt0nqjoaufaCuf6WZBz/dWa747x571HX+drqXqcJbwReG33UtsOjxivea/2eYtmnLm8e2sknt8ZmPUNQcd7FCfS8UnhzOWNIGctkSdvqzzO4azlbTXvSOblti27eVM4j747U8coJ6Zm7R2Ny97fJedyLeoUydzD4UwZ+1a8OZI+57bt8YrxuiZb5Q1pju3FYRtTZ581RdDzHsU4hzGXdc12FWd1Hz8C78LcYm96tc6r7SMn/83uo6RN0fbvVrH9XP2r+Q2ZVYxbfl+gXrtr23G2Nd/trNXyavvJPQs2qk8o1y6KFtuUuOuprYM531fa9VwfkbWUN0U4ueaO86az698b75a7NfuosU0d36N9I8v+trWWhL9kjSIq855Gcyoatensc5oRmFPWda/U7yswHylZy5hLcmiytmM/436VOepKns1dyTmdTqfT6XQ6nU6n0/fsV+FK40A=
+  </data>
+ </layer>
+ <layer name="2_object" width="92" height="92">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20Hb6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDXAIRAAAE=
+  </data>
+ </layer>
+ <layer name="objects" width="92" height="92">
+  <data encoding="base64" compression="zlib">
+   eJzt21EOgzAIAFDNtvufeHPfJpq5FlOR906ABltKcZoAAAAAqOQ1j44AAGDfe3QA0GFWa1PUQ+5TiLUeANjj/iXWZ3QAUIB1a20ZHUAilXKn0rMe8Wx8H713P/oxABsuvja27hmRzB4QRS79doVvHgBG0DsCgA433kfNVVONu3YACKKOhL9En70yzqjpUXM2swCQjzmn+zham/j/DnJoqd3V+2SX8ZwNAAAAAABwli8/aglR
+  </data>
+ </layer>
+ <layer name="collision" width="92" height="92" opacity="0.4">
+  <data encoding="base64" compression="zlib">
+   eJztllFuwzAMxXLA3v88+xpQFOuaJvKjlJAAvy2xjtHHtm0PVVVVVdWL+Ao9zxXdAz3jVfwGetbpfgs972SPQs890TPQs0/0LPT8k6yA3mGSVdB7TLEKeo8pVkHvMcVK6F0mWAm9ywQroXfpbjX0Pt2tht6nu9XQ+3S3GnqfZAN7c7vbO7fzK/bOdH4meT7dlW79zB17X50zO9v7GGd3tXcee+exdx57Z7F3Ft+ULPbO4v+UPPbO4h3PYu8sVb1tvo/K3nb/zIreR7rf4Xdb2Xrat7L6fLpjt+b0jp1MQO94psvE5nS7qh4TetPtVvWwN3v/7M3cPbr33hm6uHrfFHTHZO93eyehO1K9SeiWd+v9y9kG9j5Gxd7Te9PnH2Va7xX3LM2E5lVn0/fl0xx078qzO3yfe2Yhmq84t0vr/2ZJ9155bpfW72ZJ9k6ce8Xe3+6Q/H469d7+mGVVb+Kdencuyco7TrxRe3YkqexNvE1HdySgu9qbN71nCrprl96J5nTTbr1Xd6ebdu29Yg66Z7o5NRPd0PvV37PQ80/0KPTcV9DWvbrTc6mqqqqqqqrqffwBO98q1w==
+  </data>
+ </layer>
+ <layer name="protection" width="92" height="92" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20Hb6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDXAIRAAAE=
+  </data>
+ </layer>
+</map>

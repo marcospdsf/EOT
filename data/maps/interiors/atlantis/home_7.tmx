@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="34" height="20" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="logic/collision" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png"/>
+ </tileset>
+ <tileset firstgid="2" name="int_grey" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/int_grey.png"/>
+ </tileset>
+ <tileset firstgid="123" name="floor_tiles" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/indoor/floor_tiles.png"/>
+ </tileset>
+ <tileset firstgid="132" name="logic/portal" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/portal.png"/>
+ </tileset>
+ <tileset firstgid="156" name="wooden_with_candles" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/table/wooden_with_candles.png"/>
+ </tileset>
+ <tileset firstgid="168" name="sofa_brown" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/chair/sofa_brown.png"/>
+ </tileset>
+ <tileset firstgid="174" name="wooden_rustic" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/chair/wooden_rustic.png"/>
+ </tileset>
+ <tileset firstgid="182" name="single_purple_gold" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/bed/single_purple_gold.png"/>
+ </tileset>
+ <tileset firstgid="191" name="purple_drapes" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/curtain/purple_drapes.png"/>
+ </tileset>
+ <tileset firstgid="200" name="stove" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/kitchen/stove.png"/>
+ </tileset>
+ <tileset firstgid="206" name="warmer_2" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/kitchen/warmer_2.png"/>
+ </tileset>
+ <tileset firstgid="212" name="lights_candle" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/light/lights_candle.png"/>
+ </tileset>
+ <tileset firstgid="248" name="drawer_without_runner" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/other/drawer_without_runner.png"/>
+ </tileset>
+ <tileset firstgid="254" name="piano" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/other/piano.png"/>
+ </tileset>
+ <tileset firstgid="258" name="wardrobe_lateral" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/shelve/wardrobe_lateral.png"/>
+ </tileset>
+ <layer name="0_floor" width="34" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGtmYGBophBTA1DqhsHkDlrgOix41B0D7w5q4Goi8Kg7Rq47qIEbceBRdwysO0Yx
+7XADFjyS3TEUMQAiLA/JoAoAAA==
+  </data>
+ </layer>
+ <layer name="1_terrain" width="34" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3TOQ5BURTG8aswdaaadVCyA0JH6EydaTNiFnNj2BLb8Bc0wsNxDIWT98ut7ve+
+nLxnN8Y44BRwwW10xgMvfAJ+BJR6hBER3o0iBrt5facaPTR2qtHjn/F4RhMrtL7YY4M2Ouhi+aUe
+h+mhj4EgY4wJpgo9hlhjJMiYYY6FQo97o5ERREh4V7OHeGw8ts/1WF2c1+ayxxa7N/WxGo19ZJH7
+gR7XMp7d66/8c+eMPAooCpRQtsiII3F6XxIpi4wKqqgJ1NGwyEgjc+qRNcdv6VbGHt79CZugCgAA
+  </data>
+ </layer>
+ <layer name="2_object" width="34" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgwAT7gfgAEB/EIvcDiH9iEacm2AaljwLxMSA+DuVvR1LzC4h/09gdO3GI70Ji
+/wHivwTMOQfE5/HInwDik3jk9+AQ30vAXnRwAYgv4pE/BcSnSTSTHHAJiC/jkT8DxGdxyLEyUt89
+5AB2GrpjLglqOQdJeNASbBhoB4yCUTAMAMsgKSvYBok7OAaJO0YBbgAAXPhM1qAKAAA=
+  </data>
+ </layer>
+ <layer name="3_roof" width="34" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjgDBgZhxoF9AerB9g+zei8dcNiCtGwSggD/wD4v90tG89Gk0MeADED6nv
+FLyAaQSUnQ8Y6B+uo2D4AwABn4fIoAoAAA==
+  </data>
+ </layer>
+ <layer name="objects" width="34" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMglEwCkbBKBgFwx10DLQDSAAAPok9jaAKAAA=
+  </data>
+ </layer>
+ <layer name="collision" width="34" height="20" visible="0" opacity="0.38">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO2TQQoAIAgE7f+f7irGpqJbHRIWQVInsyEi42uRKG9tF2dwZO1VDhv38tBdujgq
+NZgckdkwOez+ozOs/UA82RpRvhMcXn6G49eI5XVxRPppv2Oq8HT/+1tvy+TI1HtlHoiFpdP9KpoW
+5NFHoAoAAA==
+  </data>
+ </layer>
+ <layer name="protection" width="34" height="20" visible="0" opacity="0.2">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3BMQEAAADCoPVPbQ0PoAAA4McAEsHILqAKAAA=
+  </data>
+ </layer>
+</map>

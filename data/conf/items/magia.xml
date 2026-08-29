@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='utf-8'?>
+<items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="stendhal ../equipment.xsd ">
+<item name="flame magic scroll">
+		<type class="magia" subclass="mana_red" tileid="-1" />
+		<description>You see a flame magic scroll.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<atk value="11" />
+			<def value="11" />
+			<range value="0" />
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+			<min_level value="0" />
+		</attributes>
+		<weight value="0.1" />
+		<value value="2160" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="lhand" />
+		</equipable>
+	</item><item name="earth magic scroll">
+		<type class="magia" subclass="mana_green" tileid="-1" />
+		<description>You see an earth magic scroll.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<atk value="8" />
+			<def value="8" />
+			<range value="0" />
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+			<min_level value="0" />
+		</attributes>
+		<weight value="0.1" />
+		<value value="2160" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="lhand" />
+		</equipable>
+	</item><item name="rain magic scroll">
+		<type class="magia" subclass="mana_blue" tileid="-1" />
+		<description>You see a rain magic scroll.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<atk value="12" />
+			<def value="12" />
+			<range value="0" />
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+			<min_level value="0" />
+		</attributes>
+		<weight value="0.1" />
+		<value value="2160" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="lhand" />
+		</equipable>
+	</item><item name="dark magic scroll">
+		<type class="magia" subclass="mana_black" tileid="-1" />
+		<description>You see a dark magic scroll.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<atk value="17" />
+			<def value="17" />
+			<range value="0" />
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+			<min_level value="0" />
+		</attributes>
+		<weight value="0.1" />
+		<value value="2160" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="lhand" />
+		</equipable>
+	</item><item name="light magic scroll">
+		<type class="magia" subclass="mana_white" tileid="-1" />
+		<description>You see a light magic scroll.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<atk value="20" />
+			<def value="20" />
+			<range value="0" />
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+			<min_level value="0" />
+		</attributes>
+		<weight value="0.1" />
+		<value value="2160" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="lhand" />
+		</equipable>
+	</item><item name="sling stone">
+		<type class="magia" subclass="kamyk" tileid="-1" />
+		<description>You see a smooth, dense stone for a hunting sling.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<atk value="1" />
+			<range value="1" />
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+			<min_level value="0" />
+		</attributes>
+		<weight value="0.1" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="rhand" />
+		</equipable>
+	</item><item name="hermit spell scroll">
+		<type class="magia" subclass="zaklecie" tileid="-1" />
+		<description>You see an ancient hermit spell scroll.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<atk value="3" />
+			<def value="1" />
+			<range value="0" />
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+			<min_level value="0" />
+		</attributes>
+		<weight value="0.1" />
+		<value value="160" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="lhand" />
+		</equipable>
+	</item>
+</items>

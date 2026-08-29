@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<!-- START: zwierzeta -->
+
+	<creature name="little penguin">
+		<type class="pol/zwierzeta" subclass="pingwinek" tileid="pol_zwierzeta.png:0"/>
+		<description>You see a small and silly penguin.</description>
+		<attributes>
+			<atk value="6"/>
+			<def value="9"/>
+			<hp value="12"/>
+			<speed value="0.4"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="1"/>
+		<experience value="8"/>
+		<respawn value="700"/>
+		<corpse name="corpse"/>
+		<drops>
+			<item value="meat" quantity="[1,2]" probability="50.0"/>
+			<item value="cod" quantity="[1,1]" probability="20.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Oou! Oou!"/>
+				<noise state="idle follow fight" value="*waddle* *waddle*"/>
+			</says>
+			<profile name="coward"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="bear cub">
+		<type class="pol/zwierzeta" subclass="niedzwiadek" tileid="pol_zwierzeta.png:1"/>
+		<description>You see a young bear cub.</description>
+		<attributes>
+			<atk value="15"/>
+			<def value="7"/>
+			<hp value="54"/>
+			<speed value="0.4"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="2"/>
+		<experience value="17"/>
+		<respawn value="900"/>
+		<corpse name="small_animal"/>
+		<drops>
+			<item value="meat" quantity="[1,2]" probability="50.0"/>
+			<item value="perch" quantity="[1,1]" probability="5.0"/>
+			<item value="cod" quantity="[1,1]" probability="5.0"/>
+			<item value="trout" quantity="[1,1]" probability="1.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="rrrrr"/>
+			</says>
+			<profile name="coward"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="polar bear cub">
+		<type class="pol/zwierzeta" subclass="niedzwiadek_polarny" tileid="pol_zwierzeta.png:2"/>
+		<description>You see a young polar bear cub.</description>
+		<attributes>
+			<atk value="21"/>
+			<def value="9"/>
+			<hp value="80"/>
+			<speed value="0.4"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="2"/>
+		<experience value="21"/>
+		<respawn value="876"/>
+		<corpse name="small_animal"/>
+		<drops>
+			<item value="meat" quantity="[1,2]" probability="50.0"/>
+			<item value="ham" quantity="[1,1]" probability="30.0"/>
+			<item value="trout" quantity="[1,1]" probability="5.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Brrrrr..."/>
+			</says>
+			<profile name="coward"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="mother bear">
+		<type class="pol/zwierzeta" subclass="niedzwiedz" tileid="pol_zwierzeta.png:3"/>
+		<description>You see a mother bear. Beware! She can be aggressive, especially if her cubs are nearby.</description>
+		<attributes>
+			<atk value="55"/>
+			<def value="16"/>
+			<hp value="50"/>
+			<speed value="0.4"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="4"/>
+		<experience value="40"/>
+		<respawn value="900"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="meat" quantity="[3,7]" probability="50.0"/>
+			<item value="ham" quantity="[1,3]" probability="30.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Rrraar!"/>
+			</says>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="high arctic polar bear">
+		<type class="pol/zwierzeta" subclass="niedzwiedz_polarny" tileid="pol_zwierzeta.png:4"/>
+		<description>You see a massive white polar bear.</description>
+		<attributes>
+			<atk value="66"/>
+			<def value="13"/>
+			<hp value="78"/>
+			<speed value="0.7"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="10"/>
+		<experience value="110"/>
+		<respawn value="912"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="meat" quantity="[3,12]" probability="60.0"/>
+			<item value="ham" quantity="[2,4]" probability="40.0"/>
+			<item value="trout" quantity="[1,1]" probability="30.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="BBBRRRRRRR!!"/>
+			</says>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="wild dog">
+		<type class="pol/zwierzeta" subclass="pies" tileid="pol_zwierzeta.png:5"/>
+		<description>You see a feral wild dog.</description>
+		<attributes>
+			<atk value="25"/>
+			<def value="9"/>
+			<hp value="45"/>
+			<speed value="0.9"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="4"/>
+		<experience value="22"/>
+		<respawn value="777"/>
+		<corpse name="small_animal"/>
+		<drops>
+			<item value="meat" quantity="[1,5]" probability="80.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Hauuuu! Hauuu!"/>
+				<noise state="idle follow fight" value="Wrrrrr!"/>
+			</says>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="red fox">
+		<type class="pol/zwierzeta" subclass="lis" tileid="pol_zwierzeta.png:6"/>
+		<description>You see a quick red fox.</description>
+		<attributes>
+			<atk value="45"/>
+			<def value="11"/>
+			<hp value="35"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="2"/>
+		<experience value="18"/>
+		<respawn value="888"/>
+		<corpse name="small_animal"/>
+		<drops>
+			<item value="meat" quantity="[1,4]" probability="60.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="arctic fox">
+		<type class="pol/zwierzeta" subclass="lis_sniezny" tileid="pol_zwierzeta.png:7"/>
+		<description>You see a snowy arctic fox.</description>
+		<attributes>
+			<atk value="65"/>
+			<def value="19"/>
+			<hp value="65"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="2"/>
+		<experience value="38"/>
+		<respawn value="9999"/>
+		<corpse name="small_animal"/>
+		<drops>
+			<item value="meat" quantity="[1,11]" probability="80.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="fennec fox">
+		<type class="pol/zwierzeta" subclass="tj_fenek" tileid="pol_zwierzeta.png:8"/>
+		<description>You see a desert fennec fox.</description>
+		<attributes>
+			<atk value="67"/>
+			<def value="13"/>
+			<hp value="78"/>
+			<speed value="0.7"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="10"/>
+		<experience value="110"/>
+		<respawn value="8888"/>
+		<corpse name="small_animal"/>
+		<drops>
+			<item value="meat" quantity="[1,9]" probability="80.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="white tiger">
+		<type class="pol/zwierzeta" subclass="bialy_tygrys" tileid="pol_zwierzeta.png:9"/>
+		<description>You see a white tiger. It is rare to encounter, but fatal to cross.</description>
+		<attributes>
+			<atk value="191"/>
+			<def value="20"/>
+			<hp value="182"/>
+			<speed value="0.6"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="30"/>
+		<experience value="570"/>
+		<respawn value="199999"/>
+		<corpse name="cat"/>
+		<drops>
+			<item value="meat" quantity="[1,9]" probability="90.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Rrraar!"/>
+				<sound value="pol-tiger"/>
+			</says>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<!-- END: zwierzeta -->
+
+</creatures>

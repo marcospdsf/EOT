@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="24" height="24" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="../../tileset/building/castle.png" tilewidth="32" tileheight="32" tilecount="320" columns="20">
+  <image source="../../tileset/building/castle.png" width="640" height="512"/>
+ </tileset>
+ <tileset firstgid="321" name="../../tileset/ground/water/dungeon_water.png" tilewidth="32" tileheight="32" tilecount="30" columns="3">
+  <image source="../../tileset/ground/water/dungeon_water.png" trans="ff00ff" width="96" height="320"/>
+ </tileset>
+ <tileset firstgid="351" name="../../tileset/furniture/carpet/carpets_2.png" tilewidth="32" tileheight="32" tilecount="12" columns="4">
+  <image source="../../tileset/furniture/carpet/carpets_2.png" trans="ff00ff" width="128" height="96"/>
+ </tileset>
+ <tileset firstgid="363" name="../../tileset/furniture/table/table_with_beer.png" tilewidth="32" tileheight="32" tilecount="8" columns="4">
+  <image source="../../tileset/furniture/table/table_with_beer.png" trans="ff00ff" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="371" name="../../tileset/building/decoration/orbpedestal.png" tilewidth="32" tileheight="32" tilecount="2" columns="1">
+  <image source="../../tileset/building/decoration/orbpedestal.png" trans="ff00ff" width="32" height="64"/>
+ </tileset>
+ <tileset firstgid="373" name="../../tileset/item/statue/fairypool.png" tilewidth="32" tileheight="32" tilecount="16" columns="2">
+  <image source="../../tileset/item/statue/fairypool.png" trans="ff00ff" width="64" height="256"/>
+ </tileset>
+ <tileset firstgid="389" name="../../tileset/plant/vine.png" tilewidth="32" tileheight="32" tilecount="3" columns="1">
+  <image source="../../tileset/plant/vine.png" trans="ff00ff" width="32" height="96"/>
+ </tileset>
+ <tileset firstgid="392" name="../../tileset/logic/portal.png" tilewidth="32" tileheight="32" tilecount="7" columns="7">
+  <image source="../../tileset/logic/portal.png" width="224" height="32"/>
+ </tileset>
+ <tileset firstgid="399" name="../../tileset/logic/collision.png" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="400" name="../../tileset/logic/protection.png" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../tileset/logic/protection.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="402" name="menorah" tilewidth="32" tileheight="32" tilecount="8" columns="2">
+  <image source="../../tileset/furniture/light/menorah.png" width="64" height="128"/>
+ </tileset>
+ <tileset firstgid="410" name="marble" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/ground/marble.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="411" name="church" tilewidth="32" tileheight="32" tilecount="56" columns="8">
+  <image source="../../tileset/building/church.png" width="256" height="224"/>
+ </tileset>
+ <tileset firstgid="467" name="blue circle" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/building/decoration/blue_circle.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="471" name="pie_safe" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/furniture/kitchen/pie_safe.png" width="64" height="64"/>
+ </tileset>
+ <layer name="0_floor" width="24" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC7vGwMCgwkgbfAlo9isgtmDExJZYxHBhXGqfAc3+B8RZjBCcRCUMM+8XieZHQDEtzIeZHQ7F1DY/HAmH0dh8WrifHvE7VM2PB+IENJxIRfOTgTgFDacOIfPTgTgDDWcOofgdNX/U/OFqvh8jAlPL/AgkDAC3TXhfAAkAAA==
+  </data>
+ </layer>
+ <layer name="1_terrain" width="24" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC92UTQrCMBCFk7spXkEQvIBQbe/gXUQPIS5cuVDxB3Sr3sMJJDi8TpImFgs+eIQ2b76GaRKl6tqTD+SjMJeTQz3IT/KrpZzTmHzTSt11fezRXN96EMjNBe5Wf/iSDHvInkf2G5Ic3zFx/RN6P7UubKYSOKUdMS+tn/NnlCmtqwZ8zMf4kkJ8lI9v+uXjL8hL8CrAl3pv5OOnKKc/bfLdPk5VaP9z/rfqgh87vzl83/ltiy/pH/7vidZwZuvn9xe6YDlXF+NfKHNldfz+Qlcs5+q66g/eb9gnnzDX9H7DPvmEuV/3Z9fQG1azTqh7A6Y35SoACQAA
+  </data>
+ </layer>
+ <layer name="2_object" width="24" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgYGBoZUTF5AB0M5DNobX5IwWUAv1cRkN/lwPNrqDQ/BIK9FOidxRgAmLCczCGOTluGqr+GIzuHgWDDyCnk5GUZq4C8RUiMDogRs9lIAYAxSlCJQAJAAA=
+  </data>
+ </layer>
+ <layer name="3_roof" width="24" height="24" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgoD3YyohgXweybzBi0uiAkDpkM/di0U8poIWZAwlg4VVMgb9gerdiMYOa4TXcwh4ZIKdjYuICpgZXPqEHQI9vctIQup7BkH9JCX9iAbnxNJDxOxwAtjKJmmYRSk/I6YRQmhnO5dtQAwAS6zBiAAkAAA==
+  </data>
+ </layer>
+ <layer name="objects" width="24" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBSMglEwCkbBKBi6oIcRgkkBADPHiAYACQAA
+  </data>
+ </layer>
+ <layer name="collision" width="24" height="24" opacity="0.47">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC9WUSw7AIAhE7f0XXrmrJo0BZp6afiZxYYU3FIn9aK3/fF1yYkjs+C3iREwVE7GzmrIzkjN6V7Wrf1D8LNfhVzynt44q5i5+5PUUn8zrPWZ1flw5/BmfKHemH8RH9Yf0P9qr+yX6yv2SN9vNrWJI3W/2h3i7b7BiuPNJvFdFZsOZFbVO4g5hcQAJAAA=
+  </data>
+ </layer>
+ <layer name="protection" width="24" height="24" visible="0" opacity="0.43">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC5vAyMAwYRSP4lE8ikfxKB7Fo3gEYQCPPPV5AAkAAA==
+  </data>
+ </layer>
+</map>

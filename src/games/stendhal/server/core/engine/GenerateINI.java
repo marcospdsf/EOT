@@ -1,0 +1,252 @@
+/***************************************************************************
+ *                   (C) Copyright 2003-2022 - Stendhal                    *
+ ***************************************************************************
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+package games.stendhal.server.core.engine;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+import games.stendhal.server.core.engine.generateini.DatabaseConfiguration;
+import games.stendhal.server.core.engine.generateini.H2DatabaseConfiguration;
+import games.stendhal.server.core.engine.generateini.MySqlDatabaseConfiguration;
+import games.stendhal.server.core.engine.generateini.ServerIniConfiguration;
+
+
+/**
+ * generates a server.ini for Stendhal
+ *
+ * @author hendrik
+ */
+public class GenerateINI {
+
+	/** The name of the output file. */
+	private static String filename = "server.ini";
+
+
+	/** Where data is read from. */
+	private static BufferedReader in = new BufferedReader(
+			new InputStreamReader(System.in));
+
+	/**
+	 * reads a String from the input. When no String is chosen the defaultValue
+	 * is used.
+	 *
+	 * @param input
+	 *            the buffered input, usually System.in
+	 * @param defaultValue
+	 *            if no value is written.
+	 * @return the string read or default if none was read.
+	 */
+	public static String getStringWithDefault(final BufferedReader input,
+			final String defaultValue) {
+		String ret = "";
+		try {
+			ret = input.readLine();
+		} catch (final IOException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+		if (ret != null) {
+			if ((ret.length() == 0) && (defaultValue != null)) {
+				ret = defaultValue;
+			}
+		}
+		return ret;
+
+	}
+
+	/**
+	 * reads a String from the input. When no String is choosen the errorMessage
+	 * is is displayed and the application is terminated.
+	 *
+	 * @param input
+	 *            the input stream, usually System.in
+	 * @param errorMessage
+	 *            the error message to print when failing
+	 * @return string read from input
+	 */
+	public static String getStringWithoutDefault(final BufferedReader input, final String errorMessage) {
+		String ret = "";
+		try {
+			ret = input.readLine();
+		} catch (final IOException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+
+		if ((ret == null) || (ret.length() == 0)) {
+			System.out.println(errorMessage);
+			System.out.println("Terminating...");
+			System.exit(1);
+		}
+		return ret;
+	}
+
+	/**
+	 * Makes the first letter of the source uppercase.
+	 *
+	 * @param source
+	 *            the string
+	 * @return *T*he string, with first letter is upper case.
+	 */
+	public static String uppcaseFirstLetter(final String source) {
+		if (source.length() > 0) {
+			return Character.toUpperCase(source.charAt(0)) + source.substring(1);
+		}
+		return source;
+	}
+
+
+	/**
+	 * generates a server.ini for Stendhal
+	 *
+	 * @param args command line parameters
+	 * @param serverIni name of server.ini to write
+	 * @throws FileNotFoundException in case the file cannot be written
+	 */
+	public static void main(final String[] args, final String serverIni) throws FileNotFoundException {
+		filename = serverIni;
+		main(args);
+	}
+
+
+	/**
+	 * generates a server.ini for Stendhal
+	 *
+	 * @param args command line parameters
+	 * @throws FileNotFoundException in case the file cannot be written
+	 */
+	public static void main(final String[] args) throws FileNotFoundException {
+
+		/** Write configuration for database */
+		final String databaseSystem = getDatabaseSystem();
+		DatabaseConfiguration dbConfig = null;
+		if (databaseSystem.equals("mysql")) {
+			final String databaseName = getDatabaseName();
+			final String databaseHost = getDatabaseHost();
+			final String databaseUsername = getDatabaseUsername();
+			final String databasePassword = getDatabasePassword();
+			System.out.println("Using \"" + databaseName + "\" as database name\n");
+			System.out.println("Using \"" + databaseHost + "\" as database host\n");
+			System.out.println("Using \"" + databaseUsername + "\" as database user\n");
+			System.out.println("Using \"" + databasePassword + "\" as database user password\n");
+
+			System.out.println("In order to make these options effective please run:");
+			System.out.println("# mysql");
+			System.out.println("  create database " + databaseName + ";");
+			System.out.println("  grant all on " + databaseName + ".* to "
+					+ databaseUsername + "@localhost identified by '"
+					+ databasePassword + "';");
+			dbConfig = new MySqlDatabaseConfiguration(databaseHost, databaseName, databaseUsername, databasePassword);
+			System.out.println("  exit");
+		} else {
+			dbConfig = new H2DatabaseConfiguration();
+			System.out.println("Using integrated h2 database.");
+		}
+
+
+		/* Gameplay rates & multipliers */
+		Float xpMultiplier = 1.0f;
+		Float skillMultiplier = 1.0f;
+		Double dropMultiplier = 1.0;
+		Double dropQuantityMultiplier = 1.0;
+
+		System.out.print("Would you like to customize server gameplay rates (XP, Skills, Drop rates)? [y/N]: ");
+		final String customizeRates = getStringWithDefault(in, "n").toLowerCase().trim();
+		if (customizeRates.startsWith("y")) {
+			System.out.print("Monster Kill XP multiplier [1.0]: ");
+			try {
+				xpMultiplier = Float.parseFloat(getStringWithDefault(in, "1.0"));
+			} catch (final NumberFormatException e) {
+				xpMultiplier = 1.0f;
+			}
+
+			System.out.print("Combat & Skill XP multiplier [1.0]: ");
+			try {
+				skillMultiplier = Float.parseFloat(getStringWithDefault(in, "1.0"));
+			} catch (final NumberFormatException e) {
+				skillMultiplier = 1.0f;
+			}
+
+			System.out.print("Creature item drop rate multiplier [1.0]: ");
+			try {
+				dropMultiplier = Double.parseDouble(getStringWithDefault(in, "1.0"));
+			} catch (final NumberFormatException e) {
+				dropMultiplier = 1.0;
+			}
+
+			System.out.print("Creature stack drop quantity multiplier [1.0]: ");
+			try {
+				dropQuantityMultiplier = Double.parseDouble(getStringWithDefault(in, "1.0"));
+			} catch (final NumberFormatException e) {
+				dropQuantityMultiplier = 1.0;
+			}
+		}
+
+		/* The size of the RSA Key in bits, usually 512 */
+		final String keySize = getRSAKeyBits();
+		System.out.println("Using key of " + keySize + " bits.");
+		System.out.println("Please wait while the key is generated.");
+		final ServerIniConfiguration serverConfig = new ServerIniConfiguration(
+				dbConfig, Integer.valueOf(keySize),
+				xpMultiplier, skillMultiplier, dropMultiplier, dropQuantityMultiplier);
+		final PrintWriter out = new PrintWriter(new FileOutputStream(filename));
+		serverConfig.write(out);
+		out.close();
+		System.out.println(filename + " has been generated.");
+	}
+
+	private static String getDatabaseSystem() {
+		String temp = "";
+		do {
+			System.out.println("Which database system do you want to use? \"h2\" is an integrated database that ");
+			System.out.print("works out of the box, \"mysql\" requires a MySQL or MariaDB server. If in doubt, say \"h2\" [h2]: ");
+			temp = getStringWithDefault(in, "h2").toLowerCase().trim();
+		} while (!temp.equals("h2") && !temp.equals("mysql"));
+		return temp;
+	}
+
+	private static String getRSAKeyBits() {
+		System.out.print("Write size for the RSA key of the server. Be aware that a key bigger than 1024 could be very long to create (minimum 512) [512]: ");
+		final String keySize = getStringWithDefault(in, "512");
+		return keySize;
+	}
+
+	protected static String getDatabasePassword() {
+		System.out.print("Write value of the database user password: ");
+		final String databasepassword = getStringWithoutDefault(in,
+				"Please enter a database password");
+		return databasepassword;
+	}
+
+	protected static String getDatabaseUsername() {
+		System.out.print("Write name of the database user: ");
+		final String databaseuser = getStringWithoutDefault(in,
+				"Please enter a database user");
+		return databaseuser;
+	}
+
+	protected static String getDatabaseHost() {
+		System.out.print("Write name of the database host [localhost]: ");
+		final String databasehost = getStringWithDefault(in, "localhost");
+		return databasehost;
+	}
+
+	protected static String getDatabaseName() {
+		System.out.print("Write name of the database [marauroa]: ");
+		final String databasename = getStringWithDefault(in, "marauroa");
+		return databasename;
+	}
+}

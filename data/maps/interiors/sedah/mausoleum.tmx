@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="14" height="15" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1">
+ <tileset firstgid="1" name="../../tileset/building/castle.png" tilewidth="32" tileheight="32" tilecount="320" columns="20">
+  <image source="../../tileset/building/castle.png" width="640" height="512"/>
+ </tileset>
+ <tileset firstgid="321" name="../../tileset/ground/water/dungeon_water.png" tilewidth="32" tileheight="32" tilecount="30" columns="3">
+  <image source="../../tileset/ground/water/dungeon_water.png" trans="ff00ff" width="96" height="320"/>
+ </tileset>
+ <tileset firstgid="351" name="../../tileset/furniture/table/table_with_beer.png" tilewidth="32" tileheight="32" tilecount="8" columns="4">
+  <image source="../../tileset/furniture/table/table_with_beer.png" trans="ff00ff" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="359" name="../../tileset/furniture/light/dark_torch.png" tilewidth="32" tileheight="32" tilecount="8" columns="2">
+  <image source="../../tileset/furniture/light/dark_torch.png" trans="ff00ff" width="64" height="128"/>
+ </tileset>
+ <tileset firstgid="367" name="../../tileset/logic/portal.png" tilewidth="32" tileheight="32" tilecount="24" columns="8">
+  <image source="../../tileset/logic/portal.png" width="256" height="96"/>
+ </tileset>
+ <tileset firstgid="391" name="../../tileset/logic/collision.png" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="392" name="../../tileset/logic/protection.png" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../tileset/logic/protection.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="394" name="menorah" tilewidth="32" tileheight="32" tilecount="8" columns="2">
+  <image source="../../tileset/furniture/light/menorah.png" width="64" height="128"/>
+ </tileset>
+ <tileset firstgid="402" name="marble" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../tileset/ground/marble.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="404" name="church" tilewidth="32" tileheight="32" tilecount="56" columns="8">
+  <image source="../../tileset/building/church.png" width="256" height="224"/>
+ </tileset>
+ <tileset firstgid="460" name="imperial" tilewidth="32" tileheight="32" tilecount="16" columns="8">
+  <image source="../../tileset/logic/creature/human_imperial.png" width="256" height="64"/>
+ </tileset>
+ <layer id="1" name="0_floor" width="14" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgYGC4BsQqjMThSwwI8AqILRiJw8+Q9P0D4kmMxOFfo/pG9dFZnx8jAhPSF8EI0QMANUya+UgDAAA=
+  </data>
+ </layer>
+ <layer id="2" name="1_terrain" width="14" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACktlIB2kQjEp4BmZ+rDZt48RQscD6WQoTmJElcPnzhSgmlQoTmPElKeWOynVl8uInU0r+0jVtw+Lm7DJDbQ7SdV3Gg0fRFKzH4s8SA8A9VoVbUgDAAA=
+  </data>
+ </layer>
+ <layer id="3" name="2_object" width="14" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACitiIB0UAnHRINHXx8jA0M9IP/tG9Q1/fVeB+AoSRgfIcpeh+gDZchtLSAMAAA==
+  </data>
+ </layer>
+ <layer id="4" name="3_roof" width="14" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgoC6YwMjA0M1InNp1SOp6gOxeRuxyQx1kIvklexD6C19YD6d4oCUAAIdpKtJIAwAA
+  </data>
+ </layer>
+ <layer id="5" name="objects" width="14" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAXEgBuMA+0CCLg6SNxBLTBYwpUQKGaEYFwAANLRibBIAwAA
+  </data>
+ </layer>
+ <layer id="6" name="collision" width="14" height="15" opacity="0.47">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmtnZGBoHwBMLMCmD5kmRY5c+wZKHzIfm9xAuxOf/qEeD7jMwSUPAOqzLi9IAwAA
+  </data>
+ </layer>
+ <layer id="7" name="protection" width="14" height="15" opacity="0.43">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgYGDoYCQNw8CovlF9o/ogegDyIPdrSAMAAA==
+  </data>
+ </layer>
+</map>

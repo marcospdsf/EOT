@@ -1,0 +1,274 @@
+/* $Id: AtkFiveHundred.java,v 1.76 2011/11/13 17:13:16 kymara edited by szyg Exp $ */
+/***************************************************************************
+ *                   (C) Copyright 5003-2011 - Stendhal                    *
+ ***************************************************************************
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+package games.stendhal.server.maps.quests;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import games.stendhal.common.grammar.Grammar;
+import games.stendhal.server.entity.npc.ChatAction;
+import games.stendhal.server.entity.npc.ConversationPhrases;
+import games.stendhal.server.entity.npc.ConversationStates;
+import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.action.DropRecordedItemAction;
+import games.stendhal.server.entity.npc.action.IncreaseAtkXPAction;
+import games.stendhal.server.entity.npc.action.IncrementQuestAction;
+import games.stendhal.server.entity.npc.action.MultipleActions;
+import games.stendhal.server.entity.npc.action.SayRequiredItemAction;
+import games.stendhal.server.entity.npc.action.SayTimeRemainingAction;
+import games.stendhal.server.entity.npc.action.SetQuestAction;
+import games.stendhal.server.entity.npc.action.SetQuestToTimeStampAction;
+import games.stendhal.server.entity.npc.action.StartRecordingRandomItemCollectionAction;
+import games.stendhal.server.entity.npc.condition.AndCondition;
+import games.stendhal.server.entity.npc.condition.NotCondition;
+import games.stendhal.server.entity.npc.condition.OrCondition;
+import games.stendhal.server.entity.npc.condition.PlayerHasRecordedItemWithHimCondition;
+import games.stendhal.server.entity.npc.condition.QuestActiveCondition;
+import games.stendhal.server.entity.npc.condition.QuestCompletedCondition;
+import games.stendhal.server.entity.npc.condition.QuestNotActiveCondition;
+import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
+import games.stendhal.server.entity.npc.condition.TimePassedCondition;
+import games.stendhal.server.entity.player.Player;
+import games.stendhal.server.maps.Region;
+import games.stendhal.server.util.TimeUtil;
+
+
+/**
+authors: szygolek & davvids
+ */
+public class AtkFiveHundred extends AbstractQuest {
+
+	private static final String QUEST_SLOT = "AtkFiveHundred";
+	
+	/** How long until the player can give up and start another quest */
+	private static final int expireDelay = TimeUtil.SECONDS_IN_MINUTE;
+	
+	/** How often the quest may be repeated */
+	private static final int delay = TimeUtil.SECONDS_IN_MINUTE; 
+	
+	/**
+	 * All items which are possible/easy enough to find. If you want to do
+	 * it better, go ahead. *
+	 * not to use yet, just getting it ready.
+	 */
+	private static Map<String,Integer> items;
+
+	private static void buildItemsMap() {
+		items = new HashMap<String, Integer>();
+		items.put("paper (500) attack", 1);
+		items.put("kartka (500) ataku", 1);
+	}
+	
+	private ChatAction startQuestAction() {
+		// common place to get the start quest actions as we can both starts it and abort and start again
+		
+		final List<ChatAction> actions = new LinkedList<ChatAction>();
+		actions.add(new StartRecordingRandomItemCollectionAction(QUEST_SLOT,0,items,"Bring me [item] and I shall magically empower your combat skills. Say #done once you have it with you."));	
+		actions.add(new SetQuestToTimeStampAction(QUEST_SLOT, 1));
+		
+		return new MultipleActions(actions);
+	}
+	
+	private void getQuest() {
+		final SpeakerNPC npc = npcs.get("Łukasz");
+		npc.add(ConversationStates.ATTENDING, ConversationPhrases.QUEST_MESSAGES,
+				new AndCondition(new QuestActiveCondition(QUEST_SLOT),
+								 new NotCondition(new TimePassedCondition(QUEST_SLOT,1,expireDelay))), 
+				ConversationStates.ATTENDING,
+				null,
+				new SayRequiredItemAction(QUEST_SLOT,0,"Bring me [item] and I will magically bolster your abilities. Say #done once you deliver it."));
+		
+		npc.add(ConversationStates.ATTENDING, ConversationPhrases.QUEST_MESSAGES,
+				new AndCondition(new QuestActiveCondition(QUEST_SLOT),
+								 new TimePassedCondition(QUEST_SLOT,1,expireDelay)), 
+				ConversationStates.ATTENDING,
+				null,
+				new SayRequiredItemAction(QUEST_SLOT,0,"You must bring me: [item]. Say #done once you bring it."));
+	
+		npc.add(ConversationStates.ATTENDING, ConversationPhrases.QUEST_MESSAGES,
+				new AndCondition(new QuestCompletedCondition(QUEST_SLOT),
+								 new NotCondition(new TimePassedCondition(QUEST_SLOT,1,delay))), 
+				ConversationStates.ATTENDING,
+				null,
+				new SayTimeRemainingAction(QUEST_SLOT,1, delay, "I must rest and gather my energy. Please return in "));
+
+		
+		
+		
+		npc.add(ConversationStates.ATTENDING, ConversationPhrases.QUEST_MESSAGES,
+				new OrCondition(new QuestNotStartedCondition(QUEST_SLOT),
+								new AndCondition(new QuestCompletedCondition(QUEST_SLOT),
+												 new TimePassedCondition(QUEST_SLOT,1,delay))), 
+				ConversationStates.ATTENDING,
+				null,
+				startQuestAction());
+	}
+	
+	private void completeQuest() {
+		final SpeakerNPC npc = npcs.get("Łukasz");
+		
+		npc.add(ConversationStates.ATTENDING,
+				ConversationPhrases.FINISH_MESSAGES, 
+				new QuestNotStartedCondition(QUEST_SLOT),
+				ConversationStates.ATTENDING, 
+				"I think I might have a #quest for you.",
+				null);
+		
+		npc.add(ConversationStates.ATTENDING,
+				ConversationPhrases.FINISH_MESSAGES, 
+				new QuestCompletedCondition(QUEST_SLOT),
+				ConversationStates.ATTENDING, 
+				"You have already brought me the scroll.",
+				null);
+		
+		final List<ChatAction> actions = new LinkedList<ChatAction>();
+		actions.add(new DropRecordedItemAction(QUEST_SLOT,0));
+		actions.add(new SetQuestToTimeStampAction(QUEST_SLOT, 1));
+		actions.add(new IncrementQuestAction(QUEST_SLOT, 2, 1));
+		actions.add(new SetQuestAction(QUEST_SLOT, 0, "done"));
+		actions.add(new IncreaseAtkXPAction(500));
+		
+		npc.add(ConversationStates.ATTENDING,
+				ConversationPhrases.FINISH_MESSAGES,
+				new AndCondition(new QuestActiveCondition(QUEST_SLOT),
+								 new PlayerHasRecordedItemWithHimCondition(QUEST_SLOT,0)),
+				ConversationStates.ATTENDING, 
+				"Splendid work!",
+				new MultipleActions(actions));
+		
+		npc.add(ConversationStates.ATTENDING,
+				ConversationPhrases.FINISH_MESSAGES,
+				new AndCondition(new QuestActiveCondition(QUEST_SLOT),
+								 new NotCondition(new PlayerHasRecordedItemWithHimCondition(QUEST_SLOT,0))),
+				ConversationStates.ATTENDING, 
+				null,
+				new SayRequiredItemAction(QUEST_SLOT,0,"You have not brought [item] yet. Go find it so I can empower your skills, then return and say #done."));
+
+	}
+	
+	private void abortQuest() {
+		final SpeakerNPC npc = npcs.get("Łukasz");
+		
+		npc.add(ConversationStates.ATTENDING,
+				ConversationPhrases.ABORT_MESSAGES,
+				new AndCondition(new QuestActiveCondition(QUEST_SLOT),
+						 		 new TimePassedCondition(QUEST_SLOT,1,expireDelay)), 
+				ConversationStates.ATTENDING, 
+				null, 
+				// start quest again immediately
+				startQuestAction());
+		
+		npc.add(ConversationStates.ATTENDING,
+				ConversationPhrases.ABORT_MESSAGES,
+				new AndCondition(new QuestActiveCondition(QUEST_SLOT),
+						 		 new NotCondition(new TimePassedCondition(QUEST_SLOT,1,expireDelay))), 
+				ConversationStates.ATTENDING, 
+				"You must be out of your mind!", 
+				null);
+		
+		npc.add(ConversationStates.ATTENDING,
+				ConversationPhrases.ABORT_MESSAGES,
+				new QuestNotActiveCondition(QUEST_SLOT),
+				ConversationStates.ATTENDING, 
+				"I think I might have a #quest for you.", 
+				null);
+		
+	}
+
+	@Override
+	public String getSlotName() {
+		return QUEST_SLOT;
+	}
+	
+	@Override
+	public List<String> getHistory(final Player player) {
+		final List<String> res = new ArrayList<String>();
+		if (!player.hasQuest(QUEST_SLOT)) {
+			return res;
+		}
+		res.add("I met Łukasz, a attack trainer in Semos.");
+		final String questState = player.getQuest(QUEST_SLOT);
+		if ("rejected".equals(questState)) {
+			res.add("I do not want attack training.");
+			return res;
+		}
+
+		res.add("I need to find the scroll.");
+		if (player.hasQuest(QUEST_SLOT) && !player.isQuestCompleted(QUEST_SLOT)) {
+			String questItem = player.getRequiredItemName(QUEST_SLOT,0);
+			int amount = player.getRequiredItemQuantity(QUEST_SLOT,0);
+			if (!player.isEquipped(questItem, amount)) {
+				res.add(("I was asked to bring "
+						+ Grammar.quantityplnoun(amount, questItem, "") + " to receive attack experience. I do not have it yet."));
+			} else {
+				res.add(("I found "
+						+ Grammar.quantityplnoun(amount, questItem, "") + " to receive attack experience and must deliver it."));
+			}
+		}
+		int repetitions = player.getNumberOfRepetitions(getSlotName(), 2);
+		if (repetitions > 0) {
+			res.add("Przyniosłem kartkę Łukaszowi "
+					+ Grammar.quantityplnoun(repetitions, "razy") + " do tej pory.");
+		}
+		if (isRepeatable(player)) {
+            res.add("I can enhance my skills again.");
+		} else if (isCompleted(player)){
+			res.add("I have already received my attack experience.");
+		}
+		return res;
+	}
+
+	@Override
+	public void addToWorld() {
+		//super.addToWorld();
+		fillQuestInfo(
+				"Attack Training (500)",
+				"Bring an attack scroll to Tadeusz in Semos to receive 500 attack experience.",
+				true);
+		
+		buildItemsMap();
+		
+		getQuest();
+		completeQuest();
+		abortQuest();
+	}
+
+	@Override
+	public String getName() {
+		return "AtkFiveHundred";
+	}
+
+	@Override
+	public int getMinLevel() {
+		return 0;
+	}
+	
+	@Override
+	public boolean isRepeatable(final Player player) {
+		return	new AndCondition(new QuestCompletedCondition(QUEST_SLOT),
+						 new TimePassedCondition(QUEST_SLOT,1,delay)).fire(player, null, null);
+	}
+	
+	@Override
+	public String getRegion() {
+		return Region.SEMOS_CITY;
+	}
+
+	@Override
+	public String getNPCName() {
+		return "Łukasz";
+	}
+}

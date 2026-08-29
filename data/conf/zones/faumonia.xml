@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zones xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="stendhal ../zones.xsd ">
+	<!--
+		** Load zones. Written from left to right and from top to bottom.
+		** Please respect it!
+	-->
+
+	<zone name="hell_secret" file="Level -2/faumonia/-2_hell.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleport"/>
+				
+		<portal x="24" y="21" ref="h1">
+			<destination zone="hell" ref="h2"/>
+		</portal>
+	</zone>
+	
+	<zone name="-1_dragon_cave" file="Level -1/faumonia/dragon_cave/-1_dragon_cave.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+		<portal x="18" y="32" ref="smok1">
+			<destination zone="-2_dragon_cave" ref="smok2"/>
+		</portal>	
+		<portal x="15" y="26" ref="a2">
+			<destination zone="-1_drake_cave" ref="a1" />
+		</portal>
+		<portal x="60" y="12" ref="wlaz2">
+			<destination zone="-1_dragon_cave_e" ref="wlaz1"/>
+		</portal>	
+	</zone>
+	
+	<zone name="-1_dragon_cave_e" file="Level -1/faumonia/dragon_cave/-1_dragon_cave_e.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+		<portal x="44" y="24" ref="wlaz1">
+			<destination zone="-1_dragon_cave" ref="wlaz2"/>
+		</portal>	
+	</zone>
+	
+	<zone name="-2_dragon_cave" file="Level -1/faumonia/dragon_cave/-2_dragon_cave.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+		<portal x="34" y="63" ref="smok2">
+			<destination zone="-1_dragon_cave" ref="smok1"/>
+		</portal>	
+		<portal x="85" y="76" ref="smok3">
+			<destination zone="-3_dragon_cave" ref="smok4"/>
+		</portal>	
+	</zone>
+	<zone name="-3_dragon_cave" file="Level -1/faumonia/dragon_cave/-3_dragon_cave.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+		<portal x="82" y="74" ref="smok4">
+			<destination zone="-2_dragon_cave" ref="smok3"/>
+		</portal>		
+		<portal x="32" y="2" ref="smok5">
+			<destination zone="-4_dragon_cave" ref="smok6"/>
+		</portal>	
+	</zone>
+	<zone name="-4_dragon_cave" file="Level -1/faumonia/dragon_cave/-4_dragon_cave.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+		<portal x="32" y="4" ref="smok6">
+			<destination zone="-3_dragon_cave" ref="smok5"/>
+		</portal>	
+		<portal x="14" y="87" ref="smok7">
+			<destination zone="-5_dragon_cave" ref="smok8"/>
+		</portal>	
+	</zone>
+	<zone name="-5_dragon_cave" file="Level -1/faumonia/dragon_cave/-5_dragon_cave.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+		<portal x="39" y="121" ref="smok8">
+			<destination zone="-4_dragon_cave" ref="smok7"/>
+		</portal>	
+	</zone>
+				
+	<zone name="-1_drake_cave" file="Level -1/faumonia/dragon_cave/drake_cave.tmx">
+	<configurator class-name="games.stendhal.server.maps.faumonia.dragon.DjangoNPC" />
+		<portal x="8" y="0" ref="a1">
+			<destination zone="-1_dragon_cave" ref="a2"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LockedDoor">
+				<parameter name="class">skulldoor_s</parameter>
+				<parameter name="key">klucz do smoczej groty</parameter>
+			</implementation>
+		</portal>
+		
+		<portal x="8" y="12" ref="b2">
+			<destination zone="0_semos_mountain_w2" ref="b1" />
+		</portal>
+		
+		<entity x="11" y="7">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign" />
+			<attribute name="text">
+To the north you see a colossal cavern sealed by massive gates. Elders say ancient dragons once nested here.
+If you find someone knowledgeable in draconic lore, you may find a way inside. 
+Be careful, this is no place for novices!
+			</attribute>
+			<attribute name="class">signpost</attribute>
+		</entity>
+	</zone>
+	
+	<zone name="-1_gnome_state" file="Level -1/faumonia/-1_gnome_state.tmx">
+		
+		<portal x="59" y="18" ref="g2">
+			<destination zone="0_semos_mountain_n_w2" ref="g1" />
+		</portal>
+		
+		<portal x="59" y="53" ref="w1">
+			<destination zone="-1_semos_village_cave" ref="x2" />
+		</portal>
+		
+	</zone>
+	
+	<zone name="-1_semos_road_statue" file="Level -1/faumonia/-1_semos_road_statue.tmx">
+	<configurator class-name="games.stendhal.server.maps.semos.roadstatue.NatanNPC" />
+		
+		<portal x="6" y="8" ref="s1">
+			<destination zone="0_semos_road_e" ref="s2" />
+		</portal>
+		
+	</zone>
+	
+	<zone name="-1_orril_river_cave" file="Level -1/faumonia/-1_orril_river_cave.tmx">
+		
+		<portal x="71" y="51" ref="w1b">
+			<destination zone="0_orril_river_s" ref="w1a" />
+		</portal>
+		<portal x="72" y="51" ref="w2b">
+			<destination zone="0_orril_river_s" ref="w2a" />
+		</portal>
+		<portal x="73" y="51" ref="w3b">
+			<destination zone="0_orril_river_s" ref="w3a" />
+		</portal>
+		
+		<portal x="118" y="9" ref="wod1">
+			<destination zone="0_orril_river_s" ref="wod2"/>
+			<attribute name="hidden"/>
+		</portal>
+		
+	</zone>
+	
+	<zone name="-1_orril_river_pit" file="Level -1/faumonia/-1_orril_river_pit.tmx">
+		
+		<portal x="22" y="23" ref="pit2">
+			<destination zone="0_orril_river_s" ref="pit1"/>
+			<attribute name="hidden"/>
+		</portal>
+		
+	</zone>
+	
+	<zone name="-1_orril_mountain_cave" file="Level -1/faumonia/-1_orril_mountain_cave.tmx">
+		
+		<portal x="11" y="16" ref="w1">
+			<destination zone="0_orril_mountain_n_w2" ref="w2" />
+		</portal>
+		
+	</zone>
+
+	<zone name="int_semos_crazy_house" file="interiors/semos/int_semos_crazy_house.tmx">
+	<configurator class-name="games.stendhal.server.maps.semos.crazyroom.MiririNPC"/>
+	<configurator class-name="games.stendhal.server.maps.semos.crazyroom.PaririNPC"/>
+	<configurator class-name="games.stendhal.server.maps.semos.crazyroom.JacerNPC"/>
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	
+		<portal x="23" y="30" ref="crazy1">
+			<destination zone="0_semos_city" ref="crazy2" />
+		</portal>
+		
+		<portal x="8" y="17" ref="a1">
+			<destination zone="int_semos_crazy_house" ref="a2" />
+			<implementation	class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">5</parameter>
+				<parameter name="rejected">Return once you reach level 5.</parameter>
+			</implementation>
+		</portal>
+		
+		<portal x="8" y="16" ref="a2">
+			<destination zone="int_semos_crazy_house" ref="a1" />
+			<implementation	class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">5</parameter>
+				<parameter name="rejected">Return once you reach level 5.</parameter>
+			</implementation>
+		</portal>
+	
+		<portal x="23" y="17" ref="a3">
+			<destination zone="int_semos_crazy_house" ref="a4" />
+			<implementation	class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">40</parameter>
+				<parameter name="rejected">Return once you reach level 40.</parameter>
+			</implementation>
+		</portal>
+		
+		<portal x="23" y="16" ref="a4">
+			<destination zone="int_semos_crazy_house" ref="a3" />
+			<implementation	class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">40</parameter>
+				<parameter name="rejected">Return once you reach level 40.</parameter>
+			</implementation>
+		</portal>
+		
+		<portal x="38" y="17" ref="a5">
+			<destination zone="int_semos_crazy_house" ref="a6" />
+			<implementation	class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">250</parameter>
+				<parameter name="rejected">Return once you reach level 250.</parameter>
+			</implementation>
+		</portal>
+		
+		<portal x="38" y="16" ref="a6">
+			<destination zone="int_semos_crazy_house" ref="a5" />
+			<implementation	class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">250</parameter>
+				<parameter name="rejected">Return once you reach level 250.</parameter>
+			</implementation>
+		</portal>
+		
+		<portal x="8" y="14" ref="b1">
+			<destination zone="int_semos_crazy_house" ref="b2" />
+			<implementation	class-name="games.stendhal.server.entity.mapstuff.portal.ConditionAndActionPortal">
+				<parameter name="condition">new LevelLessThanCondition(40)</parameter>
+				<parameter name="rejected">Your level is too high to enter here.</parameter>
+			</implementation>
+		</portal>
+		
+		<portal x="8" y="13" ref="b2">
+			<destination zone="int_semos_crazy_house" ref="b1" />
+			<implementation	class-name="games.stendhal.server.entity.mapstuff.portal.ConditionAndActionPortal">
+				<parameter name="condition">new LevelLessThanCondition(40)</parameter>
+				<parameter name="rejected">Your level is too high to enter here.</parameter>
+			</implementation>
+		</portal>
+		
+		<portal x="23" y="14" ref="b3">
+			<destination zone="int_semos_crazy_house" ref="b4" />
+			<implementation	class-name="games.stendhal.server.entity.mapstuff.portal.ConditionAndActionPortal">
+				<parameter name="condition">new LevelLessThanCondition(100)</parameter>
+				<parameter name="rejected">Your level is too high to enter here.</parameter>
+			</implementation>
+		</portal>
+		
+		<portal x="23" y="13" ref="b4">
+			<destination zone="int_semos_crazy_house" ref="b3" />
+			<implementation	class-name="games.stendhal.server.entity.mapstuff.portal.ConditionAndActionPortal">
+				<parameter name="condition">new LevelLessThanCondition(100)</parameter>
+				<parameter name="rejected">Your level is too high to enter here.</parameter>
+			</implementation>
+		</portal>
+		
+		</zone>
+	
+	<zone name="-1_semos_crazy_dungeon_1" file="Level -1/semos/-1_crazy_dungeon_1.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	
+		<portal x="20" y="9" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+		
+		<portal x="56" y="15" ref="x2">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+		
+	</zone>
+	
+	<zone name="-1_semos_crazy_dungeon_2" file="Level -1/semos/-1_crazy_dungeon_2.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	
+	<portal x="33" y="31" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-1_semos_crazy_dungeon_3" file="Level -1/semos/-1_crazy_dungeon_3.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="6" y="26" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-1_semos_crazy_dungeon_4" file="Level -1/semos/-1_crazy_dungeon_4.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="16" y="49" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-1_semos_crazy_dungeon_5" file="Level -1/semos/-1_crazy_dungeon_5.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="54" y="49" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-1_semos_crazy_dungeon_6" file="Level -1/semos/-1_crazy_dungeon_6.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="5" y="4" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	<portal x="31" y="44" ref="x2">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-1_semos_crazy_dungeon_7" file="Level -1/semos/-1_crazy_dungeon_7.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="57" y="57" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+		
+	<zone name="-2_semos_crazy_dungeon_1" file="Level -2/semos/-2_crazy_dungeon_1.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="24" y="38" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+		<portal x="73" y="38" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-2_semos_crazy_dungeon_2" file="Level -2/semos/-2_crazy_dungeon_2.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="59" y="36" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-2_semos_crazy_dungeon_3" file="Level -2/semos/-2_crazy_dungeon_3.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="73" y="27" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+		<portal x="7" y="30" ref="x2">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-2_semos_crazy_dungeon_4" file="Level -2/semos/-2_crazy_dungeon_4.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="13" y="64" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+		<portal x="84" y="60" ref="x2">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+		
+	<zone name="-2_semos_crazy_dungeon_6" file="Level -2/semos/-2_crazy_dungeon_6.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="42" y="66" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+		<portal x="43" y="28" ref="x2">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-2_semos_crazy_dungeon_7" file="Level -2/semos/-2_crazy_dungeon_7.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="47" y="43" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-2_semos_crazy_dungeon_8" file="Level -2/semos/-2_crazy_dungeon_8.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="44" y="36" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-2_semos_crazy_dungeon_9" file="Level -2/semos/-2_crazy_dungeon_9.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="43" y="34" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-2_semos_crazy_dungeon_10" file="Level -2/semos/-2_crazy_dungeon_10.tmx">
+<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>	
+	<portal x="47" y="37" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-2_semos_crazy_dungeon_11" file="Level -2/semos/-2_crazy_dungeon_11.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="18" y="47" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+		<portal x="43" y="33" ref="x2">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-2_semos_crazy_dungeon_12" file="Level -2/semos/-2_crazy_dungeon_12.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="74" y="79" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+		<portal x="14" y="54" ref="x2">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-2_semos_crazy_dungeon_5" file="Level -2/semos/-2_crazy_dungeon_13.tmx">
+<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>	
+	<portal x="45" y="45" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-3_semos_crazy_dungeon_1" file="Level -3/semos/-3_crazy_dungeon_1.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="26" y="108" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+		<portal x="65" y="58" ref="x2">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+		<portal x="106" y="20" ref="x3">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-3_semos_crazy_dungeon_2" file="Level -3/semos/-3_crazy_dungeon_2.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="54" y="27" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+		<portal x="64" y="74" ref="x2">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-3_semos_crazy_dungeon_3" file="Level -3/semos/-3_crazy_dungeon_3.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="63" y="66" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-3_semos_crazy_dungeon_4" file="Level -3/semos/-3_crazy_dungeon_4.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="36" y="20" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+		<portal x="116" y="102" ref="x2">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	<zone name="-3_semos_crazy_dungeon_5" file="Level -3/semos/-3_crazy_dungeon_5.tmx">	
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="40" y="101" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+		<portal x="109" y="85" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+		<portal x="54" y="27" ref="x1">
+			<destination zone="0_semos_city" ref="w2" />
+		</portal>
+	</zone>
+	
+	
+	
+	<zone name="int_semos_crazy_house_2_1" file="interiors/semos/int_semos_crazy_house_2_1.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	</zone>
+	
+	<zone name="int_semos_crazy_house_2_2" file="interiors/semos/int_semos_crazy_house_2_2.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	</zone>
+	
+	<zone name="int_semos_crazy_house_2_3" file="interiors/semos/int_semos_crazy_house_2_3.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	</zone>
+	
+	<zone name="-1_semos_village_cave" file="Level -1/faumonia/dungeon.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="31" y="76" ref="qqx1">
+			<destination zone="0_semos_city" ref="qqw2" />
+		</portal>
+	<portal x="37" y="10" ref="x2">
+			<destination zone="-1_gnome_state" ref="w1" />
+		</portal>
+		
+	<portal x="35" y="15" ref="tutorial1a">
+			<destination zone="-1_semos_village_cave" ref="tutorial1b"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">1</parameter>
+				<parameter name="rejected">Return once you reach at least level 1.</parameter>
+			</implementation>
+			<attribute name="hidden"/>
+		</portal>
+		
+		<portal x="35" y="16" ref="tutorial1b">
+			<destination zone="-1_semos_village_cave" ref="tutorial1a"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">7</parameter>
+				<parameter name="rejected">Aby przejść dalej musisz ukończyć szybki samouczek. Jeżeli czegoś nie wiesz, napisz #/k #wiadomość, aby poprosić innych wojowników o pomoc.
+
+Przejście dalej wymaga od Ciebie ukończenia 1 zadania u Mistrza Gry na pokonanie kilku szczurów oraz osiągnięcia przynajmniej 7 poziomu. Najszybszym sposobem na zdobycie 7 poziomu jest wykonanie zadania u Soro który wymaga przyniesienia zapasu sera - znajdziesz go na prawo od czerwonego domku Mistrzów Gry. Możesz również powalczyć z gnomami, przechodząc przez niebieski tunel pod czerwonym domkiem Mistrzów Gry. Jeżeli jeszcze tego nie zrobiłeś, wykonaj ekspresowe zadanie u Hayunn`a w domku startowym.
+
+Zadania u Mistrzów Gry przeprowadzą Cię przez całą grę, nie tylko przez początkowy samouczek. Dlatego wybierz się do Mistrza Gry w czerwonym budynku, rozpocznij zadanie i kontynuuj je w dowolnej chwili przez całą grę. Jest to idealny sposób na poznanie całej krainy Faumonii.
+
+#Jeżeli #nie #wiesz #co #teraz #robić #udaj #się #do #Mistrza #Gry #w #czerwonym #domku #i #wykonaj #zadania. </parameter>
+			</implementation>
+			<attribute name="hidden"/>
+		</portal>
+		
+		<portal x="36" y="15" ref="tutorial2a">
+			<destination zone="-1_semos_village_cave" ref="tutorial2b"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">1</parameter>
+				<parameter name="rejected">Return once you reach at least level 1.</parameter>
+			</implementation>
+			<attribute name="hidden"/>
+		</portal>
+		
+		<portal x="36" y="16" ref="tutorial2b">
+			<destination zone="-1_semos_village_cave" ref="tutorial2a"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">7</parameter>
+				<parameter name="rejected">Aby przejść dalej musisz ukończyć szybki samouczek. Jeżeli czegoś nie wiesz, napisz #/k #wiadomość, aby poprosić innych wojowników o pomoc.
+
+Przejście dalej wymaga od Ciebie ukończenia 1 zadania u Mistrza Gry na pokonanie kilku szczurów oraz osiągnięcia przynajmniej 7 poziomu. Najszybszym sposobem na zdobycie 7 poziomu jest wykonanie zadania u Soro który wymaga przyniesienia zapasu sera - znajdziesz go na prawo od czerwonego domku Mistrzów Gry. Możesz również powalczyć z gnomami, przechodząc przez niebieski tunel pod czerwonym domkiem Mistrzów Gry. Jeżeli jeszcze tego nie zrobiłeś, wykonaj ekspresowe zadanie u Hayunn`a w domku startowym.
+
+Zadania u Mistrzów Gry przeprowadzą Cię przez całą grę, nie tylko przez początkowy samouczek. Dlatego wybierz się do Mistrza Gry w czerwonym budynku, rozpocznij zadanie i kontynuuj je w dowolnej chwili przez całą grę. Jest to idealny sposób na poznanie całej krainy Faumonii.
+
+#Jeżeli #nie #wiesz #co #teraz #robić #udaj #się #do #Mistrza #Gry #w #czerwonym #domku #i #wykonaj #zadania. </parameter>
+			</implementation>
+			<attribute name="hidden"/>
+		</portal>
+		
+		<portal x="37" y="15" ref="tutorial3a">
+			<destination zone="-1_semos_village_cave" ref="tutorial3b"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">1</parameter>
+				<parameter name="rejected">Return once you reach at least level 1.</parameter>
+			</implementation>
+			<attribute name="hidden"/>
+		</portal>
+		
+		<portal x="37" y="16" ref="tutorial3b">
+			<destination zone="-1_semos_village_cave" ref="tutorial3a"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">7</parameter>
+				<parameter name="rejected">Aby przejść dalej musisz ukończyć szybki samouczek. Jeżeli czegoś nie wiesz, napisz #/k #wiadomość, aby poprosić innych wojowników o pomoc.
+
+Przejście dalej wymaga od Ciebie ukończenia 1 zadania u Mistrza Gry na pokonanie kilku szczurów oraz osiągnięcia przynajmniej 7 poziomu. Najszybszym sposobem na zdobycie 7 poziomu jest wykonanie zadania u Soro który wymaga przyniesienia zapasu sera - znajdziesz go na prawo od czerwonego domku Mistrzów Gry. Możesz również powalczyć z gnomami, przechodząc przez niebieski tunel pod czerwonym domkiem Mistrzów Gry. Jeżeli jeszcze tego nie zrobiłeś, wykonaj ekspresowe zadanie u Hayunn`a w domku startowym.
+
+Zadania u Mistrzów Gry przeprowadzą Cię przez całą grę, nie tylko przez początkowy samouczek. Dlatego wybierz się do Mistrza Gry w czerwonym budynku, rozpocznij zadanie i kontynuuj je w dowolnej chwili przez całą grę. Jest to idealny sposób na poznanie całej krainy Faumonii.
+
+#Jeżeli #nie #wiesz #co #teraz #robić #udaj #się #do #Mistrza #Gry #w #czerwonym #domku #i #wykonaj #zadania. </parameter>
+			</implementation>
+			<attribute name="hidden"/>
+		</portal>
+		
+		<portal x="38" y="15" ref="tutorial4a">
+			<destination zone="-1_semos_village_cave" ref="tutorial4b"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">1</parameter>
+				<parameter name="rejected">Return once you reach at least level 1.</parameter>
+			</implementation>
+			<attribute name="hidden"/>
+		</portal>
+		
+		<portal x="38" y="16" ref="tutorial4b">
+			<destination zone="-1_semos_village_cave" ref="tutorial4a"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">7</parameter>
+				<parameter name="rejected">Aby przejść dalej musisz ukończyć szybki samouczek. Jeżeli czegoś nie wiesz, napisz #/k #wiadomość, aby poprosić innych wojowników o pomoc.
+
+Przejście dalej wymaga od Ciebie ukończenia 1 zadania u Mistrza Gry na pokonanie kilku szczurów oraz osiągnięcia przynajmniej 7 poziomu. Najszybszym sposobem na zdobycie 7 poziomu jest wykonanie zadania u Soro który wymaga przyniesienia zapasu sera - znajdziesz go na prawo od czerwonego domku Mistrzów Gry. Możesz również powalczyć z gnomami, przechodząc przez niebieski tunel pod czerwonym domkiem Mistrzów Gry. Jeżeli jeszcze tego nie zrobiłeś, wykonaj ekspresowe zadanie u Hayunn`a w domku startowym.
+
+Zadania u Mistrzów Gry przeprowadzą Cię przez całą grę, nie tylko przez początkowy samouczek. Dlatego wybierz się do Mistrza Gry w czerwonym budynku, rozpocznij zadanie i kontynuuj je w dowolnej chwili przez całą grę. Jest to idealny sposób na poznanie całej krainy Faumonii.
+
+#Jeżeli #nie #wiesz #co #teraz #robić #udaj #się #do #Mistrza #Gry #w #czerwonym #domku #i #wykonaj #zadania. </parameter>
+			</implementation>
+			<attribute name="hidden"/>
+		</portal>
+		
+		<portal x="39" y="15" ref="tutorial5a">
+			<destination zone="-1_semos_village_cave" ref="tutorial5b"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">1</parameter>
+				<parameter name="rejected">Return once you reach at least level 1.</parameter>
+			</implementation>
+			<attribute name="hidden"/>
+		</portal>
+		
+		<portal x="39" y="16" ref="tutorial5b">
+			<destination zone="-1_semos_village_cave" ref="tutorial5a"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">7</parameter>
+				<parameter name="rejected">Aby przejść dalej musisz ukończyć szybki samouczek. Jeżeli czegoś nie wiesz, napisz #/k #wiadomość, aby poprosić innych wojowników o pomoc.
+
+Przejście dalej wymaga od Ciebie ukończenia 1 zadania u Mistrza Gry na pokonanie kilku szczurów oraz osiągnięcia przynajmniej 7 poziomu. Najszybszym sposobem na zdobycie 7 poziomu jest wykonanie zadania u Soro który wymaga przyniesienia zapasu sera - znajdziesz go na prawo od czerwonego domku Mistrzów Gry. Możesz również powalczyć z gnomami, przechodząc przez niebieski tunel pod czerwonym domkiem Mistrzów Gry. Jeżeli jeszcze tego nie zrobiłeś, wykonaj ekspresowe zadanie u Hayunn`a w domku startowym.
+
+Zadania u Mistrzów Gry przeprowadzą Cię przez całą grę, nie tylko przez początkowy samouczek. Dlatego wybierz się do Mistrza Gry w czerwonym budynku, rozpocznij zadanie i kontynuuj je w dowolnej chwili przez całą grę. Jest to idealny sposób na poznanie całej krainy Faumonii.
+
+#Jeżeli #nie #wiesz #co #teraz #robić #udaj #się #do #Mistrza #Gry #w #czerwonym #domku #i #wykonaj #zadania. </parameter>
+			</implementation>
+			<attribute name="hidden"/>
+		</portal>
+	
+	</zone>
+	
+	<zone name="-1_semos_village_labirynt" file="Level -1/faumonia/dungeon_2.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="3" y="6" ref="x1">
+			<destination zone="0_semos_city" ref="x2" />
+		</portal>
+	</zone>
+	
+	<zone name="0_dragon_island" level="0" x="501024" y="500000" accessible="false" file="Level 0/faumonia/dragon_island.tmx">
+		<attributes>
+			<parameter name="color_method">time</parameter>
+		</attributes>
+		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+
+		
+		
+	</zone>
+	<!--
+	<zone name="int_fado_tower_1" file="interiors/fado/tower_1.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="15" y="1" ref="tower_ba1">
+			<destination zone="0_fado_city" ref="tower_ab1" />
+		</portal>
+	<portal x="15" y="30" ref="wiezaw2">
+			<destination zone="int_fado_tower_2" ref="wieza2" />
+		</portal>
+	</zone>
+	
+	<zone name="int_fado_tower_2" file="interiors/fado/tower_2.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="15" y="1" ref="wieza2">
+			<destination zone="int_fado_tower_1" ref="wiezaw2" />
+		</portal>
+	<portal x="15" y="30" ref="wieza3">
+			<destination zone="int_fado_tower_3" ref="wiezaw3" />
+		</portal>
+	</zone>
+	
+	<zone name="int_fado_tower_3" file="interiors/fado/tower_3.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="15" y="1" ref="wiezaw3">
+			<destination zone="int_fado_tower_2" ref="wieza3" />
+		</portal>
+	<portal x="15" y="30" ref="wiezaw4">
+			<destination zone="int_fado_tower_4" ref="wieza4" />
+		</portal>
+	</zone>
+	
+	<zone name="int_fado_tower_4" file="interiors/fado/tower_4.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="15" y="1" ref="wieza4">
+			<destination zone="int_fado_tower_3" ref="wiezaw4" />
+		</portal>
+	<portal x="15" y="30" ref="wieza5">
+			<destination zone="int_fado_tower_5" ref="wiezaw5" />
+		</portal>
+	</zone>
+	
+	<zone name="int_fado_tower_5" file="interiors/fado/tower_5.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="15" y="1" ref="wiezaw5">
+			<destination zone="int_fado_tower_4" ref="wieza5" />
+		</portal>
+	<portal x="15" y="30" ref="wiezaw6">
+			<destination zone="int_fado_tower_6" ref="wieza6" />
+		</portal>
+	</zone>
+	
+	<zone name="int_fado_tower_6" file="interiors/fado/tower_6.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="15" y="1" ref="wieza6">
+			<destination zone="int_fado_tower_5" ref="wiezaw6" />
+		</portal>
+	<portal x="15" y="30" ref="wieza7">
+			<destination zone="int_fado_tower_7" ref="wiezaw7" />
+		</portal>
+	</zone>
+	
+	<zone name="int_fado_tower_7" file="interiors/fado/tower_7.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="15" y="1" ref="wiezaw7">
+			<destination zone="int_fado_tower_6" ref="wieza7" />
+		</portal>
+	</zone>
+	-->
+	
+	<zone name="int_ados_collector_office" file="interiors/ados/int_ados_collector_office.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<configurator class-name="games.stendhal.server.maps.ados.collector.WandyNPC"/>
+	<portal x="8" y="14" ref="collector1">
+			<destination zone="0_ados_city" ref="collector2" />
+		</portal>
+	</zone>
+	
+	<zone name="heaven" file="interiors/faumonia/heaven.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	</zone>
+	
+	<zone name="death_cavern" file="interiors/faumonia/death_cavern.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	</zone>
+	
+	<zone name="angel_cavern" file="interiors/faumonia/angel_cavern.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	</zone>
+	
+	<zone name="-1_giant_cavern" file="interiors/faumonia/-1_giant_cavern.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+	<portal x="55" y="14" ref="giant1">
+			<destination zone="-2_giant_cavern" ref="giant2" />
+		</portal>
+	</zone>
+	
+	<zone name="-2_giant_cavern" file="interiors/faumonia/-2_giant_cavern.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+		<portal x="37" y="11" ref="giant2">
+			<destination zone="-1_giant_cavern" ref="giant1" />
+		</portal>
+		<portal x="27" y="12" ref="giant3">
+			<destination zone="-3_giant_cavern" ref="giant4" />
+		</portal>
+	</zone>
+	
+	<zone name="-3_giant_cavern" file="interiors/faumonia/-3_giant_cavern.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+		<portal x="13" y="14" ref="giant4">
+			<destination zone="-2_giant_cavern" ref="giant3" />
+		</portal>
+		<portal x="57" y="40" ref="giant5">
+			<destination zone="-4_giant_cavern" ref="giant6" />
+		</portal>
+	</zone>
+	
+	<zone name="-4_giant_cavern" file="interiors/faumonia/-4_giant_cavern.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+		<portal x="38" y="45" ref="giant6">
+			<destination zone="-3_giant_cavern" ref="giant5" />
+		</portal>
+		<portal x="9" y="49" ref="giant7">
+			<destination zone="-5_giant_cavern" ref="giant8" />
+		</portal>
+	</zone>
+	
+	<zone name="-5_giant_cavern" file="interiors/faumonia/-5_giant_cavern.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+		<portal x="9" y="52" ref="giant8">
+			<destination zone="-4_giant_cavern" ref="giant7" />
+		</portal>
+		<portal x="45" y="46" ref="giant9">
+			<destination zone="-6_giant_cavern" ref="giant10" />
+		</portal>
+	</zone>
+	
+	<zone name="-6_giant_cavern" file="interiors/faumonia/-6_giant_cavern.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+		<portal x="36" y="48" ref="giant10">
+			<destination zone="-5_giant_cavern" ref="giant9" />
+		</portal>
+	</zone>
+	
+	<zone name="-1_alp_cave" file="Level -1/faumonia/-1_alp_cave.tmx">
+	<configurator class-name="games.stendhal.server.core.config.zone.NoTeleport"/>
+				
+		<portal x="34" y="122" ref="a1">
+			<destination zone="0_orril_mountain_n2_w2" ref="a2" />
+			<implementation	class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
+				<parameter name="minimum-level">300</parameter>
+				<parameter name="rejected">Wróć gdy zdobędziesz 300 poziom doświadczenia.</parameter>
+			</implementation>
+		</portal>
+	</zone>
+	
+	</zones>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

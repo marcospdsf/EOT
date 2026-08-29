@@ -1,0 +1,42 @@
+<?xml version='1.0'?>
+
+<project name="stendhal" default="help" basedir=".">
+	<description>
+Project:
+    Name: .......... ${game_name}
+    Version: ....... ${version}
+    Root: .......... ${basedir}
+
+Build system:
+    Ant version: ... ${ant.version.number}
+    Ant home: ...... ${ant.location}
+    Java version: .. ${java.version}
+    Java home: ..... ${java.home}
+
+Execute `ant help` for more information.
+	</description>
+
+
+	<property file="build.ant-private.properties"/>
+	<property file="build.ant.properties"/>
+
+
+	<!-- Ant sub-modules -->
+
+	<import file="build-private.xml" optional="true"/>
+
+	<import file="${ant_modules}/properties.xml"/>
+	<import file="${ant_modules}/info.xml"/>
+	<import file="${ant_modules}/system.xml"/>
+	<import file="${ant_modules}/apps.xml"/>
+	<import file="${ant_modules}/main.xml"/>
+	<import file="${ant_modules}/clean.xml"/>
+	<import file="${ant_modules}/dist.xml"/>
+	<import file="${ant_modules}/maps.xml"/>
+	<import file="${ant_modules}/docs.xml"/>
+	<import file="${ant_modules}/locale.xml"/>
+	<import file="${ant_modules}/testing.xml"/>
+	<import file="${ant_modules}/tools.xml"/>
+	<import file="${ant_modules}/package.xml"/>
+
+</project>

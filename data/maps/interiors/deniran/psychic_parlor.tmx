@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="32" height="23" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="wallpapers" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/wallpapers.png"/>
+ </tileset>
+ <tileset firstgid="26" name="wood_trim" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/wood_trim.png"/>
+ </tileset>
+ <tileset firstgid="76" name="floor_tiles" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/indoor/floor_tiles.png"/>
+ </tileset>
+ <tileset firstgid="85" name="logic/portal" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/portal.png"/>
+ </tileset>
+ <tileset firstgid="109" name="table/fancy_blue_red" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/table/fancy_blue_red.png"/>
+ </tileset>
+ <tileset firstgid="121" name="table/wooden_with_candles" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/table/wooden_with_candles.png"/>
+ </tileset>
+ <tileset firstgid="133" name="orb" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/orb.png"/>
+ </tileset>
+ <tileset firstgid="134" name="webs" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/decoration/webs.png"/>
+ </tileset>
+ <tileset firstgid="140" name="logic/protection" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/protection.png"/>
+ </tileset>
+ <tileset firstgid="142" name="logic/collision" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png"/>
+ </tileset>
+ <layer name="0_floor" width="32" height="23">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAABNgYGAQGGDMOUAY2f4gOuNR+0ftH7V/1P5R+0ftH7V/1P6Rbj8hHESkOnLaf8Tg
+IBLVE4sBWF58uoALAAA=
+  </data>
+ </layer>
+ <layer name="1_terrain" width="32" height="23">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3WyQrCMBCA4XmTIh7E7aToqeILubR66WLr9uD+h3gRGiNIp4UZ+AiEhJ/cEonI
+QMkQY0wwbdkMc9dfSvuzsr71e9zfYY8Djgr9BClOOHvOZchR/LkfOiUuqBT7D+W+5vtrXHFT6t/d
++lTqN431rd+V/lq+/xUl4MwvFq6/Rezx/i+OPvZ8d0Jt8ALUiRu0gAsAAA==
+  </data>
+ </layer>
+ <layer name="2_object" width="32" height="23">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMglEwXEHrQDtgFIyCUTAKyAQyUFpugOxXg9IaNDAbALNhbi6ACwAA
+  </data>
+ </layer>
+ <layer name="3_roof" width="32" height="23">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3NsQ0AMAgEsR+fJEuTKaCxpauvkpzsub+3+AcAgEkNsbjYF4ALAAA=
+  </data>
+ </layer>
+ <layer name="objects" width="32" height="23">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3MIQEAAAwCMGrSvwj+/m4LsAQAALj69A5S3gX3gAsAAA==
+  </data>
+ </layer>
+ <layer name="collision" width="32" height="23" visible="0" opacity="0.3">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAOtjYGDoG8V0B6P2j9o/lO0fSvqxydMz/EftH9n2YwOj9o/aP2o/ae2zgW4f0sJc
+AFbgBWKACwAA
+  </data>
+ </layer>
+ <layer name="protection" width="32" height="23" visible="0" opacity="0.29">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAUg0ENnPGr/qP2j9o/aP2r/qP2j9o/aP9LtJwTI0UNNQCv7ATXNx7CACwAA
+  </data>
+ </layer>
+</map>

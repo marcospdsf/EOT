@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<!-- START: czart -->
+
+	<creature name="beelzebub">
+		<type class="pol/czarty" subclass="czart_belzebub" tileid="pol_czarty.png:0"/>
+		<description>You see Beelzebub, a demon prince of the infernal pit.</description>
+		<attributes>
+			<atk value="454"/>
+			<def value="37"/>
+			<hp value="1662"/>
+			<speed value="0.9"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="150"/>
+		<experience value="5112"/>
+		<respawn value="4321"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[99,599]" probability="100.0"/>
+			<item value="black gloves" quantity="[1,1]" probability="0.001"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="You have crossed into the gates of hell!"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="forgotten fiend">
+		<type class="pol/czarty" subclass="czart_bezimienny" tileid="pol_czarty.png:1"/>
+		<description>You see a forgotten fiend who escaped from the underworld.</description>
+		<attributes>
+			<atk value="411"/>
+			<def value="31"/>
+			<hp value="1541"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="120"/>
+		<experience value="9876"/>
+		<respawn value="3456"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[1410,1410]" probability="1.0"/>
+			<item value="fire shield" quantity="[1,1]" probability="5.0"/>
+			<item value="blue gloves" quantity="[1,1]" probability="0.01"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="I will never return to the abyss! Never!"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="lucifer">
+		<type class="pol/czarty" subclass="czart_lucyfer" tileid="pol_czarty.png:2"/>
+		<description>You see Lucifer, lord of pride and fallen radiance.</description>
+		<attributes>
+			<atk value="467"/>
+			<def value="41"/>
+			<hp value="1662"/>
+			<speed value="0.9"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="160"/>
+		<experience value="6345"/>
+		<respawn value="4321"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[99,299]" probability="100.0"/>
+			<item value="red gloves" quantity="[1,1]" probability="0.01"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="You signed the contract in blood! Say farewell to your soul!"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="mephisto">
+		<type class="pol/czarty" subclass="czart_mefisto" tileid="pol_czarty.png:3"/>
+		<description>You see Mephisto, broker of infernal pacts.</description>
+		<attributes>
+			<atk value="454"/>
+			<def value="37"/>
+			<hp value="1662"/>
+			<speed value="0.9"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="140"/>
+		<experience value="5112"/>
+		<respawn value="4321"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[11,111]" probability="100.0"/>
+			<item value="fire shield" quantity="[1,1]" probability="1.0"/>
+			<item value="fire sword" quantity="[1,1]" probability="2.0"/>
+			<item value="golden gloves" quantity="[1,1]" probability="0.001"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="For all your sins and vanity, burn in hell for eternity!"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="elder czart">
+		<type class="pol/czarty" subclass="czart_starszy" tileid="pol_czarty.png:4"/>
+		<description>You see an elder czart demon of Slavic folklore.</description>
+		<attributes>
+			<atk value="401"/>
+			<def value="36"/>
+			<hp value="654"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="111"/>
+		<experience value="4141"/>
+		<respawn value="1987"/>
+		<corpse name="humanoid"/>
+		<drops>
+			<item value="money" quantity="[7,53]" probability="100.0"/>
+			<item value="red shield" quantity="[1,1]" probability="0.5"/>
+			<item value="red helmet" quantity="[1,1]" probability="0.005"/>
+			<item value="hell dagger" quantity="[1,1]" probability="0.0001"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<!-- END: czart -->
+
+</creatures>

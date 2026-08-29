@@ -1,0 +1,2012 @@
+<?xml version='1.0' encoding='utf-8'?>
+<items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../items.xsd">
+
+	<item name="wood">
+		<type class="resource" subclass="wood" tileid="resources.png:0" />
+		<description>You see some wood, fallen from a nearby tree.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="sugar cane">
+		<type class="resource" subclass="sugarcane" tileid="corn.png:1" />
+		<description>You see a sugar cane. You can grind it for raw sugar.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="0.05" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="grain">
+		<type class="resource" subclass="grain" tileid="corn.png:0" />
+		<description>You see a sheaf of grain.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="0.05" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="flour">
+		<type class="resource" subclass="flour" tileid="-1" />
+		<description>You see a sack of flour. It can be used in recipes for pizzas and sandwiches.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="iron ore">
+		<type class="resource" subclass="iron_ore" tileid="resources.png:1" />
+		<description />
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="coal">
+		<type class="resource" subclass="coal" tileid="-1" />
+		<description>You see a black and shiny piece of stone coal. It stayed in the ground for million of years.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="wool">
+		<type class="resource" subclass="wool" tileid="-1" />
+		<description>You see wool. It was recently shorn.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<unattainable />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="yarn">
+		<type class="resource" subclass="yarn" tileid="-1" />
+		<description>You see a ball of yarn. It was spun with care.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<unattainable />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="cloth">
+		<type class="resource" subclass="cloth" tileid="-1" />
+		<description>You see a roll of cloth. It is of first-class quality.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<unattainable />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="gold nugget">
+		<type class="resource" subclass="gold_ore" tileid="resources.png:4" />
+		<description>You see a gold nugget. Its rich golden color shines, and it may be useful.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="mithril nugget">
+		<type class="resource" subclass="mithril_ore" tileid="resources.png:5" />
+		<description>You see a mithril nugget. Its pale silvery color shines, and it may be useful.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="iron bar">
+		<type class="resource" subclass="iron_bar" tileid="-1" />
+		<description />
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="gold bar">
+		<type class="resource" subclass="gold_bar" tileid="resources.png:2" />
+		<description>You see a gold bar. It will make beautiful jewelry, or fetch a fine price.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="mithril bar">
+		<type class="resource" subclass="mithril_bar" tileid="resources.png:3" />
+		<description>You see a mithril bar. It can be made into excellent armor, or fetch a fine price.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="golden egg">
+		<type class="resource" subclass="golden_egg" tileid="-1" />
+		<description>You see a valuable golden egg.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<unattainable />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1000" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+		</equipable>
+	</item>
+
+	<item name="spotted egg">
+		<type class="food" subclass="spotted_egg" tileid="-1" />
+		<description>You see a spotted egg. They are said to be delicious.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Food" />
+		<attributes>
+			<amount value="1000" />
+			<frequency value="10" />
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+			<regen value="10" />
+			<menu value="Eat|Use" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="7500" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+
+	<item name="silk gland">
+		<type class="resource" subclass="silkgland" tileid="-1" />
+		<description>You see a silk gland from a giant spider. Its contents are extremely valuable.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="0.01" />
+		<value value="2000" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+		</equipable>
+	</item>
+
+	<item name="silk thread">
+		<type class="resource" subclass="silkthread" tileid="-1" />
+		<description>You see a spool of silk thread, spun from the glands of a giant spider.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="0.01" />
+		<value value="4000" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+		</equipable>
+	</item>
+
+	<item name="oil">
+		<type class="resource" subclass="oil" tileid="-1" />
+		<description>You see a small can of oil.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+		</equipable>
+	</item>
+
+	<item name="mithril thread">
+		<type class="resource" subclass="mithril_thread" tileid="-1" />
+		<description>You see a spool of mithril thread, made from silk fused with mithril.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="8000" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="mithril fabric">
+		<type class="resource" subclass="mithril_fabric" tileid="-1" />
+		<description>You see a couple yards of mithril fabric. It's very sparkly!</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="10000" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="horse hair">
+		<type class="resource" subclass="horsehair" tileid="-1" />
+		<description>You see some horse hairs.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="beeswax">
+		<type class="resource" subclass="beeswax" tileid="-1" />
+		<description>You see a piece of beeswax.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="0.1" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+	<item name="candle">
+		<type class="resource" subclass="candle" tileid="-1" />
+		<description>You see a candle in a candle stick.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+		</equipable>
+	</item>
+
+	<item name="charcoal">
+		<type class="resource" subclass="charcoal" tileid="-1" />
+		<description>You see charcoal, a component of carbon steel.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="0.05" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+		</equipable>
+	</item>
+
+	<item name="iron">
+		<type class="resource" subclass="iron" tileid="-1" />
+		<description />
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="reptile egg">
+		<type class="resource" subclass="green_egg" tileid="-1" />
+		<description>You see a valuable reptile egg.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="10000" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+		</equipable>
+	</item>
+	<item name="shadow ore">
+		<type class="resource" subclass="shadow_ore" tileid="-1" />
+		<description />
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+		</attributes>
+		<weight value="0.5" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+		</equipable>
+	</item>
+	<item name="shadow iron">
+		<type class="resource" subclass="shadow_iron" tileid="-1" />
+		<description />
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+		</attributes>
+		<weight value="0.2" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+		</equipable>
+	</item>
+	<item name="coal ore">
+		<type class="resource" subclass="coal" tileid="-1" />
+		<description />
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+		</attributes>
+		<weight value="0.5" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+		</equipable>
+	</item>
+	<item name="combat training slip (200)">
+		<type class="resource" subclass="kartka_atak_200" tileid="-1" />
+		<description>You see a combat training slip awarding 200 ATK XP.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="kartka (200) ataku">
+		<type class="resource" subclass="kartka_atak_200" tileid="-1" />
+		<description>You see an attack training slip (200). Seek a combat trainer to enhance your attack skills.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="defense training slip (200)">
+		<type class="resource" subclass="kartka_def_200" tileid="-1" />
+		<description>You see a defense training slip awarding 200 DEF XP.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="kartka (200) obrony">
+		<type class="resource" subclass="kartka_def_200" tileid="-1" />
+		<description>You see a defense training slip (200). Seek a defensive trainer to enhance your defense skills.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="combat training slip (500)">
+		<type class="resource" subclass="kartka_atak_500" tileid="-1" />
+		<description>You see a combat training slip awarding 500 ATK XP.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="kartka (500) ataku">
+		<type class="resource" subclass="kartka_atak_500" tileid="-1" />
+		<description>You see an attack training slip (500). Seek a combat trainer to enhance your attack skills.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="defense training slip (500)">
+		<type class="resource" subclass="kartka_def_500" tileid="-1" />
+		<description>You see a defense training slip awarding 500 DEF XP.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="kartka (500) obrony">
+		<type class="resource" subclass="kartka_def_500" tileid="-1" />
+		<description>You see a defense training slip (500). Seek a defensive trainer to enhance your defense skills.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="combat training slip (1000)">
+		<type class="resource" subclass="kartka_atak_1000" tileid="-1" />
+		<description>You see a combat training slip awarding 1000 ATK XP.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="kartka (1000) ataku">
+		<type class="resource" subclass="kartka_atak_1000" tileid="-1" />
+		<description>You see an attack training slip (1000). Seek a combat trainer to enhance your attack skills.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="defense training slip (1000)">
+		<type class="resource" subclass="kartka_def_1000" tileid="-1" />
+		<description>You see a defense training slip awarding 1000 DEF XP.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="kartka (1000) obrony">
+		<type class="resource" subclass="kartka_def_1000" tileid="-1" />
+		<description>You see a defense training slip (1000). Seek a defensive trainer to enhance your defense skills.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="combat training slip (2500)">
+		<type class="resource" subclass="kartka_def_2500" tileid="-1" />
+		<description>You see a combat training slip awarding 2500 ATK XP.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="kartka (2500) ataku">
+		<type class="resource" subclass="kartka_def_2500" tileid="-1" />
+		<description>You see an attack training slip (2500). Seek a combat trainer to enhance your attack skills.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="defense training slip (2500)">
+		<type class="resource" subclass="kartka_atak_2500" tileid="-1" />
+		<description>You see a defense training slip awarding 2500 DEF XP.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="kartka (2500) obrony">
+		<type class="resource" subclass="kartka_atak_2500" tileid="-1" />
+		<description>You see a defense training slip (2500). Seek a defensive trainer to enhance your defense skills.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="combat training slip (5000)">
+		<type class="resource" subclass="kartka_atak_5000" tileid="-1" />
+		<description>You see a combat training slip awarding 5000 ATK XP.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="kartka (5000) ataku">
+		<type class="resource" subclass="kartka_atak_5000" tileid="-1" />
+		<description>You see an attack training slip (5000). Seek a combat trainer to enhance your attack skills.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="defense training slip (5000)">
+		<type class="resource" subclass="kartka_def_5000" tileid="-1" />
+		<description>You see a defense training slip awarding 5000 DEF XP.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="kartka (5000) obrony">
+		<type class="resource" subclass="kartka_def_5000" tileid="-1" />
+		<description>You see a defense training slip (5000). Seek a defensive trainer to enhance your defense skills.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="999" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="silver ore">
+		<type class="resource" subclass="silver_ore" tileid="-1" />
+		<description>You see silver ore. It can be smelted into a gleaming silver bar.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="silver bar">
+		<type class="resource" subclass="silver_bar" tileid="-1" />
+		<description>You see a valuable silver bar, suitable for fine jewelry or weapon crafting.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="pot">
+		<type class="resource" subclass="pot" tileid="-1" />
+		<description>You see a heavy iron cheese pot used to curdle fresh milk into artisan cheese.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="linen cheesecloth">
+		<type class="resource" subclass="grudziarka" tileid="-1" />
+		<description>You see a clean linen cloth used for straining sheep cheese curds.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="blood vial">
+		<type class="resource" subclass="fiolka_czerwona" tileid="-1" />
+		<description>You see a vial of fresh blood. In the hands of a sorcerer, it holds strange properties.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="poisoned blood vial">
+		<type class="resource" subclass="fiolka_trucizna" tileid="-1" />
+		<description>You see a vial of poisoned blood. In the hands of a sorcerer, it holds strange properties.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="magical blood vial">
+		<type class="resource" subclass="fiolka_twilight" tileid="-1" />
+		<description>You see a vial of magical blood. In the hands of a sorcerer, it holds strange properties.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="miraculous blood vial">
+		<type class="resource" subclass="fiolka_zielona" tileid="-1" />
+		<description>You see a vial of miraculous blood. In the hands of a sorcerer, it holds strange properties.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="dog bone">
+		<type class="resource" subclass="kosc_dla_psa" tileid="-1" />
+		<description>You see a tasty bone for a dog.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="ice block">
+		<type class="resource" subclass="ice_cube" tileid="-1" />
+		<description>You see a solid block of ice.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="small feather">
+		<type class="resource" subclass="piorko" tileid="-1" />
+		<description>You see a small decorative feather.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="angel feather">
+		<type class="resource" subclass="pioro_aniola" tileid="-1" />
+		<description>You see an angelic feather glowing with gentle light.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="archangel feather">
+		<type class="resource" subclass="pioro_archaniola" tileid="-1" />
+		<description>You see a radiant archangel feather filled with celestial power.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="dark angel feather">
+		<type class="resource" subclass="pioro_mrocznego_aniola" tileid="-1" />
+		<description>You see a dark angel feather radiating shadowy heat.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="fallen angel feather">
+		<type class="resource" subclass="pioro_upadlego_aniola" tileid="-1" />
+		<description>You see a fallen angel feather whispering with eerie sorrow.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="seraph feather">
+		<type class="resource" subclass="pioro_serafina" tileid="-1" />
+		<description>You see a divine seraph feather surging with otherworldly energy.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="amber">
+		<type class="resource" subclass="bursztyn" tileid="-1" />
+		<description>You see a piece of precious golden amber.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="sea shell">
+		<type class="resource" subclass="muszelka" tileid="-1" />
+		<description>You see a pretty sea shell from coastal waters.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="giant pearl">
+		<type class="resource" subclass="wielka_perla" tileid="-1" />
+		<description>You see a giant lustrous pearl of great value.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="green pearl">
+		<type class="resource" subclass="green_pearl" tileid="-1" />
+		<description>You see an emerald green pearl, a rare relic of the Green Clan.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="wolf fang">
+		<type class="resource" subclass="kiel_wilczy" tileid="-1" />
+		<description>You see a sharp wolf fang.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="tiger fang">
+		<type class="resource" subclass="kiel_tygrysi" tileid="-1" />
+		<description>You see a sharp tiger fang.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="bear fang">
+		<type class="resource" subclass="kiel_niedzwiedzi" tileid="-1" />
+		<description>You see a heavy bear fang.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="wolf claws">
+		<type class="resource" subclass="pazury_wilcze" tileid="-1" />
+		<description>You see sharp wolf claws.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="tiger claws">
+		<type class="resource" subclass="pazury_tygrysie" tileid="-1" />
+		<description>You see razor-sharp tiger claws.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="bear claws">
+		<type class="resource" subclass="pazury_niedzwiedzie" tileid="-1" />
+		<description>You see massive bear claws.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="monster tooth">
+		<type class="resource" subclass="kiel_potwora" tileid="-1" />
+		<description>You see a terrifying monster tooth.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="dragon tusk">
+		<type class="resource" subclass="kiel_smoka" tileid="-1" />
+		<description>You see a mighty dragon tusk, prized by alchemists and craftsmen.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="bird beak">
+		<type class="resource" subclass="dziub_ptaka" tileid="-1" />
+		<description>You see a sharp bird beak.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="golden reaper fang">
+		<type class="resource" subclass="kiel_zlotej_kostuchy" tileid="-1" />
+		<description>You see a golden reaper fang. Legend tells of a cavern mage who can craft it into a golden blade.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="black dragon claw">
+		<type class="resource" subclass="pazur_czarnego_smoka" tileid="-1" />
+		<description>You see a black dragon claw.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="arctic dragon claw">
+		<type class="resource" subclass="pazur_arktycznego_smoka" tileid="-1" />
+		<description>You see an arctic dragon claw.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="red dragon claw">
+		<type class="resource" subclass="pazur_czerwonego_smoka" tileid="-1" />
+		<description>You see a red dragon claw.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="blue dragon claw">
+		<type class="resource" subclass="pazur_niebieskiego_smoka" tileid="-1" />
+		<description>You see a blue dragon claw.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="green dragon claw">
+		<type class="resource" subclass="pazur_zielonego_smoka" tileid="-1" />
+		<description>You see a green dragon claw.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="golden dragon claw">
+		<type class="resource" subclass="pazur_zlotego_smoka" tileid="-1" />
+		<description>You see a golden dragon claw.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="unicorn horn">
+		<type class="resource" subclass="rog_jednorozca" tileid="-1" />
+		<description>You see a magical unicorn horn.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="demon horn">
+		<type class="resource" subclass="rog_demona" tileid="-1" />
+		<description>You see a curved demon horn. A skilled blacksmith can forge it into weaponry.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="black dragon leather">
+		<type class="resource" subclass="skora_czarnego_smoka" tileid="-1" />
+		<description>You see a piece of black dragon leather, ideal for crafting armor.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="red dragon leather">
+		<type class="resource" subclass="skora_czerwonego_smoka" tileid="-1" />
+		<description>You see a piece of red dragon leather, ideal for crafting armor.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="blue dragon leather">
+		<type class="resource" subclass="skora_niebieskiego_smoka" tileid="-1" />
+		<description>You see a piece of blue dragon leather, ideal for crafting armor.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="green dragon leather">
+		<type class="resource" subclass="skora_zielonego_smoka" tileid="-1" />
+		<description>You see a piece of green dragon leather, ideal for crafting armor.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="golden dragon leather">
+		<type class="resource" subclass="skora_zlotego_smoka" tileid="-1" />
+		<description>You see a piece of golden dragon leather, ideal for crafting armor.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="lion pelt">
+		<type class="resource" subclass="skora_lwa" tileid="-1" />
+		<description>You see a magnificent lion pelt.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="tiger pelt">
+		<type class="resource" subclass="skora_tygrysa" tileid="-1" />
+		<description>You see a striped tiger pelt.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="white tiger pelt">
+		<type class="resource" subclass="skora_tygrysa_bialego" tileid="-1" />
+		<description>You see a rare white tiger pelt.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="animal pelt">
+		<type class="resource" subclass="skora_zwierzeca" tileid="-1" />
+		<description>You see a sturdy animal pelt.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="xenocium hide">
+		<type class="resource" subclass="skora_xenocium" tileid="-1" />
+		<description>You see a tough xenocium hide.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="salt">
+		<type class="resource" subclass="salt" tileid="-1" />
+		<description>You see a lump of valuable rock salt.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="sulfur">
+		<type class="resource" subclass="sulfur" tileid="-1" />
+		<description>You see a crystal of brimstone sulfur.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="stuffed ram">
+		<type class="resource" subclass="wypchany_baran" tileid="-1" />
+		<description>You see a stuffed ram packed with sulfur and pitch, legendary bait for dragons.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="100" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="tatra silver ore">
+		<type class="resource" subclass="silver_ore" tileid="-1" />
+		<description>You see high-grade silver ore mined from the Tatra peaks.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="tatra silver bar">
+		<type class="resource" subclass="silver_bar" tileid="-1" />
+		<description>You see a gleaming silver bar smelted in Kościelisko.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+	<item name="wooden cheese vat">
+		<type class="resource" subclass="pot" tileid="-1" />
+		<description>You see a traditional wooden cheese vat (puciera) for making oscypek.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem" />
+		<attributes>
+			<quantity value="1" />
+			<max_quantity value="2147483647" />
+		</attributes>
+		<weight value="2.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+</items>

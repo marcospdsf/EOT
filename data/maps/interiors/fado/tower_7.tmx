@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="kolizja" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="2" name="podloga" tilewidth="32" tileheight="32" tilecount="10" columns="5">
+  <image source="../../tileset/pol/domki/podloga/deski_kafle.png" width="161" height="64"/>
+ </tileset>
+ <tileset firstgid="12" name="sciany" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="../../tileset/building/wall/int_wall_dark_red.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="28" name="drzwi1" tilewidth="32" tileheight="32" tilecount="12" columns="3">
+  <image source="../../tileset/building/entrance/dark_red_ns.png" width="96" height="128"/>
+ </tileset>
+ <tileset firstgid="40" name="sciany" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="../../tileset/building/wall/int_wall_dark_red_corners.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="56" name="pol_mythical_animal" tilewidth="32" tileheight="32" tilecount="10" columns="10">
+  <image source="../../tileset/logic/creature/pol_smoki.png" width="320" height="32"/>
+ </tileset>
+ <tileset firstgid="66" name="floor_stains_2" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../../../Tiled/PolskaOnLine/tiled/tileset/item/blood/floor_stains_2.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="70" name="skulls" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="../../../../Tiled/PolskaOnLine/tiled/tileset/item/corpse/skulls.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="86" name="pol_mutanty_wielkie" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../../../Tiled/PolskaOnLine/tiled/tileset/logic/creature/pol_mutanty_wielkie.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="90" name="golem" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../../../Tiled/PolskaOnLine/tiled/tileset/logic/creature/golem.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="94" name="pol_magowie" tilewidth="32" tileheight="32" tilecount="9" columns="9">
+  <image source="../../../../Tiled/PolskaOnLine/tiled/tileset/logic/creature/pol_magowie.png" width="288" height="32"/>
+ </tileset>
+ <tileset firstgid="103" name="hybrid" tilewidth="32" tileheight="32" tilecount="15" columns="15">
+  <image source="../../../../Tiled/PolskaOnLine/tiled/tileset/logic/creature/hybrid.png" width="480" height="32"/>
+ </tileset>
+ <tileset firstgid="118" name="huge_animal" tilewidth="32" tileheight="32" tilecount="14" columns="14">
+  <image source="../../../../Tiled/PolskaOnLine/tiled/tileset/logic/creature/huge_animal.png" width="451" height="32"/>
+ </tileset>
+ <tileset firstgid="132" name="animal" tilewidth="32" tileheight="32" tilecount="30" columns="30">
+  <image source="../../../../Tiled/PolskaOnLine/tiled/tileset/logic/creature/animal.png" width="960" height="32"/>
+ </tileset>
+ <tileset firstgid="162" name="pol_smoki" tilewidth="32" tileheight="32" tilecount="10" columns="10">
+  <image source="../../../../Tiled/PolskaOnLine/tiled/tileset/logic/creature/pol_smoki.png" width="320" height="32"/>
+ </tileset>
+ <tileset firstgid="172" name="undead" tilewidth="32" tileheight="32" tilecount="15" columns="15">
+  <image source="../../../../Tiled/PolskaOnLine/tiled/tileset/logic/creature/undead.png" width="480" height="32"/>
+ </tileset>
+ <tileset firstgid="187" name="giant_human" tilewidth="32" tileheight="32" tilecount="13" columns="13">
+  <image source="../../../../Tiled/PolskaOnLine/tiled/tileset/logic/creature/giant_human.png" width="416" height="32"/>
+ </tileset>
+ <tileset firstgid="200" name="fairy" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../../../Tiled/PolskaOnLine/tiled/tileset/logic/creature/fairy.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="204" name="elemental" tilewidth="32" tileheight="32" tilecount="7" columns="7">
+  <image source="../../../../Tiled/PolskaOnLine/tiled/tileset/logic/creature/elemental.png" width="224" height="32"/>
+ </tileset>
+ <tileset firstgid="211" name="golem" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../../../Tiled/PolskaOnLine/tiled/tileset/logic/creature/golem.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="215" name="giant_human" tilewidth="32" tileheight="32" tilecount="13" columns="13">
+  <image source="../../../../Tiled/PolskaOnLine/tiled/tileset/logic/creature/giant_human.png" width="416" height="32"/>
+ </tileset>
+ <tileset firstgid="228" name="elemental" tilewidth="32" tileheight="32" tilecount="7" columns="7">
+  <image source="../../../../Tiled/PolskaOnLine/tiled/tileset/logic/creature/elemental.png" width="224" height="32"/>
+ </tileset>
+ <tileset firstgid="235" name="golem" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../tileset/logic/creature/golem.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="239" name="elemental" tilewidth="32" tileheight="32" tilecount="7" columns="7">
+  <image source="../../tileset/logic/creature/elemental.png" width="224" height="32"/>
+ </tileset>
+ <tileset firstgid="246" name="giant_human" tilewidth="32" tileheight="32" tilecount="13" columns="13">
+  <image source="../../tileset/logic/creature/giant_human.png" width="416" height="32"/>
+ </tileset>
+ <tileset firstgid="259" name="protection" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../tileset/logic/protection.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="261" name="grass_snow" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+  <image source="../../tileset/ground/grass_snow.png" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="270" name="pol_serafiny" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../tileset/logic/creature/pol_serafiny.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="272" name="animal" tilewidth="32" tileheight="32" tilecount="30" columns="30">
+  <image source="../../tileset/logic/creature/animal.png" width="960" height="32"/>
+ </tileset>
+ <layer name="0_floor" width="32" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3DsQ0AAAwCIDv6/8P+0UBCL6mqqqr6+gAuEmT4ABAAAA==
+  </data>
+ </layer>
+ <layer name="1_terrain" width="32" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC9NgYGDQGiCsDcQ6QKwLxEJ0xnpAbAy1X5CB/kCMCvb7UsF+ETT7Qygwkxr20wL44LF/KMf/qP2Dw35vHOLOdLKfHDBqP+X2Bwyw/ZSAwWI/Pcp/fPbj87/rANtPTRA8wPajg1H7h5f9fnS0n1S7qG0/NQA2+91pZJcLkfbTEwwm+w2BWJTO2AhqvwkQmw4QNgdiADXX1CYAEAAA
+  </data>
+ </layer>
+ <layer name="2_object" width="32" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3NuREAIAwDQRfC//bfIaoBAgfczlxoy+xOU12Ny/tXUy21nfYBAAAAAH8IKqrktJ9VUfXxzwHuznVgABAAAA==
+  </data>
+ </layer>
+ <layer name="3_roof" width="32" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BAQ0AAADCoPdPbQ8HFAAAAPBuEQAcxwAQAAA=
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="32" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BAQ0AAADCoPdPbQ8HFAAAAPBuEQAcxwAQAAA=
+  </data>
+ </layer>
+ <layer name="objects" width="32" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjgHpAgXGgXUA9QIxfXtPeGYMC8JEYr/xY1JMTVoxDLD29HwA7h1OegwHktDIc/UdPQI/wo1c5OBD5axSMAnRATJ6id1r9QwUz0P01Uto3o2AUjEQAALVTVmcAEAAA
+  </data>
+ </layer>
+ <layer name="collision" width="32" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3XwQkAMAgDwLj/0u5QRClcIN/cO5WkPm2GtzbD5/P5fD6fz+fz+fwb//UzTuxctgGMp+bYABAAAA==
+  </data>
+ </layer>
+ <layer name="protection" width="32" height="32" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3DAQkAAAwDoJ3177weR8FeUlVVVfX1AZvTcZ0AEAAA
+  </data>
+ </layer>
+</map>

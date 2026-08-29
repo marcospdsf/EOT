@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<creature name="Sandzik the Prowler">
+		<type class="bossy" subclass="1" tileid="faumonia_bossy.png:0"/>
+		<description>You see Sandzik the Prowler carrying a secret stash in his satchel.</description>
+		<attributes>
+			<atk value="150"/>
+			<def value="30"/>
+			<hp value="3000"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="30"/>
+		<experience value="1000"/>
+		<respawn value="4000"/>
+		<corpse name="humanoid"/>
+		<drops>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	
+	<creature name="Mefeusz the Corrupt">
+		<type class="bossy" subclass="2" tileid="faumonia_bossy.png:1"/>
+		<description>You see Mefeusz the Corrupt guarding his ill-gotten treasure.</description>
+		<attributes>
+			<atk value="500"/>
+			<def value="40"/>
+			<hp value="6000"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="80"/>
+		<experience value="3000"/>
+		<respawn value="6000"/>
+		<corpse name="humanoid"/>
+		<drops>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	
+	<creature name="Worys the Behemoth">
+		<type class="bossy" subclass="3" tileid="faumonia_bossy.png:2"/>
+		<description>You see Worys the Behemoth clutching valuable relics in his pouch.</description>
+		<attributes>
+			<atk value="800"/>
+			<def value="50"/>
+			<hp value="8000"/>
+			<speed value="1.0"/>
+			<size value="2,2"/>
+		</attributes>
+		<level value="150"/>
+		<experience value="10000"/>
+		<respawn value="9000"/>
+		<corpse name="giant_humanoid"/>
+		<drops>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	
+	<creature name="Balor the Colossus">
+		<type class="bossy" subclass="4" tileid="faumonia_bossy.png:3"/>
+		<description>You see Balor the Colossus, a towering behemoth guarding ancient treasures.</description>
+		<attributes>
+			<atk value="924"/>
+			<def value="67"/>
+			<hp value="9000"/>
+			<speed value="1.0"/>
+			<size value="4,3"/>
+		</attributes>
+		<level value="230"/>
+		<experience value="15000"/>
+		<respawn value="12000"/>
+		<corpse name="huger_animal"/>
+		<drops>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+	
+</creatures>

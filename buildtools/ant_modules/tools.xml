@@ -1,0 +1,202 @@
+<?xml version='1.0'?>
+
+<project xmlns:if="ant:if" xmlns:unless="ant:unless">
+
+	<import file="dist.xml" />
+
+	<!-- Compile Stendhal build tools. -->
+	<target name="compile_tools">
+		<mkdir dir="${build_stendhaltools}"/>
+
+		<javac srcdir="${src}" destdir="${build_stendhaltools}" source="1.8" target="1.8" debug="${javac.debug}" debuglevel="${javac.debuglevel}" deprecation="${javac.deprecation}" includeantruntime="true">
+			<include name="games/stendhal/tools/**/*.java"/>
+			<include name="games/stendhal/tools/*.java"/>
+			<compilerarg value="-encoding"/>
+			<compilerarg value="utf-8"/>
+			<compilerarg value="-Xlint:unchecked"/>
+
+			<classpath>
+				<pathelement path="${guava_jar}"/>
+				<pathelement path="${marauroa_jar}"/>
+				<pathelement path="${log4j_jar}"/>
+				<pathelement path="${groovy_jar}"/>
+				<pathelement path="${tiled_jar}"/>
+				<pathelement path="${jorbis_jar}"/>
+				<pathelement path="${swinglayout_jar}"/>
+				<pathelement path="${luaj_jar}"/>
+				<pathelement path="${jsonsimple_jar}"/>
+			</classpath>
+		</javac>
+	</target> <!-- compile_stendhaltools -->
+
+	<!-- Alias of `compile_tools`. -->
+	<target name="compile_stendhaltools" depends="compile_tools" />
+
+	<!-- Clean whitespace in source and other specified file types. -->
+	<target name="clean_whitespace" depends="compile_stendhaltools">
+		<!-- process main Java source, config, & scripting files -->
+		<java classname="games.stendhal.tools.CleanWhitespace">
+			<classpath>
+				<pathelement path="${build_stendhaltools}"/>
+			</classpath>
+			<arg value="src/"/>
+			<arg value="tests/"/>
+			<arg value="app/android/client/src"/>
+			<arg value="java,xml,lua"/>
+		</java>
+
+		<!-- process web client source files -->
+		<java classname="games.stendhal.tools.CleanWhitespace">
+			<classpath>
+				<pathelement path="${build_stendhaltools}"/>
+			</classpath>
+			<arg value="${srcjs}/"/>
+			<arg value="js,ts,css"/>
+		</java>
+
+		<!-- process config & scripting data files -->
+		<java classname="games.stendhal.tools.CleanWhitespace">
+			<classpath>
+				<pathelement path="${build_stendhaltools}"/>
+			</classpath>
+			<arg value="data/"/>
+			<arg value="xml,xsd,lua,py"/>
+		</java>
+
+		<!-- process Ant build configuration files -->
+		<java classname="games.stendhal.tools.CleanWhitespace">
+			<classpath>
+				<pathelement path="${build_stendhaltools}"/>
+			</classpath>
+			<arg value="${ant_modules}" />
+			<arg value="xml" />
+		</java>
+	</target> <!-- clean_whitespace -->
+
+
+	<!-- Build postman bot. -->
+	<target name="postman">
+		<mkdir dir="${buildroot}/buildbot"/>
+		<javac srcdir="${src}" destdir="${buildroot}/buildbot" debug="${javac.debug}" debuglevel="${javac.debuglevel}" source="1.8" target="1.8" deprecation="${javac.deprecation}" includeantruntime="false">
+			<include name="games/stendhal/bot/postman/*.java"/>
+			<include name="games/stendhal/bot/package-info.java"/>
+			<include name="games/stendhal/bot/shouter/*.java"/>
+			<include name="games/stendhal/bot/core/*.java"/>
+
+			<compilerarg value="-encoding"/>
+			<compilerarg value="utf-8"/>
+			<compilerarg value="-Xlint:unchecked"/>
+
+			<classpath>
+				<pathelement path="${build_server}"/>
+				<pathelement path="${marauroa_jar}"/>
+				<pathelement path="${log4j_jar}"/>
+				<pathelement path="${junit_jar}"/>
+				<pathelement path="libs/pircbot.jar"/>
+			</classpath>
+
+		</javac>
+		<jar jarfile="${buildroot}/buildbot/postman.jar">
+			<fileset dir="${buildroot}/buildbot">
+				<include name="games/stendhal/bot/postman/*"/>
+
+				<include name="games/stendhal/bot/core/*"/>
+
+				<include name="games/stendhal/bot/shouter/*"/>
+			</fileset>
+			<manifest>
+				<attribute name="Main-Class" value="games.stendhal.bot.postman.PostmanMain"/>
+			</manifest>
+		</jar>
+	</target> <!-- postman -->
+
+
+	<!-- Sign updates. -->
+	<target name="signupdates" depends="compile_stendhaltools,jardiff" unless="exclude.signing">
+		<taskdef name="updatesigner" classname="games.stendhal.tools.updateprop.UpdateSigner">
+			<classpath>
+				<pathelement path="."/>
+				<pathelement path="${build_stendhaltools}"/>
+			</classpath>
+		</taskdef>
+
+		<updatesigner>
+			<fileset dir="${lib}">
+				<include name="*.jar"/>
+			</fileset>
+		</updatesigner>
+	</target> <!-- signupdates -->
+
+
+	<!-- Generate release changes info. -->
+	<target name="jardiff" depends="client_build" unless="exclude.jardiff">
+		<echo>Creating update from ${version.old} to ${version}</echo>
+		<delete>
+			<fileset dir="${build-archive}">
+				<exclude name="*.zip"/>
+			</fileset>
+		</delete>
+		<unzip src="${build-archive}/stendhal-${version.old}.zip" dest="${build-archive}"/>
+		<java jar="libs/jardiff.jar" fork="true">
+			<arg value="-nonminimal"/>
+			<arg value="-creatediff"/>
+			<arg value="-output"/>
+			<arg value="${build}/lib/stendhal-diff-${version.old}-${version}.jar"/>
+			<arg value="${build-archive}/lib/stendhal.jar"/>
+			<arg value="${build}/lib/stendhal-${version}.jar"/>
+		</java>
+		<java jar="libs/jardiff.jar" fork="true">
+			<arg value="-nonminimal"/>
+			<arg value="-creatediff"/>
+			<arg value="-output"/>
+			<arg value="${build}/lib/stendhal-data-diff-${version.old}-${version}.jar"/>
+			<arg value="${build-archive}/lib/stendhal-data.jar"/>
+			<arg value="${build}/lib/stendhal-data-${version}.jar"/>
+		</java>
+		<java jar="libs/jardiff.jar" fork="true">
+			<arg value="-nonminimal"/>
+			<arg value="-creatediff"/>
+			<arg value="-output"/>
+			<arg value="${build}/lib/stendhal-music-data-diff-${version.old}-${version}.jar"/>
+			<arg value="${build-archive}/lib/stendhal-music-data.jar"/>
+			<arg value="${build}/lib/stendhal-music-data-${version}.jar"/>
+		</java>
+		<java jar="libs/jardiff.jar" fork="true">
+			<arg value="-nonminimal"/>
+			<arg value="-creatediff"/>
+			<arg value="-output"/>
+			<arg value="${build}/lib/stendhal-sound-data-diff-${version.old}-${version}.jar"/>
+			<arg value="${build-archive}/lib/stendhal-sound-data.jar"/>
+			<arg value="${build}/lib/stendhal-sound-data-${version}.jar"/>
+		</java>
+		<!-- TODO: maraurora.jar-->
+	</target> <!-- jardiff -->
+
+
+	<!-- Run enemy balancer. -->
+	<!-- USAGE: ant balance -Dcreature="<creature_name>" -->
+	<target name="balance" depends="compile_stendhaltools,server_build">
+		<java classname="games.stendhal.tools.BalanceRPGame">
+			<classpath>
+				<pathelement path="${build_stendhaltools}"/>
+				<pathelement path="."/>
+				<pathelement path="${build_server}"/>
+				<pathelement path="${testsrc}"/>
+				<pathelement path="${marauroa_jar}"/>
+				<pathelement path="${log4j_jar}"/>
+				<pathelement path="${guava_jar}"/>
+				<pathelement path="${groovy_jar}"/>
+			</classpath>
+			<arg line="${creature}"/>
+			<sysproperty key="showxp" value=""/>
+		</java>
+	</target> <!-- balance -->
+
+	<!-- Export Quests to Website Wiki -->
+	<target name="export_quests" description="Export all game quests as website HTML wiki pages">
+		<exec executable="python" failonerror="true">
+			<arg value="tools/generate_quest_wiki.py"/>
+		</exec>
+	</target>
+
+</project>

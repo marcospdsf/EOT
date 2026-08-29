@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<!-- START: niesmiertelne -->
+
+	<creature name="swirling mist">
+		<type class="pol/niesmiertelne" subclass="mgla" tileid="pol_niesmiertelne.png:0"/>
+		<description>You see a dense swirl of impenetrable mist drifting silently.</description>
+		<attributes>
+			<atk value="99"/>
+			<def value="22000"/>
+			<hp value="22000"/>
+			<speed value="0.1"/>
+			<size value="1,1"/>
+			<!-- <resistance value="25"/> -->
+			<!-- <visibility value="50"/> -->
+		</attributes>
+		<level value="0"/>
+		<experience value="1"/>
+		<respawn value="999"/>
+		<corpse name="fly"/>
+		<drops>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="toxic vapor">
+		<type class="pol/niesmiertelne" subclass="trujace_opary" tileid="pol_niesmiertelne.png:1"/>
+		<description>You see noxious, choking vapors seeping from the ground.</description>
+		<attributes>
+			<atk value="199"/>
+			<def value="22000"/>
+			<hp value="22000"/>
+			<speed value="0.1"/>
+			<size value="1,1"/>
+			<!-- <resistance value="25"/> -->
+			<!-- <visibility value="50"/> -->
+		</attributes>
+		<level value="0"/>
+		<experience value="1"/>
+		<respawn value="999"/>
+		<corpse name="fly"/>
+		<drops>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="poisonous" params="40,greater poison"/>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="attack weakest"/>
+		</ai>
+	</creature>
+
+	<creature name="whirlwind tornado">
+		<type class="pol/niesmiertelne" subclass="tornado" tileid="pol_niesmiertelne.png:2"/>
+		<description>You see a raging whirlwind tearing up the landscape.</description>
+		<attributes>
+			<atk value="20000"/>
+			<def value="22000"/>
+			<hp value="22000"/>
+			<speed value="1.0"/>
+			<size value="2,2"/>
+			<!-- <resistance value="50"/> -->
+			<!-- <visibility value="75"/> -->
+		</attributes>
+		<level value="800"/>
+		<experience value="1"/>
+		<respawn value="999"/>
+		<corpse name="fly"/>
+		<drops>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="5,50"/>
+			<profile name="lifesteal" params="0.1"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="waterspout">
+		<type class="pol/niesmiertelne" subclass="tornado_wodne" tileid="pol_niesmiertelne.png:3"/>
+		<description>You see a turbulent waterspout spinning violently.</description>
+		<attributes>
+			<atk value="20000"/>
+			<def value="22000"/>
+			<hp value="22000"/>
+			<speed value="1.0"/>
+			<size value="2,2"/>
+			<!-- <resistance value="50"/> -->
+			<!-- <visibility value="75"/> -->
+		</attributes>
+		<level value="800"/>
+		<experience value="1"/>
+		<respawn value="999"/>
+		<corpse name="fly"/>
+		<drops>
+		</drops>
+		<equips>
+		</equips>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="heal" params="5,50"/>
+			<profile name="lifesteal" params="0.1"/>
+			<profile name="attack weakest"/>
+		</ai>
+	</creature>
+
+	<!-- END: niesmiertelne -->
+
+</creatures>

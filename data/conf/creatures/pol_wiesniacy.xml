@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<!-- START: wiesniacy -->
+
+	<creature name="country peasant">
+		<type class="pol/wiesniacy" subclass="wiesniak" tileid="pol_wiesniacy.png:0"/>
+		<description>You see a sturdy country peasant wielding his scythe.</description>
+		<attributes>
+			<atk value="66"/>
+			<def value="22"/>
+			<hp value="133"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="19"/>
+		<experience value="333"/>
+		<respawn value="333"/>
+		<corpse name="human"/>
+		<drops>
+			<item value="money" quantity="[1,3]" probability="100.0"/>
+			<item value="water" quantity="[1,2]" probability="20.0"/>
+			<item value="scythe" quantity="[1,1]" probability="1.0"/>
+			<item value="carrot" quantity="[1,1]" probability="1.0"/>
+			<item value="onion" quantity="[1,2]" probability="15.0"/>
+			<item value="potato" quantity="[1,5]" probability="20.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="I've got a scythe and I know how to use it!"/>
+				<sound value="pol-wiesniak"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="village elder">
+		<type class="pol/wiesniacy" subclass="starzec" tileid="pol_wiesniacy.png:1"/>
+		<description>You see a frail village elder hobbling along.</description>
+		<attributes>
+			<atk value="33"/>
+			<def value="33"/>
+			<hp value="44"/>
+			<speed value="0.5"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="24"/>
+		<experience value="444"/>
+		<respawn value="444"/>
+		<corpse name="human"/>
+		<drops>
+			<item value="money" quantity="[7,48]" probability="99.0"/>
+			<item value="apple" quantity="[1,1]" probability="1.0"/>
+			<item value="peppermint" quantity="[1,1]" probability="10.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Leave me be! I'm too old for fighting!"/>
+				<sound value="pol-starzec"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="royal forester">
+		<type class="pol/wiesniacy" subclass="gajowy" tileid="pol_wiesniacy.png:2"/>
+		<description>You see a royal forester protecting the woodland game.</description>
+		<attributes>
+			<atk value="111"/>
+			<def value="22"/>
+			<hp value="83"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="29"/>
+		<experience value="570"/>
+		<respawn value="1120"/>
+		<corpse name="human"/>
+		<drops>
+			<item value="money" quantity="[7,11]" probability="99.0"/>
+			<item value="water" quantity="[1,3]" probability="20.0"/>
+			<item value="hand axe" quantity="[1,1]" probability="20.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Who gave you permission to poach in the royal woods?!"/>
+				<sound value="pol-gajowy"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<!-- END: wiesniacy -->
+
+</creatures>

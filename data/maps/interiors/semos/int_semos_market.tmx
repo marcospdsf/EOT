@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="16" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="../../tileset/furniture/table/grey_plain.png" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+  <image source="../../tileset/furniture/table/grey_plain.png" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="10" name="../../tileset/item/pot/barrel.png" tilewidth="32" tileheight="32" tilecount="2" columns="1">
+  <image source="../../tileset/item/pot/barrel.png" width="32" height="64"/>
+ </tileset>
+ <tileset firstgid="12" name="../../tileset/logic/portal.png" tilewidth="32" tileheight="32" tilecount="7" columns="7">
+  <image source="../../tileset/logic/portal.png" width="224" height="32"/>
+ </tileset>
+ <tileset firstgid="19" name="../../tileset/logic/collision.png" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="20" name="Untitled" tilewidth="32" tileheight="32" tilecount="8" columns="4">
+  <image source="../../tileset/furniture/carpet/carpets.png" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="28" name="Untitled" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="../../tileset/building/wall/glass.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="44" name="Untitled" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+  <image source="../../tileset/furniture/table/grey_fancy_horizontal.png" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="53" name="Untitled" tilewidth="32" tileheight="32" tilecount="8" columns="4">
+  <image source="../../tileset/item/pot/barrels_2.png" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="61" name="wall/int_grey" tilewidth="32" tileheight="32" tilecount="121" columns="11">
+  <image source="../../tileset/building/wall/int_grey.png" width="352" height="352"/>
+ </tileset>
+ <tileset firstgid="182" name="entrance/grey" tilewidth="32" tileheight="32" tilecount="25" columns="5">
+  <image source="../../tileset/building/entrance/grey.png" width="160" height="160"/>
+ </tileset>
+ <tileset firstgid="207" name="indoor/grey_gradients" tilewidth="32" tileheight="32" tilecount="8" columns="4">
+  <image source="../../tileset/ground/indoor/grey_gradients.png" width="128" height="64"/>
+ </tileset>
+ <layer name="0_floor" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJwTZWBgEB3FIx6LIWFy1Izqp0w/rTADAXkAWx4VEA==
+  </data>
+ </layer>
+ <layer name="1_terrain" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzdzjsKAjEQgOGxEPEOio2gaOHbzWrjq9vCy1h7GQs73fUoFp7HP7BCCDuSFDYOfM0wf8hGRLbYRdrjgAwttCN1cMQJXRiskYg+9maBJXo4O73dp87tCOPSxNnb91cVvfH6KWalufePpKJPJW78Pnb+sa8FdOZLXw/oPze/6JsBfcPrL+hjoHgq+yGuuOGOXPFS9gUeeAOP6SmH
+  </data>
+ </layer>
+ <layer name="2_object" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBiewAIHexQMXkBMPNEyLim1n50I/ZxEugUEdkDpXSToQQZ7ofR+PGoAJPkETw==
+  </data>
+ </layer>
+ <layer name="3_roof" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDEawA0rvIlP/XiDeB8T78agBANXwA60=
+  </data>
+ </layer>
+ <layer name="objects" width="16" height="32" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDFYgMNAOGAWjYBQMCKBH3gcAVEAAIQ==
+  </data>
+ </layer>
+ <layer name="collision" width="16" height="16" opacity="0.4">
+  <data encoding="base64" compression="zlib">
+   eJwTZmBgEB5kGBcgRS+x4sTaTYw7SAGU6B2u+okxB1ntYNNPCiAlL9AyrwEAZwMKBg==
+  </data>
+ </layer>
+ <layer name="protection" width="16" height="16" opacity="0.4">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjFQAAAQAAAE=
+  </data>
+ </layer>
+</map>

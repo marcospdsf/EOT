@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='utf-8'?>
+<items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../items.xsd">
+
+	<item name="dungeon silver key">
+		<type class="key" subclass="silver" tileid="-1" />
+		<description>You see a silver dungeon key. Use it only if you are brave.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes>
+			<autobind value="" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+	<item name="lich gold key">
+		<type class="key" subclass="gold" tileid="-1" />
+		<description>You see a golden lich key. It will open the door to terrible things.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes>
+			<autobind value="" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+	<item name="minotaur key">
+		<type class="key" subclass="bronze" tileid="-1" />
+		<description>You see a fancy bronze key. It smells faintly of minotaur. Perhaps one dropped it?</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes>
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+	<item name="nalwor bank key">
+		<type class="key" subclass="nalwor" tileid="-1" />
+		<description>You see a key to the customer room of Nalwor Bank.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes>
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+	<item name="kotoch prison key">
+		<type class="key" subclass="copper" tileid="-1" />
+		<description>You see an ancient copper key, enscribed with something in Orcish.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes>
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+	<item name="kanmararn prison key">
+		<type class="key" subclass="blue" tileid="-1" />
+		<description>You see a key which matches the locks in the Kanmararn prison.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes>
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+	<item name="sedah gate key">
+		<type class="key" subclass="square" tileid="-1" />
+		<description>You see a key for the gate to the imperial city of Sedah.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes>
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+
+	<item name="pet sanctuary key">
+		<type class="key" subclass="filigree" tileid="-1" />
+		<description>You see a key for the pet sanctuary in Ados.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<unattainable />
+		<attributes>
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+	<item name="house key">
+		<type class="key" subclass="purple" tileid="-1" />
+		<description>You should not see this description</description>
+		<implementation class-name="games.stendhal.server.entity.item.HouseKey" />
+		<attributes>
+			<undroppableondeath value="1" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+	<item name="gate key">
+		<type class="key" subclass="purple" tileid="-1" />
+		<description>You should not see this description</description>
+		<implementation class-name="games.stendhal.server.entity.item.GateKey" />
+		<attributes>
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+
+	<item name="master key">
+		<type class="key" subclass="skeleton" tileid="-1" />
+		<description />
+		<implementation class-name="games.stendhal.server.entity.item.MasterKey" />
+		<unattainable />
+		<attributes>
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+
+	<item name="small key">
+		<type class="key" subclass="common" tileid="-1" />
+		<description>You see the key for Zara's row house in Ados.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes>
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+
+	<item name="dragon cave key">
+		<type class="key" subclass="tsoh_key" tileid="-1" />
+		<description>You see an ornate key to the dragon cave. You must have achieved great deeds to possess it.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes>
+			<autobind value="" />
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+	<item name="door key">
+		<type class="key" subclass="purple" tileid="-1" />
+		<description>You see a standard house door key.</description>
+		<implementation class-name="games.stendhal.server.entity.item.HouseKey" />
+		<attributes />
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+	<item name="gate key">
+		<type class="key" subclass="purple" tileid="-1" />
+		<description>You see a sturdy gate key.</description>
+		<implementation class-name="games.stendhal.server.entity.item.GateKey" />
+		<attributes />
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="trade" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+	<item name="order gate key">
+		<type class="key" subclass="gold" tileid="-1" />
+		<description>You see the golden key to the gates of the Shadow Knights Order.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item" />
+		<attributes>
+		</attributes>
+		<weight value="1.0" />
+		<value value="1" />
+		<equipable>
+			<slot name="ground" />
+			<slot name="content" />
+			<slot name="bag" />
+			<slot name="keyring" />
+		</equipable>
+	</item>
+</items>

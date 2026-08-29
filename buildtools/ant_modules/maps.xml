@@ -1,0 +1,108 @@
+<?xml version='1.0'?>
+
+<project xmlns:if="ant:if" xmlns:unless="ant:unless">
+
+	<import file="tools.xml" />
+
+	<!-- Convert TMX maps to PNG images scaled 1:16. -->
+	<target name="rendermaps" depends="compile_stendhaltools">
+		<taskdef name="maprenderer" classname="games.stendhal.tools.MapRenderer">
+			<classpath>
+				<pathelement path="${build_stendhaltools}"/>
+				<pathelement path="${tiled_jar}"/>
+			</classpath>
+		</taskdef>
+
+		<mkdir dir="${maps}/world"/>
+		<maprenderer imagePath="${maps}/world/">
+			<fileset dir="${maps}">
+				<include name="Level */**/*.tmx"/>
+				<include name="interiors/**/*.tmx"/>
+				<exclude name="**/memory/**"/>
+			</fileset>
+		</maprenderer>
+	</target> <!-- rendermaps -->
+
+
+	<!-- Generate files for the Stendhal Atlas. -->
+	<target name="renderatlas" depends="compile_stendhaltools">
+		<taskdef name="maprenderer" classname="games.stendhal.tools.MapRenderer">
+			<classpath>
+				<pathelement path="${build_stendhaltools}"/>
+				<pathelement path="${tiled_jar}"/>
+			</classpath>
+		</taskdef>
+<!--
+7   1  1
+6   2  0.5
+5   4  0.25
+4   8  0.125
+3  16  0.0625
+2  32  0.03125
+1  64  0.015625
+0 128  0.0078125
+-->
+
+		<mkdir dir="${maps}/world"/>
+		<maprenderer imagePath="${maps}/world/" zoom="0.0625">
+			<fileset dir="${maps}">
+				<include name="Level 0/**/*.tmx"/>
+				<exclude name="**/memory/**"/>
+			</fileset>
+		</maprenderer>
+		<mkdir dir="${maps}/world/large"/>
+		<maprenderer imagePath="${maps}/world/large" zoom="0.25">
+			<fileset dir="${maps}">
+				<include name="Level 0/**/*.tmx"/>
+				<exclude name="**/memory/**"/>
+			</fileset>
+		</maprenderer>
+	</target> <!-- renderatlas -->
+
+
+	<!-- Export world.tmx map to PNG image. -->
+	<target name="renderworldmap" depends="rendermaps">
+		<!-- embed area images with area name -->
+		<!-- FIXME: need to detect the Python "PIL" module to ensure script can run or
+				write Java class that can do this -->
+		<exec executable="${executable.python}" if:true="${python.present}">
+			<arg value="./bin/vampire_maplabel.py"/>
+			<arg value="-world"/>
+		</exec>
+
+		<!-- render world map after images have been embedded with map names -->
+		<!-- FIXME: this should be skipped if previous Python script was not run -->
+		<taskdef name="maprenderer" classname="games.stendhal.tools.MapRenderer">
+			<classpath>
+				<pathelement path="${build_stendhaltools}"/>
+				<pathelement path="${tiled_jar}"/>
+			</classpath>
+		</taskdef>
+		<maprenderer imagePath="${maps}/world/" zoom="1.0">
+			<fileset dir="${maps}/world">
+				<include name="world.tmx"/>
+			</fileset>
+		</maprenderer>
+
+		<!-- FIXME: should 'rendermaps' be called again to remove labels from individual images? -->
+	</target> <!-- renderworldmap -->
+
+
+	<!-- Load and save TMX maps to fix tilesets changes. -->
+	<target name="updatemaps" depends="compile_stendhaltools">
+		<taskdef name="mapupdater" classname="games.stendhal.tools.MapUpdater">
+			<classpath>
+				<pathelement path="${build_stendhaltools}"/>
+				<pathelement path="${tiled_jar}"/>
+			</classpath>
+		</taskdef>
+
+		<mapupdater>
+			<fileset dir="${maps}">
+				<include name="Level */**/*.tmx"/>
+				<include name="interiors/**/*.tmx"/>
+			</fileset>
+		</mapupdater>
+	</target> <!-- updatemaps -->
+
+</project>

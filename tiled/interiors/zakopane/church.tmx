@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="24" height="24" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="dungeon_water" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/water/dungeon_water.png"/>
+ </tileset>
+ <tileset firstgid="31" name="whirlpool" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/water/whirlpool.png"/>
+ </tileset>
+ <tileset firstgid="39" name="tiles" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/indoor/tiles.png"/>
+ </tileset>
+ <tileset firstgid="47" name="carpets_2" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/carpet/carpets_2.png"/>
+ </tileset>
+ <tileset firstgid="59" name="daisy_white" tilewidth="32" tileheight="32">
+  <image source="../../tileset/plant/flower/daisy_white.png"/>
+ </tileset>
+ <tileset firstgid="67" name="bushes" tilewidth="32" tileheight="32">
+  <image source="../../tileset/plant/bush/bushes.png"/>
+ </tileset>
+ <tileset firstgid="77" name="table_with_beer" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/table/table_with_beer.png"/>
+ </tileset>
+ <tileset firstgid="85" name="dark_torch" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/light/dark_torch.png"/>
+ </tileset>
+ <tileset firstgid="93" name="fancy_blue_red" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/table/fancy_blue_red.png"/>
+ </tileset>
+ <tileset firstgid="101" name="dark_bookshelf" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/shelve/dark_bookshelf.png"/>
+ </tileset>
+ <tileset firstgid="107" name="vine" tilewidth="32" tileheight="32">
+  <image source="../../tileset/plant/vine.png"/>
+ </tileset>
+ <tileset firstgid="108" name="flames" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/light/flames.png"/>
+ </tileset>
+ <tileset firstgid="114" name="collision" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png"/>
+ </tileset>
+ <tileset firstgid="115" name="protection" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/protection.png"/>
+ </tileset>
+ <tileset firstgid="116" name="int_plazy" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/waly/int_plazy.png"/>
+ </tileset>
+ <layer name="0_floor" width="24" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAANWWwQrCMAyG+wL6Chs7+YB1h7qzWqY+sxkmMEKbGNcMPHxkh+TbT2lpYwhhBM6NiehNwARcBKiXV2mGvDNwxHqqQL281vozcMA647fkt5Ixs6d/nX9w8A875vdef23/bM3v4d9z//x7/t7B3xvyX4Eb495ofRb3hP1rkvAPy/nKBTehzXj6v83/CJ+7hLuXO+bVID/948mouUv5O8X/y/7sDPm3nC+6q6W3wFhwRGXG8n4o3eVJmSHvG04GADQACQAA
+  </data>
+ </layer>
+ <layer name="1_terrain" width="24" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjgHZAH4gNcGBDKphvDMQmOLDpqPk0N98ciC1wYEsqmD8KRsEoGAW0AgD0NOIkAAkAAA==
+  </data>
+ </layer>
+ <layer name="2_object" width="24" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgYGDIZqAuQDePWPNTgTidSPNxmekLxH5AHIBFLgOIs0jUAwKOSOwgIA4G4hAi3IlPjwcR+qKppIbWwIvGZtrTwHxSQSwQxwFxPBAnEKHekbASFJAIxElAnAzEKSTqHQzhQwkgJi+QCpxoYOZgBg5Q2g6Ibalsth0e+6gFkN3sxEA4/pDliS1/BlM+oUWZOQpIBwC80M/bAAkAAA==
+  </data>
+ </layer>
+ <layer name="3_roof" width="24" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAXkghwi1OTR3BWjYBSMglEwCkbBKCAVAACiUK+SAAkAAA==
+  </data>
+ </layer>
+ <layer name="objects" width="24" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3BAQEAAACCIP+vbkhAAQB8GfAKkrAACQAA
+  </data>
+ </layer>
+ <layer name="collision" width="24" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAACtiYGAoGiaYAQsfXYyQPDHqKQXEmk+Mnbj0DQb3DyfzKVE7GMwnBYyaT13zaamemDJx1HzamU8P9aSCgTKflHAmxwxamA8AE9X8SwAJAAA=
+  </data>
+ </layer>
+ <layer name="protection" width="24" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3DAQkAAAwEoev8/WFBpuCqqao+enoIWQoACQAA
+  </data>
+ </layer>
+</map>
